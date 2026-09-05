@@ -90,10 +90,10 @@ export const LegalPage: React.FC<LegalPageProps> = ({
     {
       id: 'terms-scope',
       title: '1. Scope of Services',
-      content: `AxentAI Labs (led by founder Shivam Kushwaha) provides growth marketing and launch execution services including:
+      content: `AxentAI Labs provides growth marketing and launch execution services including:
 
 • **Product Hunt Hunter Sponsorship**: Hunter submission, maker badge linking, community notification broadcast, and launch-day scheduling.
-• **Organic Social Media Growth**: Ghostwriting and distribution for X (Twitter), LinkedIn, and Reddit.
+• **Organic Social Media Growth**: Content distribution for X (Twitter), LinkedIn, and Reddit.
 • **Influencer Syndication**: Outreach, briefing, and coordination with tech creators and AI newsletters.
 • **Launch War Room & Consulting**: Pre-launch audits, asset optimization, and live launch-day velocity monitoring.`
     },
@@ -124,9 +124,9 @@ export const LegalPage: React.FC<LegalPageProps> = ({
     {
       id: 'terms-liability',
       title: '5. Disclaimer of Guarantees & Limitation of Liability',
-      content: `While we maintain a 96.2% top-3 Product Hunt finish track record and execute proven viral distribution frameworks, final platform ranks depend on daily community voting dynamics, unexpected platform outages, and competing product launches. 
+      content: `While we execute structured launch frameworks and targeted multi-channel distribution, final platform ranks depend on daily community voting dynamics, unexpected platform outages, and competing product launches. 
 
-AxentAI Labs and Shivam Kushwaha are not liable for indirect, incidental, or third-party platform policy modifications beyond our reasonable control.`
+AxentAI Labs is not liable for indirect, incidental, or third-party platform policy modifications beyond our reasonable control.`
     },
     {
       id: 'terms-ip',
@@ -137,7 +137,7 @@ AxentAI Labs and Shivam Kushwaha are not liable for indirect, incidental, or thi
     {
       id: 'terms-governing',
       title: '7. Governing Law & Contact',
-      content: `These terms are governed by the laws of India. For any legal inquiries or formal agreements, please contact Shivam Kushwaha at ${CONTACT_INFO.email}.`
+      content: `These terms are governed by the laws of India. For any legal inquiries or formal agreements, please contact AxentAI Labs at ${CONTACT_INFO.email}.`
     }
   ];
 
@@ -152,7 +152,7 @@ AxentAI Labs and Shivam Kushwaha are not liable for indirect, incidental, or thi
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1A1A1A] hover:text-[#FF5A1E] transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Portfolio</span>
+            <span>Back to Home</span>
           </button>
 
           <div className="flex items-center gap-3">
@@ -191,7 +191,7 @@ AxentAI Labs and Shivam Kushwaha are not liable for indirect, incidental, or thi
           </h1>
 
           <p className="text-sm sm:text-base text-[#1A1A1A]/70 leading-relaxed font-sans">
-            AxentAI Labs • Led by Founder Shivam Kushwaha. Transparent terms, strict confidentiality for tech startups, and zero-bot growth policies.
+            AxentAI Labs. Transparent terms, strict confidentiality for tech startups, and zero-bot growth policies.
           </p>
 
           <div className="flex items-center justify-center gap-4 text-xs text-[#1A1A1A]/50 font-mono-code pt-1">
@@ -344,7 +344,7 @@ AxentAI Labs and Shivam Kushwaha are not liable for indirect, incidental, or thi
                   className="px-5 py-2.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold transition-all flex items-center gap-2"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  <span>Email Shivam</span>
+                  <span>Email AxentAI Labs</span>
                 </a>
               </div>
             </div>

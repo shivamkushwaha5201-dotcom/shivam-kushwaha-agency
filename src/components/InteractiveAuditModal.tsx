@@ -57,24 +57,24 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
   const getScoreVerdict = () => {
     if (score >= 80) {
       return {
-        label: '🚀 Ready for #1 Frontpage Contender',
+        label: '🚀 Ready for High Velocity Launch',
         color: 'text-emerald-600',
         badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-        summary: 'Your assets and audience base are in prime position. With Shivam hunting and coordinating launch day velocity, you are positioned to challenge for #1 Product of the Day.'
+        summary: 'Your assets and audience base are in prime position. With our launch hunting and synchronized launch day distribution, your product is positioned for high velocity.'
       };
     } else if (score >= 50) {
       return {
         label: '⚡ Good Foundation with 2 Critical Gaps',
         color: 'text-amber-600',
         badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
-        summary: 'You have a solid core, but need a 2-3 week build-in-public ramp on X/LinkedIn and asset optimization to guarantee top 3 placement.'
+        summary: 'You have a solid core, but need a 2-3 week build-in-public ramp on X/LinkedIn and asset optimization to maximize launch momentum.'
       };
     } else {
       return {
         label: '🛠️ Needs Pre-Launch Foundation Sprint',
         color: 'text-blue-600',
         badgeColor: 'bg-blue-50 text-blue-800 border-blue-200',
-        summary: 'Launching today would risk your product being buried. Shivam’s 30-day pre-launch teaser strategy will build the necessary waitlist before going public.'
+        summary: 'Launching today would risk your product being overlooked. Our 30-day pre-launch teaser strategy will build the necessary waitlist before going public.'
       };
     }
   };
@@ -95,7 +95,7 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
           </DialogTitle>
           <DialogDescription className="text-[#1A1A1A]/60 text-xs sm:text-sm font-sans">
             {showResults
-              ? 'Based on Shivam’s analysis of 185+ Product Hunt leaderboard launches.'
+              ? 'Based on multi-channel launch benchmarks and Product Hunt best practices.'
               : `Question ${currentStep + 1} of ${LAUNCH_READINESS_QUESTIONS.length}: Answer honestly to get an accurate velocity roadmap.`}
           </DialogDescription>
         </DialogHeader>
@@ -162,7 +162,7 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
             {/* Recommendations checklist based on selections */}
             <div className="space-y-2.5">
               <div className="text-[10px] font-bold uppercase tracking-widest text-[#1A1A1A]/50">
-                Shivam’s Key Recommendations:
+                Strategic Launch Recommendations:
               </div>
               <div className="space-y-2">
                 {selectedAnswers.map((optIdx, qIdx) => {
@@ -194,7 +194,7 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
                 }}
                 className="flex-1 text-xs justify-center font-bold"
               >
-                <span>Review Audit with Shivam</span>
+                <span>Review Audit with Our Team</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
               </Button>
             </div>

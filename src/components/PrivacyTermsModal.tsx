@@ -49,7 +49,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                   {activeTab === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
                 </h2>
                 <p className="text-xs text-[#1A1A1A]/60">
-                  AxentAI Labs • Founder Shivam Kushwaha • Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                  AxentAI Labs • Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </p>
               </div>
             </div>
@@ -98,7 +98,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                     1. Introduction & Scope
                   </h3>
                   <p>
-                    AxentAI Labs ("we", "our", or "us"), founded and operated by Shivam Kushwaha, provides strategic launch consulting, Product Hunt hunting, social media marketing (LinkedIn, X, Reddit, Instagram), personal branding, and creator campaign management services to founders and businesses. This Privacy Policy describes how we collect, use, and protect your information when you access our website or engage our services.
+                    AxentAI Labs ("we", "our", or "us") provides strategic launch consulting, Product Hunt hunting, social media marketing (LinkedIn, X, Reddit, Instagram), personal branding, and creator campaign management services to founders and businesses. This Privacy Policy describes how we collect, use, and protect your information when you access our website or engage our services.
                   </p>
                 </div>
 
@@ -142,7 +142,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                     5. Contact Us Regarding Your Data
                   </h3>
                   <p className="mb-3">
-                    If you have questions about this policy or wish to request data modification or deletion, contact Shivam directly:
+                    If you have questions about this policy or wish to request data modification or deletion, contact our team directly:
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold">
                     <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAF9F6] border border-[#E5E5E1]">
@@ -163,7 +163,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                     1. Agreement to Terms
                   </h3>
                   <p>
-                    By engaging AxentAI Labs or Shivam Kushwaha for Product Hunt hunting, social media marketing, personal branding, Reddit marketing, or creator campaigns, you agree to comply with and be bound by these Terms of Service.
+                    By engaging AxentAI Labs for Product Hunt launch strategy, social media marketing, personal branding, Reddit marketing, or creator campaigns, you agree to comply with and be bound by these Terms of Service.
                   </p>
                 </div>
 
@@ -217,7 +217,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
                     Any inquiries or service adjustments should be communicated directly to AxentAI Labs leadership:
                   </p>
                   <div className="flex items-center gap-4 text-xs font-semibold">
-                    <span>Founder: Shivam Kushwaha</span>
+                    <span>AxentAI Labs</span>
                     <span>•</span>
                     <a href={`mailto:${CONTACT_INFO.email}`} className="text-blue-600 hover:underline">
                       {CONTACT_INFO.email}
@@ -239,7 +239,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({
               <span>Transparent, founder-first legal standards</span>
             </div>
             <Button size="sm" onClick={onClose}>
-              Close & Return to Portfolio
+              Close & Return to Website
             </Button>
           </div>
         </motion.div>

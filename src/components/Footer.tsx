@@ -63,13 +63,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit, onOp
                   AxentAI Labs<span className="text-[#3B82F6]">.</span>
                 </span>
                 <span className="block text-[10px] uppercase font-bold tracking-widest text-slate-400">
-                  By Shivam Kushwaha
+                  Growth & Distribution Agency
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-sans">
-              Elite Product Hunt Hunter, X & LinkedIn Social Media Marketing Specialist, and Tech Influencer Strategist. Helping founders achieve front-page dominance and organic distribution.
+              Product Hunt Launch Specialists, X & LinkedIn Organic Distribution, and Tech Influencer Syndication. Helping founders achieve global reach and measurable traction.
             </p>
 
             {/* Live Availability Status Pill */}
@@ -88,9 +88,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit, onOp
             </h4>
             <ul className="space-y-2 text-xs">
               <li><a href="#home" className="text-slate-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#about" className="text-slate-400 hover:text-white transition-colors">About Shivam</a></li>
+              <li><a href="#about" className="text-slate-400 hover:text-white transition-colors">About</a></li>
               <li><a href="#services" className="text-slate-400 hover:text-white transition-colors">Services</a></li>
-              <li><a href="#case-studies" className="text-slate-400 hover:text-white transition-colors">Case Studies</a></li>
+              <li><a href="#launches" className="text-slate-400 hover:text-white transition-colors">Launches</a></li>
               <li><a href="#faq" className="text-slate-400 hover:text-white transition-colors">FAQ</a></li>
               <li><a href="#contact" className="text-slate-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
@@ -137,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit, onOp
                 <ExternalLink className="w-3 h-3 text-slate-400" />
               </a>
               <a
-                href={CONTACT_INFO.personalLinkedIn}
+                href={CONTACT_INFO.agencyLinkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-2.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white border border-slate-700 transition-colors px-3.5"
@@ -149,7 +149,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit, onOp
                 href={`mailto:${CONTACT_INFO.email}`}
                 className="flex items-center justify-between p-2.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white border border-slate-700 transition-colors px-3.5"
               >
-                <span>Email Me</span>
+                <span>Email Us</span>
                 <Mail className="w-3 h-3 text-slate-400" />
               </a>
             </div>

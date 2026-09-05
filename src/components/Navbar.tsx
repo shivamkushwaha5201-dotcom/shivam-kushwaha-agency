@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'services', 'case-studies', 'faq', 'contact'];
+      const sections = ['home', 'about', 'services', 'launches', 'faq', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -48,10 +48,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { name: 'About me', href: '#about', id: 'about' },
-    { name: 'Portfolio', href: '#case-studies', id: 'case-studies' },
-    { name: 'My Specialization', href: '#services', id: 'services' },
-    { name: 'Testimonials', href: '#case-studies', id: 'testimonials' },
+    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Services', href: '#services', id: 'services' },
+    { name: 'Launches', href: '#launches', id: 'launches' },
     { name: 'FAQ', href: '#faq', id: 'faq' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
@@ -116,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 )}
               </div>
               <span className="text-[10px] font-medium text-[#1A1A1A]/60 tracking-wider">
-                By Shivam Kushwaha
+                Launch & Distribution Agency
               </span>
             </div>
           </a>

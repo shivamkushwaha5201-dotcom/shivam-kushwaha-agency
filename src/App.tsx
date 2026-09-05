@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
-import { SocialProofMarquee } from './components/SocialProofMarquee';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
+import { SupportedLaunchesSection } from './components/SupportedLaunchesSection';
 import { FaqSection } from './components/FaqSection';
 import { CtaSection } from './components/CtaSection';
 import { Footer } from './components/Footer';
@@ -82,31 +81,28 @@ export default function App() {
       ) : (
         /* Main Portfolio Sections */
         <main className="flex-1">
-          {/* 1. Hero Section with Live Launch Simulator */}
+          {/* 1. Hero Section */}
           <HeroSection
             onOpenAudit={() => setAuditOpen(true)}
             onOpenBooking={scrollToContact}
           />
 
-          {/* 2. Social Proof Marquee & Verified Badges */}
-          <SocialProofMarquee />
-
-          {/* 3. About Section (Bio, Portrait, Founder of AxentAI Labs, Core Highlights) */}
+          {/* 2. About Section (Bio, Portrait, Founder of AxentAI Labs, Core Highlights) */}
           <AboutSection onOpenBooking={scrollToContact} />
 
-          {/* 4. Services Section (PH Hunting, X & LinkedIn SMM, Reddit, Influencer Campaigns) */}
+          {/* 3. Services Section (PH Hunting, X & LinkedIn SMM, Reddit, Influencer Campaigns) */}
           <ServicesSection
             onOpenBooking={scrollToContact}
             onOpenAudit={() => setAuditOpen(true)}
           />
 
-          {/* 5. Case Studies & Verified Metrics Wall */}
-          <CaseStudiesSection onOpenBooking={scrollToContact} />
+          {/* 4. Supported Product Hunt Launches (28 verified launches with direct links) */}
+          <SupportedLaunchesSection onOpenBooking={scrollToContact} />
 
-          {/* 6. FAQ Section with Radix/Shadcn Accordions */}
+          {/* 5. FAQ Section with Radix/Shadcn Accordions */}
           <FaqSection onOpenBooking={scrollToContact} />
 
-          {/* 7. Call To Action & Interactive Launch Brief Submission */}
+          {/* 6. Call To Action & Interactive Launch Brief Submission */}
           <CtaSection />
         </main>
       )}

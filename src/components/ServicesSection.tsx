@@ -19,6 +19,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { SERVICES_DATA } from '../data/portfolioData';
+import { StaggerContainer, StaggerItem, staggerItemVariants } from './ui/ScrollReveal';
 
 interface ServicesSectionProps {
   onOpenBooking: () => void;
@@ -75,74 +76,85 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking,
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <Badge variant="blue" className="mb-3">
-            SPECIALIZED GROWTH SERVICES
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
-            High-Impact Distribution Offerings Crafted for Velocity.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            Choose a standalone strategic sprint or combine hunting, social media marketing, and influencer partnerships into an all-in-one viral launch campaign.
-          </p>
+        <StaggerContainer 
+          stagger={0.08}
+          delay={0.05}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
+          <StaggerItem>
+            <Badge variant="blue" className="mb-3">
+              SPECIALIZED GROWTH SERVICES
+            </Badge>
+          </StaggerItem>
+          <StaggerItem>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
+              High-Impact Distribution Offerings Crafted for Velocity.
+            </h2>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+              Choose a standalone strategic sprint or combine hunting, social media marketing, and influencer partnerships into an all-in-one viral launch campaign.
+            </p>
+          </StaggerItem>
 
           {/* Filter Pills */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            <button
-              onClick={() => setSelectedService('all')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                selectedService === 'all'
-                  ? 'bg-slate-900 text-white shadow-sm'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-              }`}
-            >
-              All Services ({SERVICES_DATA.length})
-            </button>
-            <button
-              onClick={() => setSelectedService('product-hunt-hunting')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                selectedService === 'product-hunt-hunting'
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-              }`}
-            >
-              🏆 Product Hunt Hunting
-            </button>
-            <button
-              onClick={() => setSelectedService('x-linkedin-smm')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                selectedService === 'x-linkedin-smm'
-                  ? 'bg-slate-900 text-white shadow-sm'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-              }`}
-            >
-              𝕏 & LinkedIn SMM
-            </button>
-            <button
-              onClick={() => setSelectedService('influencer-marketing')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                selectedService === 'influencer-marketing'
-                  ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-500/20'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-              }`}
-            >
-              📣 Influencer Marketing
-            </button>
-          </div>
-        </div>
+          <StaggerItem>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+              <button
+                onClick={() => setSelectedService('all')}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                  selectedService === 'all'
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                All Services ({SERVICES_DATA.length})
+              </button>
+              <button
+                onClick={() => setSelectedService('product-hunt-hunting')}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                  selectedService === 'product-hunt-hunting'
+                    ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                🏆 Product Hunt Hunting
+              </button>
+              <button
+                onClick={() => setSelectedService('x-linkedin-smm')}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                  selectedService === 'x-linkedin-smm'
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                𝕏 & LinkedIn SMM
+              </button>
+              <button
+                onClick={() => setSelectedService('influencer-marketing')}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                  selectedService === 'influencer-marketing'
+                    ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-500/20'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                📣 Influencer Marketing
+              </button>
+            </div>
+          </StaggerItem>
+        </StaggerContainer>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {filteredServices.map((service, idx) => {
+        <StaggerContainer 
+          stagger={0.12}
+          delay={0.1}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20"
+        >
+          {filteredServices.map((service) => {
             const isFeatured = service.featured;
             return (
-              <motion.div
+              <StaggerItem
                 key={service.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
                   isFeatured
                     ? 'border-blue-300 bg-gradient-to-b from-white via-blue-50/30 to-white shadow-xl shadow-blue-500/10 ring-1 ring-blue-200'
@@ -205,41 +217,47 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking,
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
 
         {/* Interactive Launch Strategy & Reach Blueprint Generator */}
-        <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 shadow-xl shadow-slate-900/5">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-slate-100">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-2">
-                <Sliders className="w-3.5 h-3.5" />
-                INTERACTIVE STRATEGY ESTIMATOR
+        <StaggerContainer 
+          stagger={0.12}
+          delay={0.05}
+          className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 shadow-xl shadow-slate-900/5"
+        >
+          <StaggerItem>
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-2">
+                  <Sliders className="w-3.5 h-3.5" />
+                  INTERACTIVE STRATEGY ESTIMATOR
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold font-display text-slate-900">
+                  Calculate Your Launch Velocity & Reach Potential
+                </h3>
+                <p className="text-sm text-slate-600 mt-1">
+                  Customize your product profile to see our recommended roadmap and estimated reach.
+                </p>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold font-display text-slate-900">
-                Calculate Your Launch Velocity & Reach Potential
-              </h3>
-              <p className="text-sm text-slate-600 mt-1">
-                Customize your product profile to see Shivam’s recommended roadmap and estimated reach.
-              </p>
-            </div>
 
-            <Button
-              onClick={onOpenAudit}
-              variant="outline"
-              size="sm"
-              className="text-xs font-semibold text-slate-800 border-slate-300 hover:border-blue-300 hover:text-blue-700 bg-white"
-            >
-              <Sparkles className="w-4 h-4 mr-2 text-blue-500" />
-              Take Full 4-Step Audit
-            </Button>
-          </div>
+              <Button
+                onClick={onOpenAudit}
+                variant="outline"
+                size="sm"
+                className="text-xs font-semibold text-slate-800 border-slate-300 hover:border-blue-300 hover:text-blue-700 bg-white"
+              >
+                <Sparkles className="w-4 h-4 mr-2 text-blue-500" />
+                Take Full 4-Step Audit
+              </Button>
+            </div>
+          </StaggerItem>
 
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Controls */}
-            <div className="lg:col-span-6 space-y-6">
+            <StaggerItem className="lg:col-span-6 space-y-6">
               
               {/* Product Category Selector */}
               <div>
@@ -320,10 +338,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking,
                 </div>
               </div>
 
-            </div>
+            </StaggerItem>
 
             {/* Estimated Output Blueprint Card */}
-            <div className="lg:col-span-6">
+            <StaggerItem className="lg:col-span-6">
               <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 text-white shadow-xl relative overflow-hidden">
                 <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl" />
 
@@ -333,7 +351,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking,
                     <span className="text-sm font-bold font-display">Target Launch Forecast</span>
                   </div>
                   <span className="text-[11px] font-mono-code text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800">
-                    Calculated by Shivam
+                    Launch Strategy Engine
                   </span>
                 </div>
 
@@ -366,15 +384,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking,
                     onClick={onOpenBooking}
                     className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold"
                   >
-                    <span>Execute This Plan with Shivam</span>
+                    <span>Execute This Plan with Us</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
 
               </div>
-            </div>
+            </StaggerItem>
           </div>
-        </div>
+        </StaggerContainer>
 
       </div>
     </section>
