@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
-import { SupportedLaunchesSection } from './components/SupportedLaunchesSection';
 import { FaqSection } from './components/FaqSection';
 import { CtaSection } from './components/CtaSection';
 import { Footer } from './components/Footer';
@@ -96,13 +95,10 @@ export default function App() {
             onOpenAudit={() => setAuditOpen(true)}
           />
 
-          {/* 4. Supported Product Hunt Launches (28 verified launches with direct links) */}
-          <SupportedLaunchesSection onOpenBooking={scrollToContact} />
-
-          {/* 5. FAQ Section with Radix/Shadcn Accordions */}
+          {/* 4. FAQ Section with Radix/Shadcn Accordions */}
           <FaqSection onOpenBooking={scrollToContact} />
 
-          {/* 6. Call To Action & Interactive Launch Brief Submission */}
+          {/* 5. Call To Action & Interactive Launch Brief Submission */}
           <CtaSection />
         </main>
       )}

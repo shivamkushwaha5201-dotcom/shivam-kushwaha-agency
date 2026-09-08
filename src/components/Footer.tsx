@@ -90,7 +90,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit, onOp
               <li><a href="#home" className="text-slate-400 hover:text-white transition-colors">Home</a></li>
               <li><a href="#about" className="text-slate-400 hover:text-white transition-colors">About</a></li>
               <li><a href="#services" className="text-slate-400 hover:text-white transition-colors">Services</a></li>
-              <li><a href="#launches" className="text-slate-400 hover:text-white transition-colors">Launches</a></li>
               <li><a href="#faq" className="text-slate-400 hover:text-white transition-colors">FAQ</a></li>
               <li><a href="#contact" className="text-slate-400 hover:text-white transition-colors">Contact</a></li>
             </ul>

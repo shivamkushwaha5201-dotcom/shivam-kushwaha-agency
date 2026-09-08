@@ -79,11 +79,3 @@ export interface InquiryFormData {
   budgetRange: string;
   message: string;
 }
-
-export interface SupportedLaunch {
-  id: string;
-  name: string;
-  tagline: string;
-  url: string;
-  category: 'AI & Machine Learning' | 'Developer Tools' | 'SaaS & B2B' | 'Productivity & Design' | 'Infrastructure & Web3';
-}

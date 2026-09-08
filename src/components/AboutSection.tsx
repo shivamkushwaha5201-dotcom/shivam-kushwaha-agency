@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   Trophy, 
@@ -22,8 +22,37 @@ interface AboutSectionProps {
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => {
+  // Sync the single JSON-LD structured data script with the exact resolved image paths in the browser
+  useEffect(() => {
+    try {
+      const scriptEl = document.getElementById('axentailabs-structured-data');
+      if (scriptEl && scriptEl.textContent) {
+        const data = JSON.parse(scriptEl.textContent);
+        if (data && Array.isArray(data['@graph'])) {
+          const person = data['@graph'].find((item: any) => item['@type'] === 'Person');
+          const org = data['@graph'].find((item: any) => item['@type'] === 'Organization');
+          const origin = window.location.origin;
+
+          if (person && shivamAboutPhoto) {
+            person.image = shivamAboutPhoto.startsWith('http')
+              ? shivamAboutPhoto
+              : `${origin}${shivamAboutPhoto.startsWith('/') ? '' : '/'}${shivamAboutPhoto}`;
+          }
+          if (org && brandLogo) {
+            org.logo = brandLogo.startsWith('http')
+              ? brandLogo
+              : `${origin}${brandLogo.startsWith('/') ? '' : '/'}${brandLogo}`;
+          }
+          scriptEl.textContent = JSON.stringify(data, null, 2);
+        }
+      }
+    } catch {
+      // Safe fallback
+    }
+  }, []);
+
   const highlights = [
-    'Founder of AXENT AI LABS — leading growth strategy, launch engineering & multi-channel distribution.',
+    'Founder & CEO of Axentailabs — leading digital growth strategy, launch engineering & personal branding.',
     'Specializing in Product Hunt launch execution, organic social media management, and founder personal branding.',
     'Multi-channel reach across LinkedIn, X (Twitter), Reddit, and tech sub-communities.',
     'Curated tech creator and influencer partnerships to amplify launch-day momentum.',
@@ -56,14 +85,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
             {/* Bold Headline */}
             <StaggerItem>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#1A1A1A] tracking-tight leading-[1.14]">
-                Shivam Kushwaha — Founder, AXENT AI LABS
+                Shivam Kushwaha — Founder & CEO of Axentailabs
               </h2>
             </StaggerItem>
 
             <StaggerItem>
-              <p className="text-sm sm:text-base text-[#1A1A1A]/70 leading-relaxed font-sans">
-                Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At AxentAI Labs, we work as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
-              </p>
+              <div className="space-y-3">
+                <p className="text-sm sm:text-base text-[#1A1A1A]/80 leading-relaxed font-sans">
+                  <strong className="text-[#1A1A1A] font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#1A1A1A] font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#1A1A1A] font-semibold underline decoration-[#2563EB]/40 underline-offset-4 hover:text-[#2563EB] hover:decoration-[#2563EB] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms. His work focuses on personal branding, digital marketing, content strategy, and multi-platform brand growth across platforms such as LinkedIn, X, Reddit, and Product Hunt.
+                </p>
+                <p className="text-sm sm:text-base text-[#1A1A1A]/70 leading-relaxed font-sans">
+                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#1A1A1A] font-medium hover:text-[#2563EB] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
+                </p>
+              </div>
             </StaggerItem>
 
             {/* Bullet Points with Blue Accents */}
@@ -127,7 +161,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
               <div className="relative rounded-3xl overflow-hidden border-2 border-[#1A1A1A] bg-[#0A3C42] shadow-2xl shadow-blue-500/5 aspect-[4/5] sm:aspect-[4/5]">
                 <img
                   src={shivamAboutPhoto}
-                  alt="Shivam Kushwaha — Founder, AXENT AI LABS"
+                  alt="Shivam Kushwaha, Founder & CEO of Axentailabs"
                   className="w-full h-full object-cover object-[center_38%] hover:scale-102 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
@@ -138,14 +172,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                     <div className="w-9 h-9 rounded-full overflow-hidden border border-[#2563EB]/30 p-0.5 bg-white shadow-xs flex items-center justify-center shrink-0">
                       <img
                         src={brandLogo}
-                        alt="Logo"
+                        alt="Axentailabs Logo"
                         className="w-full h-full object-cover rounded-full"
                         referrerPolicy="no-referrer"
                       />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#1A1A1A]">Shivam Kushwaha — Founder, AXENT AI LABS</div>
-                      <div className="text-[10px] text-[#1A1A1A]/60">Growth & Multi-Channel Distribution</div>
+                      <div className="text-xs font-bold text-[#1A1A1A]">Shivam Kushwaha — Founder & CEO, Axentailabs</div>
+                      <div className="text-[10px] text-[#1A1A1A]/60">Digital Growth & Founder Branding</div>
                     </div>
                   </div>
 
