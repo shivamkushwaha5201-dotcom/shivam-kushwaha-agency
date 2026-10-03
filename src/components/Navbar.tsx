@@ -25,27 +25,58 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    let ticking = false;
+    let cachedOffsets: { id: string; top: number; bottom: number }[] = [];
 
+    const updateOffsets = () => {
       const sections = ['home', 'services', 'how-we-work', 'case-studies', 'about', 'contact'];
-      const scrollPosition = window.scrollY + 140;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
+      cachedOffsets = sections
+        .map((id) => {
+          const el = document.getElementById(id);
+          if (!el) return null;
           const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
+          return { id, top, bottom: top + el.offsetHeight };
+        })
+        .filter((item): item is { id: string; top: number; bottom: number } => item !== null);
+    };
+
+    updateOffsets();
+    window.addEventListener('resize', updateOffsets, { passive: true });
+
+    let lastScrolledState = false;
+    let lastActiveSection = 'home';
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const isScrolled = scrollY > 20;
+          if (isScrolled !== lastScrolledState) {
+            lastScrolledState = isScrolled;
+            setScrolled(isScrolled);
           }
-        }
+
+          const scrollPosition = scrollY + 140;
+          for (const s of cachedOffsets) {
+            if (scrollPosition >= s.top && scrollPosition < s.bottom) {
+              if (s.id !== lastActiveSection) {
+                lastActiveSection = s.id;
+                setActiveSection(s.id);
+              }
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', updateOffsets);
+    };
   }, []);
 
   const navLinks = [

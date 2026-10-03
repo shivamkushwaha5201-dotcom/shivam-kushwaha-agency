@@ -6,16 +6,38 @@ export const BackToTop: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate hero section height or default to 450px threshold
+    let ticking = false;
+    let threshold = 450;
+
+    const measureThreshold = () => {
       const heroElement = document.getElementById('home');
-      const threshold = heroElement ? heroElement.offsetHeight - 120 : 450;
-      setVisible(window.scrollY > threshold);
+      threshold = heroElement ? Math.max(300, heroElement.offsetHeight - 120) : 450;
     };
 
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    measureThreshold();
+    window.addEventListener('resize', measureThreshold, { passive: true });
+
+    let lastVisible = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const isVisible = window.scrollY > threshold;
+          if (isVisible !== lastVisible) {
+            lastVisible = isVisible;
+            setVisible(isVisible);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', measureThreshold);
+    };
   }, []);
 
   const scrollToTop = () => {

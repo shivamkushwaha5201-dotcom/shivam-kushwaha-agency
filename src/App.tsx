@@ -26,14 +26,15 @@ export default function App() {
   const [activeServiceId, setActiveServiceId] = useState<string>('linkedin-personal-branding');
   const [legalTab, setLegalTab] = useState<'privacy' | 'terms'>('privacy');
 
-  // Initialize Luxury Smooth Scrolling (Lenis)
+  // Initialize Optimized Smooth Scrolling (Responsive & Non-Laggy)
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.7,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      syncTouch: false,
+      touchMultiplier: 1.0,
     });
 
     let rafId: number;
