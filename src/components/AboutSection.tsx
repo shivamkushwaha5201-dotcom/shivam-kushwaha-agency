@@ -6,9 +6,6 @@ import {
   CheckCircle2, 
   ArrowRight, 
   Phone,
-  ShieldCheck,
-  Award,
-  Zap,
   Check
 } from 'lucide-react';
 import { Button } from './ui/button';
@@ -16,13 +13,13 @@ import { CONTACT_INFO } from '../data/portfolioData';
 import shivamAboutPhoto from '../assets/images/Screenshot_2026-09-02-09-30-52-50_99c04817c0de5652397fc8b56c3b3817.jpg';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
 import { StaggerContainer, StaggerItem } from './ui/ScrollReveal';
+import { SpotlightCard } from './ui/SpotlightCard';
 
 interface AboutSectionProps {
   onOpenBooking: () => void;
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => {
-  // Sync the single JSON-LD structured data script with the exact resolved image paths in the browser
   useEffect(() => {
     try {
       const scriptEl = document.getElementById('axentailabs-structured-data');
@@ -60,12 +57,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white relative overflow-hidden border-t border-[#E5E5E1]">
+    <section id="about" className="py-24 md:py-28 bg-[#050B14]/80 backdrop-blur-md relative overflow-hidden border-t border-white/10 text-slate-100 transition-colors duration-200 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left Column: Pill, Bold Headline, Bullet Points, and Pill CTAs */}
+          {/* Left Column */}
           <StaggerContainer 
             stagger={0.09}
             delay={0.05}
@@ -74,9 +71,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
             
             {/* Pill Label */}
             <StaggerItem>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] border border-[#E5E5E1]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B]">
                 <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
-                <span className="text-xs font-bold text-[#1A1A1A] tracking-wide uppercase">
+                <span className="text-xs font-bold text-[#1A1A1A] dark:text-white tracking-wide uppercase">
                   About Founder
                 </span>
               </div>
@@ -84,18 +81,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
 
             {/* Bold Headline */}
             <StaggerItem>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#1A1A1A] tracking-tight leading-[1.14]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#1A1A1A] dark:text-white tracking-tight leading-[1.14]">
                 Shivam Kushwaha — Founder & CEO of Axentailabs
               </h2>
             </StaggerItem>
 
             <StaggerItem>
               <div className="space-y-3">
-                <p className="text-sm sm:text-base text-[#1A1A1A]/80 leading-relaxed font-sans">
-                  <strong className="text-[#1A1A1A] font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#1A1A1A] font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#1A1A1A] font-semibold underline decoration-[#2563EB]/40 underline-offset-4 hover:text-[#2563EB] hover:decoration-[#2563EB] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms. His work focuses on personal branding, digital marketing, content strategy, and multi-platform brand growth across platforms such as LinkedIn, X, Reddit, and Product Hunt.
+                <p className="text-sm sm:text-base text-[#1A1A1A]/80 dark:text-slate-300 leading-relaxed font-sans">
+                  <strong className="text-[#1A1A1A] dark:text-white font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#1A1A1A] dark:text-white font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#1A1A1A] dark:text-white font-semibold underline decoration-[#2563EB]/40 underline-offset-4 hover:text-[#2563EB] dark:hover:text-[#60A5FA] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms.
                 </p>
-                <p className="text-sm sm:text-base text-[#1A1A1A]/70 leading-relaxed font-sans">
-                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#1A1A1A] font-medium hover:text-[#2563EB] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
+                <p className="text-sm sm:text-base text-[#1A1A1A]/70 dark:text-slate-400 leading-relaxed font-sans">
+                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#1A1A1A] dark:text-white font-medium hover:text-[#2563EB] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
                 </p>
               </div>
             </StaggerItem>
@@ -105,10 +102,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
               <div className="space-y-3 pt-2">
                 {highlights.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#2563EB]/10 text-[#2563EB] dark:text-[#60A5FA] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
-                    <span className="text-xs sm:text-sm text-[#1A1A1A]/85 font-medium leading-relaxed">
+                    <span className="text-xs sm:text-sm text-[#1A1A1A]/85 dark:text-slate-300 font-medium leading-relaxed">
                       {item}
                     </span>
                   </div>
@@ -122,7 +119,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 <Button
                   size="lg"
                   onClick={onOpenBooking}
-                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-7 py-3 rounded-full shadow-lg shadow-[#2563EB]/25 group"
+                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-7 py-3 rounded-full shadow-lg shadow-[#2563EB]/25 group hover:scale-102 transition-all"
                 >
                   <span>Book a Call</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -132,9 +129,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                   href={CONTACT_INFO.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full border border-[#1A1A1A] bg-white text-[#1A1A1A] text-xs sm:text-sm font-bold hover:bg-[#FAF9F6] transition-all flex items-center gap-2"
+                  className="px-6 py-3 rounded-full border border-[#1A1A1A] dark:border-slate-700 bg-white dark:bg-[#111827] text-[#1A1A1A] dark:text-white text-xs sm:text-sm font-bold hover:bg-[#FAF9F6] dark:hover:bg-slate-800 transition-all flex items-center gap-2 hover:scale-102"
                 >
-                  <Phone className="w-4 h-4 text-emerald-600" />
+                  <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Chat on WhatsApp</span>
                 </a>
               </div>
@@ -142,7 +139,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
 
           </StaggerContainer>
 
-          {/* Right Column: Headshot with Added Padding and Taller Image Aspect */}
+          {/* Right Column: Headshot with Layered Depth */}
           <motion.div 
             initial={{ opacity: 0, y: 28, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -154,22 +151,21 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
               
               {/* Background Geometric Wireframe Arcs */}
               <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full border border-[#2563EB]/30 pointer-events-none -z-10 animate-pulse" />
-              <div className="absolute -bottom-6 -right-6 w-80 h-80 rounded-full border border-[#1A1A1A]/15 pointer-events-none -z-10" />
-              <div className="absolute top-1/2 -right-8 -translate-y-1/2 w-48 h-48 rounded-full border-2 border-dashed border-[#2563EB]/20 pointer-events-none -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-80 h-80 rounded-full border border-[#1A1A1A]/15 dark:border-white/10 pointer-events-none -z-10" />
 
-              {/* Main Photo Card - Balanced framing with subtle trim top and bottom */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-[#1A1A1A] bg-[#0A3C42] shadow-2xl shadow-blue-500/5 aspect-[4/5] sm:aspect-[4/5]">
+              {/* Main Photo Card */}
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#1A1A1A] dark:border-slate-700 bg-[#0A3C42] shadow-2xl shadow-blue-500/10 aspect-[4/5] sm:aspect-[4/5] group">
                 <img
                   src={shivamAboutPhoto}
                   alt="Shivam Kushwaha, Founder & CEO of Axentailabs"
-                  className="w-full h-full object-cover object-[center_38%] hover:scale-102 transition-transform duration-500"
+                  className="w-full h-full object-cover object-[center_38%] group-hover:scale-104 transition-transform duration-700 ease-out"
                   referrerPolicy="no-referrer"
                 />
 
                 {/* Bottom Floating Info Tag */}
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E5E5E1] shadow-lg flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border border-[#E5E5E1] dark:border-[#1E293B] shadow-lg flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full overflow-hidden border border-[#2563EB]/30 p-0.5 bg-white shadow-xs flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-full overflow-hidden border border-[#2563EB]/30 p-0.5 bg-white dark:bg-slate-900 shadow-xs flex items-center justify-center shrink-0">
                       <img
                         src={brandLogo}
                         alt="Axentailabs Logo"
@@ -178,20 +174,20 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                       />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#1A1A1A]">Shivam Kushwaha — Founder & CEO, Axentailabs</div>
-                      <div className="text-[10px] text-[#1A1A1A]/60">Digital Growth & Founder Branding</div>
+                      <div className="text-xs font-bold text-[#1A1A1A] dark:text-white">Shivam Kushwaha</div>
+                      <div className="text-[10px] text-[#1A1A1A]/60 dark:text-slate-400">Founder & CEO, Axentailabs</div>
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-bold text-[#2563EB] bg-[#2563EB]/10 px-2.5 py-1 rounded-full border border-[#2563EB]/20">
+                  <span className="text-[10px] font-bold text-[#2563EB] dark:text-[#60A5FA] bg-[#2563EB]/10 px-2.5 py-1 rounded-full border border-[#2563EB]/20">
                     Founder Led
                   </span>
                 </div>
               </div>
 
               {/* Floating Verified Badge */}
-              <div className="absolute -top-4 -right-4 p-3 rounded-2xl bg-white border border-[#E5E5E1] shadow-lg flex items-center gap-2 text-xs font-bold text-[#1A1A1A] hidden sm:flex">
-                <div className="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+              <div className="absolute -top-4 -right-4 p-3 rounded-2xl bg-white dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B] shadow-lg flex items-center gap-2 text-xs font-bold text-[#1A1A1A] dark:text-white hidden sm:flex">
+                <div className="w-7 h-7 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-400 flex items-center justify-center font-bold">
                   ✓
                 </div>
                 <span>Founder Led</span>

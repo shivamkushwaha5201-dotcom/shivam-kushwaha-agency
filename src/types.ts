@@ -44,7 +44,7 @@ export interface FaqItem {
   id: string;
   question: string;
   answer: string;
-  category: 'Product Hunt' | 'X & LinkedIn' | 'Influencer Marketing' | 'Pricing & Process';
+  category: 'Product Hunt' | 'X & LinkedIn' | 'Influencer Marketing' | 'Pricing & Process' | 'Reputation & GitHub';
 }
 
 export interface Testimonial {

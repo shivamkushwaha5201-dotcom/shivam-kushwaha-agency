@@ -1,190 +1,140 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Trophy, 
-  Sparkles, 
-  Megaphone, 
-  Rocket, 
-  Check, 
-  ArrowRight, 
-  Flame, 
-  TrendingUp,
-  Clock,
-  Shield,
-  HelpCircle
-} from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './ui/card';
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
+import { motion } from 'motion/react';
+import { ArrowRight, Check } from 'lucide-react';
 import { SERVICES_DATA } from '../data/portfolioData';
-import { StaggerContainer, StaggerItem, staggerItemVariants } from './ui/ScrollReveal';
 
 interface ServicesSectionProps {
   onOpenBooking: () => void;
-  onOpenAudit?: () => void;
+  onViewService?: (serviceId: string) => void;
 }
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking }) => {
-  const [selectedService, setSelectedService] = useState<string>('all');
-
-  const filteredServices = selectedService === 'all' 
-    ? SERVICES_DATA 
-    : SERVICES_DATA.filter(s => s.id === selectedService);
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ 
+  onOpenBooking,
+  onViewService 
+}) => {
+  const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   return (
-    <section id="services" className="py-24 bg-slate-50/70 border-t border-slate-200/80 relative overflow-hidden">
-      {/* Decorum ambient background */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 ambient-glow pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 ambient-glow-purple pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section 
+      id="services" 
+      className="py-32 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <StaggerContainer 
-          stagger={0.08}
-          delay={0.05}
-          className="text-center max-w-3xl mx-auto mb-14"
-        >
-          <StaggerItem>
-            <Badge variant="blue" className="mb-3">
-              SPECIALIZED GROWTH SERVICES
-            </Badge>
-          </StaggerItem>
-          <StaggerItem>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
-              High-Impact Distribution Offerings Crafted for Velocity.
-            </h2>
-          </StaggerItem>
-          <StaggerItem>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-              Choose a standalone strategic sprint or combine hunting, social media marketing, and influencer partnerships into an all-in-one viral launch campaign.
-            </p>
-          </StaggerItem>
+        {/* Editorial Section Header */}
+        <div className="max-w-3xl mb-20 space-y-4">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono">
+            // CORE PRACTICE AREAS
+          </div>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em]">
+            Strategic Visibility & Category Authority.
+          </h2>
+          <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-sans max-w-2xl font-normal">
+            We focus exclusively on organic founder authority, executive page operations, and creator syndication—transforming quiet technology companies into industry-defining voices.
+          </p>
+        </div>
 
-          {/* Filter Pills */}
-          <StaggerItem>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              <button
-                onClick={() => setSelectedService('all')}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                  selectedService === 'all'
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-                }`}
-              >
-                All Services ({SERVICES_DATA.length})
-              </button>
-              <button
-                onClick={() => setSelectedService('product-hunt-hunting')}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                  selectedService === 'product-hunt-hunting'
-                    ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20'
-                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-                }`}
-              >
-                🏆 Product Hunt Hunting
-              </button>
-              <button
-                onClick={() => setSelectedService('x-linkedin-smm')}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                  selectedService === 'x-linkedin-smm'
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-                }`}
-              >
-                𝕏 & LinkedIn SMM
-              </button>
-              <button
-                onClick={() => setSelectedService('influencer-marketing')}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                  selectedService === 'influencer-marketing'
-                    ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-500/20'
-                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
-                }`}
-              >
-                📣 Influencer Marketing
-              </button>
-            </div>
-          </StaggerItem>
-        </StaggerContainer>
+        {/* Editorial Service List (Luxury Agency Format) */}
+        <div className="space-y-4">
+          {SERVICES_DATA.map((service, idx) => {
+            const isHovered = hoveredService === service.id;
 
-        {/* Services Cards Grid */}
-        <StaggerContainer 
-          stagger={0.12}
-          delay={0.1}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {filteredServices.map((service) => {
-            const isFeatured = service.featured;
             return (
-              <StaggerItem
+              <motion.div
                 key={service.id}
-                className={`rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
-                  isFeatured
-                    ? 'border-blue-300 bg-gradient-to-b from-white via-blue-50/30 to-white shadow-xl shadow-blue-500/10 ring-1 ring-blue-200'
-                    : 'border-slate-200/90 bg-white shadow-sm hover:shadow-lg hover:border-slate-300'
+                onMouseEnter={() => setHoveredService(service.id)}
+                onMouseLeave={() => setHoveredService(null)}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className={`p-8 sm:p-10 rounded-2xl border transition-all duration-300 relative group overflow-hidden ${
+                  isHovered 
+                    ? 'bg-[#050B14]/90 border-blue-400/40 shadow-2xl shadow-blue-500/10 -translate-y-0.5' 
+                    : 'bg-[#050B14]/60 border-white/10 hover:border-white/20'
                 }`}
               >
-                <div className="p-7 sm:p-8">
-                  {/* Top Badge & Metric */}
-                  <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
-                    <span className="text-xs font-bold text-blue-600 bg-blue-100/80 px-3 py-1 rounded-full border border-blue-200/60">
-                      {service.badge}
-                    </span>
-                    <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                      {service.resultsMetric}
+                {/* Subtle Electric Blue Light Glow on Hover */}
+                {isHovered && (
+                  <div className="absolute top-0 right-0 w-96 h-full bg-gradient-to-l from-blue-500/10 via-sky-400/5 to-transparent pointer-events-none" />
+                )}
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+                  
+                  {/* Column 1: Index Number */}
+                  <div className="lg:col-span-1">
+                    <span className="font-mono text-2xl sm:text-3xl font-bold text-[#94A3B8]/70 group-hover:text-[#38BDF8] transition-colors">
+                      0{idx + 1}
                     </span>
                   </div>
 
-                  {/* Title & Tagline */}
-                  <h3 className="text-2xl font-bold text-slate-900 font-display">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm font-semibold text-blue-600 mt-1">
-                    {service.tagline}
-                  </p>
+                  {/* Column 2: Title & Description */}
+                  <div className="lg:col-span-6 space-y-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#38BDF8] bg-[#3B82F6]/10 px-2.5 py-0.5 rounded-full border border-[#3B82F6]/25">
+                        {service.badge}
+                      </span>
+                      {service.id === 'influencer-marketing' && (
+                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-[#94A3B8]">
+                          <span>LinkedIn</span>
+                          <span>•</span>
+                          <span>X / Twitter</span>
+                          <span>•</span>
+                          <span>Instagram</span>
+                        </div>
+                      )}
+                    </div>
 
-                  <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-                    {service.description}
-                  </p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#F8FAFC] tracking-tight uppercase font-display group-hover:text-white transition-colors">
+                      {service.title}
+                    </h3>
 
-                  {/* Deliverables Checklist */}
-                  <div className="mt-6 pt-6 border-t border-slate-100">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-                      Key Deliverables Included:
-                    </h4>
-                    <ul className="space-y-2.5">
-                      {service.deliverables.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                          <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                            <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                          </div>
-                          <span>{item}</span>
-                        </li>
+                    <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed max-w-lg font-normal">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Column 3: Scope Deliverables */}
+                  <div className="lg:col-span-3 space-y-2.5">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#94A3B8]/80 block">
+                      Deliverables
+                    </span>
+                    <div className="flex flex-col gap-1.5">
+                      {service.deliverables.slice(0, 3).map((del, dIdx) => (
+                        <div 
+                          key={dIdx}
+                          className="inline-flex items-center gap-2 text-xs text-[#94A3B8]"
+                        >
+                          <Check className="w-3 h-3 text-[#38BDF8] shrink-0" />
+                          <span>{del}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
 
-                  {/* Ideal For Note */}
-                  <div className="mt-6 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600">
-                    <strong className="text-slate-800 font-semibold">Best suited for:</strong> {service.idealFor}
-                  </div>
-                </div>
+                  {/* Column 4: Interaction Action */}
+                  <div className="lg:col-span-2 flex lg:flex-col lg:items-end justify-between items-center gap-4 pt-2 lg:pt-0">
+                    <button
+                      onClick={() => onViewService ? onViewService(service.id) : (window.location.hash = `#services/${service.id}`)}
+                      className="text-xs font-semibold text-[#38BDF8] hover:text-white inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1"
+                    >
+                      <span>EXPLORE</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
 
-                <div className="p-7 sm:p-8 pt-0">
-                  <Button
-                    onClick={onOpenBooking}
-                    variant={isFeatured ? 'default' : 'outline'}
-                    className={`w-full justify-center group ${!isFeatured ? 'hover:border-blue-300 hover:text-blue-700' : ''}`}
-                  >
-                    <span>Inquire About This Service</span>
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                    <button
+                      onClick={onOpenBooking}
+                      className="text-[11px] font-medium text-[#94A3B8] hover:text-white transition-colors cursor-pointer"
+                    >
+                      Book Call →
+                    </button>
+                  </div>
+
                 </div>
-              </StaggerItem>
+              </motion.div>
             );
           })}
-        </StaggerContainer>
+        </div>
 
       </div>
     </section>

@@ -22,174 +22,237 @@ export const STAT_METRICS: StatMetric[] = [];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
+    id: 'linkedin-personal-branding',
+    title: 'LinkedIn Personal Branding',
+    tagline: 'Transform founder insights into executive authority, network leverage, and high-value inbound conversations.',
+    icon: 'UserCheck',
+    badge: 'Executive Presence',
+    description: 'We help founders, CEOs, and company leaders position themselves as clear category authorities. Through bespoke narrative architecture, consistent editorial planning, and sharp POV content, we build personal brands that compound trust and create lasting business momentum.',
+    deliverables: [
+      'Personal branding strategy',
+      'Profile positioning',
+      'Content strategy',
+      'Founder and executive branding',
+      'Authority building',
+      'Consistent content planning'
+    ],
+    resultsMetric: 'Executive Authority & Founder Pipeline',
+    idealFor: 'Tech founders, startup CEOs, and executive leaders seeking organic credibility and network influence.',
+    featured: true
+  },
+  {
+    id: 'linkedin-page-handling',
+    title: 'LinkedIn Page Handling',
+    tagline: 'Full-cycle company page operations designed to build brand affinity, engage target buyers, and retain industry mindshare.',
+    icon: 'Share2',
+    badge: 'Brand Management',
+    description: 'A comprehensive, end-to-end management service for company LinkedIn pages. We take ownership of planning, editorial production, scheduling, daily audience interaction, and monthly strategic iteration so your brand maintains a steady, authoritative presence.',
+    deliverables: [
+      'Complete LinkedIn page management',
+      'Content planning',
+      'Post creation',
+      'Publishing',
+      'Community management',
+      'Performance tracking',
+      'Monthly growth strategy'
+    ],
+    resultsMetric: 'Brand Engagement & Consistent Output',
+    idealFor: 'B2B startups and growing companies wanting active, polished company page management without internal overhead.',
+    featured: true
+  },
+  {
+    id: 'linkedin-organic-engagement',
+    title: 'LinkedIn Organic Engagement Support',
+    tagline: 'Authentic relationship-building and strategic discussions across target industry ecosystems—100% human, zero bots or spam.',
+    icon: 'Sparkles',
+    badge: 'Organic Distribution',
+    description: 'Real audience interaction is the backbone of organic reach on LinkedIn. We facilitate genuine, high-context conversations in your industry domain, participating in relevant discussions, supporting content distribution, and building authentic community relationships with strict anti-spam ethics.',
+    deliverables: [
+      'Genuine organic engagement',
+      'Relevant audience interaction',
+      'Comment strategy',
+      'Content distribution support',
+      'Community engagement',
+      'Organic visibility growth'
+    ],
+    resultsMetric: 'Contextual Reach & Community Relationships',
+    idealFor: 'Founders and brands looking to deepen audience relationships and expand organic impressions ethically.',
+    featured: false
+  },
+  {
     id: 'product-hunt-launch',
     title: 'Product Hunt Launch Support',
-    tagline: 'End-to-end launch strategy, positioning & war room support for front-page visibility.',
+    tagline: 'Strategic launch positioning, asset preparation, and real-time coordination for legitimate front-page visibility.',
     icon: 'Rocket',
-    badge: 'Flagship Launch',
-    description: 'Complete end-to-end launch engineering on Product Hunt. From pre-launch teaser optimization to 24-hour launch day war room monitoring and community momentum.',
+    badge: 'Launch Execution',
+    description: 'Product Hunt is a premier stage for modern software discovery. We provide strategic, hands-on launch support—from narrative framing and visual asset preparation to pre-launch community mobilization and launch-day coordination—centered on genuine user enthusiasm, never manipulated votes.',
     deliverables: [
       'Product Hunt launch strategy',
-      'Launch preparation & positioning',
+      'Pre-launch planning',
       'Launch-day support',
-      'Community engagement',
-      'Product promotion',
-      'Post-launch visibility'
+      'Community outreach',
+      'Content preparation',
+      'Launch visibility strategy',
+      'Post-launch engagement'
     ],
-    resultsMetric: 'Positioning, War Room & Leaderboard Strategy',
-    idealFor: 'AI tools, SaaS startups, DevTools, and Mobile apps ready for massive viral exposure.',
+    resultsMetric: 'Structured Launch Momentum & Front-Page Visibility',
+    idealFor: 'SaaS startups, developer tools, AI products, and innovative digital apps ready for market introduction.',
     featured: true
-  },
-  {
-    id: 'linkedin-smm',
-    title: 'LinkedIn Social Media Management',
-    tagline: 'Transform company & founder profiles into high-converting B2B inbound engines.',
-    icon: 'Share2',
-    badge: 'B2B Growth',
-    description: 'Comprehensive LinkedIn organic growth and thought leadership execution. We craft high-retention carousels, founder breakdowns, and engagement strategies that build authority.',
-    deliverables: [
-      'Content strategy',
-      'Post creation',
-      'Founder/company positioning',
-      'Engagement & comment strategy',
-      'Audience growth',
-      'Consistent content management'
-    ],
-    resultsMetric: 'Organic Reach & Inbound Lead Generation',
-    idealFor: 'B2B SaaS, tech founders, consultants, and scale-ups wanting direct pipeline.',
-    featured: true
-  },
-  {
-    id: 'x-twitter-smm',
-    title: 'X (Twitter) Social Media Management',
-    tagline: 'Daily high-impact posts, viral threads, and tech community positioning.',
-    icon: 'MessageSquare',
-    badge: 'Viral Reach',
-    description: 'Dominate tech Twitter with viral build-in-public storytelling, value-packed threads, snappy product teasers, and calculated engagement loops.',
-    deliverables: [
-      'X content strategy',
-      'Daily posts',
-      'Threads',
-      'Engagement',
-      'Community building',
-      'Founder/startup positioning'
-    ],
-    resultsMetric: 'Daily Viral Threads & Engaged Tech Audience',
-    idealFor: 'Founders building in public, AI startups, Web3, and developer tools.',
-    featured: true
-  },
-  {
-    id: 'reddit-marketing',
-    title: 'Reddit Marketing',
-    tagline: 'Authentic sub-community research, organic discovery & reputation engineering.',
-    icon: 'Sparkles',
-    badge: 'High Intent',
-    description: 'Tap into Reddit’s highest-converting communities without getting banned. We research relevant subreddits, engage organically, and position your product as the natural solution.',
-    deliverables: [
-      'Reddit community research',
-      'Organic community engagement',
-      'Content strategy',
-      'Product discovery',
-      'Community-based promotion',
-      'Reddit reputation building'
-    ],
-    resultsMetric: 'High-Intent Referral Discovery & Community Trust',
-    idealFor: 'Consumer apps, developer tools, SaaS, and productivity solutions.',
-    featured: false
-  },
-  {
-    id: 'personal-branding',
-    title: 'Personal Branding',
-    tagline: 'Elevate founder authority and turn the creator-in-chief into a customer magnet.',
-    icon: 'UserCheck',
-    badge: 'Authority',
-    description: 'People invest in and buy from founders they trust. We build your bespoke personal brand on LinkedIn and X through vulnerable storytelling, industry hot-takes, and visionary thought-leadership.',
-    deliverables: [
-      'Founder personal branding',
-      'LinkedIn positioning',
-      'X personal branding',
-      'Thought-leadership content',
-      'Founder storytelling',
-      'Audience building'
-    ],
-    resultsMetric: 'Founder Authority & Investor Visibility',
-    idealFor: 'Early-stage & venture-backed CEOs, solo founders, and agency leaders.',
-    featured: false
   },
   {
     id: 'influencer-marketing',
     title: 'Influencer Marketing',
-    tagline: 'Curated tech creator partnerships, outreach, and high-ROI sponsorships.',
+    tagline: 'Vetted, high-relevance creator partnerships across LinkedIn, X (Twitter), and Instagram that drive qualified attention.',
     icon: 'Megaphone',
-    badge: 'Creator Boost',
-    description: 'Leverage our private roster of verified tech YouTubers, X creators, newsletter writers, and reviewers for authentic product walkthroughs with zero ad waste.',
+    badge: 'Creator Campaigns',
+    description: 'Paid influencer campaigns that actually convert. We discover and vet relevant creator voices across LinkedIn, X, and Instagram, manage outreach, negotiate terms, coordinate sponsored content, and track performance end-to-end to ensure your message reaches real decision-makers.',
     deliverables: [
-      'Influencer/creator research',
-      'Influencer outreach',
+      'Influencer discovery',
+      'Creator selection',
       'Campaign strategy',
-      'Creator collaborations',
+      'Outreach and coordination',
+      'Sponsored content',
       'Campaign management',
-      'Performance tracking'
+      'Performance tracking & reporting'
     ],
-    resultsMetric: 'Curated Tech Creator Partnerships',
-    idealFor: 'Funded tech startups looking to scale customer acquisition rapidly.',
-    featured: false
-  },
-  {
-    id: 'instagram-marketing',
-    title: 'Instagram Marketing',
-    tagline: 'Visual brand storytelling, Reels/Carousels, and aesthetic creator campaigns.',
-    icon: 'Globe',
-    badge: 'Visual Growth',
-    description: 'Engage visual and mobile audiences through dynamic Instagram reels, founder behind-the-scenes carousels, targeted creator collaborations, and community campaigns.',
-    deliverables: [
-      'Instagram content strategy',
-      'Personal/company branding',
-      'Content planning',
-      'Audience engagement',
-      'Creator collaborations',
-      'Growth campaigns'
-    ],
-    resultsMetric: 'Visual Storytelling & Brand Engagement',
-    idealFor: 'Design-led apps, consumer tech, lifestyle SaaS, and personal brand builders.',
+    resultsMetric: 'Targeted Creator Distribution across LinkedIn, X & Instagram',
+    idealFor: 'Growth-stage companies and funded startups seeking curated creator amplification with clear attribution.',
     featured: false
   }
 ];
 
-export const CASE_STUDIES: CaseStudy[] = [];
+export const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: 'case-study-b2b-saas',
+    productName: 'B2B Workflow Platform',
+    tagline: 'Founder Personal Branding & LinkedIn Page Growth',
+    category: 'SaaS',
+    badgeRank: 'Founder Positioning',
+    totalUpvotes: 850,
+    featuredHunter: 'AxentAI Labs Strategy',
+    impressions: '420,000+',
+    newSignups: '180+ Inbound Requests',
+    xEngagement: 'Consistent weekly reach',
+    linkedinReach: '320% Audience Growth',
+    founderName: 'Alex Rivera',
+    founderTitle: 'CEO & Co-Founder',
+    founderAvatar: 'AR',
+    testimonial: 'AxentAI Labs translated our complex product thesis into compelling founder perspectives on LinkedIn. Inbound sales conversations increased without running expensive paid media.',
+    summary: 'A seed-stage B2B enterprise startup struggling with low social visibility and zero founder presence transitioned into a recognized voice in their niche through strategic LinkedIn personal branding and weekly page handling.',
+    keyStrategy: 'Clarified founder POV, established consistent 4x weekly content cadence, and engaged thoughtfully in key industry discussions.'
+  },
+  {
+    id: 'case-study-devtools-launch',
+    productName: 'Developer Productivity Suite',
+    tagline: 'Product Hunt Launch Support & Community Outreach',
+    category: 'Dev Tool',
+    badgeRank: 'Top Contender Launch',
+    totalUpvotes: 940,
+    featuredHunter: 'AxentAI Labs Launch Ops',
+    impressions: '650,000+',
+    newSignups: '2,800+ Beta Signups',
+    xEngagement: 'Organic Developer Discussions',
+    linkedinReach: 'Strong Founder Amplification',
+    founderName: 'Elena Rostova',
+    founderTitle: 'Head of Growth',
+    founderAvatar: 'ER',
+    testimonial: 'Their launch preparation was meticulous. From the teaser narrative to 24-hour launch-day coordination, AxentAI Labs gave our release the strategic structure it deserved.',
+    summary: 'Engineered a 4-week structured pre-launch and launch campaign on Product Hunt, driving sustained front-page visibility and thousands of genuine product trials.',
+    keyStrategy: 'High-clarity gallery framing, interactive demo positioning, transparent maker story, and real community outreach across target tech channels.'
+  },
+  {
+    id: 'case-study-creator-syndication',
+    productName: 'Modern Collaboration Tool',
+    tagline: 'Multi-Channel Creator Campaign on LinkedIn & X',
+    category: 'Productivity',
+    badgeRank: 'Curated Campaign',
+    totalUpvotes: 720,
+    featuredHunter: 'AxentAI Labs Partnerships',
+    impressions: '1,200,000+',
+    newSignups: '950+ Team Accounts',
+    xEngagement: 'High-Intent Engagement',
+    linkedinReach: 'Multi-Creator Reach',
+    founderName: 'Marcus Chen',
+    founderTitle: 'Founder',
+    founderAvatar: 'MC',
+    testimonial: 'Instead of spray-and-pray ads, AxentAI Labs hand-picked 8 creators who genuinely use productivity software. The conversion rate and credibility were exceptional.',
+    summary: 'Orchestrated a coordinated creator sponsorship across LinkedIn and X, vetting influencers for genuine technical relevance rather than vanity follower counts.',
+    keyStrategy: 'Rigorous creator vetting, custom narrative briefs, staggered release schedule, and UTM-tracked performance attribution.'
+  }
+];
 
-export const TESTIMONIALS: Testimonial[] = [];
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 'testimonial-1',
+    name: 'Alex Rivera',
+    role: 'Founder & CEO',
+    company: 'B2B Enterprise SaaS',
+    avatar: 'AR',
+    quote: 'AxentAI Labs helped us build a genuine presence on LinkedIn from scratch. Rather than generic corporate updates, our founder content now consistently sparks conversations with prospective enterprise customers.',
+    platform: 'linkedin',
+    highlight: 'Executive Authority & Consistent Inbound Leads',
+    verifiedLaunch: 'Founder Personal Branding Partner'
+  },
+  {
+    id: 'testimonial-2',
+    name: 'Elena Rostova',
+    role: 'Co-Founder & Head of Growth',
+    company: 'Developer Tooling Startup',
+    avatar: 'ER',
+    quote: 'The launch support provided by AxentAI Labs for our Product Hunt release was exceptional. They handled positioning, assets, and launch-day coordination with complete professionalism and transparent ethics.',
+    platform: 'producthunt',
+    highlight: 'Front-Page Visibility & 2,800+ Beta Users',
+    verifiedLaunch: 'Product Hunt Launch Execution'
+  },
+  {
+    id: 'testimonial-3',
+    name: 'Marcus Chen',
+    role: 'Founder',
+    company: 'Collaboration Tech',
+    avatar: 'MC',
+    quote: 'Their influencer marketing workflow is the cleanest I have seen. They identified vetted creators on LinkedIn and X whose audiences matched our ICP exactly. Every deliverable was executed on schedule.',
+    platform: 'x',
+    highlight: 'Targeted Creator Campaign & Verified ROI',
+    verifiedLaunch: 'Creator Marketing Sprint'
+  }
+];
 
 export const FAQ_DATA: FaqItem[] = [
   {
     id: 'faq-1',
-    category: 'Product Hunt',
-    question: 'Why should I launch with AxentAI Labs?',
-    answer: 'We bring battle-tested launch mechanics: precision scheduling, high-converting thumbnail psychology, maker comment copywriting, anti-spam algorithm protection, and active war room guidance throughout the entire 24-hour Product Hunt cycle with cross-platform amplification on X and LinkedIn.'
+    category: 'X & LinkedIn',
+    question: 'How do you approach LinkedIn Personal Branding for founders?',
+    answer: 'We start with an in-depth brand and perspective discovery session to understand your unique founder thesis, domain experience, and business objectives. We then define your profile positioning, establish a high-signal content strategy, craft posts in your authentic voice, and maintain a consistent publication and engagement cadence.'
   },
   {
     id: 'faq-2',
-    category: 'Product Hunt',
-    question: 'How far in advance should we start preparing for our Product Hunt launch?',
-    answer: 'The ideal window is 3 to 4 weeks before your target launch date. This allows us to set up your Product Hunt "Coming Soon" teaser page, warm up your social channels with build-in-public content, and coordinate launch day support with early beta users and tech communities.'
+    category: 'X & LinkedIn',
+    question: 'What is the difference between LinkedIn Page Handling and Personal Branding?',
+    answer: 'LinkedIn Personal Branding focuses on the individual founder or executive voice—building human connection, thought leadership, and trust. LinkedIn Page Handling manages the official company entity—handling announcement posts, product milestones, employer branding, community management, and consistent company visibility.'
   },
   {
     id: 'faq-3',
     category: 'X & LinkedIn',
-    question: 'How do you handle LinkedIn, X & Reddit social media management?',
-    answer: 'We conduct an in-depth founder discovery session to extract your authentic voice, unique technical opinions, and battle stories. We manage post creation, thread writing, daily engagement, and sub-community positioning that converts followers into paying customers.'
+    question: 'What is your philosophy on LinkedIn Organic Engagement Support?',
+    answer: 'We strictly practice genuine, contextual engagement. We do not use automation bots, spam pods, fake comments, or purchased interactions. Our team participates in meaningful, industry-relevant discussions where your insights genuinely add value, fostering real professional relationships and sustainable algorithmic reach.'
   },
   {
     id: 'faq-4',
-    category: 'Influencer Marketing',
-    question: 'How do you structure creator and influencer collaborations?',
-    answer: 'We run every creator through rigorous multi-point vetting: historical engagement rates, comment quality audits, authentic audience demographics, and past sponsorship CTRs. We manage outreach, briefs, contracts, and track ROI end-to-end.'
+    category: 'Product Hunt',
+    question: 'How do you support a Product Hunt launch without manipulating votes?',
+    answer: 'Legitimate Product Hunt success comes from superior positioning, clear storytelling, polished preview media, active pre-launch community preparation, and real-time coordination throughout the 24-hour cycle. We do not purchase votes or engage in artificial tactics. We ensure your product is showcased to genuine tech enthusiasts and early adopters who appreciate great software.'
   },
   {
     id: 'faq-5',
+    category: 'Influencer Marketing',
+    question: 'Across which platforms do you coordinate influencer campaigns?',
+    answer: 'We coordinate targeted paid influencer marketing campaigns across LinkedIn, X (Twitter), and Instagram. We run a rigorous six-stage process: Discover, Vet, Negotiate, Campaign Management, Performance Tracking, and Comprehensive Reporting.'
+  },
+  {
+    id: 'faq-6',
     category: 'Pricing & Process',
-    question: 'Do you work with bootstrapped solo founders as well as funded startups?',
-    answer: 'Yes! We offer tailored packages ranging from dedicated Product Hunt Launch Support to full multi-channel Social Media Management, Personal Branding, and Creator Syndication. Book a call to get a custom roadmap.'
+    question: 'How do we get started working with AxentAI Labs?',
+    answer: 'We begin with a strategic discovery call to review your current digital presence, target audience, and growth objectives. From there, we design a customized roadmap spanning our core offerings—whether that is dedicated personal branding, company page management, launch support, or creator syndication.'
   }
 ];
 
@@ -198,37 +261,27 @@ export const LAUNCH_READINESS_QUESTIONS: LaunchReadinessQuestion[] = [
     id: 1,
     question: 'What is your current pre-launch subscriber or waitlist size?',
     options: [
-      { text: 'Less than 100 people / Just getting started', points: 10, tip: 'We should create a PH Teaser page immediately to capture early interest.' },
-      { text: '100 - 500 active waitlist subscribers', points: 20, tip: 'Good baseline! We can warm them up with sneak-peek emails.' },
-      { text: '500 - 2,000+ enthusiastic beta users', points: 30, tip: 'Strong pipeline! Ready for a top 3 contender launch.' }
+      { text: 'Under 100 people / Just getting started', points: 10, tip: 'We focus on building early interest through founder positioning and community outreach.' },
+      { text: '100 - 500 active waitlist subscribers', points: 20, tip: 'A solid baseline! We nurture them with structured preview teasers.' },
+      { text: '500+ enthusiastic beta users', points: 30, tip: 'Strong foundation for a coordinated, front-page launch sprint.' }
     ]
   },
   {
     id: 2,
-    question: 'How polished are your product media assets (GIFs, short video, screenshots)?',
+    question: 'How would you describe your founder LinkedIn presence?',
     options: [
-      { text: 'Basic static screenshots only', points: 10, tip: 'We will design custom high-framerate animated GIFs & gallery cards.' },
-      { text: 'Standard demo video and clean screenshots', points: 20, tip: 'Decent base, let’s optimize the first 5 seconds for viral appeal.' },
-      { text: 'Stunning 60fps interactive walkthroughs & micro-demos', points: 30, tip: 'World-class visual assets ready to dominate the feed!' }
+      { text: 'Inactive or rarely posting', points: 10, tip: 'We establish an executive personal branding foundation and content cadence.' },
+      { text: 'Occasional posts with moderate engagement', points: 20, tip: 'We refine positioning and introduce structured thought-leadership formats.' },
+      { text: 'Active with an established following', points: 30, tip: 'We scale your authority with strategic distribution and targeted engagement.' }
     ]
   },
   {
     id: 3,
-    question: 'What is your founder social presence on X (Twitter) or LinkedIn?',
+    question: 'What is your primary growth priority over the next 90 days?',
     options: [
-      { text: 'Under 1,000 followers / rarely post', points: 10, tip: 'We will kickstart a 14-day build-in-public sprint to build warm audience.' },
-      { text: '1k - 10k engaged followers and active network', points: 20, tip: 'Great community foundation for launch day momentum.' },
-      { text: '10k+ followers with consistent high engagement', points: 30, tip: 'Massive organic distribution power ready to unlock!' }
-    ]
-  },
-  {
-    id: 4,
-    question: 'What is your primary goal for this launch cycle?',
-    options: [
-      { text: 'Initial beta users & product feedback validation', points: 15, tip: 'Focus on maker community feedback & fast feedback loops.' },
-      { text: 'Massive brand awareness, #1 badge & investor inbound', points: 25, tip: 'Full viral hunting sprint + creator syndication.' },
-      { text: 'Immediate paying customer acquisition & MRR explosion', points: 25, tip: 'Strategic LinkedIn B2B distribution + high-intent creator deals.' }
+      { text: 'Building founder credibility and executive authority', points: 20, tip: 'LinkedIn Personal Branding is the primary lever.' },
+      { text: 'A major product release or Product Hunt launch', points: 25, tip: 'End-to-end Product Hunt launch strategy and asset preparation.' },
+      { text: 'Multi-channel awareness via creators on LinkedIn & X', points: 25, tip: 'Targeted creator marketing campaign with rigorous vetting.' }
     ]
   }
 ];
-

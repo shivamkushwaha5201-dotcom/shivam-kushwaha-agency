@@ -90,12 +90,13 @@ export const LegalPage: React.FC<LegalPageProps> = ({
     {
       id: 'terms-scope',
       title: '1. Scope of Services',
-      content: `AxentAI Labs provides growth marketing and launch execution services including:
+      content: `AxentAI Labs provides digital growth and social presence agency services including:
 
-• **Product Hunt Hunter Sponsorship**: Hunter submission, maker badge linking, community notification broadcast, and launch-day scheduling.
-• **Organic Social Media Growth**: Content distribution for X (Twitter), LinkedIn, and Reddit.
-• **Influencer Syndication**: Outreach, briefing, and coordination with tech creators and AI newsletters.
-• **Launch War Room & Consulting**: Pre-launch audits, asset optimization, and live launch-day velocity monitoring.`
+• **LinkedIn Personal Branding**: Executive positioning, personal brand strategy, content creation, and founder authority building.
+• **LinkedIn Page Handling**: Full-cycle company page operations, publishing, community management, and growth strategy.
+• **LinkedIn Organic Engagement Support**: Authentic, context-rich conversation participation and organic distribution support with strict anti-spam ethics.
+• **Product Hunt Launch Support**: End-to-end launch strategy, narrative positioning, visual asset preparation, and real-time launch-day coordination.
+• **Influencer Marketing**: Curated creator discovery, vetting, contract negotiation, campaign management, and reporting across LinkedIn, X, and Instagram.`
     },
     {
       id: 'terms-organic',

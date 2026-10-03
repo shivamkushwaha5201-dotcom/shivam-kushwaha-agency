@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -22,6 +24,42 @@
     --input: 220 13% 91%;
     --ring: 221 83% 53%;
     --radius: 0.75rem;
+
+    --bg-page: #FAF9F6;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E5E5E1;
+    --text-heading: #1A1A1A;
+    --text-body: rgba(26, 26, 26, 0.75);
+    --text-muted: rgba(26, 26, 26, 0.55);
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 224 71% 4%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 217 91% 60%;
+
+    --bg-page: #0B0F17;
+    --bg-card: #111827;
+    --border-subtle: #1E293B;
+    --text-heading: #F8FAFC;
+    --text-body: rgba(248, 250, 252, 0.75);
+    --text-muted: rgba(248, 250, 252, 0.55);
   }
 }
 
@@ -29,6 +67,125 @@ body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #0f172a;
   background-color: #fcfcfd;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Dark theme overrides for global site structure */
+html.dark,
+html.dark body {
+  background-color: #0b0f17 !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark #root {
+  background-color: #0b0f17;
+}
+
+html.dark .bg-\[\#FAF9F6\] {
+  background-color: #0b0f17 !important;
+}
+
+html.dark .bg-white {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-slate-50\/70,
+html.dark .bg-slate-50 {
+  background-color: #0e1526 !important;
+}
+
+html.dark .text-\[\#1A1A1A\] {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-\[\#1A1A1A\]\/80,
+html.dark .text-\[\#1A1A1A\]\/85,
+html.dark .text-\[\#1A1A1A\]\/70 {
+  color: rgba(248, 250, 252, 0.75) !important;
+}
+
+html.dark .text-\[\#1A1A1A\]\/65,
+html.dark .text-\[\#1A1A1A\]\/60,
+html.dark .text-\[\#1A1A1A\]\/50 {
+  color: rgba(248, 250, 252, 0.55) !important;
+}
+
+html.dark .border-\[\#E5E5E1\],
+html.dark .border-\[\#E5E5E1\]\/80,
+html.dark .border-\[\#E5E5E1\]\/70,
+html.dark .border-slate-200,
+html.dark .border-slate-200\/80,
+html.dark .border-slate-200\/90,
+html.dark .border-slate-100 {
+  border-color: #1e293b !important;
+}
+
+html.dark .bg-white\/80,
+html.dark .bg-white\/95,
+html.dark .bg-white\/90 {
+  background-color: rgba(17, 24, 39, 0.9) !important;
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-blue-50\/60,
+html.dark .bg-blue-50\/70,
+html.dark .bg-blue-100\/80 {
+  background-color: rgba(37, 99, 235, 0.15) !important;
+}
+
+html.dark .border-blue-100\/60,
+html.dark .border-blue-100\/80,
+html.dark .border-blue-200,
+html.dark .border-blue-200\/60 {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+html.dark .text-blue-950 {
+  color: #dbeafe !important;
+}
+
+html.dark .shadow-xs,
+html.dark .shadow-sm,
+html.dark .shadow-2xs {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-xl {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Dark mode ambient glows */
+html.dark .ambient-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(30, 58, 138, 0.08) 40%, transparent 70%);
+}
+
+html.dark .ambient-glow-purple {
+  background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.12) 0%, rgba(17, 24, 39, 0) 50%, transparent 70%);
+}
+
+/* Gradient edge masks in marquee */
+html.dark .from-\[\#FAF9F6\] {
+  --tw-gradient-from: #0b0f17 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(11, 15, 23, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
 
 h1, h2, h3, .font-display {
@@ -100,6 +257,15 @@ h1, h2, h3, .font-display {
   animation-play-state: paused;
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -107,11 +273,21 @@ h1, h2, h3, .font-display {
 ::-webkit-scrollbar-track {
   background: #f8fafc;
 }
+html.dark ::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 9999px;
 }
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
 

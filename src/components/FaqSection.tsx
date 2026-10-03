@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { HelpCircle, MessageSquare, Send, ArrowRight, Sparkles } from 'lucide-react';
+import { HelpCircle, MessageSquare, ArrowRight } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/accordion';
-import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { FAQ_DATA } from '../data/portfolioData';
-import { StaggerContainer, StaggerItem } from './ui/ScrollReveal';
 
 interface FaqSectionProps {
   onOpenBooking: () => void;
@@ -16,10 +14,10 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
 
   const categories = [
     { id: 'all', label: 'All Questions' },
-    { id: 'Product Hunt', label: '🏆 Product Hunt' },
-    { id: 'X & LinkedIn', label: '𝕏 & LinkedIn SMM' },
-    { id: 'Influencer Marketing', label: '📣 Influencer Campaigns' },
-    { id: 'Pricing & Process', label: '💼 Pricing & Process' }
+    { id: 'X & LinkedIn', label: 'LinkedIn & Personal Branding' },
+    { id: 'Product Hunt', label: 'Product Hunt' },
+    { id: 'Influencer Marketing', label: 'Influencer Campaigns' },
+    { id: 'Pricing & Process', label: 'Process & Engagement' }
   ];
 
   const filteredFaqs = activeCategory === 'all'
@@ -27,108 +25,87 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
     : FAQ_DATA.filter(faq => faq.category === activeCategory);
 
   return (
-    <section id="faq" className="py-24 bg-white border-t border-[#E5E5E1] relative overflow-hidden">
+    <section id="faq" className="py-24 bg-[#090A0F] text-slate-100 border-t border-[#181C28] relative overflow-hidden font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <StaggerContainer 
-          stagger={0.08}
-          delay={0.05}
-          className="text-center max-w-2xl mx-auto mb-12"
-        >
-          <StaggerItem>
-            <span className="text-[#2563EB] font-bold tracking-[0.25em] text-xs uppercase mb-3 inline-block">
-              Frequently Asked Questions
-            </span>
-          </StaggerItem>
-          <StaggerItem>
-            <h2 className="text-4xl sm:text-5xl font-serif-artistic font-medium text-[#1A1A1A] tracking-tight leading-tight">
-              Everything Before <span className="italic font-normal">You Launch.</span>
-            </h2>
-          </StaggerItem>
-          <StaggerItem>
-            <p className="mt-4 text-xs sm:text-sm text-[#1A1A1A]/70 leading-relaxed">
-              Transparent answers on hunter mechanics, algorithm safeguards, content ghostwriting workflows, and campaign timelines.
-            </p>
-          </StaggerItem>
+        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+          <span className="text-blue-400 font-semibold tracking-widest text-xs uppercase block">
+            Common Questions
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+            Clear Answers on Strategy & Execution
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+            Transparent insights into how we handle founder branding, page management, launch operations, and creator partnerships.
+          </p>
 
-          {/* Category Filter Pills */}
-          <StaggerItem>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              {categories.map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                    activeCategory === cat.id
-                      ? 'bg-[#1A1A1A] text-white'
-                      : 'bg-[#FAF9F6] text-[#1A1A1A]/70 border border-[#E5E5E1] hover:text-[#1A1A1A]'
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </StaggerItem>
-        </StaggerContainer>
-
-        {/* Accordion Component with Artistic Minimal Borders */}
-        <StaggerContainer
-          stagger={0.06}
-          delay={0.1}
-        >
-          <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-3">
-            {filteredFaqs.map((faq, idx) => (
-              <StaggerItem key={faq.id}>
-                <AccordionItem value={faq.id} className="border border-[#E5E5E1] bg-[#FAF9F6] rounded-2xl px-5">
-                  <AccordionTrigger className="text-left font-serif-artistic italic font-medium text-[#1A1A1A] text-lg hover:no-underline py-4">
-                    <div className="flex items-center gap-3 pr-4">
-                      <div className="w-5 h-5 rounded-full border border-[#1A1A1A] flex items-center justify-center text-[9px] font-sans font-bold shrink-0">
-                        {idx + 1}
-                      </div>
-                      <span>{faq.question}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-[#1A1A1A]/70 text-xs sm:text-sm leading-relaxed pl-8 pb-4 font-sans">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              </StaggerItem>
+          {/* Category Filter Buttons */}
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-2">
+            {categories.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                  activeCategory === cat.id
+                    ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20'
+                    : 'bg-[#10131E] text-slate-400 border border-[#1E2332] hover:text-white'
+                }`}
+              >
+                {cat.label}
+              </button>
             ))}
-          </Accordion>
-        </StaggerContainer>
+          </div>
+        </div>
 
-        {/* Still have questions card in Artistic Border */}
-        <StaggerContainer 
-          stagger={0.1}
-          delay={0.1}
-          className="mt-12 p-6 sm:p-8 rounded-3xl bg-[#FAF9F6] border border-[#E5E5E1] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left"
-        >
-          <StaggerItem className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-[#1A1A1A] text-white flex items-center justify-center shrink-0">
-              <MessageSquare className="w-4 h-4" />
+        {/* Accordions */}
+        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-3">
+          {filteredFaqs.map((faq, idx) => (
+            <AccordionItem 
+              key={faq.id} 
+              value={faq.id} 
+              className="border border-[#1E2333] bg-[#0F121C] rounded-2xl px-6"
+            >
+              <AccordionTrigger className="text-left font-semibold text-white text-base hover:no-underline py-4 cursor-pointer">
+                <div className="flex items-center gap-3 pr-4">
+                  <span className="font-mono text-xs text-blue-400 shrink-0">
+                    0{idx + 1}
+                  </span>
+                  <span>{faq.question}</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-400 text-xs sm:text-sm leading-relaxed pl-7 pb-5 font-sans">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
+        {/* Bottom Contact Box */}
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#0F121C] border border-[#1E2333] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+              <MessageSquare className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-lg font-serif-artistic italic font-medium text-[#1A1A1A]">
-                Have a specific question about your launch?
+              <h4 className="text-base font-bold text-white">
+                Have a unique question about your digital presence?
               </h4>
-              <p className="text-xs text-[#1A1A1A]/60 mt-0.5">
-                Send us a direct message on X or schedule a 15-minute quick strategy audit.
+              <p className="text-xs text-slate-400 mt-0.5">
+                We are happy to review your current channels and provide direct feedback.
               </p>
             </div>
-          </StaggerItem>
+          </div>
 
-          <StaggerItem>
-            <Button
-              onClick={onOpenBooking}
-              size="sm"
-              className="shrink-0"
-            >
-              <span>Ask Us Directly</span>
-              <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-            </Button>
-          </StaggerItem>
-        </StaggerContainer>
+          <Button
+            onClick={onOpenBooking}
+            size="sm"
+            className="shrink-0 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-semibold rounded-full px-5 py-2.5 cursor-pointer"
+          >
+            <span>Ask Us Directly</span>
+            <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+          </Button>
+        </div>
 
       </div>
     </section>

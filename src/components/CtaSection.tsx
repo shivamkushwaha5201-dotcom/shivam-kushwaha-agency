@@ -2,18 +2,15 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   Calendar, 
-  CheckCircle2, 
-  Sparkles, 
-  Clock, 
-  ShieldCheck, 
   Mail, 
-  Phone,
-  ArrowRight,
-  ExternalLink
+  Phone, 
+  ArrowRight, 
+  ExternalLink,
+  CheckCircle2
 } from 'lucide-react';
 import { CONTACT_INFO } from '../data/portfolioData';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
-import { StaggerContainer, StaggerItem } from './ui/ScrollReveal';
+import earthImage from '../assets/images/earth_hero.jpg';
 
 interface CtaSectionProps {
   onSuccessSubmit?: () => void;
@@ -81,191 +78,142 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#FAF9F6] border-t border-[#E5E5E1] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section 
+      id="contact" 
+      className="py-32 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Call-to-Action Hero Box */}
-        <StaggerContainer 
-          stagger={0.09}
-          delay={0.05}
-          className="rounded-3xl bg-[#0F172A] text-white p-8 sm:p-12 lg:p-14 relative overflow-hidden mb-12 border border-slate-800 shadow-xl"
-        >
-          <div className="relative z-10 max-w-3xl">
-            <StaggerItem>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                Now Booking Q2 & Q3 Launches
-              </div>
-            </StaggerItem>
-            
-            <StaggerItem>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight leading-tight">
-                Ready to Claim Your <span className="text-[#3B82F6]">#1 Product of the Day</span> Badge?
-              </h2>
-            </StaggerItem>
-            
-            <StaggerItem>
-              <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans max-w-2xl">
-                Book a 1-on-1 strategy call with our team to analyze your product's viral distribution potential, target launch date, and multi-channel growth playbook.
-              </p>
-            </StaggerItem>
+        {/* Main CTA Top Banner with Earth Visual in Background */}
+        <div className="p-8 sm:p-14 rounded-3xl bg-[#050B14]/80 backdrop-blur-xl border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
+          
+          {/* Deep blue atmospheric lighting */}
+          <div className="absolute top-0 right-1/4 w-[400px] h-[300px] bg-blue-600/15 blur-[100px] pointer-events-none -z-0" />
 
-            <StaggerItem>
-              <div className="mt-8 flex flex-wrap items-center gap-4 pt-2">
-                <div className="flex items-center gap-2 text-xs text-slate-200 font-medium bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700">
-                  <ShieldCheck className="w-4 h-4 text-[#3B82F6]" />
-                  Max 4 Launches Managed / Month
-                </div>
-                <div className="flex items-center gap-2 text-xs text-slate-200 font-medium bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700">
-                  <Clock className="w-4 h-4 text-emerald-400" />
-                  Guaranteed Response within 12 Hours
-                </div>
+          <div className="relative z-10 max-w-2xl space-y-4">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-sky-400 font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              Strategic Growth Partnership
+            </div>
+
+            {/* Exactly as requested by user prompt */}
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] leading-[1.08] uppercase">
+              READY TO BUILD YOUR <br className="hidden sm:inline" />
+              DIGITAL INFLUENCE?
+            </h2>
+
+            <p className="text-sm sm:text-base text-[#94A3B8] font-sans leading-relaxed max-w-xl font-normal">
+              Let’s build a growth strategy around your brand, audience and goals.
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#94A3B8] font-mono">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" />
+                <span>Direct senior strategist collaboration</span>
               </div>
-            </StaggerItem>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" />
+                <span>Custom platform playbook</span>
+              </div>
+            </div>
           </div>
+        </div>
 
-          {/* Background Ambient Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none -z-0" />
-        </StaggerContainer>
-
-        {/* Main Content: Left Quick Direct Channels, Right Pure Cal.com Live Embed */}
+        {/* Content Columns: Agency Details & Live Calendar */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Direct Channels & Agency Card */}
-          <StaggerContainer 
-            stagger={0.08}
-            delay={0.1}
-            className="lg:col-span-4 space-y-6"
-          >
+          {/* Left Column: Direct Agency Channels */}
+          <div className="lg:col-span-4 space-y-6">
             
-            {/* Agency Profile Card */}
-            <div className="p-6 sm:p-7 rounded-3xl border border-[#E5E5E1] bg-white shadow-sm space-y-5">
-              <StaggerItem>
-                <div className="flex items-center gap-3.5 pb-4 border-b border-[#E5E5E1]">
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#2563EB]/30 p-0.5 bg-white shadow-sm shrink-0">
-                    <img
-                      src={brandLogo}
-                      alt="AxentAI Labs"
-                      className="w-full h-full object-cover rounded-full"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-[#1A1A1A]">AxentAI Labs</h3>
-                    <p className="text-xs text-[#1A1A1A]/60">Launch & Distribution Agency</p>
-                    <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full mt-1 border border-blue-200/60">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                      Launch Partner
-                    </span>
-                  </div>
+            <div className="p-7 rounded-2xl bg-[#050B14] border border-blue-500/20 space-y-5 shadow-lg shadow-black/40">
+              
+              <div className="flex items-center gap-3.5 pb-4 border-b border-blue-500/15">
+                <div className="w-12 h-12 rounded-full overflow-hidden border border-blue-500/40 p-0.5 bg-[#02040A] shrink-0">
+                  <img
+                    src={brandLogo}
+                    alt="AxentAI Labs"
+                    className="w-full h-full object-cover rounded-full"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-              </StaggerItem>
-
-              <StaggerItem>
-                <div className="space-y-2.5 text-xs text-[#1A1A1A]/70">
-                  <p className="leading-relaxed">
-                    Book directly on our strategy calendar. Every call is a direct 1-on-1 discussion on your launch roadmap.
-                  </p>
+                <div>
+                  <h3 className="text-base font-bold text-white">AxentAI Labs</h3>
+                  <p className="text-xs text-slate-400">Digital Growth Agency</p>
                 </div>
-              </StaggerItem>
-
-              {/* Quick Contact Links */}
-              <div className="space-y-2.5 pt-2">
-                <StaggerItem>
-                  <a
-                    href={`mailto:${CONTACT_INFO.email}`}
-                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF9F6] border border-[#E5E5E1] hover:border-[#2563EB] hover:bg-blue-50/40 transition-all group"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 text-[#2563EB] border border-blue-200/80 flex items-center justify-center shrink-0">
-                        <Mail className="w-4 h-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-[11px] font-bold text-[#1A1A1A]">Direct Email</div>
-                        <div className="text-[10px] text-[#1A1A1A]/60 font-mono-code truncate">{CONTACT_INFO.email}</div>
-                      </div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-[#1A1A1A]/40 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all shrink-0" />
-                  </a>
-                </StaggerItem>
-
-                <StaggerItem>
-                  <a
-                    href={CONTACT_INFO.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF9F6] border border-[#E5E5E1] hover:border-emerald-500 hover:bg-emerald-50/40 transition-all group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/80 flex items-center justify-center shrink-0">
-                        <Phone className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-[11px] font-bold text-[#1A1A1A]">WhatsApp Chat</div>
-                        <div className="text-[10px] text-[#1A1A1A]/60 font-mono-code">{CONTACT_INFO.phone}</div>
-                      </div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-[#1A1A1A]/40 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all shrink-0" />
-                  </a>
-                </StaggerItem>
-
-                <StaggerItem>
-                  <a
-                    href={CONTACT_INFO.agencyLinkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF9F6] border border-[#E5E5E1] hover:border-[#2563EB] hover:bg-blue-50/40 transition-all group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#1A1A1A] text-white flex items-center justify-center font-bold text-xs shrink-0">
-                        in
-                      </div>
-                      <div>
-                        <div className="text-[11px] font-bold text-[#1A1A1A]">LinkedIn</div>
-                        <div className="text-[10px] text-[#1A1A1A]/60">AxentAI Labs</div>
-                      </div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-[#1A1A1A]/40 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all shrink-0" />
-                  </a>
-                </StaggerItem>
               </div>
 
-              {/* Guarantee Box */}
-              <StaggerItem>
-                <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-200/60 flex items-start gap-2.5 text-xs text-blue-950">
-                  <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-                  <span className="leading-relaxed font-medium">
-                    Dedicated strategic execution on every campaign. Tailored playbooks built for high conversion.
-                  </span>
-                </div>
-              </StaggerItem>
+              <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                Choose a time that works for you on the calendar. We review your channels in advance and come prepared with actionable strategic feedback.
+              </p>
+
+              {/* Direct channels */}
+              <div className="space-y-2.5 pt-2">
+                <a
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#02040A] border border-blue-500/15 hover:border-blue-500/50 transition-colors group"
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                    <div className="min-w-0">
+                      <div className="text-[11px] font-semibold text-white">Direct Email</div>
+                      <div className="text-[10px] text-slate-400 font-mono truncate">{CONTACT_INFO.email}</div>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400 transition-colors" />
+                </a>
+
+                <a
+                  href={CONTACT_INFO.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#02040A] border border-blue-500/15 hover:border-emerald-500/50 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <div>
+                      <div className="text-[11px] font-semibold text-white">WhatsApp</div>
+                      <div className="text-[10px] text-slate-400 font-mono">{CONTACT_INFO.phone}</div>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                </a>
+
+                <a
+                  href={CONTACT_INFO.agencyLinkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#02040A] border border-blue-500/15 hover:border-blue-500/50 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-4 h-4 flex items-center justify-center font-bold text-xs text-sky-400">in</span>
+                    <div>
+                      <div className="text-[11px] font-semibold text-white">LinkedIn</div>
+                      <div className="text-[10px] text-slate-400">AxentAI Labs</div>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400 transition-colors" />
+                </a>
+              </div>
 
             </div>
 
-          </StaggerContainer>
+          </div>
 
-          {/* Right Column: Pure Cal.com Live Embed (No Local Form) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-8"
-          >
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#E5E5E1] bg-white shadow-sm space-y-4">
+          {/* Right Column: Cal.com Live Embed */}
+          <div className="lg:col-span-8">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#050B14] border border-blue-500/20 space-y-4 shadow-xl shadow-black/40">
               
-              {/* Embed Header Bar */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#E5E5E1]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-blue-500/15">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-blue-50 text-[#2563EB] border border-blue-200 flex items-center justify-center font-bold shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-blue-600/15 border border-blue-500/30 text-sky-400 flex items-center justify-center font-bold shrink-0">
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-[#1A1A1A]">
-                      Schedule a Growth Strategy Call
+                    <h3 className="text-sm sm:text-base font-bold text-white">
+                      Book a Strategy Call
                     </h3>
-                    <p className="text-xs text-[#1A1A1A]/60">
-                      Select your preferred date & time slot directly below.
+                    <p className="text-xs text-slate-400">
+                      Select a date and time slot directly below.
                     </p>
                   </div>
                 </div>
@@ -274,28 +222,28 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
                   href={CONTACT_INFO.calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-[#2563EB] font-bold hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200/80"
+                  className="text-xs text-sky-400 font-semibold hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20"
                 >
                   <span>Open in Cal.com</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
 
-              {/* Cal.com Live Inline Embed Container */}
-              <div className="w-full min-h-[640px] rounded-2xl overflow-hidden border border-[#E5E5E1] bg-[#FAF9F6] p-1 shadow-inner">
+              {/* Cal.com Container */}
+              <div className="w-full min-h-[620px] rounded-2xl overflow-hidden border border-blue-500/15 bg-[#02040A] p-1">
                 <div 
-                  style={{ width: "100%", height: "100%", minHeight: "630px", overflow: "scroll" }} 
+                  style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "scroll" }} 
                   id="my-cal-inline-book-a-growth-strategy-call-with-shivam"
                 />
               </div>
 
-              <div className="flex items-center justify-between pt-1 text-[11px] text-[#1A1A1A]/50">
-                <span>🔒 Secure Calendar Embed via Cal.com</span>
-                <span>Timezone automatically adjusts to your local browser time</span>
+              <div className="flex items-center justify-between pt-1 text-[11px] text-slate-500">
+                <span>Direct calendar reservation via Cal.com</span>
+                <span>Timezone automatically synced to browser</span>
               </div>
 
             </div>
-          </motion.div>
+          </div>
 
         </div>
 

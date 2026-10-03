@@ -1,162 +1,174 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { 
-  ArrowRight, 
-  Phone
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { CONTACT_INFO } from '../data/portfolioData';
-import { TrustedByMarquee } from './TrustedByMarquee';
-import { StaggerContainer, StaggerItem, staggerItemScaleVariants } from './ui/ScrollReveal';
 
 interface HeroSectionProps {
-  onOpenAudit: () => void;
   onOpenBooking: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
   return (
-    <section id="home" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-[#FAF9F6]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Main Hero 2-Column Layout */}
-        <StaggerContainer 
-          stagger={0.1}
-          delay={0.05}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center"
-        >
+    <section 
+      id="home" 
+      className="relative min-h-[95vh] lg:min-h-screen pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden bg-transparent text-[#F8FAFC] flex items-center z-10"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Bold Headline, Subtitle, Testimonial & Pill CTAs */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* LEFT: Confident Editorial Luxury Typography (Cols 1-7) */}
+          <div className="lg:col-span-7 xl:col-span-7 space-y-8 text-left">
             
-            {/* Top Pill status */}
-            <StaggerItem>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E5E5E1] shadow-sm">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2563EB] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2563EB]"></span>
-                </span>
-                <span className="text-xs font-bold text-[#1A1A1A] tracking-wide">
-                  AxentAI Labs
-                </span>
-                <span className="text-[#1A1A1A]/30">•</span>
-                <span className="text-xs font-semibold text-[#2563EB]">
-                  Launch & Distribution Agency
-                </span>
+            {/* Eyebrow Label */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#050B14]/80 backdrop-blur-md border border-white/10 text-[11px] font-mono font-medium tracking-[0.22em] text-[#38BDF8] uppercase"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
+              <span>GLOBAL DIGITAL GROWTH</span>
+            </motion.div>
+
+            {/* Main Headline (Clean, Large, Confident Editorial Style) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.04]"
+            >
+              BUILD INFLUENCE <br />
+              THAT TRAVELS <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93C5FD] via-[#38BDF8] to-[#60A5FA]">
+                FURTHER.
+              </span>
+            </motion.h1>
+
+            {/* Supporting Copy (Restrained, Confident, Generous Leading) */}
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base sm:text-lg text-[#94A3B8] font-sans leading-relaxed max-w-xl font-normal"
+            >
+              We help founders, startups and brands build visibility through personal branding, organic social growth, Product Hunt launches and creator partnerships.
+            </motion.p>
+
+            {/* Luxury Action Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="pt-2 flex flex-wrap items-center gap-4"
+            >
+              <Button
+                id="hero-primary-cta"
+                size="lg"
+                onClick={onOpenBooking}
+                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg shadow-blue-500/20 group transition-all cursor-pointer"
+              >
+                <span>BOOK A STRATEGY CALL</span>
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+
+              <a
+                href="#services"
+                className="px-7 py-3.5 rounded-full border border-white/10 bg-[#050B14]/80 backdrop-blur-md text-[#94A3B8] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/20 hover:text-white transition-all cursor-pointer"
+              >
+                EXPLORE SERVICES
+              </a>
+            </motion.div>
+
+            {/* Subtle Negative-Space Line */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.85, delay: 0.45 }}
+              className="pt-8 border-t border-white/10 flex flex-wrap items-center gap-7 text-xs text-[#94A3B8] font-mono"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                <span>Founder Authority</span>
               </div>
-            </StaggerItem>
-
-            {/* Main Name & Title */}
-            <StaggerItem>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-[#1A1A1A] tracking-tight leading-[1.08]">
-                AxentAI Labs<span className="text-[#2563EB]">.</span>
-              </h1>
-              <p className="mt-3 text-lg sm:text-xl font-medium text-[#1A1A1A]/80 leading-snug">
-                Growth & Multi-Channel Distribution Agency helping tech startups achieve global reach.
-              </p>
-            </StaggerItem>
-
-            {/* Description Paragraph */}
-            <StaggerItem>
-              <p className="text-sm sm:text-base text-[#1A1A1A]/70 leading-relaxed font-sans max-w-xl">
-                We specialize in high-velocity <strong className="text-[#1A1A1A] font-semibold">Product Hunt Launches</strong>, viral organic <strong className="text-[#1A1A1A] font-semibold">LinkedIn & X (Twitter) SMM</strong>, <strong className="text-[#1A1A1A] font-semibold">Reddit Marketing</strong>, and <strong className="text-[#1A1A1A] font-semibold">Tech Influencer Syndication</strong>.
-              </p>
-            </StaggerItem>
-
-            {/* Action Buttons: Services & Book a Call (Blue Pill) */}
-            <StaggerItem>
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <a
-                  href="#services"
-                  className="px-6 py-3 rounded-full border border-[#1A1A1A] bg-white text-[#1A1A1A] text-xs sm:text-sm font-bold hover:bg-[#FAF9F6] transition-all"
-                >
-                  Explore Services
-                </a>
-
-                <Button
-                  id="hero-primary-cta"
-                  size="lg"
-                  onClick={onOpenBooking}
-                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-7 py-3 rounded-full shadow-lg shadow-[#2563EB]/25 group"
-                >
-                  <span>Book a Call</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                <a
-                  href={CONTACT_INFO.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-full border border-[#E5E5E1] bg-white text-[#1A1A1A]/80 text-xs sm:text-sm font-semibold hover:border-[#2563EB] hover:text-[#2563EB] transition-all flex items-center gap-2"
-                >
-                  <Phone className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>WhatsApp</span>
-                </a>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                <span>Global Organic Reach</span>
               </div>
-            </StaggerItem>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>Verified Metrics Only</span>
+              </div>
+            </motion.div>
 
           </div>
 
-          {/* Right Column: "WORK WITH US" Badge Stamp & Starburst Graphic */}
-          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end py-4">
-            <StaggerItem variants={staggerItemScaleVariants}>
-              <div className="flex items-center gap-6">
-                
-                {/* Starburst 8-pointed geometric line icon */}
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-[#1A1A1A]/20 flex items-center justify-center text-[#1A1A1A]/60 hover:text-[#2563EB] hover:border-[#2563EB] transition-colors">
-                  <svg className="w-8 h-8 sm:w-10 sm:h-10 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
-                  </svg>
-                </div>
-
-                {/* Large Circular "WORK WITH US" rotating badge stamp */}
-                <div className="relative group cursor-pointer" onClick={onOpenBooking}>
-                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-[#2563EB] p-1.5 shadow-xl shadow-[#2563EB]/30 flex items-center justify-center relative overflow-hidden">
-                    
-                    {/* Rotating Curved Text */}
-                    <div className="absolute inset-0 flex items-center justify-center animate-spin" style={{ animationDuration: '14s' }}>
-                      <svg className="w-full h-full" viewBox="0 0 100 100">
-                        <path
-                          id="circlePath"
-                          d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                          fill="transparent"
-                        />
-                        <text className="text-[9.5px] font-black uppercase tracking-[0.28em] fill-white">
-                          <textPath href="#circlePath" startOffset="0%">
-                            • AXENT AI LABS • LAUNCH WITH US 
-                          </textPath>
-                        </text>
-                      </svg>
-                    </div>
-
-                    {/* Inner White Disk */}
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white flex flex-col items-center justify-center text-center shadow-inner z-10 group-hover:scale-105 transition-transform">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#1A1A1A]">
-                        WORK
-                      </span>
-                      <span className="text-[11px] font-black uppercase text-[#2563EB]">
-                        WITH US
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
+          {/* RIGHT: Floating Micro-UI Data Accents (Framing the Earth rising from lower-right) */}
+          <div className="lg:col-span-5 xl:col-span-5 min-h-[380px] sm:min-h-[460px] flex items-center justify-center lg:justify-end relative pointer-events-none">
+            
+            {/* Top-Right: Organic Reach */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: [0, -6, 0] }}
+              transition={{ 
+                opacity: { duration: 0.7, delay: 0.35 },
+                y: { repeat: Infinity, duration: 7, ease: "easeInOut" }
+              }}
+              className="absolute top-10 right-2 sm:right-6 px-4 py-2.5 rounded-xl bg-[#050B14]/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
+            >
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[10px] font-semibold text-[#94A3B8] uppercase tracking-wider font-mono">
+                  Organic Reach
+                </span>
               </div>
-            </StaggerItem>
+              <div className="text-xs font-semibold text-[#F8FAFC]">
+                ↑ 68% Engagement Lift
+              </div>
+            </motion.div>
+
+            {/* Middle-Left: LinkedIn Growth */}
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, y: [0, 6, 0] }}
+              transition={{ 
+                opacity: { duration: 0.7, delay: 0.45 },
+                y: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1 }
+              }}
+              className="absolute bottom-24 -left-2 sm:left-4 px-4 py-2.5 rounded-xl bg-[#050B14]/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
+            >
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="text-[10px] font-semibold text-[#38BDF8] uppercase tracking-wider font-mono">
+                  Executive Presence
+                </span>
+              </div>
+              <div className="text-xs font-semibold text-[#F8FAFC]">
+                Founder Pipeline Growth
+              </div>
+            </motion.div>
+
+            {/* Lower-Right: Creator Campaigns */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: [-4, 4, -4] }}
+              transition={{ 
+                opacity: { duration: 0.7, delay: 0.55 },
+                y: { repeat: Infinity, duration: 9, ease: "easeInOut", delay: 2 }
+              }}
+              className="absolute -bottom-2 right-8 sm:right-16 px-4 py-2 rounded-xl bg-[#050B14]/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-medium text-[#F8FAFC]">
+                  Creator Campaigns
+                </span>
+                <span className="text-[10px] font-mono font-bold text-[#38BDF8] bg-[#3B82F6]/10 px-2 py-0.5 rounded border border-[#3B82F6]/25">
+                  Active
+                </span>
+              </div>
+            </motion.div>
+
           </div>
 
-        </StaggerContainer>
-
-        {/* 'Trusted By' Marquee Component */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.65, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <TrustedByMarquee />
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );
