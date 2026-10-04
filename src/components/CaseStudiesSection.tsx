@@ -7,7 +7,7 @@ interface CaseStudiesSectionProps {
   onOpenBooking: () => void;
 }
 
-export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenBooking }) => {
+export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(({ onOpenBooking }) => {
   const caseStudies = [
     {
       project: 'B2B Enterprise Workflow SaaS',
@@ -56,13 +56,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenBo
                 'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
             }}
           />
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
             // STRATEGIC EXECUTION RECORDS
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] heading-contrast-shadow">
             Case Architectures.
           </h2>
-          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans max-w-2xl font-normal drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
+          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans max-w-2xl font-normal text-contrast-shadow">
             Detailed breakdowns demonstrating how deliberate positioning, organic authority, and creator distribution solve specific commercial bottlenecks.
           </p>
         </div>
@@ -160,4 +160,4 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenBo
       </div>
     </section>
   );
-};
+});

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import statueCenterVisual from '../assets/images/statue_orbit_center_1791127293704.jpg';
+import statueCenterVisualWebp from '../assets/images/statue_orbit_center_opt.webp';
 
 interface InfluencerSectionProps {
   onOpenBooking: () => void;
@@ -110,7 +111,7 @@ const SIX_ORBIT_PLATFORMS: OrbitIconNode[] = [
   },
 ];
 
-export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBooking }) => {
+export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({ onOpenBooking }) => {
   const [activePlatform, setActivePlatform] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
@@ -153,13 +154,13 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBook
                   'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
               }}
             />
-            <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
               // SOCIAL PLATFORM EXPERIENCE
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase heading-contrast-shadow">
               Creator Network &amp; Social Distribution.
             </h2>
-            <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-normal drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
+            <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-normal text-contrast-shadow">
               We connect brands with relevant creators across LinkedIn, X and Instagram to engineer sustained audience growth.
             </p>
           </div>
@@ -189,7 +190,7 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBook
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className={`p-6 rounded-2xl border transition-all cursor-pointer ${
+                  className={`p-6 rounded-2xl border transition-colors cursor-pointer ${
                     isHighlighted
                       ? 'bg-[#06111F] border-[#38BDF8] shadow-xl shadow-blue-500/15'
                       : 'bg-[#050B14]/88 border-white/10 hover:border-white/25'
@@ -231,14 +232,17 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBook
 
               {/* Central Statue + Laptop Visual */}
               <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#000000] border border-[#38BDF8]/30 shadow-[0_0_55px_rgba(56,189,248,0.18)] overflow-hidden relative flex items-end justify-center z-10">
-                <img
-                  src={statueCenterVisual}
-                  alt="Creator Network & Social Distribution Central Visual"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top scale-[1.03]"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet={statueCenterVisualWebp} type="image/webp" />
+                  <img
+                    src={statueCenterVisual}
+                    alt="Creator Network & Social Distribution Central Visual"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top scale-[1.03]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#02050A]/65 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-[#38BDF8]/25 rounded-full pointer-events-none" />
               </div>
@@ -247,7 +251,10 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBook
               <div className="absolute inset-2 rounded-full border border-dashed border-[#38BDF8]/20 pointer-events-none" />
 
               {/* Continuous Slow Circular Orbit Carrier for All 6 Platforms (Single Parent Transform) */}
-              <div className="orbit-carrier absolute inset-0 rounded-full z-20">
+              <div
+                style={{ willChange: inView ? 'transform' : 'auto' }}
+                className="orbit-carrier absolute inset-0 rounded-full z-20"
+              >
                 {SIX_ORBIT_PLATFORMS.map((platform) => {
                   const isHighlighted = activePlatform === platform.id;
                   const rad = (platform.angleDeg * Math.PI) / 180;
@@ -360,12 +367,10 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBook
         }
         .orbit-carrier {
           animation: orbitSpin3D 34s linear infinite;
-          will-change: transform;
           backface-visibility: hidden;
         }
         .orbit-counter-node {
           animation: orbitCounterSpin3D 34s linear infinite;
-          will-change: transform;
           backface-visibility: hidden;
         }
         .orbit-carrier:hover,
@@ -377,4 +382,4 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = ({ onOpenBook
       `}</style>
     </section>
   );
-};
+});

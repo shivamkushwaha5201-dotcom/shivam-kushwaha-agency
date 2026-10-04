@@ -9,7 +9,7 @@ interface FaqSectionProps {
   onOpenBooking: () => void;
 }
 
-export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
+export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const categories = [
@@ -110,4 +110,4 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
       </div>
     </section>
   );
-};
+});

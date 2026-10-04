@@ -13,15 +13,16 @@ import {
 import { Button } from './ui/button';
 import { CONTACT_INFO } from '../data/portfolioData';
 import shivamAboutPhoto from '../assets/images/Screenshot_2026-09-02-09-30-52-50_99c04817c0de5652397fc8b56c3b3817.jpg';
+import shivamProfileWebp from '../assets/images/shivam_profile_opt.webp';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
+import brandLogoWebp from '../assets/images/brand_logo_opt.webp';
 import { StaggerContainer, StaggerItem } from './ui/ScrollReveal';
-import { SpotlightCard } from './ui/SpotlightCard';
 
 interface AboutSectionProps {
   onOpenBooking: () => void;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => {
+export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBooking }) => {
   useEffect(() => {
     try {
       const scriptEl = document.getElementById('axentailabs-structured-data');
@@ -152,30 +153,38 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
             <div className="relative mx-auto max-w-sm sm:max-w-md">
               
               {/* Background Geometric Wireframe Arcs */}
-              <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full border border-[#2563EB]/30 pointer-events-none -z-10 animate-pulse" />
+              <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full border border-[#2563EB]/30 pointer-events-none -z-10" />
               <div className="absolute -bottom-6 -right-6 w-80 h-80 rounded-full border border-[#1A1A1A]/15 dark:border-white/10 pointer-events-none -z-10" />
 
               {/* Main Photo Card */}
               <div className="relative rounded-3xl overflow-hidden border-2 border-[#1A1A1A] dark:border-slate-700 bg-[#0A3C42] shadow-2xl shadow-blue-500/10 aspect-[4/5] sm:aspect-[4/5] group">
-                <img
-                  src={shivamAboutPhoto}
-                  alt="Shivam Kushwaha, Founder & CEO of Axentailabs"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover object-[center_38%] group-hover:scale-104 transition-transform duration-700 ease-out"
-                  referrerPolicy="no-referrer"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet={shivamProfileWebp} type="image/webp" />
+                  <img
+                    src={shivamAboutPhoto}
+                    alt="Shivam Kushwaha, Founder & CEO of Axentailabs"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-[center_38%] group-hover:scale-104 transition-transform duration-700 ease-out"
+                    referrerPolicy="no-referrer"
+                  />
+                </picture>
 
                 {/* Bottom Floating Info Tag */}
                 <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 border border-[#E5E5E1] dark:border-[#1E293B] shadow-lg flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-full overflow-hidden border border-[#2563EB]/30 p-0.5 bg-white dark:bg-slate-900 shadow-xs flex items-center justify-center shrink-0">
-                      <img
-                        src={brandLogo}
-                        alt="Axentailabs Logo"
-                        className="w-full h-full object-cover rounded-full"
-                        referrerPolicy="no-referrer"
-                      />
+                      <picture className="w-full h-full block">
+                        <source srcSet={brandLogoWebp} type="image/webp" />
+                        <img
+                          src={brandLogo}
+                          alt="Axentailabs Logo"
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover rounded-full"
+                          referrerPolicy="no-referrer"
+                        />
+                      </picture>
                     </div>
                     <div>
                       <div className="text-xs font-bold text-[#1A1A1A] dark:text-white">Shivam Kushwaha</div>
@@ -230,7 +239,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 href="https://www.producthunt.com/@shivam_kushwaha16"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#02050A]/80 backdrop-blur-md border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-all duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
@@ -244,7 +253,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                     Product Hunt
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 2. LinkedIn */}
@@ -252,7 +261,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 href="https://www.linkedin.com/in/shivam-k-6a462337b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#02050A]/80 backdrop-blur-md border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-all duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
@@ -266,7 +275,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                     LinkedIn
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 3. X / Twitter */}
@@ -274,7 +283,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 href="https://x.com/shivam100x"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#02050A]/80 backdrop-blur-md border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-all duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
@@ -288,13 +297,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                     X
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 4. Personal Email */}
               <a
                 href="mailto:Shivamkushwaha5201@gmail.com"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#02050A]/80 backdrop-blur-md border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-all duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <Mail className="w-4 h-4 text-[#38BDF8] shrink-0 transition-transform duration-250 group-hover:scale-105" />
@@ -302,7 +311,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                     Email
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
             </div>
           </div>
@@ -311,4 +320,4 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
       </div>
     </section>
   );
-};
+});

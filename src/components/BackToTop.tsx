@@ -1,43 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUp } from 'lucide-react';
+import { scrollCoordinator } from '../lib/scrollCoordinator';
 
-export const BackToTop: React.FC = () => {
+export const BackToTop: React.FC = React.memo(() => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
     let threshold = 450;
+    let lastVisible = false;
 
     const measureThreshold = () => {
       const heroElement = document.getElementById('home');
       threshold = heroElement ? Math.max(300, heroElement.offsetHeight - 120) : 450;
     };
 
-    measureThreshold();
-    window.addEventListener('resize', measureThreshold, { passive: true });
-
-    let lastVisible = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const isVisible = window.scrollY > threshold;
-          if (isVisible !== lastVisible) {
-            lastVisible = isVisible;
-            setVisible(isVisible);
-          }
-          ticking = false;
-        });
-        ticking = true;
+    return scrollCoordinator.subscribe(
+      (m) => {
+        const isVisible = m.scrollY > threshold;
+        if (isVisible !== lastVisible) {
+          lastVisible = isVisible;
+          setVisible(isVisible);
+        }
+        return false;
+      },
+      () => {
+        measureThreshold();
       }
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', measureThreshold);
-    };
+    );
   }, []);
 
   const scrollToTop = () => {
@@ -57,7 +47,7 @@ export const BackToTop: React.FC = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 12 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-11 h-11 rounded-full bg-white/95 dark:bg-slate-800/95 hover:bg-white dark:hover:bg-slate-800 text-[#1A1A1A] dark:text-slate-100 hover:text-[#2563EB] dark:hover:text-blue-400 border border-[#E5E5E1] dark:border-slate-700 shadow-lg shadow-black/8 hover:shadow-xl hover:border-[#2563EB]/40 backdrop-blur-md transition-colors cursor-pointer group focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2"
+          className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-11 h-11 rounded-full bg-[#050B16]/95 hover:bg-[#0B1528] text-slate-100 hover:text-blue-400 border border-slate-700 shadow-lg shadow-black/50 hover:border-[#2563EB]/50 transition-colors cursor-pointer group focus:outline-hidden"
           aria-label="Back to Top"
           title="Back to Top"
         >
@@ -67,4 +57,4 @@ export const BackToTop: React.FC = () => {
       )}
     </AnimatePresence>
   );
-};
+});

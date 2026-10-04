@@ -30,7 +30,7 @@ const TESTIMONIAL_PLACEHOLDERS = [
   },
 ];
 
-export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = () => {
+export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.memo(() => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const handlePrev = () => {
@@ -88,7 +88,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = () => {
               <div
                 key={item.id}
                 onClick={() => setActiveSlide(idx)}
-                className={`rounded-3xl border p-8 sm:p-10 flex flex-col justify-between cursor-pointer transition-all duration-300 ${
+                className={`rounded-3xl border p-8 sm:p-10 flex flex-col justify-between cursor-pointer transition-[background-color,border-color,opacity,transform] duration-300 ${
                   isDominant
                     ? 'lg:col-span-6 bg-[#050B14]/92 border-[#38BDF8]/50 shadow-2xl shadow-blue-500/10 opacity-100 scale-100'
                     : 'lg:col-span-3 bg-[#050B14]/55 border-white/10 opacity-55 hover:opacity-80 scale-[0.98]'
@@ -124,4 +124,4 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = () => {
       </div>
     </section>
   );
-};
+});

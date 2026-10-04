@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
 import { 
   Calendar, 
   Mail, 
@@ -10,75 +9,105 @@ import {
 } from 'lucide-react';
 import { CONTACT_INFO } from '../data/portfolioData';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
-import earthImage from '../assets/images/earth_hero.jpg';
+import brandLogoWebp from '../assets/images/brand_logo_opt.webp';
 
 interface CtaSectionProps {
   onSuccessSubmit?: () => void;
 }
 
-export const CtaSection: React.FC<CtaSectionProps> = () => {
-  // Initialize Cal.com inline embed
+export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const initializedRef = useRef(false);
+
+  // Defer Cal.com heavy third-party iframe initialization until user scrolls within 800px of Contact
   useEffect(() => {
-    try {
-      (function (C: any, A: string, L: string) {
-        const p = function (a: any, ar: any) { a.q.push(ar); };
-        const d = C.document;
-        C.Cal = C.Cal || function () {
-          const cal = C.Cal;
-          const ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {};
-            cal.q = cal.q || [];
-            const s = d.createElement("script");
-            s.src = A;
-            s.async = true;
-            d.head.appendChild(s);
-            cal.loaded = true;
-          }
-          if (ar[0] === L) {
-            const api: any = function () { p(api, arguments); };
-            const namespace = ar[1];
-            api.q = api.q || [];
-            if (typeof namespace === "string") {
-              cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar);
-              p(cal, ["initNamespace", namespace]);
-            } else {
-              p(cal, ar);
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const initCalEmbed = () => {
+      if (initializedRef.current) return;
+      initializedRef.current = true;
+
+      try {
+        (function (C: any, A: string, L: string) {
+          const p = function (a: any, ar: any) { a.q.push(ar); };
+          const d = C.document;
+          C.Cal = C.Cal || function () {
+            const cal = C.Cal;
+            const ar = arguments;
+            if (!cal.loaded) {
+              cal.ns = {};
+              cal.q = cal.q || [];
+              const s = d.createElement("script");
+              s.src = A;
+              s.async = true;
+              d.head.appendChild(s);
+              cal.loaded = true;
             }
-            return;
-          }
-          p(cal, ar);
-        };
-      })(window, "https://app.cal.com/embed/embed.js", "init");
+            if (ar[0] === L) {
+              const api: any = function () { p(api, arguments); };
+              const namespace = ar[1];
+              api.q = api.q || [];
+              if (typeof namespace === "string") {
+                cal.ns[namespace] = cal.ns[namespace] || api;
+                p(cal.ns[namespace], ar);
+                p(cal, ["initNamespace", namespace]);
+              } else {
+                p(cal, ar);
+              }
+              return;
+            }
+            p(cal, ar);
+          };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
 
-      const win = window as any;
-      if (win.Cal) {
-        win.Cal("init", "book-a-growth-strategy-call-with-shivam", { origin: "https://app.cal.com" });
-        win.Cal.config = win.Cal.config || {};
-        win.Cal.config.forwardQueryParams = true;
+        const win = window as any;
+        if (win.Cal) {
+          win.Cal("init", "book-a-growth-strategy-call-with-shivam", { origin: "https://app.cal.com" });
+          win.Cal.config = win.Cal.config || {};
+          win.Cal.config.forwardQueryParams = true;
 
-        setTimeout(() => {
-          if (win.Cal && win.Cal.ns && win.Cal.ns["book-a-growth-strategy-call-with-shivam"]) {
-            win.Cal.ns["book-a-growth-strategy-call-with-shivam"]("inline", {
-              elementOrSelector: "#my-cal-inline-book-a-growth-strategy-call-with-shivam",
-              config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
-              calLink: "shivam-kushwaha-2fovpp/book-a-growth-strategy-call-with-shivam",
-            });
-            win.Cal.ns["book-a-growth-strategy-call-with-shivam"]("ui", {
-              hideEventTypeDetails: false,
-              layout: "month_view",
-            });
-          }
-        }, 150);
+          setTimeout(() => {
+            if (win.Cal && win.Cal.ns && win.Cal.ns["book-a-growth-strategy-call-with-shivam"]) {
+              win.Cal.ns["book-a-growth-strategy-call-with-shivam"]("inline", {
+                elementOrSelector: "#my-cal-inline-book-a-growth-strategy-call-with-shivam",
+                config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+                calLink: "shivam-kushwaha-2fovpp/book-a-growth-strategy-call-with-shivam",
+              });
+              win.Cal.ns["book-a-growth-strategy-call-with-shivam"]("ui", {
+                hideEventTypeDetails: false,
+                layout: "month_view",
+              });
+            }
+          }, 150);
+        }
+      } catch (e) {
+        console.warn("Cal embed initialization:", e);
       }
-    } catch (e) {
-      console.warn("Cal embed initialization:", e);
+    };
+
+    if (typeof IntersectionObserver === 'undefined') {
+      initCalEmbed();
+      return;
     }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0] && entries[0].isIntersecting) {
+          initCalEmbed();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '800px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section 
+      ref={sectionRef}
       id="contact" 
       className="py-32 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
     >
@@ -103,17 +132,16 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
               Strategic Growth Partnership
             </div>
 
-            {/* Exactly as requested by user prompt */}
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] leading-[1.08] uppercase">
               READY TO BUILD YOUR <br className="hidden sm:inline" />
               DIGITAL INFLUENCE?
             </h2>
 
-            <p className="text-sm sm:text-base text-[#94A3B8] font-sans leading-relaxed max-w-xl font-normal">
+            <p className="text-sm sm:text-base text-[#E2E8F0] font-sans leading-relaxed max-w-xl font-normal">
               Let’s build a growth strategy around your brand, audience and goals.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#94A3B8] font-mono">
+            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#CBD5E1] font-mono">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" />
                 <span>Direct senior strategist collaboration</span>
@@ -136,12 +164,17 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
               
               <div className="flex items-center gap-3.5 pb-4 border-b border-blue-500/15">
                 <div className="w-12 h-12 rounded-full overflow-hidden border border-blue-500/40 p-0.5 bg-[#02040A] shrink-0">
-                  <img
-                    src={brandLogo}
-                    alt="AxentAI Labs"
-                    className="w-full h-full object-cover rounded-full"
-                    referrerPolicy="no-referrer"
-                  />
+                  <picture className="w-full h-full block">
+                    <source srcSet={brandLogoWebp} type="image/webp" />
+                    <img
+                      src={brandLogo}
+                      alt="AxentAI Labs"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover rounded-full"
+                      referrerPolicy="no-referrer"
+                    />
+                  </picture>
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-white">AxentAI Labs</h3>
@@ -239,7 +272,7 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
               {/* Cal.com Container */}
               <div className="w-full min-h-[620px] rounded-2xl overflow-hidden border border-blue-500/15 bg-[#02040A] p-1">
                 <div 
-                  style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "scroll" }} 
+                  style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "auto" }} 
                   id="my-cal-inline-book-a-growth-strategy-call-with-shivam"
                 />
               </div>
@@ -257,4 +290,4 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
       </div>
     </section>
   );
-};
+});

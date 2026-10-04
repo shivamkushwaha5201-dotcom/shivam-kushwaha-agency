@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import earthImage from '../assets/images/earth_hero.jpg';
 import earthWebp from '../assets/images/earth_hero.webp';
 import earthMobileWebp from '../assets/images/earth_hero_mobile.webp';
+import { scrollCoordinator, ScrollMetrics } from '../lib/scrollCoordinator';
 
 // Linear interpolation helper
 function interpolate(value: number, input: number[], output: number[]): number {
@@ -45,7 +46,7 @@ function stepSpring(
   return true; // still in motion
 }
 
-export const ContinuousScrollEarth: React.FC = () => {
+export const ContinuousScrollEarth: React.FC = React.memo(() => {
   // Direct DOM references for zero-layout-recalculation GPU transforms
   const containerRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
@@ -59,17 +60,14 @@ export const ContinuousScrollEarth: React.FC = () => {
   const dustRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Window dimension cache (updated strictly on resize / ResizeObserver)
-    let winWidth = window.innerWidth;
-    let winHeight = window.innerHeight;
+    let winWidth = scrollCoordinator.metrics.winWidth;
+    let winHeight = scrollCoordinator.metrics.winHeight;
     let isMobile = winWidth < 1024;
-    let docHeight = Math.max(1, document.documentElement.scrollHeight - winHeight);
 
-    // Scroll progress target and smoothed state
-    let targetProgress = 0;
-    let lastProgress = 0;
+    let lastProgress = scrollCoordinator.metrics.progress;
+    let lastTime = performance.now();
 
-    // Spring states for all transformations
+    // Spring states for all transformations (LOCKED trajectory & feel)
     const springX: SpringState = { current: isMobile ? 10 : 28, velocity: 0 };
     const springY: SpringState = { current: isMobile ? 26 : 22, velocity: 0 };
     const springScale: SpringState = { current: isMobile ? 1.25 : 1.60, velocity: 0 };
@@ -94,67 +92,38 @@ export const ContinuousScrollEarth: React.FC = () => {
     const ROTATE_VALUES = [0, 14, 28, 42, 56];
     const OPACITY_VALUES = [0.96, 0.75, 0.88, 0.72, 0.76, 0.82, 0.42, 0.96];
 
-    let rafId: number | null = null;
-    let lastTime = performance.now();
-
-    const wakeLoop = () => {
-      if (rafId === null) {
-        lastTime = performance.now();
-        rafId = requestAnimationFrame(loop);
-      }
-    };
-
-    // Scroll and Mouse listeners strictly store input coordinates and wake rAF
-    const onScroll = () => {
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      targetProgress = docHeight > 0 ? Math.min(1, Math.max(0, scrollY / docHeight)) : 0;
-      wakeLoop();
-    };
-
-    const onResize = () => {
-      winWidth = window.innerWidth;
-      winHeight = window.innerHeight;
-      isMobile = winWidth < 1024;
-      docHeight = Math.max(1, document.documentElement.scrollHeight - winHeight);
-      onScroll();
-    };
-
     const onMouseMove = (e: MouseEvent) => {
       if (isMobile) return;
-      targetMouseX = (e.clientX / winWidth) - 0.5;
-      targetMouseY = (e.clientY / winHeight) - 0.5;
-      wakeLoop();
+      targetMouseX = e.clientX / winWidth - 0.5;
+      targetMouseY = e.clientY / winHeight - 0.5;
+      scrollCoordinator.wake();
     };
 
-    // Observe document body height changes without polling layout inside scroll
-    let resizeObserver: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== 'undefined') {
-      resizeObserver = new ResizeObserver(() => {
-        docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      });
-      resizeObserver.observe(document.body);
-    }
+    const handleResize = (m: ScrollMetrics) => {
+      winWidth = m.winWidth;
+      winHeight = m.winHeight;
+      isMobile = winWidth < 1024;
+    };
 
-    // =======================================================================
-    // CENTRALIZED requestAnimationFrame LOOP (Auto-idles when settled)
-    // =======================================================================
-    function loop(now: number) {
-      const dt = Math.max(0.001, (now - lastTime) / 1000);
+    // Unified frame callback inside the central ScrollCoordinator loop
+    const handleFrame = (m: ScrollMetrics): boolean => {
+      const now = m.now;
+      const dt = Math.max(0.001, Math.min(0.05, (now - lastTime) / 1000));
       lastTime = now;
 
-      // 1. Calculate raw velocity based on frame delta
+      const targetProgress = m.progress;
       const progressDelta = targetProgress - lastProgress;
       lastProgress = targetProgress;
       const rawVelocity = (progressDelta / dt) * 0.1;
 
-      // 2. Trajectory targets based on scroll progress
+      // Trajectory targets based on scroll progress
       const targetX = interpolate(targetProgress, STOPS, isMobile ? X_MOBILE : X_DESKTOP);
       const targetY = interpolate(targetProgress, STOPS, isMobile ? Y_MOBILE : Y_DESKTOP);
       const targetScale = interpolate(targetProgress, STOPS, isMobile ? SCALE_MOBILE : SCALE_DESKTOP);
       const targetRotate = interpolate(targetProgress, ROTATE_STOPS, ROTATE_VALUES);
       const targetOpacity = interpolate(targetProgress, STOPS, OPACITY_VALUES);
 
-      // 3. Step spring physics & track whether any spring is still active
+      // Step spring physics & track whether any spring is still active
       const activeVel = stepSpring(velocitySpring, rawVelocity, 95, 20, 0.55, dt);
       const activeX = stepSpring(springX, targetX, 55, 25, 1.20, dt);
       const activeY = stepSpring(springY, targetY, 50, 27, 1.35, dt);
@@ -163,7 +132,7 @@ export const ContinuousScrollEarth: React.FC = () => {
       const activeMouseX = !isMobile && stepSpring(smoothMouseX, targetMouseX, 45, 28, 1.0, dt);
       const activeMouseY = !isMobile && stepSpring(smoothMouseY, targetMouseY, 45, 28, 1.0, dt);
 
-      // 4. Velocity Multipliers & Offsets (Scale vs. Translation 3D Depth)
+      // Velocity Multipliers & Offsets (Scale vs. Translation 3D Depth)
       const v = velocitySpring.current;
       const velocityTranslateX = interpolate(v, [-2, 0, 2], [18, 0, -18]);
       const velocityTranslateY = interpolate(v, [-2, 0, 2], [-45, 0, 45]);
@@ -171,7 +140,7 @@ export const ContinuousScrollEarth: React.FC = () => {
       const velocityTilt = interpolate(v, [-2, 0, 2], [-4.0, 0, 4.0]);
       const velocityAtmoLag = interpolate(v, [-2, 0, 2], [-22, 0, 22]);
 
-      // 5. Pixel Coordinates
+      // Pixel Coordinates
       const curX = springX.current;
       const curY = springY.current;
       const curScale = Math.max(0.65, springScale.current + velocityScale);
@@ -180,10 +149,10 @@ export const ContinuousScrollEarth: React.FC = () => {
       const pxX = (curX / 100) * winWidth + velocityTranslateX;
       const pxY = (curY / 100) * winHeight + velocityTranslateY;
 
-      // 6. Parallax Tiers Calculations
-      const starfieldY = targetProgress * -8;
+      // Parallax Tiers Calculations
+      const starfieldPxY = targetProgress * -48;
       const glowOffsetX = interpolate(curX, [-30, 0, 30], [-18, 0, 18]);
-      const glowOffsetY = (curY * 0.4) + velocityAtmoLag;
+      const glowOffsetY = curY * 0.4 + velocityAtmoLag;
       const glowScale = interpolate(curScale, [1.1, 1.8], [1.15, 1.42]);
 
       const cloudOffsetX = interpolate(curX, [-30, 0, 30], [24, 0, -28]);
@@ -198,57 +167,57 @@ export const ContinuousScrollEarth: React.FC = () => {
       const flarePositionY = interpolate(curY, [-15, 0, 30], [-40, 0, 48]);
       const flareScale = interpolate(curScale, [1.1, 1.8], [1.1, 1.5]);
 
-      const foregroundDustY = targetProgress * -38;
+      const foregroundDustPxY = targetProgress * -110;
 
       const mousePX = isMobile ? 0 : interpolate(smoothMouseX.current, [-0.5, 0.5], [-16, 16]);
       const mousePY = isMobile ? 0 : interpolate(smoothMouseY.current, [-0.5, 0.5], [-12, 12]);
       const mouseCloudPX = isMobile ? 0 : interpolate(smoothMouseX.current, [-0.5, 0.5], [-24, 24]);
       const mouseCloudPY = isMobile ? 0 : interpolate(smoothMouseY.current, [-0.5, 0.5], [-18, 18]);
 
-      // 7. Direct GPU 3D Transform Application (translate3d + scale3d + rotate3d)
+      // Direct GPU 3D Transform Application (translate3d + scale3d + rotate3d)
       if (containerRef.current) {
-        containerRef.current.style.transform = `translate3d(${pxX.toFixed(2)}px, ${pxY.toFixed(2)}px, 0) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, 1) rotate3d(0, 0, 1, ${curRotate.toFixed(2)}deg)`;
+        containerRef.current.style.transform = `translate3d(${pxX.toFixed(1)}px, ${pxY.toFixed(1)}px, 0) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, 1) rotate3d(0, 0, 1, ${curRotate.toFixed(2)}deg)`;
         containerRef.current.style.opacity = targetOpacity.toFixed(3);
       }
 
       if (glowRef.current) {
-        glowRef.current.style.transform = `translate3d(${glowOffsetX.toFixed(2)}px, ${glowOffsetY.toFixed(2)}px, 0) scale3d(${glowScale.toFixed(3)}, ${glowScale.toFixed(3)}, 1)`;
+        glowRef.current.style.transform = `translate3d(${glowOffsetX.toFixed(1)}px, ${glowOffsetY.toFixed(1)}px, 0) scale3d(${glowScale.toFixed(3)}, ${glowScale.toFixed(3)}, 1)`;
       }
 
       if (rimHaloRef.current) {
-        rimHaloRef.current.style.transform = `translate3d(${glowOffsetX.toFixed(2)}px, ${glowOffsetY.toFixed(2)}px, 0) scale3d(${glowScale.toFixed(3)}, ${glowScale.toFixed(3)}, 1)`;
-        rimHaloRef.current.style.opacity = rimGlowIntensity.toFixed(3);
+        rimHaloRef.current.style.transform = `translate3d(${glowOffsetX.toFixed(1)}px, ${glowOffsetY.toFixed(1)}px, 0) scale3d(${glowScale.toFixed(3)}, ${glowScale.toFixed(3)}, 1)`;
+        rimHaloRef.current.style.opacity = rimGlowIntensity.toFixed(2);
       }
 
       if (rimRingRef.current) {
-        rimRingRef.current.style.transform = `translate3d(${rimLightShiftX.toFixed(2)}px, ${rimLightShiftY.toFixed(2)}px, 0)`;
+        rimRingRef.current.style.transform = `translate3d(${rimLightShiftX.toFixed(1)}px, ${rimLightShiftY.toFixed(1)}px, 0)`;
       }
 
       if (bodyRef.current) {
-        bodyRef.current.style.transform = `translate3d(${mousePX.toFixed(2)}px, ${mousePY.toFixed(2)}px, 0)`;
+        bodyRef.current.style.transform = `translate3d(${mousePX.toFixed(1)}px, ${mousePY.toFixed(1)}px, 0)`;
       }
 
       if (cloudsRef.current) {
-        cloudsRef.current.style.transform = `translate3d(${(cloudOffsetX + mouseCloudPX).toFixed(2)}px, ${(cloudOffsetY + mouseCloudPY).toFixed(2)}px, 0) rotate3d(0, 0, 1, ${cloudRotate.toFixed(2)}deg)`;
+        cloudsRef.current.style.transform = `translate3d(${(cloudOffsetX + mouseCloudPX).toFixed(1)}px, ${(cloudOffsetY + mouseCloudPY).toFixed(1)}px, 0) rotate3d(0, 0, 1, ${cloudRotate.toFixed(1)}deg)`;
       }
 
       if (rimGlareRef.current) {
-        rimGlareRef.current.style.transform = `translate3d(${rimLightShiftX.toFixed(2)}px, ${rimLightShiftY.toFixed(2)}px, 0)`;
+        rimGlareRef.current.style.transform = `translate3d(${rimLightShiftX.toFixed(1)}px, ${rimLightShiftY.toFixed(1)}px, 0)`;
       }
 
       if (flareRef.current) {
-        flareRef.current.style.transform = `translate3d(${flarePositionX.toFixed(2)}px, ${flarePositionY.toFixed(2)}px, 0) scale3d(${flareScale.toFixed(3)}, ${flareScale.toFixed(3)}, 1)`;
+        flareRef.current.style.transform = `translate3d(${flarePositionX.toFixed(1)}px, ${flarePositionY.toFixed(1)}px, 0) scale3d(${flareScale.toFixed(2)}, ${flareScale.toFixed(2)}, 1)`;
       }
 
       if (starfieldRef.current) {
-        starfieldRef.current.style.transform = `translate3d(0, ${starfieldY.toFixed(2)}%, 0)`;
+        starfieldRef.current.style.transform = `translate3d(0, ${starfieldPxY.toFixed(1)}px, 0)`;
       }
 
       if (dustRef.current) {
-        dustRef.current.style.transform = `translate3d(0, ${foregroundDustY.toFixed(2)}%, 0)`;
+        dustRef.current.style.transform = `translate3d(0, ${foregroundDustPxY.toFixed(1)}px, 0)`;
       }
 
-      const anyActive =
+      return (
         activeVel ||
         activeX ||
         activeY ||
@@ -256,26 +225,16 @@ export const ContinuousScrollEarth: React.FC = () => {
         activeRotate ||
         activeMouseX ||
         activeMouseY ||
-        Math.abs(progressDelta) > 0.0001;
+        Math.abs(progressDelta) > 0.0001
+      );
+    };
 
-      if (anyActive) {
-        rafId = requestAnimationFrame(loop);
-      } else {
-        rafId = null; // Sleep until next scroll/mouse/resize event
-      }
-    }
-
-    onResize();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize, { passive: true });
+    const unsubscribe = scrollCoordinator.subscribe(handleFrame, handleResize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
+      unsubscribe();
       window.removeEventListener('mousemove', onMouseMove);
-      if (resizeObserver) resizeObserver.disconnect();
-      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -285,20 +244,19 @@ export const ContinuousScrollEarth: React.FC = () => {
       aria-hidden="true"
       style={{ contain: 'strict' }}
     >
-      {/* 1. Deep Space Cosmic Background Environment (GPU Composited Layer — Zero Filter Blur Cost) */}
+      {/* 1. Deep Space Cosmic Background Environment */}
       <div
         ref={starfieldRef}
         style={{
           transform: 'translate3d(0, 0, 0)',
           backfaceVisibility: 'hidden',
-          willChange: 'transform',
         }}
-        className="absolute inset-x-0 -top-20 -bottom-20 bg-[#02040A] -z-20"
+        className="absolute inset-x-0 -top-20 -bottom-20 bg-[#02050B] -z-20"
       >
         {/* Subtle, fine starfield particles */}
         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:56px_56px]" />
 
-        {/* Pre-baked radial cosmic glow clouds (replaces expensive 160px Gaussian blur filters) */}
+        {/* Pre-baked radial cosmic glow clouds (zero blur filter cost) */}
         <div
           className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full pointer-events-none"
           style={{
@@ -315,7 +273,7 @@ export const ContinuousScrollEarth: React.FC = () => {
         />
       </div>
 
-      {/* 2. Traveling Continuous Earth Container (GPU Composited via centralized rAF) */}
+      {/* 2. Traveling Continuous Earth Container (Primary GPU Composited Layer) */}
       <div
         ref={containerRef}
         style={{
@@ -331,9 +289,8 @@ export const ContinuousScrollEarth: React.FC = () => {
           style={{
             transform: 'translate3d(0, 0, 0)',
             backfaceVisibility: 'hidden',
-            willChange: 'transform',
             background:
-              'radial-gradient(circle, rgba(37,99,235,0.34) 0%, rgba(14,165,233,0.20) 36%, rgba(79,70,229,0.07) 58%, transparent 74%)',
+              'radial-gradient(circle, rgba(37,99,235,0.36) 0%, rgba(14,165,233,0.22) 38%, rgba(79,70,229,0.08) 58%, transparent 74%)',
           }}
           className="absolute -inset-24 rounded-full pointer-events-none -z-10"
         />
@@ -344,22 +301,22 @@ export const ContinuousScrollEarth: React.FC = () => {
           style={{
             transform: 'translate3d(0, 0, 0)',
             backfaceVisibility: 'hidden',
-            willChange: 'transform, opacity',
             background:
-              'radial-gradient(circle, rgba(56,189,248,0.24) 0%, rgba(56,189,248,0.11) 42%, transparent 70%)',
+              'radial-gradient(circle, rgba(56,189,248,0.26) 0%, rgba(56,189,248,0.12) 44%, transparent 70%)',
           }}
           className="absolute -inset-12 rounded-full pointer-events-none -z-10"
         />
 
-        {/* Outer Thin Atmospheric Ring with Dynamic Horizon Shift */}
+        {/* Outer Thin Atmospheric Ring with Dynamic Horizon Shift (Radial glow instead of expensive box-shadow) */}
         <div
           ref={rimRingRef}
           style={{
             transform: 'translate3d(0, 0, 0)',
             backfaceVisibility: 'hidden',
-            willChange: 'transform',
+            background:
+              'radial-gradient(circle, transparent 66%, rgba(56,189,248,0.14) 70%, transparent 74%)',
           }}
-          className="absolute inset-3 rounded-full border border-sky-400/25 shadow-[0_0_70px_rgba(56,189,248,0.28)] pointer-events-none"
+          className="absolute inset-3 rounded-full border border-sky-400/25 pointer-events-none"
         />
 
         {/* The Primary Earth Body (Exact photographic asset, responsive WebP + JPG fallback) */}
@@ -368,9 +325,8 @@ export const ContinuousScrollEarth: React.FC = () => {
           style={{
             transform: 'translate3d(0, 0, 0)',
             backfaceVisibility: 'hidden',
-            willChange: 'transform',
           }}
-          className="relative w-[90%] h-[90%] rounded-full overflow-hidden flex items-center justify-center shadow-[0_0_90px_rgba(59,130,246,0.32)]"
+          className="relative w-[90%] h-[90%] rounded-full overflow-hidden flex items-center justify-center ring-1 ring-sky-400/20"
         >
           <picture className="w-full h-full block">
             <source media="(max-width: 767px)" srcSet={earthMobileWebp} type="image/webp" />
@@ -382,10 +338,6 @@ export const ContinuousScrollEarth: React.FC = () => {
               loading="eager"
               fetchPriority="high"
               decoding="async"
-              style={{
-                transform: 'translate3d(0, 0, 0)',
-                backfaceVisibility: 'hidden',
-              }}
             />
           </picture>
 
@@ -395,7 +347,6 @@ export const ContinuousScrollEarth: React.FC = () => {
             style={{
               transform: 'translate3d(0, 0, 0)',
               backfaceVisibility: 'hidden',
-              willChange: 'transform',
             }}
             className="absolute -inset-4 rounded-full pointer-events-none opacity-35 overflow-hidden"
           >
@@ -403,40 +354,31 @@ export const ContinuousScrollEarth: React.FC = () => {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_75%,_rgba(186,230,253,0.28)_0%,_transparent_55%)]" />
           </div>
 
-          {/* Rayleigh Horizon Edge Glare */}
+          {/* Rayleigh Horizon Edge Glare (Radial gradient ring instead of inset box-shadow) */}
           <div
             ref={rimGlareRef}
             style={{
               transform: 'translate3d(0, 0, 0)',
               backfaceVisibility: 'hidden',
-              willChange: 'transform',
+              background:
+                'radial-gradient(circle, transparent 58%, rgba(56,189,248,0.22) 84%, rgba(56,189,248,0.42) 100%)',
             }}
-            className="absolute inset-0 rounded-full shadow-[inset_0_0_65px_rgba(56,189,248,0.42)] pointer-events-none"
+            className="absolute inset-0 rounded-full pointer-events-none"
           />
 
-          {/* Natural Atmospheric Edge Blend into Deep Space (#02040A) */}
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,_transparent_65%,_rgba(2,4,10,0.55)_84%,_rgba(2,4,10,0.95)_100%)] pointer-events-none" />
+          {/* Natural Atmospheric Edge Blend into Deep Space (#02050B) */}
+          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,_transparent_65%,_rgba(2,5,11,0.55)_84%,_rgba(2,5,11,0.95)_100%)] pointer-events-none" />
 
-          {/* Specular Sunrise Horizon Flare (Radial gradient instead of heavy blur filter) */}
+          {/* Specular Sunrise Horizon Flare */}
           <div
             ref={flareRef}
             style={{
               transform: 'translate3d(0, 0, 0)',
               backfaceVisibility: 'hidden',
-              willChange: 'transform',
               background:
                 'radial-gradient(circle, rgba(255,255,255,0.75) 0%, rgba(125,211,252,0.38) 38%, transparent 70%)',
             }}
             className="absolute -top-12 -left-12 w-52 h-52 rounded-full pointer-events-none opacity-80"
-          />
-
-          {/* Gentle, slow atmospheric light sweep across horizon */}
-          <div
-            className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
-            style={{
-              animation: 'earthSweep 18s ease-in-out infinite',
-              willChange: 'transform',
-            }}
           />
         </div>
       </div>
@@ -447,22 +389,12 @@ export const ContinuousScrollEarth: React.FC = () => {
         style={{
           transform: 'translate3d(0, 0, 0)',
           backfaceVisibility: 'hidden',
-          willChange: 'transform',
         }}
         className="absolute inset-x-0 -top-32 -bottom-32 opacity-18 bg-[radial-gradient(#93c5fd_1.2px,transparent_1.2px)] [background-size:80px_80px] pointer-events-none -z-0"
       />
 
       {/* Subtle Vignette Overlays for Maximum Global Readability */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(2,4,10,0.4)_85%,_rgba(2,4,10,0.85)_100%)] pointer-events-none -z-0" />
-
-      {/* Horizon Sweep Keyframe definition using 3D hardware-accelerated translate3d */}
-      <style>{`
-        @keyframes earthSweep {
-          0%, 100% { transform: translate3d(-140%, 0, 0) skewX(-12deg); opacity: 0; }
-          15% { opacity: 1; }
-          45% { transform: translate3d(180%, 0, 0) skewX(-12deg); opacity: 0; }
-        }
-      `}</style>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(2,5,11,0.4)_85%,_rgba(2,5,11,0.85)_100%)] pointer-events-none -z-0" />
     </div>
   );
-};
+});

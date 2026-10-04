@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUp, Mail, Phone } from 'lucide-react';
 import { CONTACT_INFO, SERVICES_DATA } from '../data/portfolioData';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
+import brandLogoWebp from '../assets/images/brand_logo_opt.webp';
 
 interface FooterProps {
   onOpenBooking: () => void;
@@ -9,13 +10,13 @@ interface FooterProps {
   onOpenLegal?: (tab: 'privacy' | 'terms') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-[#02050A] text-slate-400 pt-16 pb-12 border-t border-blue-500/15 relative overflow-hidden font-sans">
+    <footer className="bg-[#02050B] text-slate-400 pt-16 pb-12 border-t border-blue-500/15 relative overflow-hidden font-sans z-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Grid */}
@@ -25,12 +26,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full overflow-hidden border border-blue-500/40 p-0.5 bg-[#12151E] flex items-center justify-center shrink-0">
-                <img
-                  src={brandLogo}
-                  alt="AxentAI Labs"
-                  className="w-full h-full object-cover rounded-full"
-                  referrerPolicy="no-referrer"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet={brandLogoWebp} type="image/webp" />
+                  <img
+                    src={brandLogo}
+                    alt="AxentAI Labs"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover rounded-full"
+                    referrerPolicy="no-referrer"
+                  />
+                </picture>
               </div>
               <div>
                 <span className="font-bold text-lg text-white tracking-tight">
@@ -154,4 +160,4 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
       </div>
     </footer>
   );
-};
+});

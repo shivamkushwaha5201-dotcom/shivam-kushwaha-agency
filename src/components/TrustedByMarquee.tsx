@@ -38,7 +38,7 @@ const SUPPORTED_PRODUCT_HUNT_LAUNCHES: SupportedProduct[] = [
   { name: 'Skydive', url: 'https://www.producthunt.com/products/skydive' },
 ];
 
-export const TrustedByMarquee: React.FC = () => {
+export const TrustedByMarquee: React.FC = React.memo(() => {
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(true);
 
@@ -89,9 +89,9 @@ export const TrustedByMarquee: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#38BDF8] mb-5 drop-shadow-[0_2px_12px_rgba(2,6,15,0.98)]"
+          className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#38BDF8] mb-5 text-contrast-shadow"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6154] shadow-[0_0_8px_rgba(255,97,84,0.75)]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6154]" />
           <span>PRODUCT HUNT · LAUNCH SUPPORT</span>
         </motion.div>
 
@@ -101,7 +101,7 @@ export const TrustedByMarquee: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F8FAFC] tracking-[0.04em] leading-[1.22] uppercase drop-shadow-[0_4px_24px_rgba(2,6,15,0.98)]"
+          className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F8FAFC] tracking-[0.04em] leading-[1.22] uppercase heading-contrast-shadow"
         >
           SUPPORTED PRODUCTS <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E0F2FE] via-[#7DD3FC] to-[#38BDF8] font-semibold">
@@ -115,7 +115,7 @@ export const TrustedByMarquee: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, delay: 0.16 }}
-          className="mt-5 text-xs sm:text-sm text-[#E2E8F0] font-sans max-w-md mx-auto leading-relaxed font-normal drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]"
+          className="mt-5 text-xs sm:text-sm text-[#E2E8F0] font-sans max-w-md mx-auto leading-relaxed font-normal text-contrast-shadow"
         >
           Launch visibility, distribution and growth support for products building in public.
         </motion.p>
@@ -141,7 +141,10 @@ export const TrustedByMarquee: React.FC = () => {
 
         {/* ROW 1: RIGHT → LEFT */}
         <div className="py-3 sm:py-3.5 overflow-hidden">
-          <div className="flex w-max items-center ph-marquee-ltr">
+          <div
+            style={{ willChange: inView ? 'transform' : 'auto' }}
+            className="flex w-max items-center ph-marquee-ltr"
+          >
             {marqueeRowOne.map((product, idx) => (
               <a
                 key={`r1-${product.name}-${idx}`}
@@ -150,11 +153,11 @@ export const TrustedByMarquee: React.FC = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] group-hover:bg-[#FF6154] shadow-[0_0_8px_rgba(56,189,248,0.65)] transition-colors duration-300" />
-                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#F8FAFC] group-hover:text-white transition-colors whitespace-nowrap drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] group-hover:bg-[#FF6154] transition-colors duration-300" />
+                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#F8FAFC] group-hover:text-white transition-colors whitespace-nowrap marquee-item-shadow">
                   {product.name}
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/80 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/80 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-300" />
               </a>
             ))}
           </div>
@@ -162,7 +165,10 @@ export const TrustedByMarquee: React.FC = () => {
 
         {/* ROW 2: LEFT → RIGHT */}
         <div className="py-3 sm:py-3.5 overflow-hidden mt-1">
-          <div className="flex w-max items-center ph-marquee-rtl">
+          <div
+            style={{ willChange: inView ? 'transform' : 'auto' }}
+            className="flex w-max items-center ph-marquee-rtl"
+          >
             {marqueeRowTwo.map((product, idx) => (
               <a
                 key={`r2-${product.name}-${idx}`}
@@ -171,11 +177,11 @@ export const TrustedByMarquee: React.FC = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] group-hover:bg-[#FF6154] shadow-[0_0_8px_rgba(59,130,246,0.65)] transition-colors duration-300" />
-                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#E2E8F0] group-hover:text-white transition-colors whitespace-nowrap drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] group-hover:bg-[#FF6154] transition-colors duration-300" />
+                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#E2E8F0] group-hover:text-white transition-colors whitespace-nowrap marquee-item-shadow">
                   {product.name}
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/75 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/75 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-300" />
               </a>
             ))}
           </div>
@@ -194,12 +200,10 @@ export const TrustedByMarquee: React.FC = () => {
         }
         .ph-marquee-ltr {
           animation: phMarqueeLeft 72s linear infinite;
-          will-change: transform;
           backface-visibility: hidden;
         }
         .ph-marquee-rtl {
           animation: phMarqueeRight 78s linear infinite;
-          will-change: transform;
           backface-visibility: hidden;
         }
         @media (min-width: 768px) {
@@ -219,4 +223,4 @@ export const TrustedByMarquee: React.FC = () => {
       `}</style>
     </section>
   );
-};
+});

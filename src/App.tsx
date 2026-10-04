@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
@@ -74,36 +74,38 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const scrollToContact = () => {
-    if (currentView !== 'home') {
-      setCurrentView('home');
-      window.location.hash = '#contact';
-      setTimeout(() => {
+  const scrollToContact = useCallback(() => {
+    setCurrentView((prevView) => {
+      if (prevView !== 'home') {
+        window.location.hash = '#contact';
+        setTimeout(() => {
+          const el = document.getElementById('contact');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
         const el = document.getElementById('contact');
         if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+      }
+      return 'home';
+    });
+  }, []);
 
-  const handleOpenLegalPage = (tab: 'privacy' | 'terms') => {
+  const handleOpenLegalPage = useCallback((tab: 'privacy' | 'terms') => {
     setLegalTab(tab);
     setCurrentView('legal');
     window.location.hash = `#${tab}`;
-  };
+  }, []);
 
-  const handleBackToHome = () => {
+  const handleBackToHome = useCallback(() => {
     setCurrentView('home');
     window.location.hash = '#home';
-  };
+  }, []);
 
-  const handleViewService = (serviceId: string) => {
+  const handleViewService = useCallback((serviceId: string) => {
     setActiveServiceId(serviceId);
     setCurrentView('service');
     window.location.hash = `#services/${serviceId}`;
-  };
+  }, []);
 
   return (
     <HelmetProvider>

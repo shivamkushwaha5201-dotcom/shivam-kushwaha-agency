@@ -7,7 +7,7 @@ interface HeroSectionProps {
   onOpenBooking: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
+export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooking }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(true);
 
@@ -66,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.04] drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]"
+              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.04] heading-contrast-shadow"
             >
               BUILD INFLUENCE <br />
               THAT TRAVELS <br />
@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg text-[#E2E8F0] font-sans leading-relaxed max-w-xl font-normal drop-shadow-[0_2px_16px_rgba(2,6,15,0.98)]"
+              className="text-base sm:text-lg text-[#E2E8F0] font-sans leading-relaxed max-w-xl font-normal text-contrast-shadow"
             >
               We help founders, startups and brands build visibility through personal branding, organic social growth, Product Hunt launches and creator partnerships.
             </motion.p>
@@ -96,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
                 id="hero-primary-cta"
                 size="lg"
                 onClick={onOpenBooking}
-                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg shadow-blue-500/20 group transition-all cursor-pointer"
+                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg shadow-blue-500/20 group transition-colors cursor-pointer"
               >
                 <span>BOOK A STRATEGY CALL</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
 
               <a
                 href="#services"
-                className="px-7 py-3.5 rounded-full border border-white/15 bg-[#030814]/92 text-[#E2E8F0] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/25 hover:text-white transition-all cursor-pointer"
+                className="px-7 py-3.5 rounded-full border border-white/15 bg-[#030814]/92 text-[#E2E8F0] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/25 hover:text-white transition-colors cursor-pointer"
               >
                 EXPLORE SERVICES
               </a>
@@ -115,7 +115,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.85, delay: 0.45 }}
-              className="pt-8 border-t border-white/15 flex flex-wrap items-center gap-7 text-xs text-[#CBD5E1] font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]"
+              className="pt-8 border-t border-white/15 flex flex-wrap items-center gap-7 text-xs text-[#CBD5E1] font-mono text-contrast-shadow"
             >
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
@@ -234,4 +234,4 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
       `}</style>
     </section>
   );
-};
+});

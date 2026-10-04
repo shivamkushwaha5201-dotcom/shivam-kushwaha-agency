@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-export const WhyUsSection: React.FC = () => {
+export const WhyUsSection: React.FC = React.memo(() => {
   const reasons = [
     {
       number: '01',
@@ -43,13 +43,13 @@ export const WhyUsSection: React.FC = () => {
                 'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
             }}
           />
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
             // WHY US?
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase heading-contrast-shadow">
             WHY CHOOSE AXENTAILABS
           </h2>
-          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
+          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans text-contrast-shadow">
             Creative growth systems engineered for real founder authority and measurable reach.
           </p>
         </div>
@@ -86,4 +86,4 @@ export const WhyUsSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});

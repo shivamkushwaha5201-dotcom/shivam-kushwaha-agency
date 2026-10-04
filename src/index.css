@@ -197,6 +197,19 @@ h1, h2, h3, .font-display {
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Zero-filter-cost glyph text shadows for crisp readability over moving Earth */
+.heading-contrast-shadow {
+  text-shadow: 0 4px 24px rgba(2, 6, 15, 0.96), 0 2px 8px rgba(2, 6, 15, 0.9);
+}
+
+.text-contrast-shadow {
+  text-shadow: 0 2px 14px rgba(2, 6, 15, 0.96), 0 1px 4px rgba(2, 6, 15, 0.9);
+}
+
+.marquee-item-shadow {
+  text-shadow: 0 2px 10px rgba(2, 6, 15, 0.95);
+}
+
 /* Light decorum background grid and dot patterns */
 .bg-grid-pattern {
   background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
