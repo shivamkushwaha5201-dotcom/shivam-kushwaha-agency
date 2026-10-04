@@ -72,7 +72,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = ({ onOpenBo
         </div>
 
         {/* Global Trajectory Process Visual: PRE-LAUNCH ↓ LAUNCH ↓ DISTRIBUTION ↓ POST-LAUNCH */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#050B14]/80 backdrop-blur-md border border-white/10 mb-12 shadow-2xl shadow-black/60 space-y-8">
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#050B14]/92 border border-white/10 mb-12 shadow-2xl shadow-black/60 space-y-8">
           
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
             <div className="space-y-1.5">
@@ -130,7 +130,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = ({ onOpenBo
         </div>
 
         {/* Ethical Standards & Compliance Guarantee */}
-        <div className="p-8 rounded-2xl bg-[#050B14]/80 backdrop-blur-md border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="p-8 rounded-2xl bg-[#050B14]/92 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/25 text-[#38BDF8] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
@@ -149,7 +149,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = ({ onOpenBo
             onClick={onOpenBooking}
             className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-2.5 shadow-md shadow-blue-500/20 shrink-0"
           >
-            <span>DISCUSS YOUR LAUNCH TIMELINE</span>
+            <span>PLAN A PRODUCT LAUNCH</span>
             <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
           </Button>
         </div>

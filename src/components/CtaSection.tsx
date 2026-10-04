@@ -85,10 +85,17 @@ export const CtaSection: React.FC<CtaSectionProps> = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main CTA Top Banner with Earth Visual in Background */}
-        <div className="p-8 sm:p-14 rounded-3xl bg-[#050B14]/80 backdrop-blur-xl border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
+        <div className="p-8 sm:p-14 rounded-3xl bg-[#050B14]/92 border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
           
-          {/* Deep blue atmospheric lighting */}
-          <div className="absolute top-0 right-1/4 w-[400px] h-[300px] bg-blue-600/15 blur-[100px] pointer-events-none -z-0" />
+          {/* Deep blue atmospheric lighting (Radial gradient — zero blur filter cost) */}
+          <div
+            aria-hidden="true"
+            className="absolute -top-16 right-1/4 w-[480px] h-[360px] pointer-events-none -z-0"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0.06) 45%, transparent 72%)',
+            }}
+          />
 
           <div className="relative z-10 max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-sky-400 font-mono">

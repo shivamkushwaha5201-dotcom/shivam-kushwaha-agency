@@ -1,172 +1,222 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'motion/react';
+import { ArrowRight } from 'lucide-react';
 
-interface PartnerCompany {
-  id: string;
+interface SupportedProduct {
   name: string;
-  category: string;
-  icon: React.ReactNode;
+  url: string;
 }
 
-const PARTNER_COMPANIES: PartnerCompany[] = [
-  {
-    id: 'huddle01',
-    name: 'Huddle01 Cloud',
-    category: 'Real-Time RTC',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-      </svg>
-    )
-  },
-  {
-    id: 'chronicle',
-    name: 'Chronicle',
-    category: 'Interactive Presentations',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="8" height="8" x="2" y="2" rx="2" />
-        <rect width="8" height="8" x="14" y="2" rx="2" />
-        <rect width="8" height="8" x="2" y="14" rx="2" />
-        <rect width="8" height="8" x="14" y="14" rx="2" />
-      </svg>
-    )
-  },
-  {
-    id: 'supernova',
-    name: 'Supernova AI',
-    category: 'Autonomous Agents',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    )
-  },
-  {
-    id: 'openui',
-    name: 'OpenUI',
-    category: 'UI Prototyping',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    )
-  },
-  {
-    id: 'olostep',
-    name: 'Olostep',
-    category: 'Scraping API for AI',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
-      </svg>
-    )
-  },
-  {
-    id: 'enia',
-    name: 'Enia Code',
-    category: 'AI Developer Tools',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m18 16 4-4-4-4" />
-        <path d="m6 8-4 4 4 4" />
-        <path d="m14.5 4-5 16" />
-      </svg>
-    )
-  },
-  {
-    id: 'outify',
-    name: 'Outify',
-    category: 'Outbound Pipeline',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    )
-  },
-  {
-    id: 'nativebridge',
-    name: 'NativeBridge',
-    category: 'Cross-Platform SDK',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
-        <line x1="12" y1="22" x2="12" y2="15.5" />
-        <polyline points="22 8.5 12 15.5 2 8.5" />
-      </svg>
-    )
-  },
-  {
-    id: 'ito',
-    name: 'Ito AI',
-    category: 'Code Review Runtime',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m2 9 10-5 10 5-10 5Z" />
-        <path d="m2 14 10 5 10-5" />
-        <path d="m2 19 10 5 10-5" />
-      </svg>
-    )
-  },
-  {
-    id: 'clears',
-    name: 'Clears',
-    category: 'Focus & Productivity',
-    icon: (
-      <svg className="w-5 h-5 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="m9 12 2 2 4-4" />
-      </svg>
-    )
-  }
+const SUPPORTED_PRODUCT_HUNT_LAUNCHES: SupportedProduct[] = [
+  { name: 'Enia Code', url: 'https://www.producthunt.com/products/enia-code' },
+  { name: 'StoreClaw', url: 'https://www.producthunt.com/products/storeclaw' },
+  { name: 'Outify', url: 'https://www.producthunt.com/products/outify' },
+  { name: 'Eddie AI', url: 'https://www.producthunt.com/products/eddie-ai' },
+  { name: 'CTRUH Studio', url: 'https://www.producthunt.com/products/ctruh' },
+  { name: 'Hey Noah', url: 'https://www.producthunt.com/products/hey-noah' },
+  { name: 'Ito', url: 'https://www.producthunt.com/products/ito' },
+  { name: 'BrowserAct', url: 'https://www.producthunt.com/products/browseract' },
+  { name: 'Clears', url: 'https://www.producthunt.com/products/clears' },
+  { name: 'Supernova AI', url: 'https://www.producthunt.com/products/supernova' },
+  { name: 'Speko', url: 'https://www.producthunt.com/products/speko' },
+  { name: 'Keplars', url: 'https://www.producthunt.com/products/keplars' },
+  { name: 'OpenUI', url: 'https://www.producthunt.com/products/openui' },
+  { name: 'Your Next Store', url: 'https://www.producthunt.com/products/your-next-store' },
+  { name: 'Chronicle', url: 'https://www.producthunt.com/products/chronicle' },
+  { name: 'MorphMind', url: 'https://www.producthunt.com/products/morphmind' },
+  { name: 'ZooClaw', url: 'https://www.producthunt.com/products/zooclaw' },
+  { name: 'Lessie AI', url: 'https://www.producthunt.com/products/lessie-ai' },
+  { name: 'NativeBridge', url: 'https://www.producthunt.com/products/nativebridge' },
+  { name: 'Naptick AI', url: 'https://www.producthunt.com/products/naptick-ai' },
+  { name: 'Huddle01', url: 'https://www.producthunt.com/products/huddle01' },
+  { name: 'Mom Clock', url: 'https://www.producthunt.com/products/mom-clock' },
+  { name: 'Computable GPU Index', url: 'https://www.producthunt.com/products/computable-gpu-index' },
+  { name: 'Brandjet', url: 'https://www.producthunt.com/products/brandjet' },
+  { name: 'Olostep', url: 'https://www.producthunt.com/products/olostep' },
+  { name: '1752VC Pitch Deck Analyzer', url: 'https://www.producthunt.com/products/1752vc-pitch-deck-analyzer' },
+  { name: 'Caddi', url: 'https://www.producthunt.com/products/caddi' },
+  { name: 'Skydive', url: 'https://www.producthunt.com/products/skydive' },
 ];
 
 export const TrustedByMarquee: React.FC = () => {
-  // Seamless loop with doubled list
-  const displayPartners = [...PARTNER_COMPANIES, ...PARTNER_COMPANIES];
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(true);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]) {
+          setInView(entries[0].isIntersecting);
+        }
+      },
+      { rootMargin: '250px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const rowOne = SUPPORTED_PRODUCT_HUNT_LAUNCHES.slice(0, 14);
+  const rowTwo = SUPPORTED_PRODUCT_HUNT_LAUNCHES.slice(14);
+
+  // Duplicated internally for a seamless infinite 0% -> -50% loop
+  const marqueeRowOne = [...rowOne, ...rowOne];
+  const marqueeRowTwo = [...rowTwo, ...rowTwo];
 
   return (
-    <div className="mt-16 pt-10 border-t border-[#E5E5E1]">
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E5E5E1] shadow-2xs">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#1A1A1A]/70">
-            Trusted by Ambitious Tech Teams & Ecosystem Partners
+    <section
+      ref={sectionRef}
+      className="pt-28 pb-32 md:pt-36 md:pb-40 bg-transparent relative overflow-hidden z-10"
+    >
+      {/* Upper Header Zone with Subtle Radial Atmospheric Backing */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
+        {/* Soft invisible radial dark atmospheric gradient behind text (no rectangular box) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -inset-x-12 -inset-y-10 -z-10"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, rgba(5,10,25,0.78) 0%, rgba(5,10,25,0.38) 45%, transparent 75%)',
+          }}
+        />
+
+        {/* Small Eyebrow */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#38BDF8] mb-5 drop-shadow-[0_2px_10px_rgba(2,5,10,0.9)]"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6154] shadow-[0_0_8px_rgba(255,97,84,0.75)]" />
+          <span>PRODUCT HUNT · LAUNCH SUPPORT</span>
+        </motion.div>
+
+        {/* Refined, Elegant Main Heading (font-weight 500-600, reduced size, generous breathing room) */}
+        <motion.h2
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F8FAFC] tracking-[0.04em] leading-[1.22] uppercase drop-shadow-[0_4px_24px_rgba(2,5,10,0.95)]"
+        >
+          SUPPORTED PRODUCTS <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E0F2FE] via-[#7DD3FC] to-[#38BDF8] font-semibold">
+            ON PRODUCT HUNT
           </span>
-        </div>
+        </motion.h2>
+
+        {/* Short Supporting Sentence */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7, delay: 0.16 }}
+          className="mt-5 text-xs sm:text-sm text-[#94A3B8] font-sans max-w-md mx-auto leading-relaxed font-normal drop-shadow-[0_2px_12px_rgba(2,5,10,0.9)]"
+        >
+          Launch visibility, distribution and growth support for products building in public.
+        </motion.p>
       </div>
 
-      {/* Marquee Track Container with Gradient Edge Fades */}
-      <div className="relative w-full overflow-hidden py-2">
-        {/* Left Fade Mask */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10" />
+      {/* Dedicated Lower Marquee Zone (Positioned well below the heading in its own horizontal band) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-20px' }}
+        transition={{ duration: 0.85, delay: 0.2 }}
+        className={`mt-20 sm:mt-28 relative w-full overflow-hidden py-5 sm:py-6 z-20 ${
+          inView ? '' : 'ph-marquee-offscreen'
+        }`}
+        style={{
+          background:
+            'linear-gradient(180deg, transparent 0%, rgba(4,9,20,0.55) 25%, rgba(4,9,20,0.55) 75%, transparent 100%)',
+        }}
+      >
+        {/* Left & Right Soft Edge Fade Masks */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#02050A] to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#02050A] to-transparent z-10" />
 
-        {/* Right Fade Mask */}
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10" />
-
-        {/* Continuous Scrolling Row */}
-        <div className="animate-marquee flex items-center gap-4 sm:gap-6">
-          {displayPartners.map((partner, index) => (
-            <div
-              key={`${partner.id}-${index}`}
-              className="group flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-[#E5E5E1] shadow-2xs hover:border-[#2563EB] hover:shadow-sm transition-all shrink-0 cursor-default"
-            >
-              <div className="w-8 h-8 rounded-xl bg-[#FAF9F6] border border-[#E5E5E1] flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-blue-50 transition-all">
-                {partner.icon}
-              </div>
-              <div className="text-left">
-                <div className="text-xs sm:text-sm font-bold text-[#1A1A1A] group-hover:text-[#2563EB] transition-colors leading-tight">
-                  {partner.name}
-                </div>
-                <div className="text-[10px] text-[#1A1A1A]/50 font-medium tracking-wide">
-                  {partner.category}
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* ROW 1: RIGHT → LEFT */}
+        <div className="py-3 sm:py-3.5 overflow-hidden">
+          <div className="flex w-max items-center ph-marquee-ltr">
+            {marqueeRowOne.map((product, idx) => (
+              <a
+                key={`r1-${product.name}-${idx}`}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]/80 group-hover:bg-[#FF6154] transition-colors duration-300" />
+                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#E2E8F0]/85 group-hover:text-white transition-colors whitespace-nowrap">
+                  {product.name}
+                </span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#94A3B8]/55 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+
+        {/* ROW 2: LEFT → RIGHT */}
+        <div className="py-3 sm:py-3.5 overflow-hidden mt-1">
+          <div className="flex w-max items-center ph-marquee-rtl">
+            {marqueeRowTwo.map((product, idx) => (
+              <a
+                key={`r2-${product.name}-${idx}`}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/75 group-hover:bg-[#FF6154] transition-colors duration-300" />
+                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#94A3B8] group-hover:text-white transition-colors whitespace-nowrap">
+                  {product.name}
+                </span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#94A3B8]/45 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* GPU-accelerated translate3d infinite marquee keyframes with pause-on-hover and offscreen pause */}
+      <style>{`
+        @keyframes phMarqueeLeft {
+          0% { transform: translate3d(0%, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @keyframes phMarqueeRight {
+          0% { transform: translate3d(-50%, 0, 0); }
+          100% { transform: translate3d(0%, 0, 0); }
+        }
+        .ph-marquee-ltr {
+          animation: phMarqueeLeft 72s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
+        }
+        .ph-marquee-rtl {
+          animation: phMarqueeRight 78s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
+        }
+        @media (min-width: 768px) {
+          .ph-marquee-ltr {
+            animation-duration: 60s;
+          }
+          .ph-marquee-rtl {
+            animation-duration: 66s;
+          }
+        }
+        .ph-marquee-ltr:hover,
+        .ph-marquee-rtl:hover,
+        .ph-marquee-offscreen .ph-marquee-ltr,
+        .ph-marquee-offscreen .ph-marquee-rtl {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </section>
   );
 };

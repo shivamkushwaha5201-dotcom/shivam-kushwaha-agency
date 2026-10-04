@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import { Compass, Lightbulb, PlayCircle, TrendingUp, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -8,15 +8,6 @@ interface ProcessSectionProps {
 }
 
 export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Animated line progress scale
-  const lineScaleX = useTransform(scrollYProgress, [0.2, 0.7], [0, 1]);
-
   const stages = [
     {
       number: '01',
@@ -50,7 +41,6 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
 
   return (
     <section 
-      ref={containerRef}
       id="how-we-work" 
       className="py-32 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
     >
@@ -74,9 +64,13 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
           
           {/* Background Track Line (Desktop) */}
           <div className="hidden lg:block absolute top-[44px] left-[6%] right-[6%] h-[1px] bg-white/10 -z-0">
-            {/* Animated Glowing Blue Line (Linked to Scroll Progress) */}
+            {/* Animated Glowing Blue Line (Triggered via IntersectionObserver) */}
             <motion.div
-              style={{ scaleX: lineScaleX, transformOrigin: 'left' }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transformOrigin: 'left' }}
               className="h-full w-full bg-gradient-to-r from-[#3B82F6] via-[#38BDF8] to-[#60A5FA] shadow-[0_0_12px_rgba(56,189,248,0.8)]"
             />
           </div>
@@ -91,8 +85,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.55, delay: idx * 0.12 }}
-                  className="p-8 rounded-2xl bg-[#050B14]/80 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between space-y-6 group shadow-xl shadow-black/50"
+                  transition={{ duration: 0.55, delay: idx * 0.1 }}
+                  className="p-8 rounded-2xl bg-[#050B14]/92 border border-white/10 hover:border-white/20 transition-colors flex flex-col justify-between space-y-6 group shadow-xl shadow-black/50"
                 >
                   <div className="space-y-4">
                     {/* Stage Node */}

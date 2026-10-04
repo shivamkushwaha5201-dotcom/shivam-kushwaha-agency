@@ -67,7 +67,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenBo
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 sm:p-12 rounded-3xl bg-[#050B14]/80 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all space-y-8 shadow-2xl shadow-black/60"
+              className="p-8 sm:p-12 rounded-3xl bg-[#050B14]/92 border border-white/10 hover:border-white/20 transition-colors space-y-8 shadow-2xl shadow-black/60"
             >
               {/* Header: Project / Category */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">

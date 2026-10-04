@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
+import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { TrustedByMarquee } from './components/TrustedByMarquee';
 import { TrustSection } from './components/TrustSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ProcessSection } from './components/ProcessSection';
@@ -9,6 +11,7 @@ import { WhyUsSection } from './components/WhyUsSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { InfluencerSection } from './components/InfluencerSection';
 import { ProductHuntSection } from './components/ProductHuntSection';
+import { ClientSuccessSection } from './components/ClientSuccessSection';
 import { AboutSection } from './components/AboutSection';
 import { FaqSection } from './components/FaqSection';
 import { CtaSection } from './components/CtaSection';
@@ -19,36 +22,19 @@ import { BackToTop } from './components/BackToTop';
 import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
 import { ContinuousScrollEarth } from './components/ContinuousScrollEarth';
-import Lenis from 'lenis';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<'home' | 'legal' | 'service'>('home');
   const [activeServiceId, setActiveServiceId] = useState<string>('linkedin-personal-branding');
   const [legalTab, setLegalTab] = useState<'privacy' | 'terms'>('privacy');
+  const [showOpeningIntro, setShowOpeningIntro] = useState<boolean>(true);
 
-  // Initialize Optimized Smooth Scrolling (Responsive & Non-Laggy)
+  // Short 1.15s Premium Opening Statement ("TRUSTED BY FOUNDERS & TEAMS")
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.7,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      smoothWheel: true,
-      syncTouch: false,
-      touchMultiplier: 1.0,
-    });
-
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-
-    rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-    };
+    const timer = setTimeout(() => {
+      setShowOpeningIntro(false);
+    }, 1150);
+    return () => clearTimeout(timer);
   }, []);
 
   // Sync with URL Hash on mount and hashchange
@@ -75,6 +61,7 @@ export default function App() {
         hash.startsWith('#case-studies') || 
         hash.startsWith('#influencer') || 
         hash.startsWith('#product-hunt') || 
+        hash.startsWith('#testimonials') || 
         hash.startsWith('#faq') || 
         hash.startsWith('#contact')
       ) {
@@ -122,10 +109,39 @@ export default function App() {
     <HelmetProvider>
       <div className="min-h-screen bg-[#02050A] text-slate-100 flex flex-col selection:bg-blue-500/30 selection:text-blue-200 font-sans transition-colors duration-200">
         
+        {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
+        <AnimatePresence>
+          {showOpeningIntro && currentView === 'home' && (
+            <motion.div
+              key="opening-statement"
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#02050A]/90 backdrop-blur-md"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 14, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 1.02 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center px-6 space-y-2 will-change-transform"
+              >
+                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#38BDF8]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                  <span>AXENTAI LABS</span>
+                </div>
+                <p className="text-xl sm:text-3xl font-display font-bold tracking-[0.14em] text-[#F8FAFC] uppercase">
+                  TRUSTED BY FOUNDERS &amp; TEAMS
+                </p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Top Scroll Reading Progress Indicator */}
         <ScrollProgressBar />
 
-        {/* Continuous Scroll-Driven Planetary Background Layer */}
+        {/* Continuous Scroll-Driven Planetary Background Layer (LOCKED) */}
         {currentView === 'home' && <ContinuousScrollEarth />}
 
         {/* Dynamic Meta Tag Management for Home & Legal Views */}
@@ -170,43 +186,55 @@ export default function App() {
             onSelectService={handleViewService}
           />
         ) : (
-          /* Main Agency Sections Structure */
+          /* Main Agency Storytelling Journey */
           <main className="flex-1">
             {/* 01. Hero Section (Large Earth + main positioning) */}
             <HeroSection
               onOpenBooking={scrollToContact}
             />
 
-            {/* 02. Services Section (Earth partially visible / moving through background) */}
+            {/* 02. Trusted By Founders & Makers — Supported Product Hunt Launches Marquee */}
+            <TrustedByMarquee />
+
+            {/* 03. Agency Positioning — "WE BUILD GROWTH SYSTEMS FOR MODERN BRANDS" */}
+            <TrustSection onOpenBooking={scrollToContact} />
+
+            {/* 04. Existing Services Section (LOCKED — 100% Untouched) */}
             <ServicesSection
               onOpenBooking={scrollToContact}
               onViewService={handleViewService}
             />
 
-            {/* 03. How We Work (Planetary curve / subtle atmospheric visual) */}
-            <ProcessSection onOpenBooking={scrollToContact} />
-
-            {/* 04. Case Studies (Earth continues its scroll journey) */}
-            <CaseStudiesSection onOpenBooking={scrollToContact} />
-
-            {/* 05. Influencer Marketing (Global network visual + Earth) */}
+            {/* 05. Social Platform / Creator Ecosystem (LinkedIn + X + Instagram Orbit Animation) */}
             <InfluencerSection onOpenBooking={scrollToContact} />
 
-            {/* 06. Product Hunt Launch (Global launch / planetary visual) */}
+            {/* 06. How We Work (4-Stage Growth Journey) */}
+            <ProcessSection onOpenBooking={scrollToContact} />
+
+            {/* 07. Case Studies (Strategic Execution Records) */}
+            <CaseStudiesSection onOpenBooking={scrollToContact} />
+
+            {/* 08. Product Hunt Launch Support (Global Launch Visibility) */}
             <ProductHuntSection onOpenBooking={scrollToContact} />
 
-            {/* 07. About Section (Kept 100% Exactly as it is) */}
+            {/* 09. Why Choose AxentAI Labs (4 Core Pillars) */}
+            <WhyUsSection />
+
+            {/* 10. What Clients Are Saying (Single-Dominant Horizontal Slider) */}
+            <ClientSuccessSection onOpenBooking={scrollToContact} />
+
+            {/* 11. About Section (Kept 100% Exactly as it is) */}
             <AboutSection onOpenBooking={scrollToContact} />
 
-            {/* FAQ Section */}
+            {/* 12. FAQ Section */}
             <FaqSection onOpenBooking={scrollToContact} />
 
-            {/* 08. CTA Section (Large cinematic Earth returns) */}
+            {/* 13. Final CTA + Earth ("READY TO BUILD YOUR DIGITAL INFLUENCE?") */}
             <CtaSection />
           </main>
         )}
 
-        {/* 11. Minimal Premium Footer */}
+        {/* Minimal Premium Footer */}
         <Footer
           onOpenBooking={scrollToContact}
           onOpenLegal={handleOpenLegalPage}
