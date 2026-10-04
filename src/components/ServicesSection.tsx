@@ -22,14 +22,23 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Editorial Section Header */}
-        <div className="max-w-3xl mb-20 space-y-4">
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono">
+        <div className="max-w-3xl mb-20 space-y-4 relative z-20">
+          {/* Subtle localized dark atmospheric gradient behind header text */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
+            style={{
+              background:
+                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.86) 0%, rgba(2, 6, 15, 0.60) 40%, rgba(2, 6, 15, 0.22) 70%, transparent 100%)',
+            }}
+          />
+          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
             // CORE PRACTICE AREAS
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
             Strategic Visibility & Category Authority.
           </h2>
-          <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-sans max-w-2xl font-normal">
+          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans max-w-2xl font-normal drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
             We focus exclusively on organic founder authority, executive page operations, and creator syndication—transforming quiet technology companies into industry-defining voices.
           </p>
         </div>
@@ -50,8 +59,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={`p-8 sm:p-10 rounded-2xl border transition-all duration-300 relative group overflow-hidden ${
                   isHovered 
-                    ? 'bg-[#050B14]/90 border-blue-400/40 shadow-2xl shadow-blue-500/10 -translate-y-0.5' 
-                    : 'bg-[#050B14]/60 border-white/10 hover:border-white/20'
+                    ? 'bg-[#030814]/95 border-blue-400/40 shadow-2xl shadow-blue-500/10 -translate-y-0.5' 
+                    : 'bg-[#030814]/84 border-white/10 hover:border-white/20'
                 }`}
               >
                 {/* Subtle Electric Blue Light Glow on Hover */}
@@ -89,21 +98,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       {service.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed max-w-lg font-normal">
+                    <p className="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed max-w-lg font-normal">
                       {service.description}
                     </p>
                   </div>
 
                   {/* Column 3: Scope Deliverables */}
                   <div className="lg:col-span-3 space-y-2.5">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#94A3B8]/80 block">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#CBD5E1] block">
                       Deliverables
                     </span>
                     <div className="flex flex-col gap-1.5">
                       {service.deliverables.slice(0, 3).map((del, dIdx) => (
                         <div 
                           key={dIdx}
-                          className="inline-flex items-center gap-2 text-xs text-[#94A3B8]"
+                          className="inline-flex items-center gap-2 text-xs text-[#E2E8F0]"
                         >
                           <Check className="w-3 h-3 text-[#38BDF8] shrink-0" />
                           <span>{del}</span>

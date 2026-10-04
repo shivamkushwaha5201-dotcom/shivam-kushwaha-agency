@@ -39,14 +39,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* LEFT: Confident Editorial Luxury Typography (Cols 1-7) */}
-          <div className="lg:col-span-7 xl:col-span-7 space-y-8 text-left">
+          <div className="lg:col-span-7 xl:col-span-7 space-y-8 text-left relative z-20">
+            {/* Subtle localized dark atmospheric gradient behind left text area (No rectangular box) */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-x-10 -inset-y-12 sm:-inset-x-16 sm:-inset-y-16 -z-10"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.65) 35%, rgba(2, 6, 15, 0.25) 65%, transparent 100%)',
+              }}
+            />
             
             {/* Eyebrow Label */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#050B14]/90 border border-white/10 text-[11px] font-mono font-medium tracking-[0.22em] text-[#38BDF8] uppercase"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#030814]/95 border border-white/15 text-[11px] font-mono font-medium tracking-[0.22em] text-[#38BDF8] uppercase shadow-[0_4px_20px_rgba(2,5,11,0.85)]"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
               <span>GLOBAL DIGITAL GROWTH</span>
@@ -57,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.04]"
+              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.04] drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]"
             >
               BUILD INFLUENCE <br />
               THAT TRAVELS <br />
@@ -66,12 +75,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               </span>
             </motion.h1>
 
-            {/* Supporting Copy (Restrained, Confident, Generous Leading) */}
+            {/* Supporting Copy (Restrained, Confident, Generous Leading, High Contrast Over Earth) */}
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg text-[#94A3B8] font-sans leading-relaxed max-w-xl font-normal"
+              className="text-base sm:text-lg text-[#E2E8F0] font-sans leading-relaxed max-w-xl font-normal drop-shadow-[0_2px_16px_rgba(2,6,15,0.98)]"
             >
               We help founders, startups and brands build visibility through personal branding, organic social growth, Product Hunt launches and creator partnerships.
             </motion.p>
@@ -95,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
 
               <a
                 href="#services"
-                className="px-7 py-3.5 rounded-full border border-white/10 bg-[#050B14]/90 text-[#94A3B8] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/20 hover:text-white transition-all cursor-pointer"
+                className="px-7 py-3.5 rounded-full border border-white/15 bg-[#030814]/92 text-[#E2E8F0] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/25 hover:text-white transition-all cursor-pointer"
               >
                 EXPLORE SERVICES
               </a>
@@ -106,7 +115,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.85, delay: 0.45 }}
-              className="pt-8 border-t border-white/10 flex flex-wrap items-center gap-7 text-xs text-[#94A3B8] font-mono"
+              className="pt-8 border-t border-white/15 flex flex-wrap items-center gap-7 text-xs text-[#CBD5E1] font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]"
             >
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />

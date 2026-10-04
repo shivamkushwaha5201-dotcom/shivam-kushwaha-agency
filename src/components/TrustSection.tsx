@@ -253,35 +253,45 @@ export const TrustSection: React.FC<TrustSectionProps> = ({ onOpenBooking }) => 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.65 }}
-            className="lg:col-span-7 space-y-8"
+            className="lg:col-span-7 space-y-8 relative z-20"
           >
+            {/* Subtle localized dark atmospheric gradient behind text area (No rectangular box) */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-x-10 -inset-y-12 sm:-inset-x-16 sm:-inset-y-14 -z-10"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+              }}
+            />
+
             <div className="space-y-4">
-              <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono">
+              <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
                 // AGENCY POSITIONING
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] leading-[1.08] uppercase">
+              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] leading-[1.08] uppercase drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
                 WE BUILD GROWTH SYSTEMS <br className="hidden sm:inline" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93C5FD] via-[#38BDF8] to-[#60A5FA]">
                   FOR MODERN BRANDS
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-sans max-w-xl">
+              <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans max-w-xl drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
                 We help founders and modern brands build visibility through personal branding, social growth, Product Hunt launches and creator-led distribution.
               </p>
             </div>
 
             {/* 2x2 Minimal Pillars Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-white/10 py-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-white/15 py-6">
               {pillars.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div key={idx} className="flex items-center gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-blue-600/15 border border-blue-500/30 text-[#38BDF8] flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-blue-600/20 border border-blue-500/35 text-[#38BDF8] flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-xs sm:text-sm font-semibold text-[#F8FAFC] tracking-tight">
+                    <span className="text-xs sm:text-sm font-semibold text-[#F8FAFC] tracking-tight drop-shadow-[0_2px_10px_rgba(2,6,15,0.9)]">
                       {item.title}
                     </span>
                   </div>
@@ -302,8 +312,8 @@ export const TrustSection: React.FC<TrustSectionProps> = ({ onOpenBooking }) => 
                     className="w-11 h-11 rounded-full object-cover object-[center_35%] border border-[#38BDF8]/40 shrink-0"
                   />
                   <div>
-                    <div className="text-sm font-bold text-white">Shivam Kushwaha</div>
-                    <div className="text-xs text-[#94A3B8]">Founder &amp; CEO, AxentAI Labs</div>
+                    <div className="text-sm font-bold text-white drop-shadow-[0_2px_8px_rgba(2,6,15,0.9)]">Shivam Kushwaha</div>
+                    <div className="text-xs text-[#CBD5E1] drop-shadow-[0_2px_8px_rgba(2,6,15,0.9)]">Founder &amp; CEO, AxentAI Labs</div>
                   </div>
                 </div>
 

@@ -33,14 +33,23 @@ export const WhyUsSection: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-16 space-y-3">
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono">
+        <div className="max-w-2xl mb-16 space-y-3 relative z-20">
+          {/* Subtle localized dark atmospheric gradient behind header text */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
+            style={{
+              background:
+                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+            }}
+          />
+          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
             // WHY US?
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase">
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
             WHY CHOOSE AXENTAILABS
           </h2>
-          <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
             Creative growth systems engineered for real founder authority and measurable reach.
           </p>
         </div>

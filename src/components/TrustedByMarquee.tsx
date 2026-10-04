@@ -73,13 +73,13 @@ export const TrustedByMarquee: React.FC = () => {
     >
       {/* Upper Header Zone with Subtle Radial Atmospheric Backing */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
-        {/* Soft invisible radial dark atmospheric gradient behind text (no rectangular box) */}
+        {/* Localized dark radial atmospheric gradient behind central text (No rectangular box or opaque panel) */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -inset-x-12 -inset-y-10 -z-10"
+          className="pointer-events-none absolute -inset-x-16 -inset-y-14 sm:-inset-x-28 sm:-inset-y-20 -z-10"
           style={{
             background:
-              'radial-gradient(ellipse at center, rgba(5,10,25,0.78) 0%, rgba(5,10,25,0.38) 45%, transparent 75%)',
+              'radial-gradient(ellipse at center, rgba(2, 6, 15, 0.90) 0%, rgba(2, 6, 15, 0.72) 38%, rgba(2, 6, 15, 0.30) 68%, transparent 100%)',
           }}
         />
 
@@ -89,7 +89,7 @@ export const TrustedByMarquee: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#38BDF8] mb-5 drop-shadow-[0_2px_10px_rgba(2,5,10,0.9)]"
+          className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#38BDF8] mb-5 drop-shadow-[0_2px_12px_rgba(2,6,15,0.98)]"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#FF6154] shadow-[0_0_8px_rgba(255,97,84,0.75)]" />
           <span>PRODUCT HUNT · LAUNCH SUPPORT</span>
@@ -101,7 +101,7 @@ export const TrustedByMarquee: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F8FAFC] tracking-[0.04em] leading-[1.22] uppercase drop-shadow-[0_4px_24px_rgba(2,5,10,0.95)]"
+          className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F8FAFC] tracking-[0.04em] leading-[1.22] uppercase drop-shadow-[0_4px_24px_rgba(2,6,15,0.98)]"
         >
           SUPPORTED PRODUCTS <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E0F2FE] via-[#7DD3FC] to-[#38BDF8] font-semibold">
@@ -115,7 +115,7 @@ export const TrustedByMarquee: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, delay: 0.16 }}
-          className="mt-5 text-xs sm:text-sm text-[#94A3B8] font-sans max-w-md mx-auto leading-relaxed font-normal drop-shadow-[0_2px_12px_rgba(2,5,10,0.9)]"
+          className="mt-5 text-xs sm:text-sm text-[#E2E8F0] font-sans max-w-md mx-auto leading-relaxed font-normal drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]"
         >
           Launch visibility, distribution and growth support for products building in public.
         </motion.p>
@@ -132,12 +132,12 @@ export const TrustedByMarquee: React.FC = () => {
         }`}
         style={{
           background:
-            'linear-gradient(180deg, transparent 0%, rgba(4,9,20,0.55) 25%, rgba(4,9,20,0.55) 75%, transparent 100%)',
+            'linear-gradient(180deg, transparent 0%, rgba(2, 6, 15, 0.80) 18%, rgba(3, 8, 20, 0.90) 50%, rgba(2, 6, 15, 0.80) 82%, transparent 100%)',
         }}
       >
         {/* Left & Right Soft Edge Fade Masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#02050A] to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#02050A] to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#02050B] to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#02050B] to-transparent z-10" />
 
         {/* ROW 1: RIGHT → LEFT */}
         <div className="py-3 sm:py-3.5 overflow-hidden">
@@ -150,11 +150,11 @@ export const TrustedByMarquee: React.FC = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]/80 group-hover:bg-[#FF6154] transition-colors duration-300" />
-                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#E2E8F0]/85 group-hover:text-white transition-colors whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] group-hover:bg-[#FF6154] shadow-[0_0_8px_rgba(56,189,248,0.65)] transition-colors duration-300" />
+                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#F8FAFC] group-hover:text-white transition-colors whitespace-nowrap drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
                   {product.name}
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#94A3B8]/55 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/80 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
               </a>
             ))}
           </div>
@@ -171,11 +171,11 @@ export const TrustedByMarquee: React.FC = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/75 group-hover:bg-[#FF6154] transition-colors duration-300" />
-                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#94A3B8] group-hover:text-white transition-colors whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] group-hover:bg-[#FF6154] shadow-[0_0_8px_rgba(59,130,246,0.65)] transition-colors duration-300" />
+                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#E2E8F0] group-hover:text-white transition-colors whitespace-nowrap drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
                   {product.name}
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#94A3B8]/45 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/75 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-all duration-300" />
               </a>
             ))}
           </div>

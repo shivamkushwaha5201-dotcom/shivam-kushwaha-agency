@@ -47,14 +47,23 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenBooking })
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Editorial Section Header */}
-        <div className="max-w-3xl mb-20 space-y-4">
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono">
+        <div className="max-w-3xl mb-20 space-y-4 relative z-20">
+          {/* Subtle localized dark atmospheric gradient behind header text */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
+            style={{
+              background:
+                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+            }}
+          />
+          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono drop-shadow-[0_2px_10px_rgba(2,6,15,0.95)]">
             // METHODOLOGY
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] drop-shadow-[0_4px_24px_rgba(2,6,15,0.95)]">
             The 4-Stage Growth Journey.
           </h2>
-          <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-sans max-w-2xl font-normal">
+          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans max-w-2xl font-normal drop-shadow-[0_2px_14px_rgba(2,6,15,0.98)]">
             A deliberate, continuous progression from initial thesis discovery to enduring category dominance.
           </p>
         </div>

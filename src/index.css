@@ -54,35 +54,35 @@
     --input: 217 33% 20%;
     --ring: 217 91% 60%;
 
-    --bg-page: #0B0F17;
-    --bg-card: #111827;
+    --bg-page: #02050B;
+    --bg-card: #050B16;
     --border-subtle: #1E293B;
     --text-heading: #F8FAFC;
-    --text-body: rgba(248, 250, 252, 0.75);
-    --text-muted: rgba(248, 250, 252, 0.55);
+    --text-body: rgba(248, 250, 252, 0.88);
+    --text-muted: rgba(203, 213, 225, 0.78);
   }
 }
 
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #0f172a;
-  background-color: #fcfcfd;
+  background-color: #02050B;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Dark theme overrides for global site structure */
 html.dark,
 html.dark body {
-  background-color: #0b0f17 !important;
-  color: #f1f5f9 !important;
+  background-color: #02050B !important;
+  color: #F8FAFC !important;
 }
 
 html.dark #root {
-  background-color: #0b0f17;
+  background-color: #02050B;
 }
 
 html.dark .bg-\[\#FAF9F6\] {
-  background-color: #0b0f17 !important;
+  background-color: #02050B !important;
 }
 
 html.dark .bg-white {
