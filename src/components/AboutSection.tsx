@@ -60,7 +60,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
   ];
 
   return (
-    <section id="about" className="py-24 md:py-28 bg-[#050B14]/92 relative overflow-hidden border-t border-white/10 text-slate-100 transition-colors duration-200 z-10">
+    <section id="about" className="py-24 md:py-28 bg-[#080B12]/92 relative overflow-hidden border-t border-white/10 text-slate-100 transition-colors duration-200 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -74,8 +74,8 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
             
             {/* Pill Label */}
             <StaggerItem>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B]">
-                <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] dark:bg-[#080B12] border border-[#E5E5E1] dark:border-[#1E293B]">
+                <span className="w-2 h-2 rounded-full bg-[#3B82F6]" />
                 <span className="text-xs font-bold text-[#1A1A1A] dark:text-white tracking-wide uppercase">
                   About Founder
                 </span>
@@ -92,10 +92,10 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
             <StaggerItem>
               <div className="space-y-3">
                 <p className="text-sm sm:text-base text-[#1A1A1A]/80 dark:text-slate-300 leading-relaxed font-sans">
-                  <strong className="text-[#1A1A1A] dark:text-white font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#1A1A1A] dark:text-white font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#1A1A1A] dark:text-white font-semibold underline decoration-[#2563EB]/40 underline-offset-4 hover:text-[#2563EB] dark:hover:text-[#60A5FA] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms.
+                  <strong className="text-[#1A1A1A] dark:text-white font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#1A1A1A] dark:text-white font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#1A1A1A] dark:text-white font-semibold underline decoration-[#3B82F6]/40 underline-offset-4 hover:text-[#2563EB] dark:hover:text-[#60A5FA] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms.
                 </p>
                 <p className="text-sm sm:text-base text-[#1A1A1A]/70 dark:text-slate-400 leading-relaxed font-sans">
-                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#1A1A1A] dark:text-white font-medium hover:text-[#2563EB] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
+                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#1A1A1A] dark:text-white font-medium hover:text-[#2563EB] dark:hover:text-[#60A5FA] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
                 </p>
               </div>
             </StaggerItem>
@@ -105,7 +105,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
               <div className="space-y-3 pt-2">
                 {highlights.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#2563EB]/10 text-[#2563EB] dark:text-[#60A5FA] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] dark:text-[#60A5FA] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
                     <span className="text-xs sm:text-sm text-[#1A1A1A]/85 dark:text-slate-300 font-medium leading-relaxed">
@@ -122,7 +122,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 <Button
                   size="lg"
                   onClick={onOpenBooking}
-                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-7 py-3 rounded-full shadow-lg shadow-[#2563EB]/25 group hover:scale-102 transition-all"
+                  className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-bold px-7 py-3 rounded-full shadow-lg shadow-[#3B82F6]/25 group hover:scale-102 transition-all"
                 >
                   <span>Book a Call</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -221,7 +221,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
         >
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-2 max-w-xl">
-              <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.25em] text-[#38BDF8]">
+              <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.25em] text-[#60A5FA]">
                 CONNECT WITH SHIVAM
               </div>
               <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#F8FAFC] tracking-tight uppercase">
@@ -239,11 +239,11 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 href="https://www.producthunt.com/@shivam_kushwaha16"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#080B12]/94 border border-white/10 hover:border-[#3B82F6]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(59,130,246,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
-                    className="w-4 h-4 text-[#38BDF8] shrink-0 transition-transform duration-250 group-hover:scale-105"
+                    className="w-4 h-4 text-[#60A5FA] shrink-0 transition-transform duration-250 group-hover:scale-105"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -253,7 +253,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                     Product Hunt
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#60A5FA] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 2. LinkedIn */}
@@ -261,11 +261,11 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 href="https://www.linkedin.com/in/shivam-k-6a462337b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#080B12]/94 border border-white/10 hover:border-[#3B82F6]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(59,130,246,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
-                    className="w-4 h-4 text-[#38BDF8] shrink-0 transition-transform duration-250 group-hover:scale-105"
+                    className="w-4 h-4 text-[#60A5FA] shrink-0 transition-transform duration-250 group-hover:scale-105"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -275,7 +275,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                     LinkedIn
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#60A5FA] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 3. X / Twitter */}
@@ -283,11 +283,11 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 href="https://x.com/shivam100x"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#080B12]/94 border border-white/10 hover:border-[#3B82F6]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(59,130,246,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
-                    className="w-3.5 h-3.5 text-[#38BDF8] shrink-0 transition-transform duration-250 group-hover:scale-105"
+                    className="w-3.5 h-3.5 text-[#60A5FA] shrink-0 transition-transform duration-250 group-hover:scale-105"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -297,21 +297,21 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                     X
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#60A5FA] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 4. Personal Email */}
               <a
                 href="mailto:Shivamkushwaha5201@gmail.com"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#030814]/94 border border-white/10 hover:border-[#38BDF8]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(56,189,248,0.16)] transition-[border-color,transform,box-shadow] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#080B12]/94 border border-white/10 hover:border-[#3B82F6]/50 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(59,130,246,0.16)] transition-[border-color,transform,box-shadow] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <Mail className="w-4 h-4 text-[#38BDF8] shrink-0 transition-transform duration-250 group-hover:scale-105" />
+                  <Mail className="w-4 h-4 text-[#60A5FA] shrink-0 transition-transform duration-250 group-hover:scale-105" />
                   <span className="text-xs sm:text-sm font-medium text-[#F8FAFC] group-hover:text-white truncate">
                     Email
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#38BDF8] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#60A5FA] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
             </div>
           </div>

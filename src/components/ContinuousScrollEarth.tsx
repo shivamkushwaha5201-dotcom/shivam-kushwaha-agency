@@ -251,7 +251,7 @@ export const ContinuousScrollEarth: React.FC = React.memo(() => {
           transform: 'translate3d(0, 0, 0)',
           backfaceVisibility: 'hidden',
         }}
-        className="absolute inset-x-0 -top-20 -bottom-20 bg-[#02050B] -z-20"
+        className="absolute inset-x-0 -top-20 -bottom-20 bg-[#050505] -z-20"
       >
         {/* Subtle, fine starfield particles */}
         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:56px_56px]" />

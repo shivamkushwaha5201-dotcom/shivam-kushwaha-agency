@@ -25,12 +25,12 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
     : FAQ_DATA.filter(faq => faq.category === activeCategory);
 
   return (
-    <section id="faq" className="py-24 bg-[#090A0F] text-slate-100 border-t border-[#181C28] relative overflow-hidden font-sans">
+    <section id="faq" className="py-24 bg-[#080B12] text-slate-100 border-t border-[#181C28] relative overflow-hidden font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-blue-400 font-semibold tracking-widest text-xs uppercase block">
+          <span className="text-[#60A5FA] font-semibold tracking-widest text-xs uppercase block">
             Common Questions
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight leading-tight">
@@ -48,8 +48,8 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   activeCategory === cat.id
-                    ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20'
-                    : 'bg-[#10131E] text-slate-400 border border-[#1E2332] hover:text-white'
+                    ? 'bg-[#3B82F6] text-white shadow-sm shadow-blue-500/20'
+                    : 'bg-[#050505] text-slate-400 border border-[#1E2332] hover:text-[#93C5FD]'
                 }`}
               >
                 {cat.label}
@@ -64,11 +64,11 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
             <AccordionItem 
               key={faq.id} 
               value={faq.id} 
-              className="border border-[#1E2333] bg-[#0F121C] rounded-2xl px-6"
+              className="border border-[#1E2333] bg-[#050505] rounded-2xl px-6"
             >
               <AccordionTrigger className="text-left font-semibold text-white text-base hover:no-underline py-4 cursor-pointer">
                 <div className="flex items-center gap-3 pr-4">
-                  <span className="font-mono text-xs text-blue-400 shrink-0">
+                  <span className="font-mono text-xs text-[#60A5FA] shrink-0">
                     0{idx + 1}
                   </span>
                   <span>{faq.question}</span>
@@ -82,9 +82,9 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
         </Accordion>
 
         {/* Bottom Contact Box */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#0F121C] border border-[#1E2333] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#050505] border border-[#1E2333] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#60A5FA] flex items-center justify-center shrink-0">
               <MessageSquare className="w-5 h-5" />
             </div>
             <div>
@@ -100,7 +100,7 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
           <Button
             onClick={onOpenBooking}
             size="sm"
-            className="shrink-0 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-semibold rounded-full px-5 py-2.5 cursor-pointer"
+            className="shrink-0 bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs font-semibold rounded-full px-5 py-2.5 cursor-pointer"
           >
             <span>Ask Us Directly</span>
             <ArrowRight className="w-3.5 h-3.5 ml-1.5" />

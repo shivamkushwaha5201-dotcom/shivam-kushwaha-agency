@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, ExternalLink } from 'lucide-react';
 import { SERVICES_DATA } from '../data/portfolioData';
 
 interface ServicesSectionProps {
   onOpenBooking: () => void;
   onViewService?: (serviceId: string) => void;
+  onOpenPortfolio?: () => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ 
   onOpenBooking,
-  onViewService 
+  onViewService,
+  onOpenPortfolio
 }) => {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
@@ -59,7 +61,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
             className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
             style={{
               background:
-                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.86) 0%, rgba(2, 6, 15, 0.60) 40%, rgba(2, 6, 15, 0.22) 70%, transparent 100%)',
+                'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.86) 0%, rgba(8, 11, 18, 0.60) 40%, rgba(8, 11, 18, 0.22) 70%, transparent 100%)',
             }}
           />
 
@@ -68,7 +70,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
             style={{ transitionDelay: '0ms' }}
             className={`services-reveal-item ${
               isRevealed ? 'services-revealed' : ''
-            } text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow`}
+            } text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow`}
           >
             // CORE PRACTICE AREAS
           </div>
@@ -114,20 +116,20 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
                   onMouseLeave={() => setHoveredService(null)}
                   className={`p-8 sm:p-10 rounded-2xl border transition-[background-color,border-color,transform] duration-300 relative group overflow-hidden ${
                     isHovered 
-                      ? 'bg-[#030814]/95 border-blue-400/40 shadow-2xl shadow-blue-500/10 -translate-y-0.5' 
-                      : 'bg-[#030814]/84 border-white/10 hover:border-white/20'
+                      ? 'bg-[#080B12]/95 border-[#3B82F6]/40 shadow-2xl shadow-blue-500/10 -translate-y-0.5' 
+                      : 'bg-[#080B12]/84 border-white/10 hover:border-white/20'
                   }`}
                 >
                   {/* Subtle Electric Blue Light Glow on Hover */}
                   {isHovered && (
-                    <div className="absolute top-0 right-0 w-96 h-full bg-gradient-to-l from-blue-500/10 via-sky-400/5 to-transparent pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-96 h-full bg-gradient-to-l from-[#3B82F6]/10 via-[#60A5FA]/5 to-transparent pointer-events-none" />
                   )}
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
                     
                     {/* Column 1: Index Number */}
                     <div className="lg:col-span-1">
-                      <span className="font-mono text-2xl sm:text-3xl font-bold text-[#94A3B8]/70 group-hover:text-[#38BDF8] transition-colors">
+                      <span className="font-mono text-2xl sm:text-3xl font-bold text-[#94A3B8]/70 group-hover:text-[#60A5FA] transition-colors">
                         0{idx + 1}
                       </span>
                     </div>
@@ -135,7 +137,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
                     {/* Column 2: Title & Description */}
                     <div className="lg:col-span-6 space-y-3">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] uppercase font-mono tracking-wider text-[#38BDF8] bg-[#3B82F6]/10 px-2.5 py-0.5 rounded-full border border-[#3B82F6]/25">
+                        <span className="text-[10px] uppercase font-mono tracking-wider text-[#60A5FA] bg-[#3B82F6]/10 px-2.5 py-0.5 rounded-full border border-[#3B82F6]/25">
                           {service.badge}
                         </span>
                         {service.id === 'influencer-marketing' && (
@@ -169,7 +171,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
                             key={dIdx}
                             className="inline-flex items-center gap-2 text-xs text-[#E2E8F0]"
                           >
-                            <Check className="w-3 h-3 text-[#38BDF8] shrink-0" />
+                            <Check className="w-3 h-3 text-[#60A5FA] shrink-0" />
                             <span>{del}</span>
                           </div>
                         ))}
@@ -177,18 +179,48 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
                     </div>
 
                     {/* Column 4: Interaction Action */}
-                    <div className="lg:col-span-2 flex lg:flex-col lg:items-end justify-between items-center gap-4 pt-2 lg:pt-0">
-                      <button
-                        onClick={() => onViewService ? onViewService(service.id) : (window.location.hash = `#services/${service.id}`)}
-                        className="text-xs font-semibold text-[#38BDF8] hover:text-white inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1"
-                      >
-                        <span>EXPLORE</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                    <div className="lg:col-span-2 flex flex-wrap lg:flex-col lg:items-end justify-between items-center gap-3 pt-2 lg:pt-0">
+                      <div className="flex flex-wrap lg:flex-col lg:items-end items-center gap-2.5">
+                        <button
+                          onClick={() => onViewService ? onViewService(service.id) : (window.location.hash = `#services/${service.id}`)}
+                          className="text-xs font-semibold text-[#60A5FA] hover:text-[#93C5FD] inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1"
+                        >
+                          <span>EXPLORE</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+
+                        {service.portfolioUrl && (
+                          <a
+                            href={service.portfolioUrl}
+                            onClick={(e) => {
+                              if (
+                                service.portfolioUrl?.startsWith('/') &&
+                                !e.metaKey &&
+                                !e.ctrlKey &&
+                                !e.shiftKey &&
+                                !e.altKey &&
+                                e.button === 0
+                              ) {
+                                e.preventDefault();
+                                if (onOpenPortfolio) {
+                                  onOpenPortfolio();
+                                } else {
+                                  window.history.pushState({}, '', service.portfolioUrl);
+                                  window.dispatchEvent(new PopStateEvent('popstate'));
+                                }
+                              }
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide text-[#60A5FA] hover:text-white bg-[#3B82F6]/12 hover:bg-[#2563EB] border border-[#3B82F6]/35 hover:border-[#60A5FA]/70 shadow-[0_0_16px_rgba(59,130,246,0.14)] hover:shadow-[0_0_22px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap cursor-pointer"
+                          >
+                            <span>View My Portfolio</span>
+                            <ExternalLink className="w-3 h-3 shrink-0" />
+                          </a>
+                        )}
+                      </div>
 
                       <button
                         onClick={onOpenBooking}
-                        className="text-[11px] font-medium text-[#94A3B8] hover:text-white transition-colors cursor-pointer"
+                        className="text-[11px] font-medium text-[#94A3B8] hover:text-[#93C5FD] transition-colors cursor-pointer whitespace-nowrap"
                       >
                         Book Call →
                       </button>

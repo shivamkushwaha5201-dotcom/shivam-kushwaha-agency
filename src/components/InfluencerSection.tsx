@@ -151,10 +151,10 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
               className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
               style={{
                 background:
-                  'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+                  'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
               }}
             />
-            <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow">
               // SOCIAL PLATFORM EXPERIENCE
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase heading-contrast-shadow">
@@ -192,13 +192,13 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                   transition={{ duration: 0.5 }}
                   className={`p-6 rounded-2xl border transition-colors cursor-pointer ${
                     isHighlighted
-                      ? 'bg-[#06111F] border-[#38BDF8] shadow-xl shadow-blue-500/15'
-                      : 'bg-[#050B14]/88 border-white/10 hover:border-white/25'
+                      ? 'bg-[#080B12] border-[#3B82F6] shadow-xl shadow-blue-500/15'
+                      : 'bg-[#080B12]/88 border-white/10 hover:border-white/25'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#38BDF8] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8]">
+                    <span className="text-[#60A5FA] font-mono text-xs font-bold">*</span>
+                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
                       {platform.pillar}
                     </span>
                   </div>
@@ -226,12 +226,12 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                 className="absolute -inset-6 rounded-full pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle, rgba(59,130,246,0.22) 0%, rgba(56,189,248,0.10) 45%, transparent 70%)',
+                    'radial-gradient(circle, rgba(59,130,246,0.22) 0%, rgba(96,165,250,0.10) 45%, transparent 70%)',
                 }}
               />
 
               {/* Central Statue + Laptop Visual */}
-              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#000000] border border-[#38BDF8]/30 shadow-[0_0_55px_rgba(56,189,248,0.18)] overflow-hidden relative flex items-end justify-center z-10">
+              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#050505] border border-[#3B82F6]/30 shadow-[0_0_55px_rgba(59,130,246,0.18)] overflow-hidden relative flex items-end justify-center z-10">
                 <picture className="w-full h-full block">
                   <source srcSet={statueCenterVisualWebp} type="image/webp" />
                   <img
@@ -243,12 +243,12 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                     decoding="async"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#02050A]/65 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-[#38BDF8]/25 rounded-full pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/65 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-[#3B82F6]/25 rounded-full pointer-events-none" />
               </div>
 
               {/* Subtle Orbital Track Ring */}
-              <div className="absolute inset-2 rounded-full border border-dashed border-[#38BDF8]/20 pointer-events-none" />
+              <div className="absolute inset-2 rounded-full border border-dashed border-[#3B82F6]/20 pointer-events-none" />
 
               {/* Continuous Slow Circular Orbit Carrier for All 6 Platforms (Single Parent Transform) */}
               <div
@@ -277,8 +277,8 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                       <div
                         className={`orbit-counter-node w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-colors duration-300 cursor-pointer ${
                           isHighlighted
-                            ? 'bg-[#3B82F6] text-white border-[#38BDF8] shadow-[0_0_22px_rgba(56,189,248,0.75)]'
-                            : 'bg-[#050B14]/95 text-[#F8FAFC] border-[#38BDF8]/35 hover:border-[#38BDF8] hover:text-[#38BDF8] shadow-[0_0_16px_rgba(56,189,248,0.18)]'
+                            ? 'bg-[#3B82F6] text-white border-[#60A5FA] shadow-[0_0_22px_rgba(59,130,246,0.75)]'
+                            : 'bg-[#080B12]/95 text-[#F8FAFC] border-[#3B82F6]/35 hover:border-[#60A5FA] hover:text-[#60A5FA] shadow-[0_0_16px_rgba(59,130,246,0.18)]'
                         }`}
                         title={platform.name}
                         aria-label={platform.name}
@@ -308,13 +308,13 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                   transition={{ duration: 0.5 }}
                   className={`p-6 rounded-2xl border transition-all cursor-pointer ${
                     isHighlighted
-                      ? 'bg-[#06111F] border-[#38BDF8] shadow-xl shadow-blue-500/15'
-                      : 'bg-[#050B14]/88 border-white/10 hover:border-white/25'
+                      ? 'bg-[#080B12] border-[#3B82F6] shadow-xl shadow-blue-500/15'
+                      : 'bg-[#080B12]/88 border-white/10 hover:border-white/25'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#38BDF8] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8]">
+                    <span className="text-[#60A5FA] font-mono text-xs font-bold">*</span>
+                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
                       {platform.pillar}
                     </span>
                   </div>
@@ -329,20 +329,20 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
             })}
 
             {/* 4-Step Compact Execution Pill */}
-            <div className="p-6 rounded-2xl bg-[#050B14]/88 border border-white/10 space-y-3">
+            <div className="p-6 rounded-2xl bg-[#080B12]/88 border border-white/10 space-y-3">
               <div className="flex items-center gap-2">
-                <span className="text-[#38BDF8] font-mono text-xs font-bold">*</span>
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8]">
+                <span className="text-[#60A5FA] font-mono text-xs font-bold">*</span>
+                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
                   END-TO-END FLOW
                 </span>
               </div>
               <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-semibold text-white">
                 <span>DISCOVER</span>
-                <span className="text-[#38BDF8]">→</span>
+                <span className="text-[#60A5FA]">→</span>
                 <span>SELECT</span>
-                <span className="text-[#38BDF8]">→</span>
+                <span className="text-[#60A5FA]">→</span>
                 <span>CAMPAIGN</span>
-                <span className="text-[#38BDF8]">→</span>
+                <span className="text-[#60A5FA]">→</span>
                 <span>MEASURE</span>
               </div>
               <p className="text-xs text-[#94A3B8] leading-relaxed">

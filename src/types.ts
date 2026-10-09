@@ -18,6 +18,7 @@ export interface ServiceDetail {
   resultsMetric: string;
   idealFor: string;
   featured?: boolean;
+  portfolioUrl?: string;
 }
 
 export interface CaseStudy {

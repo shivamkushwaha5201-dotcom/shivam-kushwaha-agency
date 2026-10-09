@@ -22,6 +22,27 @@ export const STAT_METRICS: StatMetric[] = [];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
+    id: 'product-hunt-launch',
+    title: 'Product Hunt Launch Support',
+    tagline: 'Strategic launch positioning, asset preparation, and real-time coordination for legitimate front-page visibility.',
+    icon: 'Rocket',
+    badge: 'Launch Execution',
+    description: 'Product Hunt is a premier stage for modern software discovery. We provide strategic, hands-on launch support—from narrative framing and visual asset preparation to pre-launch community mobilization and launch-day coordination—centered on genuine user enthusiasm, never manipulated votes.',
+    deliverables: [
+      'Product Hunt launch strategy',
+      'Pre-launch planning',
+      'Launch-day support',
+      'Community outreach',
+      'Content preparation',
+      'Launch visibility strategy',
+      'Post-launch engagement'
+    ],
+    resultsMetric: 'Structured Launch Momentum & Front-Page Visibility',
+    idealFor: 'SaaS startups, developer tools, AI products, and innovative digital apps ready for market introduction.',
+    featured: true,
+    portfolioUrl: '/portfolio'
+  },
+  {
     id: 'linkedin-personal-branding',
     title: 'LinkedIn Personal Branding',
     tagline: 'Transform founder insights into executive authority, network leverage, and high-value inbound conversations.',
@@ -78,26 +99,6 @@ export const SERVICES_DATA: ServiceDetail[] = [
     resultsMetric: 'Contextual Reach & Community Relationships',
     idealFor: 'Founders and brands looking to deepen audience relationships and expand organic impressions ethically.',
     featured: false
-  },
-  {
-    id: 'product-hunt-launch',
-    title: 'Product Hunt Launch Support',
-    tagline: 'Strategic launch positioning, asset preparation, and real-time coordination for legitimate front-page visibility.',
-    icon: 'Rocket',
-    badge: 'Launch Execution',
-    description: 'Product Hunt is a premier stage for modern software discovery. We provide strategic, hands-on launch support—from narrative framing and visual asset preparation to pre-launch community mobilization and launch-day coordination—centered on genuine user enthusiasm, never manipulated votes.',
-    deliverables: [
-      'Product Hunt launch strategy',
-      'Pre-launch planning',
-      'Launch-day support',
-      'Community outreach',
-      'Content preparation',
-      'Launch visibility strategy',
-      'Post-launch engagement'
-    ],
-    resultsMetric: 'Structured Launch Momentum & Front-Page Visibility',
-    idealFor: 'SaaS startups, developer tools, AI products, and innovative digital apps ready for market introduction.',
-    featured: true
   },
   {
     id: 'influencer-marketing',

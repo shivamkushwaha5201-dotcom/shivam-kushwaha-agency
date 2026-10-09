@@ -10,7 +10,8 @@ import {
   CheckCircle2, 
   Phone, 
   Mail, 
-  MessageSquare
+  MessageSquare,
+  ExternalLink
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { SERVICES_DATA, CONTACT_INFO } from '../data/portfolioData';
@@ -88,7 +89,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
   const otherServices = SERVICES_DATA.filter(s => s.id !== service.id);
 
   return (
-    <div className="pt-28 pb-20 bg-[#090A0F] min-h-screen text-slate-100 font-sans">
+    <div className="pt-28 pb-20 bg-[#050505] min-h-screen text-slate-100 font-sans">
       <SEOHead
         title={pageTitle}
         description={pageDescription}
@@ -104,7 +105,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-slate-400">
             <button
               onClick={onBackToHome}
-              className="hover:text-blue-400 transition-colors cursor-pointer"
+              className="hover:text-[#60A5FA] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -119,7 +120,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
               }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-[#60A5FA] transition-colors"
             >
               Services
             </a>
@@ -131,7 +132,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
             variant="outline"
             size="sm"
             onClick={onBackToHome}
-            className="rounded-full text-xs font-semibold border-slate-700 bg-[#10131E] text-slate-300 hover:border-blue-500 hover:text-white"
+            className="rounded-full text-xs font-semibold border-slate-700 bg-[#080B12] text-slate-300 hover:border-[#3B82F6] hover:text-white"
           >
             <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />
             Back to All Services
@@ -139,11 +140,11 @@ export const ServicePage: React.FC<ServicePageProps> = ({
         </div>
 
         {/* Hero Header for Service */}
-        <div className="bg-[#0F121C] border border-[#1E2333] rounded-3xl p-8 sm:p-12 mb-10 relative overflow-hidden">
+        <div className="bg-[#080B12] border border-[#1E2333] rounded-3xl p-8 sm:p-12 mb-10 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl space-y-4">
             
             <div className="flex items-center gap-2.5 flex-wrap">
-              <span className="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+              <span className="text-xs font-bold text-[#60A5FA] bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/20">
                 {service.badge}
               </span>
               <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
@@ -155,7 +156,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
               {service.title}
             </h1>
 
-            <p className="text-base sm:text-lg font-medium text-blue-400 leading-snug">
+            <p className="text-base sm:text-lg font-medium text-[#60A5FA] leading-snug">
               {service.tagline}
             </p>
 
@@ -167,11 +168,35 @@ export const ServicePage: React.FC<ServicePageProps> = ({
               <Button
                 onClick={onOpenBooking}
                 size="lg"
-                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-full px-7 shadow-md shadow-blue-500/20 cursor-pointer"
+                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-full px-7 shadow-md shadow-blue-500/20 cursor-pointer"
               >
                 <span>Book a Strategy Call</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
+
+              {service.portfolioUrl && (
+                <a
+                  href={service.portfolioUrl}
+                  onClick={(e) => {
+                    if (
+                      service.portfolioUrl?.startsWith('/') &&
+                      !e.metaKey &&
+                      !e.ctrlKey &&
+                      !e.shiftKey &&
+                      !e.altKey &&
+                      e.button === 0
+                    ) {
+                      e.preventDefault();
+                      window.history.pushState({}, '', service.portfolioUrl);
+                      window.dispatchEvent(new PopStateEvent('popstate'));
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-[#60A5FA] hover:text-white bg-[#3B82F6]/12 hover:bg-[#2563EB] border border-[#3B82F6]/35 hover:border-[#60A5FA]/70 shadow-[0_0_20px_rgba(59,130,246,0.14)] hover:shadow-[0_0_26px_rgba(59,130,246,0.3)] transition-all duration-200 cursor-pointer"
+                >
+                  <span>View My Portfolio</span>
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                </a>
+              )}
             </div>
 
           </div>
@@ -184,7 +209,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
           <div className="lg:col-span-2 space-y-8">
             
             {/* Scope Deliverables Card */}
-            <div className="bg-[#0F121C] border border-[#1E2333] rounded-3xl p-8 space-y-6">
+            <div className="bg-[#080B12] border border-[#1E2333] rounded-3xl p-8 space-y-6">
               <div>
                 <h2 className="text-xl sm:text-2xl font-display font-bold text-white mb-1">
                   What's Included in This Service
@@ -198,9 +223,9 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                 {service.deliverables.map((item, index) => (
                   <div 
                     key={index}
-                    className="flex items-start gap-3.5 p-4 rounded-xl bg-[#141824] border border-[#212738]"
+                    className="flex items-start gap-3.5 p-4 rounded-xl bg-[#050505] border border-[#212738]"
                   >
-                    <div className="w-6 h-6 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                    <div className="w-6 h-6 rounded-full bg-[#3B82F6]/10 text-[#60A5FA] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
                       {index + 1}
                     </div>
                     <div>
@@ -217,7 +242,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
             </div>
 
             {/* Execution Process */}
-            <div className="bg-[#0F121C] border border-[#1E2333] rounded-3xl p-8 space-y-6">
+            <div className="bg-[#080B12] border border-[#1E2333] rounded-3xl p-8 space-y-6">
               <div>
                 <h2 className="text-xl sm:text-2xl font-display font-bold text-white mb-1">
                   Execution Methodology
@@ -228,32 +253,32 @@ export const ServicePage: React.FC<ServicePageProps> = ({
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-[#141824] border border-[#212738] space-y-2">
-                  <span className="font-mono text-xs font-bold text-blue-400">01 — Understand</span>
+                <div className="p-5 rounded-2xl bg-[#050505] border border-[#212738] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#60A5FA]">01 — Understand</span>
                   <h3 className="text-sm font-semibold text-white">Brand & Audience Discovery</h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Analyzing domain context, competitor positioning, and target buyer personas.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#141824] border border-[#212738] space-y-2">
-                  <span className="font-mono text-xs font-bold text-blue-400">02 — Strategize</span>
+                <div className="p-5 rounded-2xl bg-[#050505] border border-[#212738] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#60A5FA]">02 — Strategize</span>
                   <h3 className="text-sm font-semibold text-white">Content & Distribution Architecture</h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Developing editorial calendars, narrative angles, and creator target profiles.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#141824] border border-[#212738] space-y-2">
-                  <span className="font-mono text-xs font-bold text-blue-400">03 — Execute</span>
+                <div className="p-5 rounded-2xl bg-[#050505] border border-[#212738] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#60A5FA]">03 — Execute</span>
                   <h3 className="text-sm font-semibold text-white">Active Production & Engagement</h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Managing daily publishing, organic community conversations, and creator coordination.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#141824] border border-[#212738] space-y-2">
-                  <span className="font-mono text-xs font-bold text-blue-400">04 — Optimize</span>
+                <div className="p-5 rounded-2xl bg-[#050505] border border-[#212738] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#60A5FA]">04 — Optimize</span>
                   <h3 className="text-sm font-semibold text-white">Analytics & Performance Review</h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Iterating based on empirical profile reach, lead quality, and engagement depth.
@@ -263,11 +288,11 @@ export const ServicePage: React.FC<ServicePageProps> = ({
             </div>
 
             {/* Target Audience Fit */}
-            <div className="bg-[#0F121C] border border-[#1E2333] rounded-3xl p-8 space-y-4">
+            <div className="bg-[#080B12] border border-[#1E2333] rounded-3xl p-8 space-y-4">
               <h2 className="text-xl sm:text-2xl font-display font-bold text-white">
                 Who This Is Built For
               </h2>
-              <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs text-blue-300">
+              <div className="p-4 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-xs text-[#93C5FD]">
                 <span className="font-bold block mb-1">Ideal Engagement Profile:</span>
                 {service.idealFor}
               </div>
@@ -277,10 +302,10 @@ export const ServicePage: React.FC<ServicePageProps> = ({
 
           {/* Sidebar (Col 3) */}
           <div className="space-y-6">
-            <div className="sticky top-28 bg-[#0F121C] border border-[#1E2333] rounded-3xl p-6 space-y-6">
+            <div className="sticky top-28 bg-[#080B12] border border-[#1E2333] rounded-3xl p-6 space-y-6">
               
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#60A5FA]">
                   Direct Consultation
                 </span>
                 <h3 className="text-lg font-bold text-white mt-1">
@@ -293,7 +318,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
 
               <Button
                 onClick={onOpenBooking}
-                className="w-full justify-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-full py-3 shadow-sm shadow-blue-500/25 cursor-pointer text-xs"
+                className="w-full justify-center bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-full py-3 shadow-sm shadow-blue-500/25 cursor-pointer text-xs"
               >
                 <Calendar className="w-4 h-4 mr-2" />
                 <span>Book a Strategy Call</span>
@@ -305,7 +330,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                   href={CONTACT_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#141824] text-slate-300 transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#050505] text-slate-300 transition-colors"
                 >
                   <span className="flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 text-emerald-400" />
@@ -316,10 +341,10 @@ export const ServicePage: React.FC<ServicePageProps> = ({
 
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#141824] text-slate-300 transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#050505] text-slate-300 transition-colors"
                 >
                   <span className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-blue-400" />
+                    <Mail className="w-4 h-4 text-[#60A5FA]" />
                     <span>Email Direct</span>
                   </span>
                   <span className="text-[10px] text-slate-400 font-mono truncate">{CONTACT_INFO.email}</span>
@@ -336,10 +361,10 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                     <button
                       key={s.id}
                       onClick={() => onSelectService(s.id)}
-                      className="w-full text-left p-2.5 rounded-xl hover:bg-[#141824] text-xs font-medium text-slate-300 hover:text-blue-400 flex items-center justify-between transition-colors group cursor-pointer"
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-[#050505] text-xs font-medium text-slate-300 hover:text-[#60A5FA] flex items-center justify-between transition-colors group cursor-pointer"
                     >
                       <span className="truncate pr-2">{s.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-blue-400 shrink-0" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#60A5FA] shrink-0" />
                     </button>
                   ))}
                 </div>

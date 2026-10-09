@@ -54,11 +54,11 @@
     --input: 217 33% 20%;
     --ring: 217 91% 60%;
 
-    --bg-page: #02050B;
-    --bg-card: #050B16;
+    --bg-page: #050505;
+    --bg-card: #080B12;
     --border-subtle: #1E293B;
-    --text-heading: #F8FAFC;
-    --text-body: rgba(248, 250, 252, 0.88);
+    --text-heading: #F5F7FA;
+    --text-body: rgba(245, 247, 250, 0.88);
     --text-muted: rgba(203, 213, 225, 0.78);
   }
 }
@@ -66,23 +66,23 @@
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #0f172a;
-  background-color: #02050B;
+  background-color: #050505;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Dark theme overrides for global site structure */
 html.dark,
 html.dark body {
-  background-color: #02050B !important;
-  color: #F8FAFC !important;
+  background-color: #050505 !important;
+  color: #F5F7FA !important;
 }
 
 html.dark #root {
-  background-color: #02050B;
+  background-color: #050505;
 }
 
 html.dark .bg-\[\#FAF9F6\] {
-  background-color: #02050B !important;
+  background-color: #050505 !important;
 }
 
 html.dark .bg-white {
@@ -242,8 +242,8 @@ h1, h2, h3, .font-display {
 
 /* Smooth keyframes */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { transform: translate3d(0, 0px, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
 }
 
 @keyframes pulse-subtle {
@@ -252,18 +252,22 @@ h1, h2, h3, .font-display {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
   animation: marquee 28s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .animate-marquee:hover {
@@ -302,5 +306,11 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: #475569;
 }
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
 
 

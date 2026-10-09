@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
   };
 
   return (
-    <footer className="bg-[#02050B] text-slate-400 pt-16 pb-12 border-t border-blue-500/15 relative overflow-hidden font-sans z-20">
+    <footer className="bg-[#050505] text-slate-400 pt-16 pb-12 border-t border-[#3B82F6]/15 relative overflow-hidden font-sans z-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Grid */}
@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
           {/* Agency Logo & Description (Col 1-5) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-blue-500/40 p-0.5 bg-[#12151E] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-full overflow-hidden border border-[#3B82F6]/40 p-0.5 bg-[#080B12] flex items-center justify-center shrink-0">
                 <picture className="w-full h-full block">
                   <source srcSet={brandLogoWebp} type="image/webp" />
                   <img
@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                 <li key={srv.id}>
                   <a 
                     href={`#services/${srv.id}`}
-                    className="text-slate-400 hover:text-blue-400 transition-colors"
+                    className="text-slate-400 hover:text-[#60A5FA] transition-colors"
                   >
                     {srv.title}
                   </a>
@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   href={`mailto:${CONTACT_INFO.email}`} 
                   className="text-slate-400 hover:text-white transition-colors flex items-center gap-2"
                 >
-                  <Mail className="w-3.5 h-3.5 text-blue-400" />
+                  <Mail className="w-3.5 h-3.5 text-[#60A5FA]" />
                   <span>{CONTACT_INFO.email}</span>
                 </a>
               </li>
@@ -107,7 +107,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   href={CONTACT_INFO.agencyLinkedIn} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors"
+                  className="text-slate-400 hover:text-[#60A5FA] transition-colors"
                 >
                   LinkedIn — AxentAI Labs
                 </a>

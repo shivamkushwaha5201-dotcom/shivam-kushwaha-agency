@@ -49,12 +49,12 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div className="space-y-3">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono">
               // TESTIMONIALS
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase">
               WHAT CLIENTS ARE{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93C5FD] via-[#38BDF8] to-[#60A5FA]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93C5FD] via-[#60A5FA] to-[#3B82F6]">
                 SAYING
               </span>
             </h2>
@@ -65,14 +65,14 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
             <button
               onClick={handlePrev}
               aria-label="Previous testimonial"
-              className="w-11 h-11 rounded-full bg-[#050B14] border border-white/15 hover:border-[#38BDF8] text-[#F8FAFC] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#080B12] border border-white/15 hover:border-[#3B82F6] text-[#F8FAFC] flex items-center justify-center transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next testimonial"
-              className="w-11 h-11 rounded-full bg-[#050B14] border border-white/15 hover:border-[#38BDF8] text-[#F8FAFC] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#080B12] border border-white/15 hover:border-[#3B82F6] text-[#F8FAFC] flex items-center justify-center transition-colors cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -90,16 +90,16 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
                 onClick={() => setActiveSlide(idx)}
                 className={`rounded-3xl border p-8 sm:p-10 flex flex-col justify-between cursor-pointer transition-[background-color,border-color,opacity,transform] duration-300 ${
                   isDominant
-                    ? 'lg:col-span-6 bg-[#050B14]/92 border-[#38BDF8]/50 shadow-2xl shadow-blue-500/10 opacity-100 scale-100'
-                    : 'lg:col-span-3 bg-[#050B14]/55 border-white/10 opacity-55 hover:opacity-80 scale-[0.98]'
+                    ? 'lg:col-span-6 bg-[#080B12]/92 border-[#3B82F6]/50 shadow-2xl shadow-blue-500/10 opacity-100 scale-100'
+                    : 'lg:col-span-3 bg-[#080B12]/55 border-white/10 opacity-55 hover:opacity-80 scale-[0.98]'
                 }`}
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#38BDF8] bg-blue-500/10 px-3 py-1 rounded-full border border-blue-400/20">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#60A5FA] bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/20">
                       {item.tag}
                     </span>
-                    <Quote className="w-5 h-5 text-[#38BDF8]/50" />
+                    <Quote className="w-5 h-5 text-[#60A5FA]/50" />
                   </div>
 
                   <p className={`${isDominant ? 'text-lg sm:text-xl' : 'text-sm'} font-display text-[#F8FAFC] leading-relaxed`}>

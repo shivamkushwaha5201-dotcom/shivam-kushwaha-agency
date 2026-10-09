@@ -108,8 +108,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
         <div
           className={`flex items-center justify-between px-4 sm:px-6 py-2 rounded-full transition-colors duration-300 ${
             scrolled
-              ? 'bg-[#02050B]/92 backdrop-blur-md border border-white/15 shadow-2xl shadow-black/90'
-              : 'bg-[#02050B]/55 backdrop-blur-sm border border-white/5'
+              ? 'bg-[#050505]/92 backdrop-blur-md border border-white/15 shadow-2xl shadow-black/90'
+              : 'bg-[#050505]/55 backdrop-blur-sm border border-white/5'
           }`}
         >
           {/* Brand Logo & Name */}
@@ -119,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             id="nav-logo"
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="w-7 h-7 rounded-full overflow-hidden border border-white/15 p-0.5 bg-[#050B14] group-hover:border-[#3B82F6] transition-colors flex items-center justify-center shrink-0">
+            <div className="w-7 h-7 rounded-full overflow-hidden border border-white/15 p-0.5 bg-[#080B12] group-hover:border-[#3B82F6] transition-colors flex items-center justify-center shrink-0">
               <picture className="w-full h-full block">
                 <source srcSet={brandLogoWebp} type="image/webp" />
                 <img
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             </div>
 
             <div className="flex flex-col">
-              <span className="font-semibold text-xs tracking-wider text-[#F8FAFC] group-hover:text-[#38BDF8] transition-colors uppercase font-display">
+              <span className="font-semibold text-xs tracking-wider text-[#F8FAFC] group-hover:text-[#60A5FA] transition-colors uppercase font-display">
                 AxentAI Labs
               </span>
             </div>
@@ -151,8 +151,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                   id={`nav-link-${link.id}`}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors ${
                     isActive
-                      ? 'bg-blue-600/15 text-blue-400 border border-blue-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#3B82F6]/15 text-[#60A5FA] border border-[#3B82F6]/30'
+                      : 'text-slate-300 hover:text-[#93C5FD] hover:bg-white/5'
                   }`}
                 >
                   {link.name}
@@ -202,21 +202,21 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             transition={{ duration: 0.2 }}
             className="lg:hidden mt-2 px-4 max-w-7xl mx-auto"
           >
-            <div className="bg-[#0B0C10]/95 backdrop-blur-md border border-[#1E2230] rounded-2xl shadow-2xl p-4">
+            <div className="bg-[#080B12]/95 backdrop-blur-md border border-[#1E2230] rounded-2xl shadow-2xl p-4">
               <div className="flex flex-col space-y-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => handleNavLinkClick(link.href)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:text-white hover:bg-[#151824] transition-colors"
+                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:text-[#60A5FA] hover:bg-[#151824] transition-colors"
                   >
                     {link.name}
                   </a>
                 ))}
                 <div className="pt-3 mt-2 border-t border-[#1E2230] flex flex-col gap-2">
                   <Button
-                    className="w-full justify-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold py-2.5 rounded-xl text-xs"
+                    className="w-full justify-center bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold py-2.5 rounded-xl text-xs"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       onOpenBooking();

@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               className="pointer-events-none absolute -inset-x-10 -inset-y-12 sm:-inset-x-16 sm:-inset-y-16 -z-10"
               style={{
                 background:
-                  'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.65) 35%, rgba(2, 6, 15, 0.25) 65%, transparent 100%)',
+                  'radial-gradient(ellipse at center left, rgba(5, 5, 5, 0.88) 0%, rgba(5, 5, 5, 0.65) 35%, rgba(5, 5, 5, 0.25) 65%, transparent 100%)',
               }}
             />
             
@@ -55,9 +55,9 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#030814]/95 border border-white/15 text-[11px] font-mono font-medium tracking-[0.22em] text-[#38BDF8] uppercase shadow-[0_4px_20px_rgba(2,5,11,0.85)]"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#080B12]/95 border border-white/15 text-[11px] font-mono font-medium tracking-[0.22em] text-[#7BA7F7] uppercase"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#5B8FE8]" />
               <span>GLOBAL DIGITAL GROWTH</span>
             </motion.div>
 
@@ -66,21 +66,21 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.04] heading-contrast-shadow"
+              className="text-4xl sm:text-6xl lg:text-[76px] font-display font-extrabold tracking-[-0.03em] text-[#F5F7FA] leading-[1.04]"
             >
               BUILD INFLUENCE <br />
               THAT TRAVELS <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93C5FD] via-[#38BDF8] to-[#60A5FA]">
+              <span className="text-[#6B9BF0]">
                 FURTHER.
               </span>
             </motion.h1>
 
-            {/* Supporting Copy (Restrained, Confident, Generous Leading, High Contrast Over Earth) */}
+            {/* Supporting Copy (Restrained, Confident, Generous Leading, Clean Contrast) */}
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg text-[#E2E8F0] font-sans leading-relaxed max-w-xl font-normal text-contrast-shadow"
+              className="text-base sm:text-lg text-[#CBD5E1] font-sans leading-relaxed max-w-xl font-normal"
             >
               We help founders, startups and brands build visibility through personal branding, organic social growth, Product Hunt launches and creator partnerships.
             </motion.p>
@@ -96,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
                 id="hero-primary-cta"
                 size="lg"
                 onClick={onOpenBooking}
-                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg shadow-blue-500/20 group transition-colors cursor-pointer"
+                className="bg-[#5B8FE8] hover:bg-[#4F7FD1] text-[#F5F7FA] text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-md shadow-black/40 group transition-colors cursor-pointer"
               >
                 <span>BOOK A STRATEGY CALL</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
 
               <a
                 href="#services"
-                className="px-7 py-3.5 rounded-full border border-white/15 bg-[#030814]/92 text-[#E2E8F0] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/25 hover:text-white transition-colors cursor-pointer"
+                className="px-7 py-3.5 rounded-full border border-white/15 bg-[#080B12]/92 text-[#F5F7FA] text-xs sm:text-sm font-semibold tracking-wider uppercase hover:border-white/25 hover:text-[#A9C7FF] transition-colors cursor-pointer"
               >
                 EXPLORE SERVICES
               </a>
@@ -115,14 +115,14 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.85, delay: 0.45 }}
-              className="pt-8 border-t border-white/15 flex flex-wrap items-center gap-7 text-xs text-[#CBD5E1] font-mono text-contrast-shadow"
+              className="pt-8 border-t border-white/15 flex flex-wrap items-center gap-7 text-xs text-[#94A3B8] font-mono"
             >
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5B8FE8]" />
                 <span>Founder Authority</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#7BA7F7]" />
                 <span>Global Organic Reach</span>
               </div>
               <div className="flex items-center gap-2">
@@ -143,9 +143,9 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               transition={{ duration: 0.7, delay: 0.35 }}
               style={{
                 animationPlayState: inView ? 'running' : 'paused',
-                willChange: inView ? 'transform' : 'auto',
+                willChange: 'transform',
               }}
-              className="hero-float-1 absolute top-10 right-2 sm:right-6 px-4 py-2.5 rounded-xl bg-[#050B14]/92 border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
+              className="animate-float hero-float-1 will-change-transform absolute top-10 right-2 sm:right-6 px-4 py-2.5 rounded-xl bg-[#080B12]/92 border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
             >
               <div className="flex items-center gap-2 mb-0.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -165,12 +165,12 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               transition={{ duration: 0.7, delay: 0.45 }}
               style={{
                 animationPlayState: inView ? 'running' : 'paused',
-                willChange: inView ? 'transform' : 'auto',
+                willChange: 'transform',
               }}
-              className="hero-float-2 absolute bottom-24 -left-2 sm:left-4 px-4 py-2.5 rounded-xl bg-[#050B14]/92 border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
+              className="animate-float hero-float-2 will-change-transform absolute bottom-24 -left-2 sm:left-4 px-4 py-2.5 rounded-xl bg-[#080B12]/92 border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
             >
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-[10px] font-semibold text-[#38BDF8] uppercase tracking-wider font-mono">
+                <span className="text-[10px] font-semibold text-[#60A5FA] uppercase tracking-wider font-mono">
                   Executive Presence
                 </span>
               </div>
@@ -186,15 +186,15 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               transition={{ duration: 0.7, delay: 0.55 }}
               style={{
                 animationPlayState: inView ? 'running' : 'paused',
-                willChange: inView ? 'transform' : 'auto',
+                willChange: 'transform',
               }}
-              className="hero-float-3 absolute -bottom-2 right-8 sm:right-16 px-4 py-2 rounded-xl bg-[#050B14]/92 border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
+              className="animate-float hero-float-3 will-change-transform absolute -bottom-2 right-8 sm:right-16 px-4 py-2 rounded-xl bg-[#080B12]/92 border border-white/10 shadow-2xl shadow-black/80 pointer-events-auto"
             >
               <div className="flex items-center gap-2.5">
                 <span className="text-xs font-medium text-[#F8FAFC]">
                   Creator Campaigns
                 </span>
-                <span className="text-[10px] font-mono font-bold text-[#38BDF8] bg-[#3B82F6]/10 px-2 py-0.5 rounded border border-[#3B82F6]/25">
+                <span className="text-[10px] font-mono font-bold text-[#60A5FA] bg-[#3B82F6]/10 px-2 py-0.5 rounded border border-[#3B82F6]/25">
                   Active
                 </span>
               </div>
@@ -221,14 +221,17 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
         }
         .hero-float-1 {
           animation: heroFloatUp 7s ease-in-out infinite;
+          will-change: transform;
           backface-visibility: hidden;
         }
         .hero-float-2 {
           animation: heroFloatDown 8s ease-in-out 1s infinite;
+          will-change: transform;
           backface-visibility: hidden;
         }
         .hero-float-3 {
           animation: heroFloatMid 9s ease-in-out 2s infinite;
+          will-change: transform;
           backface-visibility: hidden;
         }
       `}</style>

@@ -53,10 +53,10 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
             className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
             style={{
               background:
-                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+                'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
             }}
           />
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow">
             // STRATEGIC EXECUTION RECORDS
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] heading-contrast-shadow">
@@ -76,19 +76,19 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 sm:p-12 rounded-3xl bg-[#050B14]/92 border border-white/10 hover:border-white/20 transition-colors space-y-8 shadow-2xl shadow-black/60"
+              className="p-8 sm:p-12 rounded-3xl bg-[#080B12]/92 border border-white/10 hover:border-white/20 transition-colors space-y-8 shadow-2xl shadow-black/60"
             >
               {/* Header: Project / Category */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-mono font-medium text-[#38BDF8] uppercase tracking-[0.2em] block">
+                  <span className="text-[11px] font-mono font-medium text-[#60A5FA] uppercase tracking-[0.2em] block">
                     {study.category}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-bold text-[#F8FAFC] tracking-tight font-display">
                     {study.project}
                   </h3>
                 </div>
-                <div className="font-mono text-xs font-bold text-[#94A3B8] border border-white/10 bg-[#02040A] px-4 py-1.5 rounded-full self-start sm:self-auto">
+                <div className="font-mono text-xs font-bold text-[#94A3B8] border border-white/10 bg-[#050505] px-4 py-1.5 rounded-full self-start sm:self-auto">
                   {study.architectureId}
                 </div>
               </div>
@@ -97,7 +97,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
                 {/* Challenge */}
-                <div className="p-6 rounded-2xl bg-[#02040A]/80 border border-white/10 space-y-3">
+                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
                   <div className="text-xs font-mono font-semibold uppercase tracking-wider text-rose-400/90 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
                     Challenge
@@ -108,7 +108,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
                 </div>
 
                 {/* Strategy */}
-                <div className="p-6 rounded-2xl bg-[#02040A]/80 border border-white/10 space-y-3">
+                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
                   <div className="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400/90 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                     Strategy
@@ -119,9 +119,9 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
                 </div>
 
                 {/* Execution */}
-                <div className="p-6 rounded-2xl bg-[#02040A]/80 border border-white/10 space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#38BDF8] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
+                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#60A5FA] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
                     Execution
                   </div>
                   <p className="text-xs text-[#94A3B8] leading-relaxed font-sans font-normal">
@@ -130,7 +130,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
                 </div>
 
                 {/* Outcome */}
-                <div className="p-6 rounded-2xl bg-[#02040A]/80 border border-white/10 space-y-3">
+                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
                   <div className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400/90 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     Outcome

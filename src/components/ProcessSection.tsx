@@ -54,10 +54,10 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
             className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
             style={{
               background:
-                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+                'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
             }}
           />
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow">
             // METHODOLOGY
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] heading-contrast-shadow">
@@ -80,7 +80,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               style={{ transformOrigin: 'left' }}
-              className="h-full w-full bg-gradient-to-r from-[#3B82F6] via-[#38BDF8] to-[#60A5FA] shadow-[0_0_12px_rgba(56,189,248,0.8)]"
+              className="h-full w-full bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#93C5FD] shadow-[0_0_12px_rgba(59,130,246,0.8)]"
             />
           </div>
 
@@ -95,16 +95,16 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.55, delay: idx * 0.1 }}
-                  className="p-8 rounded-2xl bg-[#050B14]/92 border border-white/10 hover:border-white/20 transition-colors flex flex-col justify-between space-y-6 group shadow-xl shadow-black/50"
+                  className="p-8 rounded-2xl bg-[#080B12]/92 border border-white/10 hover:border-white/20 transition-colors flex flex-col justify-between space-y-6 group shadow-xl shadow-black/50"
                 >
                   <div className="space-y-4">
                     {/* Stage Node */}
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-full bg-[#02040A] border border-white/20 flex items-center justify-center font-mono font-bold text-xs text-[#38BDF8] shadow-md group-hover:border-[#38BDF8] transition-colors">
+                      <div className="w-10 h-10 rounded-full bg-[#050505] border border-white/20 flex items-center justify-center font-mono font-bold text-xs text-[#60A5FA] shadow-md group-hover:border-[#60A5FA] transition-colors">
                         {stage.number}
                       </div>
 
-                      <div className="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/20 text-[#38BDF8] flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#60A5FA] flex items-center justify-center">
                         <Icon className="w-4 h-4" />
                       </div>
                     </div>
@@ -113,7 +113,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
                       <h3 className="text-xl font-bold text-[#F8FAFC] tracking-tight uppercase font-display group-hover:text-white transition-colors">
                         {stage.title}
                       </h3>
-                      <p className="text-xs font-mono text-[#38BDF8]">
+                      <p className="text-xs font-mono text-[#60A5FA]">
                         {stage.subtitle}
                       </p>
                     </div>
@@ -125,7 +125,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
 
                   <div className="pt-4 border-t border-white/10 text-[11px] text-[#94A3B8] font-mono flex items-center justify-between">
                     <span>Phase 0{idx + 1}</span>
-                    <span className="text-[#38BDF8]/90">Stage {idx + 1} / 4</span>
+                    <span className="text-[#93C5FD]">Stage {idx + 1} / 4</span>
                   </div>
                 </motion.div>
               );

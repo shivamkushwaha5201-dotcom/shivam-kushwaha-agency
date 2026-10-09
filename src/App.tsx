@@ -22,9 +22,23 @@ import { BackToTop } from './components/BackToTop';
 import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
 import { ContinuousScrollEarth } from './components/ContinuousScrollEarth';
+import { PortfolioApp } from './portfolio/PortfolioApp';
+
+function isPortfolioLocation(): boolean {
+  const path = window.location.pathname.toLowerCase();
+  const hash = window.location.hash.toLowerCase();
+  return (
+    path === '/portfolio' ||
+    path.startsWith('/portfolio/') ||
+    hash === '#portfolio' ||
+    hash.startsWith('#/portfolio')
+  );
+}
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'legal' | 'service'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'legal' | 'service' | 'portfolio'>(() =>
+    isPortfolioLocation() ? 'portfolio' : 'home'
+  );
   const [activeServiceId, setActiveServiceId] = useState<string>('linkedin-personal-branding');
   const [legalTab, setLegalTab] = useState<'privacy' | 'terms'>('privacy');
   const [showOpeningIntro, setShowOpeningIntro] = useState<boolean>(true);
@@ -37,10 +51,22 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Sync with URL Hash on mount and hashchange
+  // Sync with URL Pathname & Hash on mount, popstate, and hashchange
   useEffect(() => {
-    const handleHashChange = () => {
+    const syncNavigationState = () => {
+      const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
+
+      if (
+        path === '/portfolio' ||
+        path.startsWith('/portfolio/') ||
+        hash === '#portfolio' ||
+        hash.startsWith('#/portfolio')
+      ) {
+        setCurrentView('portfolio');
+        return;
+      }
+
       if (hash === '#privacy') {
         setCurrentView('legal');
         setLegalTab('privacy');
@@ -69,9 +95,19 @@ export default function App() {
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    syncNavigationState();
+    window.addEventListener('hashchange', syncNavigationState);
+    window.addEventListener('popstate', syncNavigationState);
+    return () => {
+      window.removeEventListener('hashchange', syncNavigationState);
+      window.removeEventListener('popstate', syncNavigationState);
+    };
+  }, []);
+
+  const handleOpenPortfolio = useCallback(() => {
+    window.history.pushState({}, '', '/portfolio');
+    setCurrentView('portfolio');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, []);
 
   const scrollToContact = useCallback(() => {
@@ -98,7 +134,11 @@ export default function App() {
 
   const handleBackToHome = useCallback(() => {
     setCurrentView('home');
-    window.location.hash = '#home';
+    if (window.location.pathname !== '/') {
+      window.history.pushState({}, '', '/#home');
+    } else {
+      window.location.hash = '#home';
+    }
   }, []);
 
   const handleViewService = useCallback((serviceId: string) => {
@@ -107,9 +147,17 @@ export default function App() {
     window.location.hash = `#services/${serviceId}`;
   }, []);
 
+  if (currentView === 'portfolio') {
+    return (
+      <HelmetProvider>
+        <PortfolioApp />
+      </HelmetProvider>
+    );
+  }
+
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[#02050B] text-[#F8FAFC] flex flex-col selection:bg-blue-500/30 selection:text-blue-200 font-sans transition-colors duration-200">
+      <div className="min-h-screen bg-[#050505] text-[#F8FAFC] flex flex-col selection:bg-[#3B82F6]/30 selection:text-[#93C5FD] font-sans transition-colors duration-200">
         
         {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
         <AnimatePresence>
@@ -119,7 +167,7 @@ export default function App() {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#02050B]/92 backdrop-blur-md"
+              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#050505]/92 backdrop-blur-md"
             >
               <motion.div
                 initial={{ opacity: 0, y: 14, scale: 0.96 }}
@@ -128,7 +176,7 @@ export default function App() {
                 transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center px-6 space-y-2 will-change-transform"
               >
-                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#38BDF8]">
+                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#60A5FA]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
                   <span>AXENTAI LABS</span>
                 </div>
@@ -205,6 +253,7 @@ export default function App() {
             <ServicesSection
               onOpenBooking={scrollToContact}
               onViewService={handleViewService}
+              onOpenPortfolio={handleOpenPortfolio}
             />
 
             {/* 05. Social Platform / Creator Ecosystem (LinkedIn + X + Instagram Orbit Animation) */}

@@ -66,10 +66,10 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
             className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
             style={{
               background:
-                'radial-gradient(ellipse at center left, rgba(2, 6, 15, 0.88) 0%, rgba(2, 6, 15, 0.62) 40%, rgba(2, 6, 15, 0.24) 70%, transparent 100%)',
+                'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
             }}
           />
-          <div className="text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-semibold font-mono text-contrast-shadow">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow">
             // GLOBAL LAUNCH ARCHITECTURE
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] heading-contrast-shadow">
@@ -81,19 +81,19 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
         </div>
 
         {/* Global Trajectory Process Visual: PRE-LAUNCH ↓ LAUNCH ↓ DISTRIBUTION ↓ POST-LAUNCH */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#050B14]/92 border border-white/10 mb-12 shadow-2xl shadow-black/60 space-y-8">
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#080B12]/92 border border-white/10 mb-12 shadow-2xl shadow-black/60 space-y-8">
           
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
             <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8]">
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
                 Launch Flight Path
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[#F8FAFC] tracking-tight font-display">
-                PRE-LAUNCH <span className="text-[#38BDF8] font-light">↓</span> LAUNCH <span className="text-[#38BDF8] font-light">↓</span> DISTRIBUTION <span className="text-[#38BDF8] font-light">↓</span> POST-LAUNCH
+                PRE-LAUNCH <span className="text-[#60A5FA] font-light">↓</span> LAUNCH <span className="text-[#60A5FA] font-light">↓</span> DISTRIBUTION <span className="text-[#60A5FA] font-light">↓</span> POST-LAUNCH
               </h3>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#38BDF8] text-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#60A5FA] text-xs font-mono">
               <Globe className="w-3.5 h-3.5" />
               <span>International Early Adopters</span>
             </div>
@@ -105,11 +105,11 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
               return (
                 <div 
                   key={phase.stage}
-                  className="p-6 rounded-2xl bg-[#02040A]/80 border border-white/10 hover:border-white/20 transition-all space-y-3 flex flex-col justify-between"
+                  className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 hover:border-white/20 transition-all space-y-3 flex flex-col justify-between"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-[#38BDF8]">
+                      <span className="font-mono text-xs font-bold text-[#60A5FA]">
                         {phase.name}
                       </span>
                       <Icon className="w-4 h-4 text-[#94A3B8]" />
@@ -128,7 +128,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/10 text-[10px] font-mono text-[#38BDF8]">
+                  <div className="pt-3 border-t border-white/10 text-[10px] font-mono text-[#93C5FD]">
                     Phase {phase.stage} of 04
                   </div>
                 </div>
@@ -139,9 +139,9 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
         </div>
 
         {/* Ethical Standards & Compliance Guarantee */}
-        <div className="p-8 rounded-2xl bg-[#050B14]/92 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="p-8 rounded-2xl bg-[#080B12]/92 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/25 text-[#38BDF8] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/25 text-[#60A5FA] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div className="space-y-1">

@@ -114,7 +114,7 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main CTA Top Banner with Earth Visual in Background */}
-        <div className="p-8 sm:p-14 rounded-3xl bg-[#050B14]/92 border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
+        <div className="p-8 sm:p-14 rounded-3xl bg-[#080B12]/92 border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
           
           {/* Deep blue atmospheric lighting (Radial gradient — zero blur filter cost) */}
           <div
@@ -122,13 +122,13 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
             className="absolute -top-16 right-1/4 w-[480px] h-[360px] pointer-events-none -z-0"
             style={{
               background:
-                'radial-gradient(ellipse at center, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0.06) 45%, transparent 72%)',
+                'radial-gradient(ellipse at center, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.06) 45%, transparent 72%)',
             }}
           />
 
           <div className="relative z-10 max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-sky-400 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#60A5FA] font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
               Strategic Growth Partnership
             </div>
 
@@ -143,11 +143,11 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
 
             <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#CBD5E1] font-mono">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" />
+                <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
                 <span>Direct senior strategist collaboration</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" />
+                <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
                 <span>Custom platform playbook</span>
               </div>
             </div>
@@ -160,10 +160,10 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
           {/* Left Column: Direct Agency Channels */}
           <div className="lg:col-span-4 space-y-6">
             
-            <div className="p-7 rounded-2xl bg-[#050B14] border border-blue-500/20 space-y-5 shadow-lg shadow-black/40">
+            <div className="p-7 rounded-2xl bg-[#080B12] border border-[#3B82F6]/20 space-y-5 shadow-lg shadow-black/40">
               
-              <div className="flex items-center gap-3.5 pb-4 border-b border-blue-500/15">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-blue-500/40 p-0.5 bg-[#02040A] shrink-0">
+              <div className="flex items-center gap-3.5 pb-4 border-b border-[#3B82F6]/15">
+                <div className="w-12 h-12 rounded-full overflow-hidden border border-[#3B82F6]/40 p-0.5 bg-[#050505] shrink-0">
                   <picture className="w-full h-full block">
                     <source srcSet={brandLogoWebp} type="image/webp" />
                     <img
@@ -190,23 +190,23 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
               <div className="space-y-2.5 pt-2">
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#02040A] border border-blue-500/15 hover:border-blue-500/50 transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#050505] border border-[#3B82F6]/15 hover:border-[#3B82F6]/50 transition-colors group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                    <Mail className="w-4 h-4 text-[#60A5FA] shrink-0" />
                     <div className="min-w-0">
                       <div className="text-[11px] font-semibold text-white">Direct Email</div>
                       <div className="text-[10px] text-slate-400 font-mono truncate">{CONTACT_INFO.email}</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400 transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#60A5FA] transition-colors" />
                 </a>
 
                 <a
                   href={CONTACT_INFO.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#02040A] border border-blue-500/15 hover:border-emerald-500/50 transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#050505] border border-[#3B82F6]/15 hover:border-emerald-500/50 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -222,16 +222,16 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
                   href={CONTACT_INFO.agencyLinkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#02040A] border border-blue-500/15 hover:border-blue-500/50 transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#050505] border border-[#3B82F6]/15 hover:border-[#3B82F6]/50 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-4 h-4 flex items-center justify-center font-bold text-xs text-sky-400">in</span>
+                    <span className="w-4 h-4 flex items-center justify-center font-bold text-xs text-[#60A5FA]">in</span>
                     <div>
                       <div className="text-[11px] font-semibold text-white">LinkedIn</div>
                       <div className="text-[10px] text-slate-400">AxentAI Labs</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400 transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#60A5FA] transition-colors" />
                 </a>
               </div>
 
@@ -241,11 +241,11 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
 
           {/* Right Column: Cal.com Live Embed */}
           <div className="lg:col-span-8">
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#050B14] border border-blue-500/20 space-y-4 shadow-xl shadow-black/40">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#080B12] border border-[#3B82F6]/20 space-y-4 shadow-xl shadow-black/40">
               
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-blue-500/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#3B82F6]/15">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-blue-600/15 border border-blue-500/30 text-sky-400 flex items-center justify-center font-bold shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-[#60A5FA] flex items-center justify-center font-bold shrink-0">
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
@@ -262,7 +262,7 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
                   href={CONTACT_INFO.calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-sky-400 font-semibold hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20"
+                  className="text-xs text-[#60A5FA] hover:text-[#93C5FD] font-semibold hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto bg-[#3B82F6]/10 px-3 py-1.5 rounded-full border border-[#3B82F6]/20"
                 >
                   <span>Open in Cal.com</span>
                   <ExternalLink className="w-3 h-3" />
@@ -270,7 +270,7 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
               </div>
 
               {/* Cal.com Container */}
-              <div className="w-full min-h-[620px] rounded-2xl overflow-hidden border border-blue-500/15 bg-[#02040A] p-1">
+              <div className="w-full min-h-[620px] rounded-2xl overflow-hidden border border-[#3B82F6]/15 bg-[#050505] p-1">
                 <div 
                   style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "auto" }} 
                   id="my-cal-inline-book-a-growth-strategy-call-with-shivam"
