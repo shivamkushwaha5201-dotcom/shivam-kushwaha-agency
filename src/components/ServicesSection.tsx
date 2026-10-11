@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Check, ExternalLink } from 'lucide-react';
 import { SERVICES_DATA } from '../data/portfolioData';
-import catMascotSticker from '../assets/images/cat_mascot_sticker.png';
+import catMascotSticker from '../assets/images/cat_mascot_hoodie_sticker.png';
 
 interface ServicesSectionProps {
   onOpenBooking: () => void;
@@ -206,13 +206,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
                         </div>
                       </div>
 
-                      {/* Right Column: Uploaded Cat Mascot Illustration (Vertically Centered, 260–320px Desktop Width) */}
+                      {/* Right Column: Uploaded Cat Mascot Illustration (Vertically Centered) */}
                       <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                        <div className="w-[220px] sm:w-[260px] lg:w-[290px] flex items-center justify-center bg-transparent select-none">
+                        <div className="w-[200px] sm:w-[240px] lg:w-[270px] flex items-center justify-center bg-transparent select-none">
                           <img
                             src={catMascotSticker}
-                            alt="Product Hunt Launch Mascot"
-                            className="w-full h-auto object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.65)] transition-transform duration-300 group-hover:scale-[1.02]"
+                            alt="Product Hunt Launch Support Cat Mascot"
+                            className="w-full max-h-[260px] h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                             loading="lazy"
                             decoding="async"
                           />

@@ -16,7 +16,7 @@ import {
 import { Button } from './ui/button';
 import { SERVICES_DATA, CONTACT_INFO } from '../data/portfolioData';
 import { SEOHead } from './SEOHead';
-import catMascotSticker from '../assets/images/cat_mascot_sticker.png';
+import catMascotSticker from '../assets/images/cat_mascot_hoodie_sticker.png';
 
 interface ServicePageProps {
   serviceId: string;
@@ -205,11 +205,11 @@ export const ServicePage: React.FC<ServicePageProps> = ({
 
             {service.id === 'product-hunt-launch' && (
               <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                <div className="w-[220px] sm:w-[260px] lg:w-[290px] flex items-center justify-center bg-transparent select-none">
+                <div className="w-[200px] sm:w-[240px] lg:w-[270px] flex items-center justify-center bg-transparent select-none">
                   <img
                     src={catMascotSticker}
-                    alt="Product Hunt Launch Mascot"
-                    className="w-full h-auto object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.65)]"
+                    alt="Product Hunt Launch Support Cat Mascot"
+                    className="w-full max-h-[260px] h-auto object-contain"
                     loading="eager"
                     decoding="async"
                   />
