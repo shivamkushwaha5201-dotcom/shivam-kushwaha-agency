@@ -109,22 +109,12 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
     <section 
       ref={sectionRef}
       id="contact" 
-      className="py-32 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-32 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Main CTA Top Banner with Earth Visual in Background */}
-        <div className="p-8 sm:p-14 rounded-3xl bg-[#080B12]/92 border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
-          
-          {/* Deep blue atmospheric lighting (Radial gradient — zero blur filter cost) */}
-          <div
-            aria-hidden="true"
-            className="absolute -top-16 right-1/4 w-[480px] h-[360px] pointer-events-none -z-0"
-            style={{
-              background:
-                'radial-gradient(ellipse at center, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.06) 45%, transparent 72%)',
-            }}
-          />
+        {/* Main CTA Top Banner */}
+        <div className="p-8 sm:p-14 rounded-3xl bg-[#080B12] border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
 
           <div className="relative z-10 max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#60A5FA] font-mono">

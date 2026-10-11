@@ -164,7 +164,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
   return (
     <section
       ref={sectionRef}
-      className="py-28 md:py-36 bg-transparent text-[#F8FAFC] relative overflow-hidden z-10"
+      className="py-28 md:py-36 bg-[#000000] text-[#F8FAFC] relative overflow-hidden z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -260,16 +260,6 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             transition={{ duration: 0.65 }}
             className="lg:col-span-7 space-y-8 relative z-20"
           >
-            {/* Subtle localized dark atmospheric gradient behind text area (No rectangular box) */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-x-10 -inset-y-12 sm:-inset-x-16 sm:-inset-y-14 -z-10"
-              style={{
-                background:
-                  'radial-gradient(ellipse at center, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
-              }}
-            />
-
             <div className="space-y-4">
               <div className="text-xs uppercase tracking-[0.25em] text-[#7BA7F7] font-semibold font-mono">
                 // AGENCY POSITIONING

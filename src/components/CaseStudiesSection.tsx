@@ -41,22 +41,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
   return (
     <section 
       id="case-studies" 
-      className="py-32 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-32 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Editorial Section Header */}
         <div className="max-w-3xl mb-20 space-y-4 relative z-20">
-          {/* Subtle localized dark atmospheric gradient behind header text */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
-            style={{
-              background:
-                'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
-            }}
-          />
-          <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono">
             // STRATEGIC EXECUTION RECORDS
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] heading-contrast-shadow">

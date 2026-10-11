@@ -108,8 +108,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
         <div
           className={`flex items-center justify-between px-4 sm:px-6 py-2 rounded-full transition-colors duration-300 ${
             scrolled
-              ? 'bg-[#050505]/92 backdrop-blur-md border border-white/15 shadow-2xl shadow-black/90'
-              : 'bg-[#050505]/55 backdrop-blur-sm border border-white/5'
+              ? 'bg-[#000000]/95 backdrop-blur-md border border-white/15 shadow-2xl shadow-black/90'
+              : 'bg-[#000000]/75 backdrop-blur-sm border border-white/10'
           }`}
         >
           {/* Brand Logo & Name */}

@@ -44,7 +44,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
   return (
     <section
       id="testimonials"
-      className="py-28 md:py-36 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">

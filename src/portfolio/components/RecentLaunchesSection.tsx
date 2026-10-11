@@ -41,10 +41,10 @@ export const RecentLaunchesSection: React.FC<RecentLaunchesSectionProps> = ({
     >
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
             Recent Launches
           </h2>
-          <p className="text-sm text-[#6B7280] mt-1">
+          <p className="text-sm text-[#9CA3AF] mt-1">
             Launches I’ve supported this month.
           </p>
         </div>

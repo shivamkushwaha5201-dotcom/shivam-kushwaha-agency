@@ -69,20 +69,10 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
   return (
     <section
       ref={sectionRef}
-      className="pt-28 pb-32 md:pt-36 md:pb-40 bg-transparent relative overflow-hidden z-10"
+      className="pt-28 pb-32 md:pt-36 md:pb-40 bg-[#000000] relative overflow-hidden z-10"
     >
-      {/* Upper Header Zone with Subtle Radial Atmospheric Backing */}
+      {/* Upper Header Zone */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
-        {/* Localized dark radial atmospheric gradient behind central text (No rectangular box or opaque panel) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-x-16 -inset-y-14 sm:-inset-x-28 sm:-inset-y-20 -z-10"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, rgba(5, 5, 5, 0.90) 0%, rgba(5, 5, 5, 0.72) 38%, rgba(5, 5, 5, 0.30) 68%, transparent 100%)',
-          }}
-        />
-
         {/* Small Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -132,13 +122,11 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
         }`}
         style={{
           willChange: 'transform',
-          background:
-            'linear-gradient(180deg, transparent 0%, rgba(5, 5, 5, 0.80) 18%, rgba(8, 11, 18, 0.90) 50%, rgba(5, 5, 5, 0.80) 82%, transparent 100%)',
         }}
       >
         {/* Left & Right Soft Edge Fade Masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#050505] to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#050505] to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#000000] to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#000000] to-transparent z-10" />
 
         {/* ROW 1: RIGHT → LEFT */}
         <div className="py-3 sm:py-3.5 overflow-hidden will-change-transform">

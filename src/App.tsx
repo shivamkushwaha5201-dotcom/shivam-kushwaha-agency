@@ -21,7 +21,6 @@ import { ServicePage } from './components/ServicePage';
 import { BackToTop } from './components/BackToTop';
 import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
-import { ContinuousScrollEarth } from './components/ContinuousScrollEarth';
 import { PortfolioApp } from './portfolio/PortfolioApp';
 
 function isPortfolioLocation(): boolean {
@@ -157,7 +156,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[#050505] text-[#F8FAFC] flex flex-col selection:bg-[#3B82F6]/30 selection:text-[#93C5FD] font-sans transition-colors duration-200">
+      <div className="min-h-screen bg-[#000000] text-[#F8FAFC] flex flex-col selection:bg-[#3B82F6]/30 selection:text-[#93C5FD] font-sans transition-colors duration-200">
         
         {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
         <AnimatePresence>
@@ -167,7 +166,7 @@ export default function App() {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#050505]/92 backdrop-blur-md"
+              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#000000]/95 backdrop-blur-md"
             >
               <motion.div
                 initial={{ opacity: 0, y: 14, scale: 0.96 }}
@@ -190,9 +189,6 @@ export default function App() {
 
         {/* Top Scroll Reading Progress Indicator */}
         <ScrollProgressBar />
-
-        {/* Continuous Scroll-Driven Planetary Background Layer (LOCKED) */}
-        {currentView === 'home' && <ContinuousScrollEarth />}
 
         {/* Dynamic Meta Tag Management for Home & Legal Views */}
         {currentView === 'home' && (

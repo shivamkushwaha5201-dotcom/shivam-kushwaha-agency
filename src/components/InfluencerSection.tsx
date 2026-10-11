@@ -138,23 +138,14 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
     <section
       ref={sectionRef}
       id="influencer-marketing"
-      className="py-28 md:py-36 bg-transparent text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative z-20">
           <div className="space-y-3 max-w-2xl relative">
-            {/* Subtle localized dark atmospheric gradient behind header text */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-x-10 -inset-y-10 sm:-inset-x-16 sm:-inset-y-12 -z-10"
-              style={{
-                background:
-                  'radial-gradient(ellipse at center left, rgba(8, 11, 18, 0.88) 0%, rgba(8, 11, 18, 0.62) 40%, rgba(8, 11, 18, 0.24) 70%, transparent 100%)',
-              }}
-            />
-            <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono text-contrast-shadow">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono">
               // SOCIAL PLATFORM EXPERIENCE
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase heading-contrast-shadow">

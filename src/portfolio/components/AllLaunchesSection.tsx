@@ -76,14 +76,14 @@ export const AllLaunchesSection: React.FC<AllLaunchesSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
-                  className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-xs font-semibold text-[#1F2937] bg-white hover:bg-[#F7F7F7] border border-[#E5E7EB] hover:border-[#DA552F] transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-xs font-semibold text-[#FFFFFF] bg-white bg-[#111827] hover:bg-[#1E293B] border border-[#E5E7EB] hover:border-[#DA552F] transition-colors cursor-pointer"
                 >
                   Load More ({launches.length - visibleCount} remaining)
                 </button>
                 <button
                   type="button"
                   onClick={() => setVisibleCount(launches.length)}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-lg text-xs font-semibold text-[#DA552F] bg-white hover:bg-[#F7F7F7] border border-[#E5E7EB] hover:border-[#DA552F] transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-lg text-xs font-semibold text-[#DA552F] bg-white bg-[#111827] hover:bg-[#1E293B] border border-[#E5E7EB] hover:border-[#DA552F] transition-colors cursor-pointer"
                 >
                   Show All ({launches.length})
                 </button>

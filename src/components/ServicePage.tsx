@@ -16,6 +16,7 @@ import {
 import { Button } from './ui/button';
 import { SERVICES_DATA, CONTACT_INFO } from '../data/portfolioData';
 import { SEOHead } from './SEOHead';
+import catMascotSticker from '../assets/images/cat_mascot_sticker.png';
 
 interface ServicePageProps {
   serviceId: string;
@@ -89,7 +90,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
   const otherServices = SERVICES_DATA.filter(s => s.id !== service.id);
 
   return (
-    <div className="pt-28 pb-20 bg-[#050505] min-h-screen text-slate-100 font-sans">
+    <div className="pt-28 pb-20 bg-[#000000] min-h-screen text-slate-100 font-sans">
       <SEOHead
         title={pageTitle}
         description={pageDescription}
@@ -141,64 +142,80 @@ export const ServicePage: React.FC<ServicePageProps> = ({
 
         {/* Hero Header for Service */}
         <div className="bg-[#080B12] border border-[#1E2333] rounded-3xl p-8 sm:p-12 mb-10 relative overflow-hidden">
-          <div className="relative z-10 max-w-3xl space-y-4">
-            
-            <div className="flex items-center gap-2.5 flex-wrap">
-              <span className="text-xs font-bold text-[#60A5FA] bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/20">
-                {service.badge}
-              </span>
-              <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                {service.resultsMetric}
-              </span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className={`${service.id === 'product-hunt-launch' ? 'lg:col-span-8' : 'lg:col-span-12 max-w-3xl'} space-y-4`}>
+              
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <span className="text-xs font-bold text-[#60A5FA] bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/20">
+                  {service.badge}
+                </span>
+                <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                  {service.resultsMetric}
+                </span>
+              </div>
 
-            <h1 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              {service.title}
-            </h1>
+              <h1 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
+                {service.title}
+              </h1>
 
-            <p className="text-base sm:text-lg font-medium text-[#60A5FA] leading-snug">
-              {service.tagline}
-            </p>
+              <p className="text-base sm:text-lg font-medium text-[#60A5FA] leading-snug">
+                {service.tagline}
+              </p>
 
-            <p className="text-sm text-slate-300 leading-relaxed font-sans max-w-2xl">
-              {service.description}
-            </p>
+              <p className="text-sm text-slate-300 leading-relaxed font-sans max-w-2xl">
+                {service.description}
+              </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <Button
-                onClick={onOpenBooking}
-                size="lg"
-                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-full px-7 shadow-md shadow-blue-500/20 cursor-pointer"
-              >
-                <span>Book a Strategy Call</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-
-              {service.portfolioUrl && (
-                <a
-                  href={service.portfolioUrl}
-                  onClick={(e) => {
-                    if (
-                      service.portfolioUrl?.startsWith('/') &&
-                      !e.metaKey &&
-                      !e.ctrlKey &&
-                      !e.shiftKey &&
-                      !e.altKey &&
-                      e.button === 0
-                    ) {
-                      e.preventDefault();
-                      window.history.pushState({}, '', service.portfolioUrl);
-                      window.dispatchEvent(new PopStateEvent('popstate'));
-                    }
-                  }}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-[#60A5FA] hover:text-white bg-[#3B82F6]/12 hover:bg-[#2563EB] border border-[#3B82F6]/35 hover:border-[#60A5FA]/70 shadow-[0_0_20px_rgba(59,130,246,0.14)] hover:shadow-[0_0_26px_rgba(59,130,246,0.3)] transition-all duration-200 cursor-pointer"
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button
+                  onClick={onOpenBooking}
+                  size="lg"
+                  className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-full px-7 shadow-md shadow-blue-500/20 cursor-pointer"
                 >
-                  <span>View My Portfolio</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              )}
+                  <span>Book a Strategy Call</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+
+                {service.portfolioUrl && (
+                  <a
+                    href={service.portfolioUrl}
+                    onClick={(e) => {
+                      if (
+                        service.portfolioUrl?.startsWith('/') &&
+                        !e.metaKey &&
+                        !e.ctrlKey &&
+                        !e.shiftKey &&
+                        !e.altKey &&
+                        e.button === 0
+                      ) {
+                        e.preventDefault();
+                        window.history.pushState({}, '', service.portfolioUrl);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-[#60A5FA] hover:text-white bg-[#3B82F6]/12 hover:bg-[#2563EB] border border-[#3B82F6]/35 hover:border-[#60A5FA]/70 shadow-[0_0_20px_rgba(59,130,246,0.14)] hover:shadow-[0_0_26px_rgba(59,130,246,0.3)] transition-all duration-200 cursor-pointer"
+                  >
+                    <span>View My Portfolio</span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+                )}
+              </div>
+
             </div>
 
+            {service.id === 'product-hunt-launch' && (
+              <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
+                <div className="w-[220px] sm:w-[260px] lg:w-[290px] flex items-center justify-center bg-transparent select-none">
+                  <img
+                    src={catMascotSticker}
+                    alt="Product Hunt Launch Mascot"
+                    className="w-full h-auto object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.65)]"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

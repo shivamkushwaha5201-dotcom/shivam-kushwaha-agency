@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="text-base sm:text-lg font-bold tracking-tight text-[#1F2937] hover:text-[#DA552F] transition-colors whitespace-nowrap shrink-0"
+          className="text-base sm:text-lg font-bold tracking-tight text-[#FFFFFF] hover:text-[#DA552F] transition-colors whitespace-nowrap shrink-0"
         >
           {ownerName}
         </a>
@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({
               className={`transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 ${
                 activeNav === 'all-launches'
                   ? 'text-[#DA552F] border-[#DA552F]'
-                  : 'text-[#6B7280] border-transparent hover:text-[#DA552F]'
+                  : 'text-[#CBD5E1] border-transparent hover:text-[#DA552F]'
               }`}
             >
               All Launches
@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
               className={`transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 ${
                 activeNav === 'recent-launches'
                   ? 'text-[#DA552F] border-[#DA552F]'
-                  : 'text-[#6B7280] border-transparent hover:text-[#DA552F]'
+                  : 'text-[#CBD5E1] border-transparent hover:text-[#DA552F]'
               }`}
             >
               Recent Launches
@@ -67,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({
               className={`transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 ${
                 activeNav === 'about'
                   ? 'text-[#DA552F] border-[#DA552F]'
-                  : 'text-[#6B7280] border-transparent hover:text-[#DA552F]'
+                  : 'text-[#CBD5E1] border-transparent hover:text-[#DA552F]'
               }`}
             >
               About

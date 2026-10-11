@@ -49,10 +49,10 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
   const hasValidLogo = Boolean(launch.logoUrl && !imageError);
 
   return (
-    <article className="group bg-white border border-[#E5E7EB] rounded-xl p-5 flex flex-col justify-between gap-5 hover:border-[#DA552F]/50 hover:shadow-xs transition-all duration-150">
+    <article className="ph-launch-card group bg-white bg-[#111827] border border-[#E5E7EB] rounded-xl p-5 flex flex-col justify-between gap-5 hover:border-[#DA552F]/50 hover:shadow-xs transition-all duration-150 opacity-100">
       {/* Top: Optional product logo + Product name */}
       <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-3.5 min-w-0">
+        <div className="flex items-center gap-3.5 min-w-0 flex-1">
           {hasValidLogo ? (
             <img
               src={launch.logoUrl}
@@ -72,7 +72,7 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
 
           <h3
             title={safeName}
-            className="text-base font-bold text-[#1F2937] tracking-tight truncate"
+            className="ph-launch-card-title text-base font-semibold text-[#FFFFFF] group-hover:text-[#FFFFFF] group-focus-within:text-[#FFFFFF] tracking-tight leading-snug break-words opacity-100"
           >
             {safeName}
           </h3>
@@ -87,7 +87,7 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
                 onClick={() => onEdit(launch)}
                 title={`Edit ${safeName}`}
                 aria-label={`Edit ${safeName}`}
-                className="p-1.5 rounded-md text-[#6B7280] hover:text-[#1F2937] hover:bg-[#F7F7F7] transition-colors cursor-pointer"
+                className="p-1.5 rounded-md text-[#9CA3AF] hover:text-[#FFFFFF] hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <Pencil size={14} />
               </button>
@@ -98,7 +98,7 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
                 onClick={() => onRequestDelete(launch)}
                 title={`Delete ${safeName}`}
                 aria-label={`Delete ${safeName}`}
-                className="p-1.5 rounded-md text-[#6B7280] hover:text-[#DA552F] hover:bg-[#F7F7F7] transition-colors cursor-pointer"
+                className="p-1.5 rounded-md text-[#9CA3AF] hover:text-[#DA552F] hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <Trash2 size={14} />
               </button>
@@ -109,44 +109,40 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
 
       {/* Middle: Total votes and Final ranking(s) displayed as separate metrics */}
       <div
-        className={`grid ${
+        className={`ph-launch-card-metrics grid ${
           safeWeekRanking ? 'grid-cols-3' : 'grid-cols-2'
-        } gap-3 py-3 px-3.5 rounded-lg bg-[#F7F7F7] border border-[#E5E7EB]`}
+        } gap-3 py-3 px-3.5 rounded-lg bg-[#F7F7F7] border border-[#E5E7EB] text-[#1F2937] opacity-100`}
       >
-        <div>
-          <div className="text-xs text-[#6B7280]">Votes</div>
-          <div className="text-base font-bold text-[#1F2937] font-mono-tabular mt-0.5 flex items-center gap-1.5">
+        <div className="min-w-0">
+          <div className="ph-launch-card-label text-xs font-medium text-[#6B7280] leading-tight opacity-100">
+            Votes
+          </div>
+          <div className="ph-launch-card-value text-base font-bold text-[#1F2937] font-mono-tabular mt-0.5 flex items-center gap-1.5 leading-tight opacity-100">
             <span
-              className="text-[11px] text-[#DA552F] leading-none"
+              className="text-[11px] text-[#DA552F] leading-none shrink-0"
               aria-hidden="true"
             >
               ▲
             </span>
-            <span>{safeVotes.toLocaleString()}</span>
+            <span className="text-[#1F2937]">{safeVotes.toLocaleString()}</span>
           </div>
         </div>
 
-        <div className="border-l border-[#E5E7EB] pl-3">
-          <div className="text-xs text-[#6B7280]">
+        <div className="border-l border-[#E5E7EB] pl-3 min-w-0">
+          <div className="ph-launch-card-label text-xs font-medium text-[#6B7280] leading-tight opacity-100">
             {safeWeekRanking ? 'Day Rank' : 'Ranking'}
           </div>
-          <div
-            className={`text-base font-bold font-mono-tabular mt-0.5 ${
-              safeRanking === '#1' ? 'text-[#DA552F]' : 'text-[#1F2937]'
-            }`}
-          >
+          <div className="ph-launch-card-value text-base font-bold text-[#1F2937] font-mono-tabular mt-0.5 leading-tight opacity-100">
             {safeRanking}
           </div>
         </div>
 
         {safeWeekRanking && (
-          <div className="border-l border-[#E5E7EB] pl-3">
-            <div className="text-xs text-[#6B7280]">Week Rank</div>
-            <div
-              className={`text-base font-bold font-mono-tabular mt-0.5 ${
-                safeWeekRanking === '#1' ? 'text-[#DA552F]' : 'text-[#1F2937]'
-              }`}
-            >
+          <div className="border-l border-[#E5E7EB] pl-3 min-w-0">
+            <div className="ph-launch-card-label text-xs font-medium text-[#6B7280] leading-tight opacity-100">
+              Week Rank
+            </div>
+            <div className="ph-launch-card-value text-base font-bold text-[#1F2937] font-mono-tabular mt-0.5 leading-tight opacity-100">
               {safeWeekRanking}
             </div>
           </div>
@@ -159,7 +155,7 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
           href={launch.productHuntUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-white bg-[#DA552F] hover:bg-[#C44623] transition-colors whitespace-nowrap"
+          className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-[#FFFFFF] bg-[#DA552F] hover:bg-[#C44623] transition-colors whitespace-nowrap"
         >
           <span>View on Product Hunt</span>
           <ArrowUpRight size={14} aria-hidden="true" />

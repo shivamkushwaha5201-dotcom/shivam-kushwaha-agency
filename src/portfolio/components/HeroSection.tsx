@@ -14,10 +14,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
     <section className="bg-white border-b border-[#E5E7EB] py-12 sm:py-16">
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
-          <h1 className="text-2xl sm:text-4xl font-bold text-[#1F2937] tracking-tight text-balance">
+          <h1 className="text-2xl sm:text-4xl font-bold text-[#FFFFFF] tracking-tight text-balance">
             Product Hunt Launches I’ve Supported
           </h1>
-          <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed mt-3">
+          <p className="text-sm sm:text-base text-[#CBD5E1] leading-relaxed mt-3">
             A collection of products I’ve helped during their Product Hunt launches, along with their final votes and rankings.
           </p>
           <div className="mt-6">
