@@ -41,22 +41,28 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
   return (
     <section 
       id="case-studies" 
-      className="py-32 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-32 bg-[#050505] text-[#F8F7FC] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Editorial Section Header */}
-        <div className="max-w-3xl mb-20 space-y-4 relative z-20">
-          <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-20 space-y-4 relative z-20"
+        >
+          <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
             // STRATEGIC EXECUTION RECORDS
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] heading-contrast-shadow">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] heading-contrast-shadow">
             Case Architectures.
           </h2>
-          <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-sans max-w-2xl font-normal text-contrast-shadow">
+          <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans max-w-2xl font-normal text-contrast-shadow">
             Detailed breakdowns demonstrating how deliberate positioning, organic authority, and creator distribution solve specific commercial bottlenecks.
           </p>
-        </div>
+        </motion.div>
 
         {/* Large Horizontal Case Study Blocks */}
         <div className="space-y-10">
@@ -66,20 +72,20 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 sm:p-12 rounded-3xl bg-[#080B12]/92 border border-white/10 hover:border-white/20 transition-colors space-y-8 shadow-2xl shadow-black/60"
+              transition={{ duration: 0.65, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="fx-card-interactive p-8 sm:p-12 rounded-3xl bg-[#0B0812] border border-[#30213F] hover:border-[#7028D8] hover:shadow-[0_16px_40px_-10px_rgba(112,40,216,0.22)] space-y-8 shadow-xs"
             >
               {/* Header: Project / Category */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#30213F]">
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-mono font-medium text-[#60A5FA] uppercase tracking-[0.2em] block">
+                  <span className="text-[11px] font-mono font-semibold text-[#B98AFF] uppercase tracking-[0.2em] block">
                     {study.category}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#F8FAFC] tracking-tight font-display">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#F8F7FC] tracking-tight font-display">
                     {study.project}
                   </h3>
                 </div>
-                <div className="font-mono text-xs font-bold text-[#94A3B8] border border-white/10 bg-[#050505] px-4 py-1.5 rounded-full self-start sm:self-auto">
+                <div className="font-mono text-xs font-bold text-[#B98AFF] border border-[#30213F] bg-[#100B1B] px-4 py-1.5 rounded-full self-start sm:self-auto">
                   {study.architectureId}
                 </div>
               </div>
@@ -88,45 +94,45 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
                 {/* Challenge */}
-                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-rose-400/90 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
+                <div className="p-6 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-3">
+                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#F8F7FC] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#35106B] ring-1 ring-[#B98AFF]/50" />
                     Challenge
                   </div>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed font-sans font-normal">
+                  <p className="text-xs text-[#B9B1C9] leading-relaxed font-sans font-normal">
                     {study.challenge}
                   </p>
                 </div>
 
                 {/* Strategy */}
-                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400/90 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <div className="p-6 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-3">
+                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#B98AFF] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B98AFF]" />
                     Strategy
                   </div>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed font-sans font-normal">
+                  <p className="text-xs text-[#B9B1C9] leading-relaxed font-sans font-normal">
                     {study.strategy}
                   </p>
                 </div>
 
                 {/* Execution */}
-                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#60A5FA] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                <div className="p-6 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-3">
+                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#7028D8] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8]" />
                     Execution
                   </div>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed font-sans font-normal">
+                  <p className="text-xs text-[#B9B1C9] leading-relaxed font-sans font-normal">
                     {study.execution}
                   </p>
                 </div>
 
                 {/* Outcome */}
-                <div className="p-6 rounded-2xl bg-[#050505]/80 border border-white/10 space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400/90 flex items-center gap-2">
+                <div className="p-6 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-3">
+                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     Outcome
                   </div>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed font-sans font-normal">
+                  <p className="text-xs text-[#B9B1C9] leading-relaxed font-sans font-normal">
                     {study.outcome}
                   </p>
                 </div>
@@ -141,7 +147,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
           <Button
             size="lg"
             onClick={onOpenBooking}
-            className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg shadow-blue-500/20 group transition-all cursor-pointer"
+            className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full border border-[#B98AFF]/30 shadow-md shadow-[#7028D8]/25 group transition-all cursor-pointer"
           >
             <span>DISCUSS YOUR GROWTH ROADMAP</span>
             <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />

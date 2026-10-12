@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import { NavSectionId } from '../../types/portfolio';
 import catMascotLogo from '../../assets/images/cat_mascot_logo_1791537468388.jpg';
@@ -19,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenAdmin,
 }) => {
   return (
-    <header className="sticky top-0 z-30 bg-white border-b border-[#E5E7EB]">
+    <header className="sticky top-0 z-30 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E9E0F5]">
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4 sm:gap-8">
         {/* Left side: Minimal personal portfolio name / configurable text logo */}
         <a
@@ -28,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="text-base sm:text-lg font-bold tracking-tight text-[#FFFFFF] hover:text-[#DA552F] transition-colors whitespace-nowrap shrink-0"
+          className="text-base sm:text-lg font-bold tracking-tight text-[#35106B] hover:text-[#7028D8] transition-colors whitespace-nowrap shrink-0"
         >
           {ownerName}
         </a>
@@ -39,39 +40,40 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Main Navigation"
             className="flex items-center gap-3.5 sm:gap-7 text-xs sm:text-sm font-medium"
           >
-            <a
-              href="#all-launches"
-              onClick={(e) => onNavigate(e, 'all-launches')}
-              className={`transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 ${
-                activeNav === 'all-launches'
-                  ? 'text-[#DA552F] border-[#DA552F]'
-                  : 'text-[#CBD5E1] border-transparent hover:text-[#DA552F]'
-              }`}
-            >
-              All Launches
-            </a>
-            <a
-              href="#recent-launches"
-              onClick={(e) => onNavigate(e, 'recent-launches')}
-              className={`transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 ${
-                activeNav === 'recent-launches'
-                  ? 'text-[#DA552F] border-[#DA552F]'
-                  : 'text-[#CBD5E1] border-transparent hover:text-[#DA552F]'
-              }`}
-            >
-              Recent Launches
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => onNavigate(e, 'about')}
-              className={`transition-colors whitespace-nowrap shrink-0 py-1 border-b-2 ${
-                activeNav === 'about'
-                  ? 'text-[#DA552F] border-[#DA552F]'
-                  : 'text-[#CBD5E1] border-transparent hover:text-[#DA552F]'
-              }`}
-            >
-              About
-            </a>
+            {(
+              [
+                { id: 'all-launches', label: 'All Launches' },
+                { id: 'recent-launches', label: 'Recent Launches' },
+                { id: 'about', label: 'About' },
+              ] as { id: NavSectionId; label: string }[]
+            ).map((item) => {
+              const isActive = activeNav === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => onNavigate(e, item.id)}
+                  className={`relative transition-colors whitespace-nowrap shrink-0 py-1.5 ${
+                    isActive
+                      ? 'text-[#7028D8] font-semibold'
+                      : 'text-[#6B6178] hover:text-[#35106B]'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="portfolio-header-nav-indicator"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                      className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-[#7028D8] to-[#8B5CE8] rounded-full"
+                    />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Owner-only action button (hidden from public visitors) */}
@@ -79,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#DA552F] hover:bg-[#C44623] transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#7028D8] hover:bg-[#5E1EC0] transition-colors cursor-pointer whitespace-nowrap shrink-0"
             >
               <Plus size={14} aria-hidden="true" />
               <span>Add Launch</span>
@@ -94,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             aria-label="Scroll to top of homepage"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#E5E7EB] bg-white p-0.5 flex items-center justify-center shrink-0 overflow-hidden hover:scale-105 hover:border-[#DA552F]/40 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DA552F]"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#E9E0F5] bg-white p-0.5 flex items-center justify-center shrink-0 overflow-hidden hover:scale-105 hover:border-[#7028D8]/40 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7028D8]"
           >
             <img
               src={catMascotLogo}

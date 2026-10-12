@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import { 
   Calendar, 
   Mail, 
@@ -109,51 +110,72 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
     <section 
       ref={sectionRef}
       id="contact" 
-      className="py-32 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-32 bg-[#050505] text-[#F8F7FC] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main CTA Top Banner */}
-        <div className="p-8 sm:p-14 rounded-3xl bg-[#080B12] border border-white/10 relative overflow-hidden mb-12 shadow-2xl shadow-black/60">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="fx-card-interactive p-8 sm:p-14 rounded-3xl bg-gradient-to-br from-[#100B1B] via-[#0B0812] to-[#35106B]/30 border border-[#30213F] relative overflow-hidden mb-12 shadow-xl shadow-black/50"
+        >
+          {/* Subtle Top Specular Arc Highlight Inspired by Reference */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-[#B98AFF]/50 to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 right-8 w-80 h-80 rounded-full bg-[#7028D8]/20 blur-3xl"
+          />
 
           <div className="relative z-10 max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#60A5FA] font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#B98AFF] font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B98AFF] animate-pulse" />
               Strategic Growth Partnership
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] leading-[1.08] uppercase">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] leading-[1.08] uppercase">
               READY TO BUILD YOUR <br className="hidden sm:inline" />
-              DIGITAL INFLUENCE?
+              <span className="text-[#B98AFF]">DIGITAL INFLUENCE?</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#E2E8F0] font-sans leading-relaxed max-w-xl font-normal">
+            <p className="text-sm sm:text-base text-[#B9B1C9] font-sans leading-relaxed max-w-xl font-normal">
               Let’s build a growth strategy around your brand, audience and goals.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#CBD5E1] font-mono">
+            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#F8F7FC] font-mono">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
+                <CheckCircle2 className="w-4 h-4 text-[#B98AFF]" />
                 <span>Direct senior strategist collaboration</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
+                <CheckCircle2 className="w-4 h-4 text-[#B98AFF]" />
                 <span>Custom platform playbook</span>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Content Columns: Agency Details & Live Calendar */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Direct Agency Channels */}
-          <div className="lg:col-span-4 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-4 space-y-6"
+          >
             
-            <div className="p-7 rounded-2xl bg-[#080B12] border border-[#3B82F6]/20 space-y-5 shadow-lg shadow-black/40">
+            <div className="p-7 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-5 shadow-md shadow-black/40">
               
-              <div className="flex items-center gap-3.5 pb-4 border-b border-[#3B82F6]/15">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-[#3B82F6]/40 p-0.5 bg-[#050505] shrink-0">
+              <div className="flex items-center gap-3.5 pb-4 border-b border-[#30213F]">
+                <div className="w-12 h-12 rounded-full overflow-hidden border border-[#7028D8] p-0.5 bg-[#0B0812] shrink-0">
                   <picture className="w-full h-full block">
                     <source srcSet={brandLogoWebp} type="image/webp" />
                     <img
@@ -167,12 +189,12 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
                   </picture>
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">AxentAI Labs</h3>
-                  <p className="text-xs text-slate-400">Digital Growth Agency</p>
+                  <h3 className="text-base font-bold text-[#F8F7FC]">AxentAI Labs</h3>
+                  <p className="text-xs text-[#B9B1C9]">Digital Growth Agency</p>
                 </div>
               </div>
 
-              <p className="text-xs text-slate-300 leading-relaxed font-sans">
+              <p className="text-xs text-[#B9B1C9] leading-relaxed font-sans">
                 Choose a time that works for you on the calendar. We review your channels in advance and come prepared with actionable strategic feedback.
               </p>
 
@@ -180,69 +202,75 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
               <div className="space-y-2.5 pt-2">
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#050505] border border-[#3B82F6]/15 hover:border-[#3B82F6]/50 transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#0B0812] border border-[#30213F] hover:border-[#7028D8] hover:-translate-y-0.5 hover:shadow-sm transition-all duration-250 group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <Mail className="w-4 h-4 text-[#60A5FA] shrink-0" />
+                    <Mail className="w-4 h-4 text-[#B98AFF] shrink-0" />
                     <div className="min-w-0">
-                      <div className="text-[11px] font-semibold text-white">Direct Email</div>
-                      <div className="text-[10px] text-slate-400 font-mono truncate">{CONTACT_INFO.email}</div>
+                      <div className="text-[11px] font-semibold text-[#F8F7FC]">Direct Email</div>
+                      <div className="text-[10px] text-[#B9B1C9] font-mono truncate">{CONTACT_INFO.email}</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#60A5FA] transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-[#B98AFF] group-hover:translate-x-0.5 transition-all" />
                 </a>
 
                 <a
                   href={CONTACT_INFO.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#050505] border border-[#3B82F6]/15 hover:border-emerald-500/50 transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#0B0812] border border-[#30213F] hover:border-emerald-500/50 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-250 group"
                 >
                   <div className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
                     <div>
-                      <div className="text-[11px] font-semibold text-white">WhatsApp</div>
-                      <div className="text-[10px] text-slate-400 font-mono">{CONTACT_INFO.phone}</div>
+                      <div className="text-[11px] font-semibold text-[#F8F7FC]">WhatsApp</div>
+                      <div className="text-[10px] text-[#B9B1C9] font-mono">{CONTACT_INFO.phone}</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-emerald-400 group-hover:translate-x-0.5 transition-all" />
                 </a>
 
                 <a
                   href={CONTACT_INFO.agencyLinkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#050505] border border-[#3B82F6]/15 hover:border-[#3B82F6]/50 transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#0B0812] border border-[#30213F] hover:border-[#7028D8] hover:-translate-y-0.5 hover:shadow-sm transition-all duration-250 group"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-4 h-4 flex items-center justify-center font-bold text-xs text-[#60A5FA]">in</span>
+                    <span className="w-4 h-4 flex items-center justify-center font-bold text-xs text-[#B98AFF]">in</span>
                     <div>
-                      <div className="text-[11px] font-semibold text-white">LinkedIn</div>
-                      <div className="text-[10px] text-slate-400">AxentAI Labs</div>
+                      <div className="text-[11px] font-semibold text-[#F8F7FC]">LinkedIn</div>
+                      <div className="text-[10px] text-[#B9B1C9]">AxentAI Labs</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#60A5FA] transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-[#B98AFF] group-hover:translate-x-0.5 transition-all" />
                 </a>
               </div>
 
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Cal.com Live Embed */}
-          <div className="lg:col-span-8">
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#080B12] border border-[#3B82F6]/20 space-y-4 shadow-xl shadow-black/40">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.65, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-8"
+          >
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#100B1B] border border-[#30213F] space-y-4 shadow-lg shadow-black/40">
               
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#3B82F6]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#30213F]">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-[#60A5FA] flex items-center justify-center font-bold shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#35106B]/60 border border-[#7028D8]/60 text-[#B98AFF] flex items-center justify-center font-bold shrink-0">
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white">
+                    <h3 className="text-sm sm:text-base font-bold text-[#F8F7FC]">
                       Book a Strategy Call
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-[#B9B1C9]">
                       Select a date and time slot directly below.
                     </p>
                   </div>
@@ -252,7 +280,7 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
                   href={CONTACT_INFO.calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-[#60A5FA] hover:text-[#93C5FD] font-semibold hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto bg-[#3B82F6]/10 px-3 py-1.5 rounded-full border border-[#3B82F6]/20"
+                  className="text-xs text-[#B98AFF] hover:text-[#F8F7FC] font-semibold hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto bg-[#35106B]/50 px-3 py-1.5 rounded-full border border-[#7028D8]/50"
                 >
                   <span>Open in Cal.com</span>
                   <ExternalLink className="w-3 h-3" />
@@ -260,20 +288,20 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
               </div>
 
               {/* Cal.com Container */}
-              <div className="w-full min-h-[620px] rounded-2xl overflow-hidden border border-[#3B82F6]/15 bg-[#050505] p-1">
+              <div className="w-full min-h-[620px] rounded-2xl overflow-hidden border border-[#30213F] bg-[#0B0812] p-1">
                 <div 
                   style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "auto" }} 
                   id="my-cal-inline-book-a-growth-strategy-call-with-shivam"
                 />
               </div>
 
-              <div className="flex items-center justify-between pt-1 text-[11px] text-slate-500">
+              <div className="flex items-center justify-between pt-1 text-[11px] text-[#B9B1C9]">
                 <span>Direct calendar reservation via Cal.com</span>
                 <span>Timezone automatically synced to browser</span>
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
@@ -39,179 +39,126 @@ const SUPPORTED_PRODUCT_HUNT_LAUNCHES: SupportedProduct[] = [
 ];
 
 export const TrustedByMarquee: React.FC = React.memo(() => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(true);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]) {
-          setInView(entries[0].isIntersecting);
-        }
-      },
-      { rootMargin: '250px' }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   const rowOne = SUPPORTED_PRODUCT_HUNT_LAUNCHES.slice(0, 14);
   const rowTwo = SUPPORTED_PRODUCT_HUNT_LAUNCHES.slice(14);
 
-  // Duplicated internally for a seamless infinite 0% -> -50% loop
+  // Duplicated internally for a seamless infinite 0% -> -50% right-to-left loop
   const marqueeRowOne = [...rowOne, ...rowOne];
   const marqueeRowTwo = [...rowTwo, ...rowTwo];
 
   return (
     <section
-      ref={sectionRef}
-      className="pt-28 pb-32 md:pt-36 md:pb-40 bg-[#000000] relative overflow-hidden z-10"
+      className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F5FF] border-y border-[#E9E0F5] relative overflow-hidden z-10"
     >
-      {/* Upper Header Zone */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
-        {/* Small Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#7BA7F7] mb-5"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6154]" />
-          <span>PRODUCT HUNT · LAUNCH SUPPORT</span>
-        </motion.div>
-
-        {/* Refined, Elegant Main Heading (font-weight 500-600, reduced size, generous breathing room) */}
-        <motion.h2
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F5F7FA] tracking-[0.04em] leading-[1.22] uppercase"
-        >
-          SUPPORTED PRODUCTS <br />
-          <span className="text-[#6B9BF0] font-semibold">
-            ON PRODUCT HUNT
-          </span>
-        </motion.h2>
-
-        {/* Short Supporting Sentence */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.7, delay: 0.16 }}
-          className="mt-5 text-xs sm:text-sm text-[#CBD5E1] font-sans max-w-md mx-auto leading-relaxed font-normal"
-        >
-          Launch visibility, distribution and growth support for products building in public.
-        </motion.p>
-      </div>
-
-      {/* Dedicated Lower Marquee Zone (Positioned well below the heading in its own horizontal band) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-20px' }}
-        transition={{ duration: 0.85, delay: 0.2 }}
-        className={`mt-20 sm:mt-28 relative w-full overflow-hidden py-5 sm:py-6 z-20 will-change-transform ${
-          inView ? '' : 'ph-marquee-offscreen'
-        }`}
+      {/* Stationary Purple-Lavender Gradient Border Around the Entire Scrolling Section */}
+      <div
+        className="max-w-7xl mx-auto rounded-[20px] p-[1.5px] shadow-[0_10px_32px_-8px_rgba(112,40,216,0.08)] relative z-10"
         style={{
-          willChange: 'transform',
+          background:
+            'linear-gradient(135deg, #E9DDFB 0%, #C4A5FF 45%, #7028D8 100%)',
         }}
       >
-        {/* Left & Right Soft Edge Fade Masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#000000] to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#000000] to-transparent z-10" />
+        <div className="rounded-[18.5px] bg-gradient-to-b from-[#FFFFFF]/90 via-[#F8F5FF] to-[#F8F5FF] py-14 sm:py-20 md:py-24 px-3 sm:px-6 md:px-10 relative overflow-hidden">
+          {/* Upper Header Zone */}
+          <div className="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 relative z-20 text-center">
+            {/* Small Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.28em] text-[#7028D8] mb-5"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8]" />
+              <span>PRODUCT HUNT · LAUNCH SUPPORT</span>
+            </motion.div>
 
-        {/* ROW 1: RIGHT → LEFT */}
-        <div className="py-3 sm:py-3.5 overflow-hidden will-change-transform">
-          <div
-            style={{ willChange: 'transform' }}
-            className="flex w-max items-center ph-marquee-ltr will-change-transform"
-          >
-            {marqueeRowOne.map((product, idx) => (
-              <a
-                key={`r1-${product.name}-${idx}`}
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] group-hover:bg-[#FF6154] transition-colors duration-300" />
-                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#F8FAFC] group-hover:text-white transition-colors whitespace-nowrap marquee-item-shadow">
-                  {product.name}
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/80 group-hover:text-[#60A5FA] group-hover:translate-x-0.5 transition-transform duration-300" />
-              </a>
-            ))}
+            {/* Refined, Elegant Main Heading (font-weight 500-600, reduced size, generous breathing room) */}
+            <motion.h2
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#35106B] tracking-[0.04em] leading-[1.22] uppercase"
+            >
+              SUPPORTED PRODUCTS <br />
+              <span className="text-[#7028D8] font-semibold">
+                ON PRODUCT HUNT
+              </span>
+            </motion.h2>
+
+            {/* Short Supporting Sentence */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, delay: 0.16 }}
+              className="mt-5 text-xs sm:text-sm text-[#6B6178] font-sans max-w-md mx-auto leading-relaxed font-normal"
+            >
+              Launch visibility, distribution and growth support for products building in public.
+            </motion.p>
+          </div>
+
+          {/* Dedicated Lower Marquee Zone (Starts automatically on page load, continuous right-to-left loop) */}
+          <div className="mt-14 sm:mt-20 relative w-full overflow-hidden py-5 sm:py-6 z-20">
+            {/* Left & Right Soft Edge Fade Masks to prevent clipping against the border */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-[#F8F5FF] via-[#F8F5FF]/90 to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-[#F8F5FF] via-[#F8F5FF]/90 to-transparent z-10" />
+
+            {/* ROW 1: RIGHT → LEFT */}
+            <div className="py-3 sm:py-3.5 overflow-hidden">
+              <div className="flex w-max items-center ph-marquee-track-row1">
+                {marqueeRowOne.map((product, idx) => {
+                  const isClone = idx >= rowOne.length;
+                  return (
+                    <a
+                      key={`r1-${product.name}-${idx}`}
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-hidden={isClone ? 'true' : undefined}
+                      tabIndex={isClone ? -1 : undefined}
+                      className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CE8] group-hover:bg-[#7028D8] transition-colors duration-300" />
+                      <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#20152E] group-hover:text-[#7028D8] transition-colors whitespace-nowrap marquee-item-shadow">
+                        {product.name}
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#6B6178] group-hover:text-[#7028D8] group-hover:translate-x-0.5 transition-transform duration-300" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ROW 2: RIGHT → LEFT */}
+            <div className="py-3 sm:py-3.5 overflow-hidden mt-1">
+              <div className="flex w-max items-center ph-marquee-track-row2">
+                {marqueeRowTwo.map((product, idx) => {
+                  const isClone = idx >= rowTwo.length;
+                  return (
+                    <a
+                      key={`r2-${product.name}-${idx}`}
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-hidden={isClone ? 'true' : undefined}
+                      tabIndex={isClone ? -1 : undefined}
+                      className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8] group-hover:bg-[#35106B] transition-colors duration-300" />
+                      <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#20152E] group-hover:text-[#7028D8] transition-colors whitespace-nowrap marquee-item-shadow">
+                        {product.name}
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#6B6178] group-hover:text-[#7028D8] group-hover:translate-x-0.5 transition-transform duration-300" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* ROW 2: LEFT → RIGHT */}
-        <div className="py-3 sm:py-3.5 overflow-hidden mt-1 will-change-transform">
-          <div
-            style={{ willChange: 'transform' }}
-            className="flex w-max items-center ph-marquee-rtl will-change-transform"
-          >
-            {marqueeRowTwo.map((product, idx) => (
-              <a
-                key={`r2-${product.name}-${idx}`}
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] group-hover:bg-[#FF6154] transition-colors duration-300" />
-                <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#E2E8F0] group-hover:text-white transition-colors whitespace-nowrap marquee-item-shadow">
-                  {product.name}
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#CBD5E1]/75 group-hover:text-[#60A5FA] group-hover:translate-x-0.5 transition-transform duration-300" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* GPU-accelerated translate3d infinite marquee keyframes with pause-on-hover and offscreen pause */}
-      <style>{`
-        @keyframes phMarqueeLeft {
-          0% { transform: translate3d(0%, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); }
-        }
-        @keyframes phMarqueeRight {
-          0% { transform: translate3d(-50%, 0, 0); }
-          100% { transform: translate3d(0%, 0, 0); }
-        }
-        .ph-marquee-ltr {
-          animation: phMarqueeLeft 72s linear infinite;
-          will-change: transform;
-          backface-visibility: hidden;
-        }
-        .ph-marquee-rtl {
-          animation: phMarqueeRight 78s linear infinite;
-          will-change: transform;
-          backface-visibility: hidden;
-        }
-        @media (min-width: 768px) {
-          .ph-marquee-ltr {
-            animation-duration: 60s;
-          }
-          .ph-marquee-rtl {
-            animation-duration: 66s;
-          }
-        }
-        .ph-marquee-ltr:hover,
-        .ph-marquee-rtl:hover,
-        .ph-marquee-offscreen .ph-marquee-ltr,
-        .ph-marquee-offscreen .ph-marquee-rtl {
-          animation-play-state: paused;
-        }
-      `}</style>
+      </div>
     </section>
   );
 });

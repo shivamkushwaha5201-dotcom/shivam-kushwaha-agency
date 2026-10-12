@@ -20,7 +20,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       id="theme-toggle-btn"
       type="button"
       onClick={toggleTheme}
-      className={`relative inline-flex items-center justify-center p-2 rounded-full border border-[#E5E5E1] dark:border-slate-700 bg-white dark:bg-slate-800/90 text-[#1A1A1A] dark:text-slate-200 hover:border-[#2563EB] dark:hover:border-blue-400 hover:text-[#2563EB] dark:hover:text-blue-400 shadow-2xs transition-all cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#2563EB] ${className}`}
+      className={`relative inline-flex items-center justify-center p-2 rounded-full border border-[#30213F] bg-[#100B1B] text-[#B98AFF] hover:border-[#7028D8] hover:text-[#F8F7FC] hover:bg-[#35106B]/60 shadow-2xs transition-all cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7028D8] ${className}`}
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
     >
@@ -33,7 +33,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
               animate={{ rotate: 0, opacity: 1, scale: 1 }}
               exit={{ rotate: 90, opacity: 0, scale: 0.7 }}
               transition={{ duration: 0.2 }}
-              className="text-amber-400"
+              className="text-[#B98AFF]"
             >
               <Sun className="w-4 h-4" />
             </motion.div>
@@ -44,7 +44,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
               animate={{ rotate: 0, opacity: 1, scale: 1 }}
               exit={{ rotate: -90, opacity: 0, scale: 0.7 }}
               transition={{ duration: 0.2 }}
-              className="text-slate-700 dark:text-slate-300"
+              className="text-[#B98AFF]"
             >
               <Moon className="w-4 h-4" />
             </motion.div>

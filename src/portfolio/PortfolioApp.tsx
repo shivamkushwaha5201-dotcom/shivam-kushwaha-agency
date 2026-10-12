@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence, type Variants } from 'motion/react';
 import { AlertCircle, RefreshCw } from 'lucide-react';
 import {
   LaunchInputPayload,
@@ -31,6 +32,35 @@ import { SEOHead } from '../components/SEOHead';
 
 const SESSION_TOKEN_STORAGE_KEY = 'ph_portfolio_admin_session_token';
 
+const NAV_SECTION_ORDER: NavSectionId[] = [
+  'all-launches',
+  'recent-launches',
+  'about',
+];
+
+const sectionSlideVariants: Variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 56 : -56,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      x: { type: 'spring', stiffness: 310, damping: 30, mass: 0.85 },
+      opacity: { duration: 0.28, ease: [0.16, 1, 0.3, 1] },
+    },
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -56 : 56,
+    opacity: 0,
+    transition: {
+      x: { duration: 0.2, ease: [0.4, 0, 1, 1] },
+      opacity: { duration: 0.16 },
+    },
+  }),
+};
+
 export function PortfolioApp() {
   const [launches, setLaunches] = useState<SupportedLaunch[]>([]);
   const [settings, setSettings] = useState<PortfolioSettings>(
@@ -52,8 +82,10 @@ export function PortfolioApp() {
   const [authInitialized, setAuthInitialized] = useState<boolean>(true);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-  // Navigation & Modal states
+  // Navigation, Slide Direction & Modal states
   const [activeNav, setActiveNav] = useState<NavSectionId>('all-launches');
+  const [slideDirection, setSlideDirection] = useState<number>(1);
+  const [hasNavigated, setHasNavigated] = useState<boolean>(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState<boolean>(false);
   const [editingLaunch, setEditingLaunch] = useState<SupportedLaunch | null>(
     null
@@ -139,15 +171,33 @@ export function PortfolioApp() {
     );
   }, [launches]);
 
+  const switchSection = useCallback(
+    (sectionId: NavSectionId) => {
+      setActiveNav((prev) => {
+        if (prev !== sectionId) {
+          const prevIdx = NAV_SECTION_ORDER.indexOf(prev);
+          const nextIdx = NAV_SECTION_ORDER.indexOf(sectionId);
+          setSlideDirection(nextIdx >= prevIdx ? 1 : -1);
+          setHasNavigated(true);
+        }
+        return sectionId;
+      });
+    },
+    []
+  );
+
   const handleNavigate = (
     e: React.MouseEvent<HTMLAnchorElement>,
     sectionId: NavSectionId
   ) => {
     e.preventDefault();
-    setActiveNav(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    switchSection(sectionId);
+    const stageEl = document.getElementById('portfolio-sections-stage');
+    const targetEl = document.getElementById(sectionId);
+    if (sectionId === 'about' && targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (stageEl) {
+      stageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -210,7 +260,7 @@ export function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#1F2937] flex flex-col overflow-x-hidden font-sans selection:bg-[#DA552F]/15 selection:text-[#DA552F]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#20152E] flex flex-col overflow-x-hidden font-sans selection:bg-[#7028D8]/15 selection:text-[#7028D8]">
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}
         description="A collection of products I've helped during their Product Hunt launches, along with their final votes and rankings."
@@ -233,16 +283,16 @@ export function PortfolioApp() {
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-8">
             <div
               role="alert"
-              className="p-4 rounded-xl bg-[#FEF2F2] border border-[#DA552F]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+              className="p-4 rounded-xl bg-[#F8F5FF] border border-[#7028D8]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             >
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#DA552F]">
-                <AlertCircle size={18} className="shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#35106B]">
+                <AlertCircle size={18} className="shrink-0 mt-0.5 text-[#7028D8]" />
                 <span>{loadError}</span>
               </div>
               <button
                 type="button"
                 onClick={loadPortfolioData}
-                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#1F2937] bg-white border border-[#E5E7EB] hover:bg-[#F7F7F7] transition-colors cursor-pointer shrink-0"
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#35106B] bg-white border border-[#E9E0F5] hover:bg-[#F0E8FF] transition-colors cursor-pointer shrink-0"
               >
                 <RefreshCw size={13} />
                 <span>Retry Loading</span>
@@ -251,24 +301,155 @@ export function PortfolioApp() {
           </div>
         )}
 
-        <AllLaunchesSection
-          launches={launches}
-          isLoading={isLoading}
-          isAdmin={isAuthenticated}
-          onEdit={handleEditLaunch}
-          onRequestDelete={handleRequestDeleteLaunch}
-        />
+        {/* Cohesive Section Switcher Bar + Horizontally Animated Section Stage */}
+        <div
+          id="portfolio-sections-stage"
+          className="scroll-mt-16 bg-[#F8F5FF]/70 border-b border-[#E9E0F5]"
+        >
+          <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-6 pb-2 flex flex-wrap items-center justify-between gap-4">
+            <div
+              role="tablist"
+              aria-label="Portfolio Sections"
+              className="inline-flex items-center p-1 rounded-full bg-[#FFFFFF] border border-[#E9E0F5] shadow-2xs"
+            >
+              {(
+                [
+                  {
+                    id: 'all-launches',
+                    label: 'All Launches',
+                    count: launches.length,
+                  },
+                  {
+                    id: 'recent-launches',
+                    label: 'Recent Launches',
+                    count: recentLaunches.length,
+                  },
+                  {
+                    id: 'about',
+                    label: 'About',
+                  },
+                ] as { id: NavSectionId; label: string; count?: number }[]
+              ).map((tab) => {
+                const isSelected = activeNav === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    onClick={() => switchSection(tab.id)}
+                    className={`relative px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-2 ${
+                      isSelected
+                        ? 'text-white'
+                        : 'text-[#6B6178] hover:text-[#35106B]'
+                    }`}
+                  >
+                    {isSelected && (
+                      <motion.span
+                        layoutId="portfolio-stage-active-pill"
+                        transition={{
+                          type: 'spring',
+                          stiffness: 360,
+                          damping: 30,
+                        }}
+                        className="absolute inset-0 rounded-full bg-[#7028D8] shadow-xs shadow-[#7028D8]/25 -z-0"
+                      />
+                    )}
+                    <span className="relative z-10">{tab.label}</span>
+                    {typeof tab.count === 'number' && !isLoading && (
+                      <span
+                        className={`relative z-10 text-[11px] px-1.5 py-0.2 rounded-full font-mono ${
+                          isSelected
+                            ? 'bg-white/20 text-white'
+                            : 'bg-[#F0E8FF] text-[#7028D8]'
+                        }`}
+                      >
+                        {tab.count}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-        <RecentLaunchesSection
-          recentLaunches={recentLaunches}
-          pendingConfirmationLaunches={pendingConfirmationLaunches}
-          isLoading={isLoading}
-          isAdmin={isAuthenticated}
-          onEdit={handleEditLaunch}
-          onRequestDelete={handleRequestDeleteLaunch}
-        />
-
-        <AboutSection settings={settings} />
+          <div className="relative overflow-hidden">
+            <AnimatePresence
+              mode="wait"
+              initial={false}
+              custom={slideDirection}
+            >
+              <motion.div
+                key={activeNav}
+                custom={slideDirection}
+                variants={sectionSlideVariants}
+                initial={hasNavigated ? 'enter' : false}
+                animate="center"
+                exit="exit"
+                className="will-change-transform"
+              >
+                {activeNav === 'recent-launches' ? (
+                  <>
+                    <RecentLaunchesSection
+                      recentLaunches={recentLaunches}
+                      pendingConfirmationLaunches={pendingConfirmationLaunches}
+                      isLoading={isLoading}
+                      isAdmin={isAuthenticated}
+                      onEdit={handleEditLaunch}
+                      onRequestDelete={handleRequestDeleteLaunch}
+                    />
+                    <AllLaunchesSection
+                      launches={launches}
+                      isLoading={isLoading}
+                      isAdmin={isAuthenticated}
+                      onEdit={handleEditLaunch}
+                      onRequestDelete={handleRequestDeleteLaunch}
+                    />
+                    <AboutSection settings={settings} />
+                  </>
+                ) : activeNav === 'about' ? (
+                  <>
+                    <AboutSection settings={settings} />
+                    <AllLaunchesSection
+                      launches={launches}
+                      isLoading={isLoading}
+                      isAdmin={isAuthenticated}
+                      onEdit={handleEditLaunch}
+                      onRequestDelete={handleRequestDeleteLaunch}
+                    />
+                    <RecentLaunchesSection
+                      recentLaunches={recentLaunches}
+                      pendingConfirmationLaunches={pendingConfirmationLaunches}
+                      isLoading={isLoading}
+                      isAdmin={isAuthenticated}
+                      onEdit={handleEditLaunch}
+                      onRequestDelete={handleRequestDeleteLaunch}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <AllLaunchesSection
+                      launches={launches}
+                      isLoading={isLoading}
+                      isAdmin={isAuthenticated}
+                      onEdit={handleEditLaunch}
+                      onRequestDelete={handleRequestDeleteLaunch}
+                    />
+                    <RecentLaunchesSection
+                      recentLaunches={recentLaunches}
+                      pendingConfirmationLaunches={pendingConfirmationLaunches}
+                      isLoading={isLoading}
+                      isAdmin={isAuthenticated}
+                      onEdit={handleEditLaunch}
+                      onRequestDelete={handleRequestDeleteLaunch}
+                    />
+                    <AboutSection settings={settings} />
+                  </>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </main>
 
       <Footer

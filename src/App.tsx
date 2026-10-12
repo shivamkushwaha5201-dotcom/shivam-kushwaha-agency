@@ -156,7 +156,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[#000000] text-[#F8FAFC] flex flex-col selection:bg-[#3B82F6]/30 selection:text-[#93C5FD] font-sans transition-colors duration-200">
+      <div className="min-h-screen bg-[#050505] text-[#F8F7FC] flex flex-col selection:bg-[#7028D8]/30 selection:text-[#F8F7FC] font-sans transition-colors duration-200">
         
         {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
         <AnimatePresence>
@@ -166,7 +166,7 @@ export default function App() {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#000000]/95 backdrop-blur-md"
+              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#050505]/95 backdrop-blur-md"
             >
               <motion.div
                 initial={{ opacity: 0, y: 14, scale: 0.96 }}
@@ -175,11 +175,11 @@ export default function App() {
                 transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center px-6 space-y-2 will-change-transform"
               >
-                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#60A5FA]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#B98AFF]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8]" />
                   <span>AXENTAI LABS</span>
                 </div>
-                <p className="text-xl sm:text-3xl font-display font-bold tracking-[0.14em] text-[#F8FAFC] uppercase">
+                <p className="text-xl sm:text-3xl font-display font-bold tracking-[0.14em] text-[#F8F7FC] uppercase">
                   TRUSTED BY FOUNDERS &amp; TEAMS
                 </p>
               </motion.div>

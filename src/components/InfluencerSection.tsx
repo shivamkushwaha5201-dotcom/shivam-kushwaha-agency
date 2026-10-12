@@ -138,65 +138,71 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
     <section
       ref={sectionRef}
       id="influencer-marketing"
-      className="py-28 md:py-36 bg-[#000000] text-[#F8FAFC] border-t border-white/10 relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#050505] text-[#F8F7FC] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative z-20"
+        >
           <div className="space-y-3 max-w-2xl relative">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#60A5FA] font-semibold font-mono">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
               // SOCIAL PLATFORM EXPERIENCE
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8FAFC] tracking-[-0.02em] uppercase heading-contrast-shadow">
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] uppercase heading-contrast-shadow">
               Creator Network &amp; Social Distribution.
             </h2>
-            <p className="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-normal text-contrast-shadow">
+            <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-normal text-contrast-shadow">
               We connect brands with relevant creators across LinkedIn, X and Instagram to engineer sustained audience growth.
             </p>
           </div>
 
           <Button
             onClick={onOpenBooking}
-            className="bg-[#3B82F6] hover:bg-[#2563EB] text-white text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-3 shadow-lg shadow-blue-500/20 self-start md:self-auto group cursor-pointer"
+            className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-3 border border-[#B98AFF]/30 shadow-md shadow-[#7028D8]/25 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 transition-all duration-300 self-start md:self-auto group cursor-pointer"
           >
             <span>CONNECT WITH US</span>
-            <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
-        </div>
+        </motion.div>
 
         {/* Central Statue + Laptop Visual Surrounded by 6 Orbiting Social Platforms + Existing Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Social Distribution & Creator Network */}
           <div className="lg:col-span-4 space-y-8 order-2 lg:order-1">
-            {SERVICE_CARD_PLATFORMS.slice(0, 2).map((platform) => {
+            {SERVICE_CARD_PLATFORMS.slice(0, 2).map((platform, idx) => {
               const isHighlighted = activePlatform === platform.id;
               return (
                 <motion.div
                   key={platform.id}
                   onMouseEnter={() => setActivePlatform(platform.id)}
                   onMouseLeave={() => setActivePlatform(null)}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className={`p-6 rounded-2xl border transition-colors cursor-pointer ${
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className={`fx-card-interactive p-6 rounded-2xl border cursor-pointer ${
                     isHighlighted
-                      ? 'bg-[#080B12] border-[#3B82F6] shadow-xl shadow-blue-500/15'
-                      : 'bg-[#080B12]/88 border-white/10 hover:border-white/25'
+                      ? 'bg-[#35106B]/60 border-[#7028D8] shadow-lg shadow-[#7028D8]/25 -translate-y-1'
+                      : 'bg-[#100B1B] border-[#30213F] hover:border-[#7028D8] hover:-translate-y-1 hover:shadow-md hover:shadow-[#7028D8]/15'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#60A5FA] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
+                    <span className="text-[#B98AFF] font-mono text-xs font-bold">*</span>
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
                       {platform.pillar}
                     </span>
                   </div>
-                  <h3 className="text-lg font-display font-bold text-white mb-1">
+                  <h3 className="text-lg font-display font-bold text-[#F8F7FC] mb-1">
                     {platform.name}
                   </h3>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed">
+                  <p className="text-xs text-[#B9B1C9] leading-relaxed">
                     {platform.description}
                   </p>
                 </motion.div>
@@ -211,18 +217,18 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                 inView ? '' : 'orbit-paused'
               }`}
             >
-              {/* Soft Blue Ambient Halo Behind Central Statue (Zero-blur radial gradient) */}
+              {/* Soft Dark Purple Ambient Halo Behind Central Statue */}
               <div
                 aria-hidden="true"
                 className="absolute -inset-6 rounded-full pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle, rgba(59,130,246,0.22) 0%, rgba(96,165,250,0.10) 45%, transparent 70%)',
+                    'radial-gradient(circle, rgba(112,40,216,0.28) 0%, rgba(53,16,107,0.35) 45%, transparent 70%)',
                 }}
               />
 
               {/* Central Statue + Laptop Visual */}
-              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#050505] border border-[#3B82F6]/30 shadow-[0_0_55px_rgba(59,130,246,0.18)] overflow-hidden relative flex items-end justify-center z-10">
+              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#100B1B] border border-[#7028D8]/60 shadow-[0_12px_45px_rgba(112,40,216,0.3)] overflow-hidden relative flex items-end justify-center z-10">
                 <picture className="w-full h-full block">
                   <source srcSet={statueCenterVisualWebp} type="image/webp" />
                   <img
@@ -234,12 +240,12 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                     decoding="async"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/65 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-[#3B82F6]/25 rounded-full pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-[#B98AFF]/25 rounded-full pointer-events-none" />
               </div>
 
               {/* Subtle Orbital Track Ring */}
-              <div className="absolute inset-2 rounded-full border border-dashed border-[#3B82F6]/20 pointer-events-none" />
+              <div className="absolute inset-2 rounded-full border border-dashed border-[#30213F] pointer-events-none" />
 
               {/* Continuous Slow Circular Orbit Carrier for All 6 Platforms (Single Parent Transform) */}
               <div
@@ -268,8 +274,8 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                       <div
                         className={`orbit-counter-node w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-colors duration-300 cursor-pointer ${
                           isHighlighted
-                            ? 'bg-[#3B82F6] text-white border-[#60A5FA] shadow-[0_0_22px_rgba(59,130,246,0.75)]'
-                            : 'bg-[#080B12]/95 text-[#F8FAFC] border-[#3B82F6]/35 hover:border-[#60A5FA] hover:text-[#60A5FA] shadow-[0_0_16px_rgba(59,130,246,0.18)]'
+                            ? 'bg-[#7028D8] text-[#F8F7FC] border-[#B98AFF] shadow-[0_0_22px_rgba(112,40,216,0.65)]'
+                            : 'bg-[#100B1B] text-[#F8F7FC] border-[#30213F] hover:border-[#7028D8] hover:text-[#B98AFF] shadow-md shadow-black/60'
                         }`}
                         title={platform.name}
                         aria-label={platform.name}
@@ -297,22 +303,22 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className={`p-6 rounded-2xl border transition-all cursor-pointer ${
+                  className={`fx-card-interactive p-6 rounded-2xl border transition-all cursor-pointer ${
                     isHighlighted
-                      ? 'bg-[#080B12] border-[#3B82F6] shadow-xl shadow-blue-500/15'
-                      : 'bg-[#080B12]/88 border-white/10 hover:border-white/25'
+                      ? 'bg-[#35106B]/60 border-[#7028D8] shadow-lg shadow-[#7028D8]/25'
+                      : 'bg-[#100B1B] border-[#30213F] hover:border-[#7028D8]'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#60A5FA] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
+                    <span className="text-[#B98AFF] font-mono text-xs font-bold">*</span>
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
                       {platform.pillar}
                     </span>
                   </div>
-                  <h3 className="text-lg font-display font-bold text-white mb-1">
+                  <h3 className="text-lg font-display font-bold text-[#F8F7FC] mb-1">
                     {platform.name}
                   </h3>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed">
+                  <p className="text-xs text-[#B9B1C9] leading-relaxed">
                     {platform.description}
                   </p>
                 </motion.div>
@@ -320,23 +326,23 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
             })}
 
             {/* 4-Step Compact Execution Pill */}
-            <div className="p-6 rounded-2xl bg-[#080B12]/88 border border-white/10 space-y-3">
+            <div className="p-6 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-3">
               <div className="flex items-center gap-2">
-                <span className="text-[#60A5FA] font-mono text-xs font-bold">*</span>
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#60A5FA]">
+                <span className="text-[#B98AFF] font-mono text-xs font-bold">*</span>
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
                   END-TO-END FLOW
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-semibold text-white">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-semibold text-[#F8F7FC]">
                 <span>DISCOVER</span>
-                <span className="text-[#60A5FA]">→</span>
+                <span className="text-[#B98AFF]">→</span>
                 <span>SELECT</span>
-                <span className="text-[#60A5FA]">→</span>
+                <span className="text-[#B98AFF]">→</span>
                 <span>CAMPAIGN</span>
-                <span className="text-[#60A5FA]">→</span>
+                <span className="text-[#B98AFF]">→</span>
                 <span>MEASURE</span>
               </div>
-              <p className="text-xs text-[#94A3B8] leading-relaxed">
+              <p className="text-xs text-[#B9B1C9] leading-relaxed">
                 Curated creator vetting, outreach, and transparent performance attribution.
               </p>
             </div>

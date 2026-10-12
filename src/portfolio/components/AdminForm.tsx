@@ -365,23 +365,23 @@ export const AdminForm: React.FC<AdminFormProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-4 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="admin-modal-heading"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-xl bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col"
+        className="w-full max-w-xl bg-[#100B1B] border border-[#30213F] rounded-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB] bg-white shrink-0">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#30213F] bg-[#100B1B] shrink-0">
           <div className="flex items-center gap-2.5">
-            <Lock size={16} className="text-[#DA552F]" />
+            <Lock size={16} className="text-[#B98AFF]" />
             <h2
               id="admin-modal-heading"
-              className="text-base font-bold text-[#1F2937]"
+              className="text-base font-bold text-[#F8F7FC]"
             >
               {isAuthenticated
                 ? 'Portfolio Manager (Owner)'
@@ -396,7 +396,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
               <button
                 type="button"
                 onClick={onLogout}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#6B7280] hover:text-[#1F2937] hover:bg-[#F7F7F7] transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#B9B1C9] hover:text-[#F8F7FC] hover:bg-[#0B0812] transition-colors cursor-pointer"
               >
                 <LogOut size={13} />
                 <span>Lock</span>
@@ -406,7 +406,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
               type="button"
               onClick={onClose}
               aria-label="Close modal"
-              className="p-1.5 rounded-lg text-[#6B7280] hover:text-[#1F2937] hover:bg-[#F7F7F7] transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg text-[#B9B1C9] hover:text-[#F8F7FC] hover:bg-[#0B0812] transition-colors cursor-pointer"
             >
               <X size={18} />
             </button>
@@ -416,7 +416,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
         {/* Unauthenticated View: Server-Backed Passcode Gate */}
         {!isAuthenticated ? (
           <form onSubmit={handleAuthSubmit} className="p-6 space-y-4">
-            <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#B9B1C9] leading-relaxed">
               {authInitialized
                 ? 'Enter your portfolio owner passcode to add, edit, or delete launches.'
                 : 'First-time setup: Choose an admin passcode to protect write operations on your portfolio.'}
@@ -425,7 +425,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
             {authError && (
               <div
                 role="alert"
-                className="p-3 rounded-lg bg-[#FEF2F2] border border-[#DA552F]/30 text-xs font-medium text-[#DA552F] flex items-start gap-2"
+                className="p-3 rounded-lg bg-red-950/60 border border-red-500/40 text-xs font-medium text-red-300 flex items-start gap-2"
               >
                 <AlertTriangle size={15} className="shrink-0 mt-0.5" />
                 <span>{authError}</span>
@@ -435,7 +435,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
             <div>
               <label
                 htmlFor="admin-passcode-input"
-                className="block text-xs font-semibold text-[#1F2937] mb-1.5"
+                className="block text-xs font-semibold text-[#F8F7FC] mb-1.5"
               >
                 {authInitialized
                   ? 'Admin Passcode'
@@ -449,7 +449,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
               />
             </div>
 
@@ -457,14 +457,14 @@ export const AdminForm: React.FC<AdminFormProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 text-xs font-semibold text-[#6B7280] hover:text-[#1F2937] rounded-lg border border-[#E5E7EB] bg-white transition-colors cursor-pointer"
+                className="px-4 py-2 text-xs font-semibold text-[#B9B1C9] hover:text-[#F8F7FC] rounded-lg border border-[#30213F] bg-[#0B0812] transition-colors cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={authSubmitting}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#DA552F] hover:bg-[#C44623] disabled:opacity-60 rounded-lg transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#F8F7FC] bg-[#7028D8] hover:bg-[#5E1EC0] disabled:opacity-60 rounded-lg transition-colors cursor-pointer"
               >
                 {authSubmitting && (
                   <Loader2 size={14} className="animate-spin" />
@@ -481,7 +481,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
           /* Authenticated Owner Console */
           <div className="flex flex-col flex-1 min-h-0">
             {/* Navigation Tabs */}
-            <div className="flex items-center gap-1 px-6 pt-3 border-b border-[#E5E7EB] bg-[#F7F7F7]">
+            <div className="flex items-center gap-1 px-6 pt-3 border-b border-[#30213F] bg-[#0B0812]">
               <button
                 type="button"
                 onClick={() => {
@@ -491,8 +491,8 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                 }}
                 className={`px-3.5 py-2 text-xs font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer ${
                   activeTab === 'form'
-                    ? 'bg-white text-[#DA552F] border-[#DA552F]'
-                    : 'text-[#6B7280] border-transparent hover:text-[#1F2937]'
+                    ? 'bg-[#100B1B] text-[#B98AFF] border-[#7028D8]'
+                    : 'text-[#B9B1C9] border-transparent hover:text-[#F8F7FC]'
                 }`}
               >
                 {editingId ? 'Edit Launch' : '+ Add Launch'}
@@ -506,8 +506,8 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                 }}
                 className={`px-3.5 py-2 text-xs font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer ${
                   activeTab === 'list'
-                    ? 'bg-white text-[#DA552F] border-[#DA552F]'
-                    : 'text-[#6B7280] border-transparent hover:text-[#1F2937]'
+                    ? 'bg-[#100B1B] text-[#B98AFF] border-[#7028D8]'
+                    : 'text-[#B9B1C9] border-transparent hover:text-[#F8F7FC]'
                 }`}
               >
                 Manage Launches ({launches.length})
@@ -521,8 +521,8 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                 }}
                 className={`px-3.5 py-2 text-xs font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer ${
                   activeTab === 'settings'
-                    ? 'bg-white text-[#DA552F] border-[#DA552F]'
-                    : 'text-[#6B7280] border-transparent hover:text-[#1F2937]'
+                    ? 'bg-[#100B1B] text-[#B98AFF] border-[#7028D8]'
+                    : 'text-[#B9B1C9] border-transparent hover:text-[#F8F7FC]'
                 }`}
               >
                 Portfolio Settings
@@ -534,7 +534,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
               {formError && (
                 <div
                   role="alert"
-                  className="p-3 rounded-lg bg-[#FEF2F2] border border-[#DA552F]/30 text-xs font-medium text-[#DA552F] flex items-start gap-2"
+                  className="p-3 rounded-lg bg-red-950/60 border border-red-500/40 text-xs font-medium text-red-300 flex items-start gap-2"
                 >
                   <AlertTriangle size={15} className="shrink-0 mt-0.5" />
                   <span>{formError}</span>
@@ -544,11 +544,11 @@ export const AdminForm: React.FC<AdminFormProps> = ({
               {formSuccess && (
                 <div
                   role="status"
-                  className="p-3 rounded-lg bg-[#F0FDF4] border border-emerald-200 text-xs font-medium text-emerald-800 flex items-start gap-2"
+                  className="p-3 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-xs font-medium text-emerald-300 flex items-start gap-2"
                 >
                   <CheckCircle2
                     size={15}
-                    className="shrink-0 mt-0.5 text-emerald-600"
+                    className="shrink-0 mt-0.5 text-emerald-400"
                   />
                   <span>{formSuccess}</span>
                 </div>
@@ -562,14 +562,14 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                   noValidate
                 >
                   {editingId && (
-                    <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#F7F7F7] border border-[#E5E7EB] text-xs">
-                      <span className="font-medium text-[#1F2937]">
+                    <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#0B0812] border border-[#30213F] text-xs">
+                      <span className="font-medium text-[#F8F7FC]">
                         Editing existing launch
                       </span>
                       <button
                         type="button"
                         onClick={resetLaunchForm}
-                        className="text-[#DA552F] font-semibold hover:underline cursor-pointer"
+                        className="text-[#B98AFF] font-semibold hover:underline cursor-pointer"
                       >
                         Switch to New Launch
                       </button>
@@ -579,7 +579,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                   <div>
                     <label
                       htmlFor="field-product-name"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       Product Name *
                     </label>
@@ -590,14 +590,14 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Enter product name"
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="field-ph-url"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       Product Hunt Launch URL *
                     </label>
@@ -611,10 +611,10 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                         setConfirmNonPhDomain(false);
                       }}
                       placeholder="https://www.producthunt.com/products/your-product"
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
                     />
                     {urlValidation && !urlValidation.valid && (
-                      <p className="text-xs text-[#DA552F] mt-1.5">
+                      <p className="text-xs text-red-400 mt-1.5">
                         {urlValidation.error}
                       </p>
                     )}
@@ -622,11 +622,11 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                     {urlValidation &&
                       urlValidation.valid &&
                       !urlValidation.isProductHuntDomain && (
-                        <div className="mt-2 p-3 rounded-lg bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-2">
+                        <div className="mt-2 p-3 rounded-lg bg-amber-950/60 border border-amber-500/40 text-xs text-amber-200 space-y-2">
                           <div className="flex items-start gap-2">
                             <AlertTriangle
                               size={14}
-                              className="shrink-0 mt-0.5 text-amber-600"
+                              className="shrink-0 mt-0.5 text-amber-400"
                             />
                             <span>{urlValidation.warning}</span>
                           </div>
@@ -637,7 +637,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                               onChange={(e) =>
                                 setConfirmNonPhDomain(e.target.checked)
                               }
-                              className="rounded border-amber-400 text-[#DA552F] focus:ring-[#DA552F]"
+                              className="rounded border-amber-400 text-[#7028D8] focus:ring-[#7028D8]"
                             />
                             <span>
                               I confirm this non-Product Hunt URL is intentional
@@ -651,7 +651,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                     <div>
                       <label
                         htmlFor="field-votes"
-                        className="block text-xs font-semibold text-[#1F2937] mb-1"
+                        className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                       >
                         Total Votes *
                       </label>
@@ -664,19 +664,19 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                         value={votes}
                         onChange={(e) => setVotes(e.target.value)}
                         placeholder="e.g. 336"
-                        className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] font-mono-tabular focus:outline-none focus:border-[#DA552F]"
+                        className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] font-mono-tabular focus:outline-none focus:border-[#7028D8]"
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="field-ranking"
-                        className="block text-xs font-semibold text-[#1F2937] mb-1"
+                        className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                       >
                         Day Ranking (#) *
                       </label>
                       <div className="relative">
-                        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-mono-tabular text-[#6B7280]">
+                        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-mono-tabular text-[#B9B1C9]">
                           #
                         </span>
                         <input
@@ -688,7 +688,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                           value={ranking}
                           onChange={(e) => setRanking(e.target.value)}
                           placeholder="2"
-                          className="w-full pl-8 pr-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] font-mono-tabular focus:outline-none focus:border-[#DA552F]"
+                          className="w-full pl-8 pr-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] font-mono-tabular focus:outline-none focus:border-[#7028D8]"
                         />
                       </div>
                     </div>
@@ -696,12 +696,12 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                     <div>
                       <label
                         htmlFor="field-week-ranking"
-                        className="block text-xs font-semibold text-[#1F2937] mb-1"
+                        className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                       >
                         Week Ranking (Opt)
                       </label>
                       <div className="relative">
-                        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-mono-tabular text-[#6B7280]">
+                        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-mono-tabular text-[#B9B1C9]">
                           #
                         </span>
                         <input
@@ -712,7 +712,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                           value={weekRanking}
                           onChange={(e) => setWeekRanking(e.target.value)}
                           placeholder="Optional"
-                          className="w-full pl-8 pr-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] font-mono-tabular focus:outline-none focus:border-[#DA552F]"
+                          className="w-full pl-8 pr-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] font-mono-tabular focus:outline-none focus:border-[#7028D8]"
                         />
                       </div>
                     </div>
@@ -721,7 +721,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                   <div>
                     <label
                       htmlFor="field-launch-date"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       Optional Internal Launch Date (for Recent Launches filtering)
                     </label>
@@ -730,17 +730,17 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                       type="date"
                       value={launchDate}
                       onChange={(e) => setLaunchDate(e.target.value)}
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] font-mono-tabular focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] font-mono-tabular focus:outline-none focus:border-[#7028D8]"
                     />
-                    <p className="text-[11px] text-[#6B7280] mt-1">
+                    <p className="text-[11px] text-[#B9B1C9] mt-1">
                       Leave blank if unknown (the launch will appear in All Supported Launches only). Never displayed on public cards.
                     </p>
                   </div>
 
-                  <div className="space-y-2 pt-1 border-t border-[#E5E7EB]">
+                  <div className="space-y-2 pt-1 border-t border-[#30213F]">
                     <label
                       htmlFor="field-logo-url"
-                      className="block text-xs font-semibold text-[#1F2937]"
+                      className="block text-xs font-semibold text-[#F8F7FC]"
                     >
                       Optional Product Logo or Thumbnail
                     </label>
@@ -754,9 +754,9 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                           setLogoPreviewError(false);
                         }}
                         placeholder="https://... or upload an image file"
-                        className="flex-1 px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                        className="flex-1 px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
                       />
-                      <label className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#E5E7EB] bg-[#F7F7F7] hover:bg-[#E5E7EB]/60 text-xs font-medium text-[#1F2937] cursor-pointer shrink-0 transition-colors">
+                      <label className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#30213F] bg-[#0B0812] hover:bg-[#35106B]/60 text-xs font-medium text-[#F8F7FC] cursor-pointer shrink-0 transition-colors">
                         <Upload size={13} />
                         <span>Upload</span>
                         <input
@@ -769,7 +769,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                     </div>
 
                     {logoUrl && (
-                      <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#F7F7F7] border border-[#E5E7EB]">
+                      <div className="flex items-center justify-between p-2.5 rounded-lg bg-[#0B0812] border border-[#30213F]">
                         <div className="flex items-center gap-2.5">
                           {!logoPreviewError ? (
                             <img
@@ -777,14 +777,14 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                               alt="Logo preview"
                               referrerPolicy="no-referrer"
                               onError={() => setLogoPreviewError(true)}
-                              className="w-9 h-9 rounded-md object-cover border border-[#E5E7EB] bg-white"
+                              className="w-9 h-9 rounded-md object-cover border border-[#30213F] bg-[#100B1B]"
                             />
                           ) : (
-                            <div className="w-9 h-9 rounded-md border border-[#DA552F]/40 bg-[#FEF2F2] text-[#DA552F] text-[10px] font-bold flex items-center justify-center">
+                            <div className="w-9 h-9 rounded-md border border-red-500/40 bg-red-950/60 text-red-400 text-[10px] font-bold flex items-center justify-center">
                               ERR
                             </div>
                           )}
-                          <span className="text-xs text-[#6B7280]">
+                          <span className="text-xs text-[#B9B1C9]">
                             {logoPreviewError
                               ? 'Image failed to load — card will use clean initials fallback.'
                               : 'Logo preview ready'}
@@ -796,7 +796,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                             setLogoUrl('');
                             setLogoPreviewError(false);
                           }}
-                          className="text-xs font-medium text-[#DA552F] hover:underline cursor-pointer"
+                          className="text-xs font-medium text-[#B98AFF] hover:underline cursor-pointer"
                         >
                           Remove
                         </button>
@@ -804,18 +804,18 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                     )}
                   </div>
 
-                  <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-[#E5E7EB]">
+                  <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-[#30213F]">
                     <button
                       type="button"
                       onClick={onClose}
-                      className="px-4 py-2 text-xs font-semibold text-[#6B7280] hover:text-[#1F2937] rounded-lg border border-[#E5E7EB] bg-white transition-colors cursor-pointer"
+                      className="px-4 py-2 text-xs font-semibold text-[#B9B1C9] hover:text-[#F8F7FC] rounded-lg border border-[#30213F] bg-[#0B0812] transition-colors cursor-pointer"
                     >
                       Close
                     </button>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#DA552F] hover:bg-[#C44623] disabled:opacity-60 rounded-lg transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#F8F7FC] bg-[#7028D8] hover:bg-[#5E1EC0] disabled:opacity-60 rounded-lg transition-colors cursor-pointer"
                     >
                       {isSubmitting ? (
                         <Loader2 size={14} className="animate-spin" />
@@ -835,17 +835,17 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                     <div
                       role="alertdialog"
                       aria-labelledby="confirm-delete-heading"
-                      className="p-4 rounded-xl bg-[#FEF2F2] border border-[#DA552F]/40 space-y-3"
+                      className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 space-y-3"
                     >
                       <div
                         id="confirm-delete-heading"
-                        className="text-xs font-bold text-[#1F2937]"
+                        className="text-xs font-bold text-[#F8F7FC]"
                       >
                         Confirm Deletion
                       </div>
-                      <p className="text-xs text-[#6B7280]">
+                      <p className="text-xs text-[#B9B1C9]">
                         Are you sure you want to permanently delete{' '}
-                        <strong className="text-[#1F2937]">
+                        <strong className="text-[#F8F7FC]">
                           {confirmDeleteTarget.name}
                         </strong>{' '}
                         from your portfolio? This action cannot be undone.
@@ -854,7 +854,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                         <button
                           type="button"
                           onClick={() => setConfirmDeleteTarget(null)}
-                          className="px-3 py-1.5 text-xs font-semibold text-[#6B7280] bg-white border border-[#E5E7EB] rounded-lg hover:text-[#1F2937] cursor-pointer"
+                          className="px-3 py-1.5 text-xs font-semibold text-[#B9B1C9] bg-[#0B0812] border border-[#30213F] rounded-lg hover:text-[#F8F7FC] cursor-pointer"
                         >
                           Cancel
                         </button>
@@ -862,7 +862,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                           type="button"
                           disabled={isSubmitting}
                           onClick={handleConfirmDelete}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#DA552F] hover:bg-[#C44623] rounded-lg cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-red-600 hover:bg-red-700 rounded-lg cursor-pointer"
                         >
                           {isSubmitting && (
                             <Loader2 size={12} className="animate-spin" />
@@ -874,38 +874,38 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                   )}
 
                   {launches.length === 0 ? (
-                    <div className="p-8 rounded-xl bg-[#F7F7F7] border border-[#E5E7EB] text-center space-y-3">
-                      <p className="text-xs text-[#6B7280]">
+                    <div className="p-8 rounded-xl bg-[#0B0812] border border-[#30213F] text-center space-y-3">
+                      <p className="text-xs text-[#B9B1C9]">
                         Your launch collection is currently empty.
                       </p>
                       <button
                         type="button"
                         onClick={() => setActiveTab('form')}
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#DA552F] rounded-lg cursor-pointer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-[#F8F7FC] bg-[#7028D8] rounded-lg cursor-pointer"
                       >
                         <Plus size={14} />
                         <span>Add First Launch</span>
                       </button>
                     </div>
                   ) : (
-                    <div className="divide-y divide-[#E5E7EB] border border-[#E5E7EB] rounded-xl overflow-hidden">
+                    <div className="divide-y divide-[#30213F] border border-[#30213F] rounded-xl overflow-hidden">
                       {launches.map((item) => (
                         <div
                           key={item.id}
-                          className="p-3.5 bg-white flex items-center justify-between gap-3 text-xs"
+                          className="p-3.5 bg-[#0B0812] flex items-center justify-between gap-3 text-xs"
                         >
                           <div className="min-w-0">
                             <div className="flex flex-wrap items-center gap-2">
-                              <span className="font-bold text-[#1F2937] truncate">
+                              <span className="font-bold text-[#F8F7FC] truncate">
                                 {item.name}
                               </span>
                               {item.needsDateConfirmation && !item.launchDate && (
-                                <span className="text-[11px] font-semibold text-[#DA552F]">
+                                <span className="text-[11px] font-semibold text-[#B98AFF]">
                                   • Needs Date Confirmation
                                 </span>
                               )}
                             </div>
-                            <div className="text-[#6B7280] font-mono-tabular mt-0.5">
+                            <div className="text-[#B9B1C9] font-mono-tabular mt-0.5">
                               Votes: {item.votes.toLocaleString()} •{' '}
                               {item.weekRanking
                                 ? `Day Rank: #${item.ranking} • Week Rank: #${item.weekRanking}`
@@ -923,7 +923,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                                 populateFormForEdit(item);
                                 setActiveTab('form');
                               }}
-                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md border border-[#E5E7EB] text-[#1F2937] hover:bg-[#F7F7F7] transition-colors cursor-pointer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md border border-[#30213F] text-[#F8F7FC] hover:bg-[#100B1B] transition-colors cursor-pointer"
                             >
                               <Pencil size={12} />
                               <span>Edit</span>
@@ -931,7 +931,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                             <button
                               type="button"
                               onClick={() => setConfirmDeleteTarget(item)}
-                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md border border-[#E5E7EB] text-[#DA552F] hover:bg-[#FEF2F2] transition-colors cursor-pointer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md border border-[#30213F] text-red-400 hover:bg-red-950/60 transition-colors cursor-pointer"
                             >
                               <Trash2 size={12} />
                               <span>Delete</span>
@@ -950,7 +950,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                   <div>
                     <label
                       htmlFor="setting-owner-name"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       Portfolio Header Name / Logo *
                     </label>
@@ -960,14 +960,14 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                       required
                       value={ownerName}
                       onChange={(e) => setOwnerName(e.target.value)}
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="setting-timezone"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       Configured Time Zone (for Automatic Monthly Filtering)
                     </label>
@@ -975,7 +975,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                       id="setting-timezone"
                       value={timeZone}
                       onChange={(e) => setTimeZone(e.target.value)}
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] bg-white focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] text-[#F8F7FC] bg-[#0B0812] focus:outline-none focus:border-[#7028D8]"
                     >
                       {SUPPORTED_TIMEZONES.map((tz) => (
                         <option key={tz.value} value={tz.value}>
@@ -983,7 +983,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                         </option>
                       ))}
                     </select>
-                    <p className="text-[11px] text-[#6B7280] mt-1">
+                    <p className="text-[11px] text-[#B9B1C9] mt-1">
                       Determines the current calendar month and year when filtering Recent Launches.
                     </p>
                   </div>
@@ -991,7 +991,7 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                   <div>
                     <label
                       htmlFor="setting-about"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       About Section Copy
                     </label>
@@ -1000,14 +1000,14 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                       rows={3}
                       value={aboutText}
                       onChange={(e) => setAboutText(e.target.value)}
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="setting-ph-profile"
-                      className="block text-xs font-semibold text-[#1F2937] mb-1"
+                      className="block text-xs font-semibold text-[#F8F7FC] mb-1"
                     >
                       Your Product Hunt Profile Link
                     </label>
@@ -1016,15 +1016,15 @@ export const AdminForm: React.FC<AdminFormProps> = ({
                       type="url"
                       value={phProfileUrl}
                       onChange={(e) => setPhProfileUrl(e.target.value)}
-                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E5E7EB] text-[#1F2937] focus:outline-none focus:border-[#DA552F]"
+                      className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#30213F] bg-[#0B0812] text-[#F8F7FC] focus:outline-none focus:border-[#7028D8]"
                     />
                   </div>
 
-                  <div className="flex justify-end pt-3 border-t border-[#E5E7EB]">
+                  <div className="flex justify-end pt-3 border-t border-[#30213F]">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#DA552F] hover:bg-[#C44623] disabled:opacity-60 rounded-lg transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#F8F7FC] bg-[#7028D8] hover:bg-[#5E1EC0] disabled:opacity-60 rounded-lg transition-colors cursor-pointer"
                     >
                       {isSubmitting && (
                         <Loader2 size={14} className="animate-spin" />

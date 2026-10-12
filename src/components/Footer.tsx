@@ -16,16 +16,16 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
   };
 
   return (
-    <footer className="bg-[#050505] text-slate-400 pt-16 pb-12 border-t border-[#3B82F6]/15 relative overflow-hidden font-sans z-20">
+    <footer className="bg-[#0B0812] text-[#B9B1C9] pt-16 pb-12 border-t border-[#30213F] relative overflow-hidden font-sans z-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#181C26]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#30213F]">
           
           {/* Agency Logo & Description (Col 1-5) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-[#3B82F6]/40 p-0.5 bg-[#080B12] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-full overflow-hidden border border-[#7028D8] p-0.5 bg-[#100B1B] flex items-center justify-center shrink-0">
                 <picture className="w-full h-full block">
                   <source srcSet={brandLogoWebp} type="image/webp" />
                   <img
@@ -39,27 +39,27 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                 </picture>
               </div>
               <div>
-                <span className="font-bold text-lg text-white tracking-tight">
+                <span className="font-bold text-lg text-[#F8F7FC] tracking-tight">
                   AxentAI Labs
                 </span>
-                <span className="block text-[10px] uppercase font-semibold tracking-wider text-slate-400">
+                <span className="block text-[10px] uppercase font-semibold tracking-wider text-[#B9B1C9]">
                   Digital Growth & Presence Agency
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs text-[#B9B1C9] leading-relaxed max-w-sm">
               We help founders, startups and brands build visibility that actually matters through LinkedIn personal branding, page handling, organic engagement, Product Hunt launches, and curated influencer marketing.
             </p>
 
-            <div className="text-xs text-slate-400">
+            <div className="text-xs text-[#B98AFF] font-medium">
               Direct founder-to-founder strategic execution.
             </div>
           </div>
 
           {/* Core Services (Col 6-8) */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#F8F7FC]">
               Services
             </h4>
             <ul className="space-y-2 text-xs">
@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                 <li key={srv.id}>
                   <a 
                     href={`#services/${srv.id}`}
-                    className="text-slate-400 hover:text-[#60A5FA] transition-colors"
+                    className="text-[#B9B1C9] hover:text-[#B98AFF] transition-colors"
                   >
                     {srv.title}
                   </a>
@@ -78,16 +78,16 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
 
           {/* Contact & Social Links (Col 9-12) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#F8F7FC]">
               Contact & Social
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <a 
                   href={`mailto:${CONTACT_INFO.email}`} 
-                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-2"
+                  className="text-[#B9B1C9] hover:text-[#B98AFF] transition-colors flex items-center gap-2"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#60A5FA]" />
+                  <Mail className="w-3.5 h-3.5 text-[#B98AFF]" />
                   <span>{CONTACT_INFO.email}</span>
                 </a>
               </li>
@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   href={CONTACT_INFO.whatsapp} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2"
+                  className="text-[#B9B1C9] hover:text-emerald-400 transition-colors flex items-center gap-2"
                 >
                   <Phone className="w-3.5 h-3.5 text-emerald-400" />
                   <span>{CONTACT_INFO.phone}</span>
@@ -107,7 +107,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   href={CONTACT_INFO.agencyLinkedIn} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-[#60A5FA] transition-colors"
+                  className="text-[#B9B1C9] hover:text-[#B98AFF] transition-colors"
                 >
                   LinkedIn — AxentAI Labs
                 </a>
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   href={CONTACT_INFO.xTwitter} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-[#B9B1C9] hover:text-[#B98AFF] transition-colors"
                 >
                   X / Twitter
                 </a>
@@ -128,7 +128,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#B9B1C9]">
           <div>
             © {new Date().getFullYear()} AxentAI Labs. All rights reserved.
           </div>
@@ -136,19 +136,19 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
           <div className="flex items-center gap-6">
             <button
               onClick={() => onOpenLegal && onOpenLegal('privacy')}
-              className="text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="text-[#B9B1C9] hover:text-[#B98AFF] transition-colors cursor-pointer"
             >
               Privacy Policy
             </button>
             <button
               onClick={() => onOpenLegal && onOpenLegal('terms')}
-              className="text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="text-[#B9B1C9] hover:text-[#B98AFF] transition-colors cursor-pointer"
             >
               Terms of Service
             </button>
             <button
               onClick={scrollToTop}
-              className="text-slate-400 hover:text-white inline-flex items-center gap-1 transition-colors cursor-pointer"
+              className="text-[#B9B1C9] hover:text-[#B98AFF] inline-flex items-center gap-1 transition-colors cursor-pointer"
               aria-label="Back to top"
             >
               <span>Back to top</span>

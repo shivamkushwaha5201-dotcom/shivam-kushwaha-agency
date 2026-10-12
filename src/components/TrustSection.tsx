@@ -68,13 +68,13 @@ const HappyCustomersCounter: React.FC = React.memo(() => {
   return (
     <div
       ref={counterRef}
-      className="px-4 py-2.5 rounded-xl bg-[#080B12]/90 border border-white/10 shadow-[0_0_24px_rgba(59,130,246,0.12)] flex flex-col justify-center"
+      className="px-4 py-2.5 rounded-xl bg-[#100B1B] border border-[#30213F] shadow-xs flex flex-col justify-center"
     >
-      <div className="text-xl sm:text-2xl font-display font-bold text-[#F8FAFC] tracking-tight leading-none tabular-nums">
+      <div className="text-xl sm:text-2xl font-display font-bold text-[#F8F7FC] tracking-tight leading-none tabular-nums">
         <span ref={numberSpanRef}>0</span>
-        <span className="text-[#60A5FA]">+</span>
+        <span className="text-[#B98AFF]">+</span>
       </div>
-      <div className="text-[11px] text-[#94A3B8] font-sans mt-1 leading-none">
+      <div className="text-[11px] text-[#B9B1C9] font-sans mt-1 leading-none">
         Happy Customers
       </div>
     </div>
@@ -164,7 +164,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
   return (
     <section
       ref={sectionRef}
-      className="py-28 md:py-36 bg-[#000000] text-[#F8FAFC] relative overflow-hidden z-10"
+      className="py-28 md:py-36 bg-[#050505] text-[#F8F7FC] relative overflow-hidden z-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -189,13 +189,13 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                 }}
                 className="relative w-full"
               >
-                {/* Soft Blue Atmospheric Glow Behind Floating Card (Radial gradient — zero Gaussian blur filter cost) */}
+                {/* Soft Dark Purple Atmospheric Glow Behind Floating Card */}
                 <div
                   aria-hidden="true"
                   className="absolute -inset-8 rounded-[40px] pointer-events-none"
                   style={{
                     background:
-                      'radial-gradient(circle, rgba(59,130,246,0.22) 0%, rgba(56,189,248,0.10) 45%, transparent 72%)',
+                      'radial-gradient(circle, rgba(112,40,216,0.28) 0%, rgba(53,16,107,0.35) 45%, transparent 72%)',
                   }}
                 />
 
@@ -205,7 +205,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                     animationPlayState: inView ? 'running' : 'paused',
                     willChange: 'transform',
                   }}
-                  className="animate-float trust-floating-card will-change-transform relative rounded-3xl overflow-hidden border border-white/15 bg-[#080B12]/92 shadow-[0_24px_60px_rgba(0,0,0,0.75)] aspect-[4/5]"
+                  className="animate-float trust-floating-card will-change-transform relative rounded-3xl overflow-hidden border border-[#30213F] bg-[#100B1B] shadow-[0_24px_60px_rgba(0,0,0,0.65)] aspect-[4/5]"
                 >
                   <picture className="w-full h-full block">
                     <source srcSet={leftFloatingVisualWebp} type="image/webp" />
@@ -218,14 +218,14 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                       decoding="async"
                     />
                   </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/75 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-[#3B82F6]/20 rounded-3xl pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-[#B98AFF]/20 rounded-3xl pointer-events-none" />
                 </div>
 
                 {/* Rotating Circular Explore Badge (Corner Accent — Pauses offscreen) */}
                 <a
                   href="#services"
-                  className="absolute -bottom-6 -right-4 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#080B12]/95 border border-white/15 shadow-2xl shadow-black/80 flex items-center justify-center group cursor-pointer z-20"
+                  className="absolute -bottom-6 -right-4 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#100B1B]/95 border border-[#30213F] shadow-xl shadow-black/70 flex items-center justify-center group cursor-pointer z-20"
                 >
                   <svg
                     viewBox="0 0 120 120"
@@ -238,13 +238,13 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                         d="M 60, 60 m -44, 0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"
                       />
                     </defs>
-                    <text className="fill-[#94A3B8] text-[9.5px] font-mono uppercase tracking-[0.24em]">
+                    <text className="fill-[#B9B1C9] text-[9.5px] font-mono uppercase tracking-[0.24em]">
                       <textPath href="#circleTextPath" startOffset="0%">
                         • EXPLORE MORE • EXPLORE MORE
                       </textPath>
                     </text>
                   </svg>
-                  <div className="absolute w-11 h-11 rounded-full bg-[#3B82F6] group-hover:bg-[#2563EB] text-white flex items-center justify-center shadow-lg shadow-blue-500/30 transition-transform duration-200 group-hover:scale-105">
+                  <div className="absolute w-11 h-11 rounded-full bg-[#7028D8] group-hover:bg-[#35106B] text-[#F8F7FC] flex items-center justify-center shadow-md shadow-[#7028D8]/35 transition-transform duration-200 group-hover:scale-105">
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </a>
@@ -261,35 +261,42 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             className="lg:col-span-7 space-y-8 relative z-20"
           >
             <div className="space-y-4">
-              <div className="text-xs uppercase tracking-[0.25em] text-[#7BA7F7] font-semibold font-mono">
+              <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
                 // AGENCY POSITIONING
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F5F7FA] tracking-[-0.02em] leading-[1.08] uppercase">
+              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] leading-[1.08] uppercase">
                 WE BUILD GROWTH SYSTEMS <br className="hidden sm:inline" />
-                <span className="text-[#6B9BF0]">
+                <span className="text-[#B98AFF]">
                   FOR MODERN BRANDS
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-[#CBD5E1] leading-relaxed font-sans max-w-xl">
+              <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans max-w-xl">
                 We help founders and modern brands build visibility through personal branding, social growth, Product Hunt launches and creator-led distribution.
               </p>
             </div>
 
             {/* 2x2 Minimal Pillars Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-white/15 py-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-[#30213F] py-6">
               {PILLARS.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="flex items-center gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-[#5B8FE8]/15 border border-[#5B8FE8]/30 text-[#7BA7F7] flex items-center justify-center shrink-0">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-30px' }}
+                    transition={{ duration: 0.5, delay: 0.1 + idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex items-center gap-3.5 p-2.5 -m-2.5 rounded-xl hover:bg-[#100B1B] transition-colors duration-250 group"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-[#100B1B] border border-[#30213F] group-hover:border-[#7028D8] group-hover:bg-[#7028D8] text-[#B98AFF] group-hover:text-[#F8F7FC] flex items-center justify-center shrink-0 transition-colors duration-250">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-xs sm:text-sm font-semibold text-[#F5F7FA] tracking-tight">
+                    <span className="text-xs sm:text-sm font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] tracking-tight transition-colors">
                       {item.title}
                     </span>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -306,12 +313,12 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       decoding="async"
-                      className="w-11 h-11 rounded-full object-cover object-[center_35%] border border-[#5B8FE8]/40"
+                      className="w-11 h-11 rounded-full object-cover object-[center_35%] border border-[#7028D8]"
                     />
                   </picture>
                   <div>
-                    <div className="text-sm font-bold text-[#F5F7FA]">Shivam Kushwaha</div>
-                    <div className="text-xs text-[#CBD5E1]">Founder &amp; CEO, AxentAI Labs</div>
+                    <div className="text-sm font-bold text-[#F8F7FC]">Shivam Kushwaha</div>
+                    <div className="text-xs text-[#B9B1C9]">Founder &amp; CEO, AxentAI Labs</div>
                   </div>
                 </div>
 
@@ -321,10 +328,10 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
 
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#080B12] border border-white/15 hover:border-[#5B8FE8]/50 text-xs font-semibold uppercase tracking-wider text-[#F5F7FA] transition-colors group cursor-pointer"
+                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:shadow-md hover:shadow-[#7028D8]/20 hover:-translate-y-0.5 text-xs font-semibold uppercase tracking-wider text-[#F8F7FC] transition-all duration-300 group cursor-pointer"
               >
                 <span>Learn More</span>
-                <span className="w-7 h-7 rounded-full bg-[#5B8FE8] group-hover:bg-[#4F7FD1] text-white flex items-center justify-center transition-colors">
+                <span className="w-7 h-7 rounded-full bg-[#7028D8] group-hover:bg-[#35106B] text-[#F8F7FC] flex items-center justify-center transition-colors">
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
               </button>
