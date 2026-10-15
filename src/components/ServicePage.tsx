@@ -91,7 +91,17 @@ export const ServicePage: React.FC<ServicePageProps> = ({
   const otherServices = SERVICES_DATA.filter(s => s.id !== service.id);
 
   return (
-    <div className="pt-28 pb-20 bg-[#F8F5FF] min-h-screen text-[#20152E] font-sans">
+    <div className="pt-28 pb-20 bg-[#08060F] hero-global-bg min-h-screen text-[#F8F6FF] font-sans relative overflow-hidden">
+      {/* Faint Atmospheric Gradient Matching Hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+        }}
+      />
+
       <SEOHead
         title={pageTitle}
         description={pageDescription}
@@ -100,14 +110,14 @@ export const ServicePage: React.FC<ServicePageProps> = ({
         jsonLd={serviceJsonLd}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Navigation & Breadcrumb */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-[#E9E0F5]">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-[#6B6178]">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-[#30213F]">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-[#B7AEC9]">
             <button
               onClick={onBackToHome}
-              className="hover:text-[#7028D8] transition-colors cursor-pointer"
+              className="hover:text-[#B69AFF] transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -122,19 +132,19 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
               }}
-              className="hover:text-[#7028D8] transition-colors"
+              className="hover:text-[#B69AFF] transition-colors"
             >
               Services
             </a>
             <span>/</span>
-            <span className="text-[#35106B] font-semibold">{service.title}</span>
+            <span className="text-[#F8F6FF] font-semibold">{service.title}</span>
           </nav>
 
           <Button
             variant="outline"
             size="sm"
             onClick={onBackToHome}
-            className="rounded-full text-xs font-semibold border-[#E9E0F5] bg-[#FFFFFF] text-[#35106B] hover:border-[#7028D8] hover:text-[#7028D8]"
+            className="rounded-full text-xs font-semibold border-[#30213F] bg-[#100B1B] text-[#F8F6FF] hover:border-[#7028D8] hover:text-[#B69AFF]"
           >
             <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />
             Back to All Services
@@ -142,28 +152,28 @@ export const ServicePage: React.FC<ServicePageProps> = ({
         </div>
 
         {/* Hero Header for Service */}
-        <div className="bg-[#FFFFFF] border border-[#E9E0F5] shadow-md shadow-[#35106B]/[0.04] rounded-3xl p-8 sm:p-12 mb-10 relative overflow-hidden">
+        <div className="bg-[#100B1B] border border-[#30213F] shadow-xl shadow-black/50 rounded-3xl p-8 sm:p-12 mb-10 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className={`${service.id === 'product-hunt-launch' ? 'lg:col-span-8' : 'lg:col-span-12 max-w-3xl'} space-y-4`}>
               
               <div className="flex items-center gap-2.5 flex-wrap">
-                <span className="text-xs font-bold text-[#7028D8] bg-[#F0E8FF] px-3 py-1 rounded-full border border-[#C4A5FF]/60">
+                <span className="text-xs font-bold text-[#B69AFF] bg-[#110B20] px-3 py-1 rounded-full border border-[#30213F]">
                   {service.badge}
                 </span>
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                <span className="text-xs font-bold text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-800/40">
                   {service.resultsMetric}
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-display font-bold text-[#35106B] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl font-display font-bold text-[#F8F6FF] tracking-tight">
                 {service.title}
               </h1>
 
-              <p className="text-base sm:text-lg font-medium text-[#7028D8] leading-snug">
+              <p className="text-base sm:text-lg font-medium text-[#B69AFF] leading-snug">
                 {service.tagline}
               </p>
 
-              <p className="text-sm text-[#6B6178] leading-relaxed font-sans max-w-2xl">
+              <p className="text-sm text-[#B7AEC9] leading-relaxed font-sans max-w-2xl">
                 {service.description}
               </p>
 
@@ -231,12 +241,12 @@ export const ServicePage: React.FC<ServicePageProps> = ({
           <div className="lg:col-span-2 space-y-8">
             
             {/* Scope Deliverables Card */}
-            <div className="bg-[#FFFFFF] border border-[#E9E0F5] shadow-xs rounded-3xl p-8 space-y-6">
+            <div className="bg-[#100B1B] border border-[#30213F] shadow-md shadow-black/40 rounded-3xl p-8 space-y-6">
               <div>
-                <h2 className="text-xl sm:text-2xl font-display font-bold text-[#35106B] mb-1">
+                <h2 className="text-xl sm:text-2xl font-display font-bold text-[#F8F6FF] mb-1">
                   What's Included in This Service
                 </h2>
-                <p className="text-xs text-[#6B6178] font-sans">
+                <p className="text-xs text-[#B7AEC9] font-sans">
                   Tailored deliverables planned and executed directly with your leadership team.
                 </p>
               </div>
@@ -245,16 +255,16 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                 {service.deliverables.map((item, index) => (
                   <div 
                     key={index}
-                    className="flex items-start gap-3.5 p-4 rounded-xl bg-[#F8F5FF] border border-[#E9E0F5]"
+                    className="flex items-start gap-3.5 p-4 rounded-xl bg-[#0B0812] border border-[#30213F]"
                   >
-                    <div className="w-6 h-6 rounded-full bg-[#F0E8FF] text-[#7028D8] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                    <div className="w-6 h-6 rounded-full bg-[#151020] text-[#B69AFF] border border-[#30213F] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
                       {index + 1}
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-[#35106B]">
+                      <h3 className="text-sm font-semibold text-[#F8F6FF]">
                         {item}
                       </h3>
-                      <p className="text-xs text-[#6B6178] mt-0.5 leading-relaxed">
+                      <p className="text-xs text-[#B7AEC9] mt-0.5 leading-relaxed">
                         Executed to institutional quality, aligned with your market timing and growth targets.
                       </p>
                     </div>
@@ -264,45 +274,45 @@ export const ServicePage: React.FC<ServicePageProps> = ({
             </div>
 
             {/* Execution Process */}
-            <div className="bg-[#FFFFFF] border border-[#E9E0F5] shadow-xs rounded-3xl p-8 space-y-6">
+            <div className="bg-[#100B1B] border border-[#30213F] shadow-md shadow-black/40 rounded-3xl p-8 space-y-6">
               <div>
-                <h2 className="text-xl sm:text-2xl font-display font-bold text-[#35106B] mb-1">
+                <h2 className="text-xl sm:text-2xl font-display font-bold text-[#F8F6FF] mb-1">
                   Execution Methodology
                 </h2>
-                <p className="text-xs text-[#6B6178]">
+                <p className="text-xs text-[#B7AEC9]">
                   Disciplined 4-phase delivery ensuring consistent output and continuous optimization.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-[#F8F5FF] border border-[#E9E0F5] space-y-2">
-                  <span className="font-mono text-xs font-bold text-[#7028D8]">01 — Understand</span>
-                  <h3 className="text-sm font-semibold text-[#35106B]">Brand & Audience Discovery</h3>
-                  <p className="text-xs text-[#6B6178] leading-relaxed">
+                <div className="p-5 rounded-2xl bg-[#0B0812] border border-[#30213F] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#B69AFF]">01 — Understand</span>
+                  <h3 className="text-sm font-semibold text-[#F8F6FF]">Brand & Audience Discovery</h3>
+                  <p className="text-xs text-[#B7AEC9] leading-relaxed">
                     Analyzing domain context, competitor positioning, and target buyer personas.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#F8F5FF] border border-[#E9E0F5] space-y-2">
-                  <span className="font-mono text-xs font-bold text-[#7028D8]">02 — Strategize</span>
-                  <h3 className="text-sm font-semibold text-[#35106B]">Content & Distribution Architecture</h3>
-                  <p className="text-xs text-[#6B6178] leading-relaxed">
+                <div className="p-5 rounded-2xl bg-[#0B0812] border border-[#30213F] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#B69AFF]">02 — Strategize</span>
+                  <h3 className="text-sm font-semibold text-[#F8F6FF]">Content & Distribution Architecture</h3>
+                  <p className="text-xs text-[#B7AEC9] leading-relaxed">
                     Developing editorial calendars, narrative angles, and creator target profiles.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#F8F5FF] border border-[#E9E0F5] space-y-2">
-                  <span className="font-mono text-xs font-bold text-[#7028D8]">03 — Execute</span>
-                  <h3 className="text-sm font-semibold text-[#35106B]">Active Production & Engagement</h3>
-                  <p className="text-xs text-[#6B6178] leading-relaxed">
+                <div className="p-5 rounded-2xl bg-[#0B0812] border border-[#30213F] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#B69AFF]">03 — Execute</span>
+                  <h3 className="text-sm font-semibold text-[#F8F6FF]">Active Production & Engagement</h3>
+                  <p className="text-xs text-[#B7AEC9] leading-relaxed">
                     Managing daily publishing, organic community conversations, and creator coordination.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#F8F5FF] border border-[#E9E0F5] space-y-2">
-                  <span className="font-mono text-xs font-bold text-[#7028D8]">04 — Optimize</span>
-                  <h3 className="text-sm font-semibold text-[#35106B]">Analytics & Performance Review</h3>
-                  <p className="text-xs text-[#6B6178] leading-relaxed">
+                <div className="p-5 rounded-2xl bg-[#0B0812] border border-[#30213F] space-y-2">
+                  <span className="font-mono text-xs font-bold text-[#B69AFF]">04 — Optimize</span>
+                  <h3 className="text-sm font-semibold text-[#F8F6FF]">Analytics & Performance Review</h3>
+                  <p className="text-xs text-[#B7AEC9] leading-relaxed">
                     Iterating based on empirical profile reach, lead quality, and engagement depth.
                   </p>
                 </div>
@@ -310,12 +320,12 @@ export const ServicePage: React.FC<ServicePageProps> = ({
             </div>
 
             {/* Target Audience Fit */}
-            <div className="bg-[#FFFFFF] border border-[#E9E0F5] shadow-xs rounded-3xl p-8 space-y-4">
-              <h2 className="text-xl sm:text-2xl font-display font-bold text-[#35106B]">
+            <div className="bg-[#100B1B] border border-[#30213F] shadow-md shadow-black/40 rounded-3xl p-8 space-y-4">
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-[#F8F6FF]">
                 Who This Is Built For
               </h2>
-              <div className="p-4 rounded-xl bg-[#F0E8FF] border border-[#C4A5FF]/60 text-xs text-[#35106B]">
-                <span className="font-bold block mb-1 text-[#7028D8]">Ideal Engagement Profile:</span>
+              <div className="p-4 rounded-xl bg-[#151020] border border-[#30213F] text-xs text-[#B7AEC9]">
+                <span className="font-bold block mb-1 text-[#B69AFF]">Ideal Engagement Profile:</span>
                 {service.idealFor}
               </div>
             </div>
@@ -324,16 +334,16 @@ export const ServicePage: React.FC<ServicePageProps> = ({
 
           {/* Sidebar (Col 3) */}
           <div className="space-y-6">
-            <div className="sticky top-28 bg-[#FFFFFF] border border-[#E9E0F5] shadow-sm rounded-3xl p-6 space-y-6">
+            <div className="sticky top-28 bg-[#100B1B] border border-[#30213F] shadow-xl shadow-black/50 rounded-3xl p-6 space-y-6">
               
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#7028D8]">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B69AFF]">
                   Direct Consultation
                 </span>
-                <h3 className="text-lg font-bold text-[#35106B] mt-1">
+                <h3 className="text-lg font-bold text-[#F8F6FF] mt-1">
                   Ready to deploy {service.title}?
                 </h3>
-                <p className="text-xs text-[#6B6178] mt-2 leading-relaxed">
+                <p className="text-xs text-[#B7AEC9] mt-2 leading-relaxed">
                   Book a direct 30-minute strategy call with Founder Shivam Kushwaha to assess your current presence and plan execution.
                 </p>
               </div>
@@ -347,35 +357,35 @@ export const ServicePage: React.FC<ServicePageProps> = ({
               </Button>
 
               {/* Direct channels */}
-              <div className="pt-4 border-t border-[#E9E0F5] space-y-2 text-xs">
+              <div className="pt-4 border-t border-[#30213F] space-y-2 text-xs">
                 <a
                   href={CONTACT_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8F5FF] text-[#35106B] transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#151020] text-[#F8F6FF] transition-colors"
                 >
                   <span className="flex items-center gap-2">
-                    <MessageSquare className="w-4 h-4 text-emerald-600" />
+                    <MessageSquare className="w-4 h-4 text-emerald-400" />
                     <span>WhatsApp</span>
                   </span>
-                  <span className="text-[11px] text-[#6B6178] font-mono">{CONTACT_INFO.phone}</span>
+                  <span className="text-[11px] text-[#B7AEC9] font-mono">{CONTACT_INFO.phone}</span>
                 </a>
 
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F8F5FF] text-[#35106B] transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#151020] text-[#F8F6FF] transition-colors"
                 >
                   <span className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-[#7028D8]" />
+                    <Mail className="w-4 h-4 text-[#B69AFF]" />
                     <span>Email Direct</span>
                   </span>
-                  <span className="text-[10px] text-[#6B6178] font-mono truncate">{CONTACT_INFO.email}</span>
+                  <span className="text-[10px] text-[#B7AEC9] font-mono truncate">{CONTACT_INFO.email}</span>
                 </a>
               </div>
 
               {/* Other Services Switcher */}
-              <div className="pt-4 border-t border-[#E9E0F5]">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#6B6178] block mb-3">
+              <div className="pt-4 border-t border-[#30213F]">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#B7AEC9] block mb-3">
                   Other Services
                 </span>
                 <div className="space-y-1.5">
@@ -383,10 +393,10 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                     <button
                       key={s.id}
                       onClick={() => onSelectService(s.id)}
-                      className="w-full text-left p-2.5 rounded-xl hover:bg-[#F8F5FF] text-xs font-medium text-[#35106B] hover:text-[#7028D8] flex items-center justify-between transition-colors group cursor-pointer"
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-[#151020] text-xs font-medium text-[#B7AEC9] hover:text-[#F8F6FF] flex items-center justify-between transition-colors group cursor-pointer"
                     >
                       <span className="truncate pr-2">{s.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#7028D8] shrink-0" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#B69AFF] shrink-0" />
                     </button>
                   ))}
                 </div>

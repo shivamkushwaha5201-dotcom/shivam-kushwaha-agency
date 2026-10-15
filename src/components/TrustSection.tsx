@@ -164,8 +164,17 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
   return (
     <section
       ref={sectionRef}
-      className="py-28 md:py-36 bg-[#050505] text-[#F8F7FC] relative overflow-hidden z-10"
+      className="py-28 md:py-36 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden z-10"
     >
+      {/* Faint Atmospheric Gradient Matching Hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 75% at 18% 22%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+        }}
+      />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -218,7 +227,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                       decoding="async"
                     />
                   </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08060F]/80 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-[#B98AFF]/20 rounded-3xl pointer-events-none" />
                 </div>
 

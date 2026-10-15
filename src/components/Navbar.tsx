@@ -108,8 +108,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
         <div
           className={`flex items-center justify-between px-4 sm:px-6 py-2 rounded-full transition-colors duration-300 ${
             scrolled
-              ? 'bg-[#0B0812]/90 backdrop-blur-md border border-[#30213F] shadow-xl shadow-black/60'
-              : 'bg-[#0B0812]/80 backdrop-blur-sm border border-[#30213F]'
+              ? 'bg-[#08060F]/90 backdrop-blur-md border border-[#30213F] shadow-xl shadow-black/60'
+              : 'bg-[#08060F]/80 backdrop-blur-sm border border-[#30213F]'
           }`}
         >
           {/* Brand Logo & Name */}
@@ -119,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             id="nav-logo"
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="w-7 h-7 rounded-full overflow-hidden border border-[#30213F] p-0.5 bg-[#100B1B] group-hover:border-[#B98AFF] transition-colors flex items-center justify-center shrink-0">
+            <div className="w-7 h-7 rounded-full overflow-hidden border border-[#30213F] p-0.5 bg-[#110B20] group-hover:border-[#B69AFF] transition-colors flex items-center justify-center shrink-0">
               <picture className="w-full h-full block">
                 <source srcSet={brandLogoWebp} type="image/webp" />
                 <img
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             </div>
 
             <div className="flex flex-col">
-              <span className="font-semibold text-xs tracking-wider text-[#F8F7FC] group-hover:text-[#B98AFF] transition-colors uppercase font-display">
+              <span className="font-semibold text-xs tracking-wider text-[#F8F6FF] group-hover:text-[#B69AFF] transition-colors uppercase font-display">
                 AxentAI Labs
               </span>
             </div>
@@ -151,8 +151,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                   id={`nav-link-${link.id}`}
                   className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors duration-250 ${
                     isActive
-                      ? 'text-[#F8F7FC] font-semibold'
-                      : 'text-[#B9B1C9] hover:text-[#F8F7FC] hover:bg-[#100B1B]'
+                      ? 'text-[#F8F6FF] font-semibold'
+                      : 'text-[#B7AEC9] hover:text-[#F8F6FF] hover:bg-[#110B20]'
                   }`}
                 >
                   {isActive && (
@@ -176,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
               id="nav-cta-button"
               size="sm"
               onClick={onOpenBooking}
-              className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-[#B98AFF]/30 shadow-md shadow-[#7028D8]/25 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer"
+              className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F6FF] text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-[#B69AFF]/30 shadow-md shadow-[#7028D8]/25 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer"
             >
               <span>Book a Call</span>
               <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -190,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-[#F8F7FC] hover:text-[#B98AFF] hover:bg-[#100B1B] transition-colors"
+              className="p-2 rounded-full text-[#F8F6FF] hover:text-[#B69AFF] hover:bg-[#110B20] transition-colors"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -209,21 +209,21 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             transition={{ duration: 0.2 }}
             className="lg:hidden mt-2 px-4 max-w-7xl mx-auto"
           >
-            <div className="bg-[#0B0812]/98 backdrop-blur-md border border-[#30213F] rounded-2xl shadow-2xl shadow-black/80 p-4">
+            <div className="bg-[#08060F]/98 backdrop-blur-md border border-[#30213F] rounded-2xl shadow-2xl shadow-black/80 p-4">
               <div className="flex flex-col space-y-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => handleNavLinkClick(link.href)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#B9B1C9] hover:text-[#F8F7FC] hover:bg-[#100B1B] transition-colors"
+                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#B7AEC9] hover:text-[#F8F6FF] hover:bg-[#110B20] transition-colors"
                   >
                     {link.name}
                   </a>
                 ))}
                 <div className="pt-3 mt-2 border-t border-[#30213F] flex flex-col gap-2">
                   <Button
-                    className="w-full justify-center bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] font-semibold py-2.5 rounded-xl text-xs"
+                    className="w-full justify-center bg-[#7028D8] hover:bg-[#35106B] text-[#F8F6FF] font-semibold py-2.5 rounded-xl text-xs"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       onOpenBooking();
@@ -236,7 +236,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                     href={CONTACT_INFO.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 rounded-xl border border-[#30213F] bg-[#100B1B] text-[#F8F7FC] text-xs font-medium flex items-center justify-center gap-2 hover:bg-[#35106B]/60 transition-colors"
+                    className="w-full py-2.5 rounded-xl border border-[#30213F] bg-[#110B20] text-[#F8F6FF] text-xs font-medium flex items-center justify-center gap-2 hover:bg-[#35106B]/60 transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-emerald-400" />
                     <span>WhatsApp Chat</span>

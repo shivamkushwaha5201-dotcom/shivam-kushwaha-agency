@@ -16,7 +16,16 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
   };
 
   return (
-    <footer className="bg-[#0B0812] text-[#B9B1C9] pt-16 pb-12 border-t border-[#30213F] relative overflow-hidden font-sans z-20">
+    <footer className="bg-[#08060F] text-[#B7AEC9] pt-16 pb-12 border-t border-[#30213F] relative overflow-hidden font-sans z-20">
+      {/* Faint Atmospheric Gradient Matching Hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 75% at 50% 0%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+        }}
+      />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Grid */}

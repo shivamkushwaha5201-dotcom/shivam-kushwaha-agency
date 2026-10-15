@@ -8,17 +8,17 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "border-transparent bg-slate-900 text-slate-50 shadow hover:bg-slate-800",
+          "border-transparent bg-[#7028D8] text-white shadow hover:bg-[#5E1EC0]",
         secondary:
-          "border-transparent bg-slate-100 text-slate-900 hover:bg-slate-200",
+          "border border-[#30213F] bg-[#1E1430] text-[#F8F6FF] hover:bg-[#2A1C44]",
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-slate-700 border-slate-200 bg-white",
-        blue: "border-blue-200 bg-blue-50/90 text-blue-800 font-medium",
-        orange: "border-blue-200 bg-blue-50/90 text-blue-800 font-medium",
-        amber: "border-blue-200 bg-blue-50 text-blue-900 font-medium",
-        emerald: "border-emerald-200 bg-emerald-50 text-emerald-800 font-medium",
-        purple: "border-indigo-200 bg-indigo-50 text-indigo-800 font-medium",
+        outline: "text-[#F8F6FF] border-[#30213F] bg-[#151020]",
+        blue: "border-[#7028D8]/40 bg-[#241738] text-[#B69AFF] font-medium",
+        orange: "border-[#7028D8]/40 bg-[#241738] text-[#B69AFF] font-medium",
+        amber: "border-[#7028D8]/40 bg-[#241738] text-[#B69AFF] font-medium",
+        emerald: "border-emerald-500/30 bg-emerald-950/40 text-emerald-300 font-medium",
+        purple: "border-[#7028D8]/50 bg-[#241738] text-[#B69AFF] font-medium",
       },
     },
     defaultVariants: {

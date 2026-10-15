@@ -260,7 +260,7 @@ export function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#20152E] flex flex-col overflow-x-hidden font-sans selection:bg-[#7028D8]/15 selection:text-[#7028D8]">
+    <div className="min-h-screen bg-[#08060F] hero-global-bg text-[#F8F6FF] flex flex-col overflow-x-hidden font-sans selection:bg-[#7028D8]/30 selection:text-[#F8F6FF]">
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}
         description="A collection of products I've helped during their Product Hunt launches, along with their final votes and rankings."
@@ -283,16 +283,16 @@ export function PortfolioApp() {
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-8">
             <div
               role="alert"
-              className="p-4 rounded-xl bg-[#F8F5FF] border border-[#7028D8]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+              className="p-4 rounded-xl bg-[#151020] border border-[#7028D8]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-lg"
             >
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#35106B]">
-                <AlertCircle size={18} className="shrink-0 mt-0.5 text-[#7028D8]" />
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F8F6FF]">
+                <AlertCircle size={18} className="shrink-0 mt-0.5 text-[#B69AFF]" />
                 <span>{loadError}</span>
               </div>
               <button
                 type="button"
                 onClick={loadPortfolioData}
-                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#35106B] bg-white border border-[#E9E0F5] hover:bg-[#F0E8FF] transition-colors cursor-pointer shrink-0"
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#F8F6FF] bg-[#1E1430] border border-[#30213F] hover:bg-[#2A1C44] transition-colors cursor-pointer shrink-0"
               >
                 <RefreshCw size={13} />
                 <span>Retry Loading</span>
@@ -304,13 +304,13 @@ export function PortfolioApp() {
         {/* Cohesive Section Switcher Bar + Horizontally Animated Section Stage */}
         <div
           id="portfolio-sections-stage"
-          className="scroll-mt-16 bg-[#F8F5FF]/70 border-b border-[#E9E0F5]"
+          className="scroll-mt-16 bg-[#08060F] border-b border-[#30213F]"
         >
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-6 pb-2 flex flex-wrap items-center justify-between gap-4">
             <div
               role="tablist"
               aria-label="Portfolio Sections"
-              className="inline-flex items-center p-1 rounded-full bg-[#FFFFFF] border border-[#E9E0F5] shadow-2xs"
+              className="inline-flex items-center p-1 rounded-full bg-[#110B20] border border-[#30213F] shadow-2xs"
             >
               {(
                 [
@@ -341,7 +341,7 @@ export function PortfolioApp() {
                     className={`relative px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-2 ${
                       isSelected
                         ? 'text-white'
-                        : 'text-[#6B6178] hover:text-[#35106B]'
+                        : 'text-[#B7AEC9] hover:text-[#F8F6FF]'
                     }`}
                   >
                     {isSelected && (
@@ -361,7 +361,7 @@ export function PortfolioApp() {
                         className={`relative z-10 text-[11px] px-1.5 py-0.2 rounded-full font-mono ${
                           isSelected
                             ? 'bg-white/20 text-white'
-                            : 'bg-[#F0E8FF] text-[#7028D8]'
+                            : 'bg-[#241738] text-[#B69AFF]'
                         }`}
                       >
                         {tab.count}

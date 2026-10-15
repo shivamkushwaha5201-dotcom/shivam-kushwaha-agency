@@ -116,17 +116,17 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-xl p-6 sm:p-8 bg-[#FAF9F6] dark:bg-[#0B0F17] border-[#E5E5E1] dark:border-[#1E293B] rounded-3xl text-[#1A1A1A] dark:text-white">
+      <DialogContent className="max-w-xl p-6 sm:p-8 bg-[#110B20] border-[#30213F] rounded-3xl text-[#F8F6FF] shadow-2xl">
         <DialogHeader>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[#2563EB] dark:text-[#60A5FA] font-bold tracking-[0.2em] text-[10px] uppercase">
+            <span className="text-[#B69AFF] font-bold tracking-[0.2em] text-[10px] uppercase">
               Interactive Launch Diagnostic
             </span>
           </div>
-          <DialogTitle className="text-2xl sm:text-3xl font-display font-bold text-[#1A1A1A] dark:text-white">
+          <DialogTitle className="text-2xl sm:text-3xl font-display font-bold text-[#F8F6FF]">
             {showResults ? 'Launch Readiness Scorecard' : 'Calculate Your Launch Readiness'}
           </DialogTitle>
-          <DialogDescription className="text-[#1A1A1A]/60 dark:text-slate-400 text-xs sm:text-sm font-sans">
+          <DialogDescription className="text-[#B7AEC9] text-xs sm:text-sm font-sans">
             {showResults
               ? 'Based on multi-channel launch benchmarks and Product Hunt best practices.'
               : `Question ${currentStep + 1} of ${LAUNCH_READINESS_QUESTIONS.length}: Answer to generate your velocity roadmap.`}
@@ -136,9 +136,9 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
         {!showResults ? (
           <div className="mt-4 space-y-4">
             {/* Progress bar */}
-            <div className="w-full bg-[#E5E5E1] dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+            <div className="w-full bg-[#1E1430] rounded-full h-1.5 overflow-hidden">
               <motion.div
-                className="bg-[#2563EB] h-full rounded-full"
+                className="bg-[#7028D8] h-full rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${((currentStep + 1) / LAUNCH_READINESS_QUESTIONS.length) * 100}%` }}
                 transition={{ duration: 0.3 }}
@@ -155,7 +155,7 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
                 transition={{ duration: 0.2 }}
                 className="space-y-4"
               >
-                <div className="text-base sm:text-lg font-bold text-[#1A1A1A] dark:text-white leading-snug">
+                <div className="text-base sm:text-lg font-bold text-[#F8F6FF] leading-snug">
                   {LAUNCH_READINESS_QUESTIONS[currentStep].question}
                 </div>
 
@@ -165,10 +165,10 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
                     <button
                       key={idx}
                       onClick={() => handleSelectOption(option.points, idx)}
-                      className="w-full p-4 text-left rounded-2xl border border-[#E5E5E1] dark:border-[#1E293B] hover:border-[#2563EB] dark:hover:border-blue-500 bg-white dark:bg-[#111827] hover:bg-blue-50/20 dark:hover:bg-blue-950/20 transition-all text-xs sm:text-sm font-sans text-[#1A1A1A] dark:text-slate-200 flex items-center justify-between group cursor-pointer"
+                      className="w-full p-4 text-left rounded-2xl border border-[#30213F] hover:border-[#7028D8] bg-[#151020] hover:bg-[#1E1430] transition-all text-xs sm:text-sm font-sans text-[#F8F6FF] flex items-center justify-between group cursor-pointer"
                     >
                       <span className="font-medium">{option.text}</span>
-                      <ArrowRight className="w-4 h-4 text-[#1A1A1A]/40 dark:text-slate-500 group-hover:text-[#2563EB] dark:group-hover:text-[#60A5FA] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                      <ArrowRight className="w-4 h-4 text-[#B7AEC9] group-hover:text-[#B69AFF] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
                     </button>
                   ))}
                 </div>
@@ -180,7 +180,7 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
               <div className="flex justify-start pt-2">
                 <button
                   onClick={() => setCurrentStep(prev => prev - 1)}
-                  className="text-xs font-semibold text-[#1A1A1A]/60 dark:text-slate-400 hover:text-[#1A1A1A] dark:hover:text-white cursor-pointer"
+                  className="text-xs font-semibold text-[#B7AEC9] hover:text-[#F8F6FF] cursor-pointer"
                 >
                   ← Back to previous question
                 </button>
@@ -195,17 +195,17 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
             className="mt-4 space-y-5"
           >
             {/* Score Display Card */}
-            <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white text-center border border-slate-700/80 shadow-xl relative overflow-hidden">
-              <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">
+            <div className="p-6 rounded-3xl bg-gradient-to-br from-[#110B20] to-[#1E1430] text-white text-center border border-[#30213F] shadow-xl relative overflow-hidden">
+              <div className="text-[10px] uppercase tracking-widest text-[#B7AEC9] font-bold mb-1">
                 Calculated Readiness Score
               </div>
-              <div className="text-5xl font-display font-extrabold text-[#3B82F6]">
-                {score}<span className="text-2xl text-slate-400 font-normal">/100</span>
+              <div className="text-5xl font-display font-extrabold text-[#B69AFF]">
+                {score}<span className="text-2xl text-[#B7AEC9] font-normal">/100</span>
               </div>
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-white border border-white/20">
+              <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-[#7028D8]/20 text-[#B69AFF] border border-[#7028D8]/40">
                 {verdict.label}
               </div>
-              <p className="mt-3 text-xs text-slate-300 max-w-md mx-auto leading-relaxed font-sans">
+              <p className="mt-3 text-xs text-[#B7AEC9] max-w-md mx-auto leading-relaxed font-sans">
                 {verdict.summary}
               </p>
             </div>
@@ -213,14 +213,14 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
             {/* Recommendations checklist based on selections */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="text-[10px] font-bold uppercase tracking-widest text-[#1A1A1A]/50 dark:text-slate-400">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-[#B7AEC9]">
                   Custom Strategic Recommendations:
                 </div>
                 <button
                   onClick={handleCopySummary}
-                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#2563EB] dark:text-[#60A5FA] hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B69AFF] hover:underline cursor-pointer"
                 >
-                  {copied ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                  {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                   <span>{copied ? 'Copied!' : 'Copy Summary'}</span>
                 </button>
               </div>
@@ -230,8 +230,8 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
                   const tip = LAUNCH_READINESS_QUESTIONS[qIdx]?.options[optIdx]?.tip;
                   if (!tip) return null;
                   return (
-                    <div key={qIdx} className="p-3 rounded-2xl bg-white dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B] text-xs flex items-start gap-2.5 text-[#1A1A1A]/85 dark:text-slate-200 font-sans">
-                      <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                    <div key={qIdx} className="p-3 rounded-2xl bg-[#151020] border border-[#30213F] text-xs flex items-start gap-2.5 text-[#F8F6FF] font-sans">
+                      <CheckCircle2 className="w-4 h-4 text-[#B69AFF] shrink-0 mt-0.5" />
                       <span>{tip}</span>
                     </div>
                   );
@@ -254,7 +254,7 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
                   onOpenChange(false);
                   onBookCall();
                 }}
-                className="flex-1 text-xs justify-center font-bold bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-full shadow-md shadow-blue-500/20"
+                className="flex-1 text-xs justify-center font-bold bg-[#7028D8] hover:bg-[#5E1EC0] text-white rounded-full shadow-md shadow-[#7028D8]/20"
               >
                 <span>Review Audit with Our Team</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />

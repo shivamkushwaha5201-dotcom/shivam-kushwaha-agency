@@ -41,8 +41,17 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
   return (
     <section 
       id="case-studies" 
-      className="py-32 bg-[#050505] text-[#F8F7FC] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
+      className="py-32 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
     >
+      {/* Faint Atmospheric Gradient Matching Hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+        }}
+      />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Editorial Section Header */}

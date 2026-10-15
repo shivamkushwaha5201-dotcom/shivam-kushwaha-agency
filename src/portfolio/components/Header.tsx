@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenAdmin,
 }) => {
   return (
-    <header className="sticky top-0 z-30 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E9E0F5]">
+    <header className="sticky top-0 z-30 bg-[#08060F]/90 backdrop-blur-md border-b border-[#30213F]">
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4 sm:gap-8">
         {/* Left side: Minimal personal portfolio name / configurable text logo */}
         <a
@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="text-base sm:text-lg font-bold tracking-tight text-[#35106B] hover:text-[#7028D8] transition-colors whitespace-nowrap shrink-0"
+          className="text-base sm:text-lg font-bold tracking-tight text-[#F8F6FF] hover:text-[#B69AFF] transition-colors whitespace-nowrap shrink-0"
         >
           {ownerName}
         </a>
@@ -55,8 +55,8 @@ export const Header: React.FC<HeaderProps> = ({
                   onClick={(e) => onNavigate(e, item.id)}
                   className={`relative transition-colors whitespace-nowrap shrink-0 py-1.5 ${
                     isActive
-                      ? 'text-[#7028D8] font-semibold'
-                      : 'text-[#6B6178] hover:text-[#35106B]'
+                      ? 'text-[#B69AFF] font-semibold'
+                      : 'text-[#B7AEC9] hover:text-[#F8F6FF]'
                   }`}
                 >
                   <span>{item.label}</span>
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             aria-label="Scroll to top of homepage"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#E9E0F5] bg-white p-0.5 flex items-center justify-center shrink-0 overflow-hidden hover:scale-105 hover:border-[#7028D8]/40 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7028D8]"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#30213F] bg-[#110B20] p-0.5 flex items-center justify-center shrink-0 overflow-hidden hover:scale-105 hover:border-[#7028D8]/60 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7028D8]"
           >
             <img
               src={catMascotLogo}

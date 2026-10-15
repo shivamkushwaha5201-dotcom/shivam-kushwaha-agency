@@ -4,48 +4,67 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 266 37% 13%;
-    --card: 0 0% 100%;
-    --card-foreground: 266 37% 13%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 266 37% 13%;
+    --hero-bg-color: #08060F;
+    --hero-bg-gradient: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%);
+    --hero-text-main: #F8F6FF;
+    --hero-text-muted: #B7AEC9;
+    --hero-card-bg: #100B1B;
+    --hero-card-surface: #151020;
+    --hero-border: #30213F;
+    --hero-purple: #7028D8;
+    --hero-deep-purple: #35106B;
+    --hero-lavender: #B69AFF;
+
+    --background: 255 43% 4%; /* #08060F */
+    --foreground: 257 100% 98%; /* #F8F6FF */
+    --card: 261 42% 7%; /* #100B1B */
+    --card-foreground: 257 100% 98%;
+    --popover: 261 42% 7%;
+    --popover-foreground: 257 100% 98%;
     --primary: 265 70% 50%; /* Primary purple #7028D8 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 258 100% 98%; /* Alternate section #F8F5FF */
-    --secondary-foreground: 264 74% 24%; /* Deep purple #35106B */
-    --muted: 261 100% 95%; /* Soft lavender #F0E8FF */
-    --muted-foreground: 266 11% 43%; /* Secondary text #6B6178 */
-    --accent: 260 75% 64%; /* Secondary purple #8B5CE8 */
-    --accent-foreground: 264 74% 24%;
+    --secondary: 261 42% 7%; /* Dark card background #100B1B */
+    --secondary-foreground: 257 100% 98%;
+    --muted: 261 42% 10%; /* #151020 */
+    --muted-foreground: 260 17% 73%; /* Secondary text #B7AEC9 */
+    --accent: 258 100% 80%; /* Lavender accent #B69AFF */
+    --accent-foreground: 257 100% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 266 47% 92%; /* Borders #E9E0F5 */
-    --input: 266 47% 92%;
+    --border: 271 31% 19%; /* Borders #30213F */
+    --input: 271 31% 19%;
     --ring: 265 70% 50%;
     --radius: 0.75rem;
 
-    --bg-page: #FFFFFF;
-    --bg-alt: #F8F5FF;
-    --bg-lavender: #F0E8FF;
-    --bg-card: #FFFFFF;
-    --border-subtle: #E9E0F5;
+    --bg-page: #08060F;
+    --bg-alt: #100B1B;
+    --bg-lavender: #151020;
+    --bg-card: #100B1B;
+    --border-subtle: #30213F;
     --purple-primary: #7028D8;
     --purple-deep: #35106B;
     --purple-secondary: #8B5CE8;
-    --purple-light: #C4A5FF;
-    --text-heading: #35106B;
-    --text-body: #20152E;
-    --text-muted: #6B6178;
+    --purple-light: #B69AFF;
+    --text-heading: #F8F6FF;
+    --text-body: #F8F6FF;
+    --text-muted: #B7AEC9;
   }
+}
+
+.hero-global-bg {
+  background-color: #08060F;
+  background-image: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%);
 }
 
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #20152E;
-  background-color: #FFFFFF;
+  color: #F8F6FF;
+  background-color: #08060F;
+  background-image: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%);
+  background-attachment: fixed;
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 html {
@@ -128,8 +147,8 @@ html {
 }
 
 #root {
-  background-color: #FFFFFF;
-  color: #20152E;
+  background-color: transparent;
+  color: #F8F6FF;
 }
 
 h1, h2, h3, .font-display {
@@ -149,32 +168,32 @@ h1, h2, h3, .font-display {
 
 /* Subtle purple/lavender background grid and dot patterns */
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(53, 16, 107, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(182, 154, 255, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .bg-dot-mesh {
   background-image: 
-    linear-gradient(to right, rgba(112, 40, 216, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(112, 40, 216, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(112, 40, 216, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(112, 40, 216, 0.06) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Soft lavender ambient glow */
+/* Soft dark lavender/purple ambient glow */
 .ambient-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(240, 232, 255, 0.7) 0%, rgba(196, 165, 255, 0.2) 45%, transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(112, 40, 216, 0.25) 0%, rgba(53, 16, 107, 0.15) 45%, transparent 70%);
 }
 
 .ambient-glow-purple {
-  background: radial-gradient(circle at 80% 20%, rgba(196, 165, 255, 0.35) 0%, rgba(248, 245, 255, 0.4) 50%, transparent 70%);
+  background: radial-gradient(circle at 80% 20%, rgba(182, 154, 255, 0.2) 0%, rgba(112, 40, 216, 0.25) 50%, transparent 70%);
 }
 
-/* Custom card highlight */
+/* Custom dark card highlight */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(16, 11, 27, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #E9E0F5;
+  border: 1px solid #30213F;
 }
 
 /* Smooth keyframes */
@@ -225,14 +244,14 @@ h1, h2, h3, .font-display {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F5FF;
+  background: #08060F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4A5FF;
+  background: #35106B;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8B5CE8;
+  background: #7028D8;
 }
 
 .font-mono-tabular {
@@ -240,35 +259,36 @@ h1, h2, h3, .font-display {
   font-variant-numeric: tabular-nums;
 }
 
-/* Product Hunt Portfolio Launch Card Contrast Rules (Purple & Lavender Theme) */
+/* Product Hunt Portfolio Launch Card Contrast Rules (Hero Dark Purple Theme) */
 .ph-launch-card {
-  background-color: #FFFFFF !important;
-  border-color: #E9E0F5 !important;
+  background-color: #100B1B !important;
+  border-color: #30213F !important;
+  color: #F8F6FF !important;
   opacity: 1 !important;
 }
 
 .ph-launch-card-title,
 .ph-launch-card:hover .ph-launch-card-title,
 .ph-launch-card:focus-within .ph-launch-card-title {
-  color: #35106B !important;
+  color: #F8F6FF !important;
   font-weight: 600;
   opacity: 1 !important;
 }
 
 .ph-launch-card-metrics {
-  background-color: #F8F5FF !important;
-  border-color: #E9E0F5 !important;
-  color: #20152E !important;
+  background-color: #0B0812 !important;
+  border-color: #30213F !important;
+  color: #F8F6FF !important;
   opacity: 1 !important;
 }
 
 .ph-launch-card-label {
-  color: #6B6178 !important;
+  color: #B7AEC9 !important;
   opacity: 1 !important;
 }
 
 .ph-launch-card-value {
-  color: #35106B !important;
+  color: #F8F6FF !important;
   opacity: 1 !important;
 }
 

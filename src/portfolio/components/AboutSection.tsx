@@ -8,13 +8,13 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
   return (
-    <section id="about" className="scroll-mt-16 py-12 sm:py-16 bg-[#0B0812]">
+    <section id="about" className="scroll-mt-16 py-12 sm:py-16 bg-[#08060F]">
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#F8F7FC] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#F8F6FF] tracking-tight">
             About
           </h2>
-          <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed mt-2">
+          <p className="text-sm sm:text-base text-[#B7AEC9] leading-relaxed mt-2">
             {settings.aboutText}
           </p>
           {settings.productHuntProfileUrl && (
@@ -23,7 +23,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
                 href={settings.productHuntProfileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#B98AFF] hover:text-[#F8F7FC] hover:underline underline-offset-4 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#B69AFF] hover:text-[#F8F6FF] hover:underline underline-offset-4 transition-colors"
               >
                 <span>Visit my Product Hunt profile</span>
                 <ArrowUpRight size={14} aria-hidden="true" />

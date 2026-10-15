@@ -48,17 +48,17 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
 
   return (
     <section
-      className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F5FF] border-y border-[#E9E0F5] relative overflow-hidden z-10"
+      className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#08060F] border-y border-[#30213F] relative overflow-hidden z-10"
     >
       {/* Stationary Purple-Lavender Gradient Border Around the Entire Scrolling Section */}
       <div
-        className="max-w-7xl mx-auto rounded-[20px] p-[1.5px] shadow-[0_10px_32px_-8px_rgba(112,40,216,0.08)] relative z-10"
+        className="max-w-7xl mx-auto rounded-[20px] p-[1.5px] shadow-[0_10px_32px_-8px_rgba(112,40,216,0.25)] relative z-10"
         style={{
           background:
-            'linear-gradient(135deg, #E9DDFB 0%, #C4A5FF 45%, #7028D8 100%)',
+            'linear-gradient(135deg, rgba(182, 154, 255, 0.45) 0%, rgba(112, 40, 216, 0.55) 50%, rgba(53, 16, 107, 0.65) 100%)',
         }}
       >
-        <div className="rounded-[18.5px] bg-gradient-to-b from-[#FFFFFF]/90 via-[#F8F5FF] to-[#F8F5FF] py-14 sm:py-20 md:py-24 px-3 sm:px-6 md:px-10 relative overflow-hidden">
+        <div className="rounded-[18.5px] bg-gradient-to-b from-[#110B20] via-[#0B0812] to-[#08060F] border border-[#30213F]/50 py-14 sm:py-20 md:py-24 px-3 sm:px-6 md:px-10 relative overflow-hidden">
           {/* Upper Header Zone */}
           <div className="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 relative z-20 text-center">
             {/* Small Eyebrow */}
@@ -67,9 +67,9 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.28em] text-[#7028D8] mb-5"
+              className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.28em] text-[#B69AFF] mb-5"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B69AFF] shadow-[0_0_8px_#B69AFF]" />
               <span>PRODUCT HUNT · LAUNCH SUPPORT</span>
             </motion.div>
 
@@ -79,10 +79,10 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#35106B] tracking-[0.04em] leading-[1.22] uppercase"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-display font-medium text-[#F8F6FF] tracking-[0.04em] leading-[1.22] uppercase"
             >
               SUPPORTED PRODUCTS <br />
-              <span className="text-[#7028D8] font-semibold">
+              <span className="bg-gradient-to-r from-[#7028D8] via-[#9D6BFF] to-[#B69AFF] bg-clip-text text-transparent font-semibold">
                 ON PRODUCT HUNT
               </span>
             </motion.h2>
@@ -93,7 +93,7 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.7, delay: 0.16 }}
-              className="mt-5 text-xs sm:text-sm text-[#6B6178] font-sans max-w-md mx-auto leading-relaxed font-normal"
+              className="mt-5 text-xs sm:text-sm text-[#B7AEC9] font-sans max-w-md mx-auto leading-relaxed font-normal"
             >
               Launch visibility, distribution and growth support for products building in public.
             </motion.p>
@@ -101,9 +101,9 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
 
           {/* Dedicated Lower Marquee Zone (Starts automatically on page load, continuous right-to-left loop) */}
           <div className="mt-14 sm:mt-20 relative w-full overflow-hidden py-5 sm:py-6 z-20">
-            {/* Left & Right Soft Edge Fade Masks to prevent clipping against the border */}
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-[#F8F5FF] via-[#F8F5FF]/90 to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-[#F8F5FF] via-[#F8F5FF]/90 to-transparent z-10" />
+            {/* Left & Right Soft Edge Fade Masks matching dark gradient */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-[#0B0812] via-[#0B0812]/90 to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-[#0B0812] via-[#0B0812]/90 to-transparent z-10" />
 
             {/* ROW 1: RIGHT → LEFT */}
             <div className="py-3 sm:py-3.5 overflow-hidden">
@@ -120,11 +120,11 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
                       tabIndex={isClone ? -1 : undefined}
                       className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CE8] group-hover:bg-[#7028D8] transition-colors duration-300" />
-                      <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#20152E] group-hover:text-[#7028D8] transition-colors whitespace-nowrap marquee-item-shadow">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8] group-hover:bg-[#B69AFF] transition-colors duration-300 shadow-[0_0_6px_rgba(112,40,216,0.6)]" />
+                      <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#F8F6FF] group-hover:text-[#B69AFF] transition-colors whitespace-nowrap">
                         {product.name}
                       </span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#6B6178] group-hover:text-[#7028D8] group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#B7AEC9] group-hover:text-[#B69AFF] group-hover:translate-x-0.5 transition-transform duration-300" />
                     </a>
                   );
                 })}
@@ -146,11 +146,11 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
                       tabIndex={isClone ? -1 : undefined}
                       className="group inline-flex items-center gap-2.5 px-6 sm:px-9 py-1 shrink-0 transition-colors duration-300"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8] group-hover:bg-[#35106B] transition-colors duration-300" />
-                      <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#20152E] group-hover:text-[#7028D8] transition-colors whitespace-nowrap marquee-item-shadow">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#B69AFF] group-hover:bg-[#7028D8] transition-colors duration-300 shadow-[0_0_6px_rgba(182,154,255,0.6)]" />
+                      <span className="text-[14px] sm:text-[16px] font-sans font-medium tracking-[0.01em] text-[#F8F6FF] group-hover:text-[#B69AFF] transition-colors whitespace-nowrap">
                         {product.name}
                       </span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#6B6178] group-hover:text-[#7028D8] group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#B7AEC9] group-hover:text-[#B69AFF] group-hover:translate-x-0.5 transition-transform duration-300" />
                     </a>
                   );
                 })}

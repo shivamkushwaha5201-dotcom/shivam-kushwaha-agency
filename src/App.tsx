@@ -156,7 +156,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[#050505] text-[#F8F7FC] flex flex-col selection:bg-[#7028D8]/30 selection:text-[#F8F7FC] font-sans transition-colors duration-200">
+      <div className="min-h-screen bg-[#08060F] hero-global-bg text-[#F8F6FF] flex flex-col selection:bg-[#7028D8]/30 selection:text-[#F8F6FF] font-sans transition-colors duration-200">
         
         {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
         <AnimatePresence>
@@ -166,7 +166,7 @@ export default function App() {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#050505]/95 backdrop-blur-md"
+              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#08060F]/95 backdrop-blur-md"
             >
               <motion.div
                 initial={{ opacity: 0, y: 14, scale: 0.96 }}

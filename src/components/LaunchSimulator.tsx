@@ -107,10 +107,16 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
   ];
 
   return (
-    <section id="simulator" className="py-24 bg-white dark:bg-[#0B0F17] border-t border-[#E5E5E1] dark:border-[#1E293B] relative overflow-hidden transition-colors duration-200">
-      {/* Background Decor */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 ambient-glow pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-0 w-96 h-96 ambient-glow-purple pointer-events-none -z-10" />
+    <section id="simulator" className="py-24 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden font-sans z-10">
+      {/* Faint Atmospheric Gradient Matching Hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -121,22 +127,22 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <StaggerItem>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B] shadow-2xs mb-3.5">
-              <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1A1A1A] dark:text-[#F8FAFC]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#110B20] border border-[#30213F] shadow-2xs mb-3.5">
+              <span className="w-2 h-2 rounded-full bg-[#B69AFF] animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#F8F6FF]">
                 Interactive Launch Engine
               </span>
             </div>
           </StaggerItem>
 
           <StaggerItem>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#1A1A1A] dark:text-white tracking-tight leading-[1.12]">
-              Simulate Your Launch Velocity & Reach<span className="text-[#2563EB]">.</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#F8F6FF] tracking-tight leading-[1.12]">
+              Simulate Your Launch Velocity & Reach<span className="text-[#B69AFF]">.</span>
             </h2>
           </StaggerItem>
 
           <StaggerItem>
-            <p className="mt-4 text-base sm:text-lg text-[#1A1A1A]/70 dark:text-slate-400 leading-relaxed font-sans max-w-2xl mx-auto">
+            <p className="mt-4 text-base sm:text-lg text-[#B7AEC9] leading-relaxed font-sans max-w-2xl mx-auto">
               Select your product category, primary distribution goal, and preparation timeline to preview realistic benchmarks engineered with AxentAI Labs.
             </p>
           </StaggerItem>
@@ -149,13 +155,13 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
           <div className="lg:col-span-7 space-y-6">
             
             {/* Step 1: Category Selector */}
-            <SpotlightCard className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B] shadow-sm">
+            <SpotlightCard className="p-6 sm:p-7 rounded-3xl bg-[#110B20] border border-[#30213F] shadow-sm">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1A1A1A]/60 dark:text-slate-400 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-[11px] font-bold">1</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#B7AEC9] flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-[#7028D8]/20 text-[#B69AFF] flex items-center justify-center text-[11px] font-bold">1</span>
                   Select Product Category
                 </span>
-                <span className="text-[11px] font-medium text-[#2563EB] bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full">
+                <span className="text-[11px] font-medium text-[#B69AFF] bg-[#241738] px-2 py-0.5 rounded-full border border-[#7028D8]/30">
                   Tailors distribution channels
                 </span>
               </div>
@@ -169,8 +175,8 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
                       onClick={() => setCategory(cat.id as CategoryType)}
                       className={`p-3 rounded-2xl border text-left transition-all relative cursor-pointer ${
                         isActive
-                          ? 'border-[#2563EB] bg-blue-50/60 dark:bg-blue-950/40 text-[#2563EB] shadow-xs'
-                          : 'border-[#E5E5E1] dark:border-[#1E293B] bg-[#FAF9F6] dark:bg-[#0B0F17] text-[#1A1A1A] dark:text-slate-200 hover:border-slate-300'
+                          ? 'border-[#7028D8] bg-[#7028D8]/20 text-[#B69AFF] shadow-xs'
+                          : 'border-[#30213F] bg-[#151020] text-[#F8F6FF] hover:border-[#7028D8]/50'
                       }`}
                     >
                       <div className="text-xl mb-1.5">{cat.icon}</div>
@@ -182,13 +188,13 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
             </SpotlightCard>
 
             {/* Step 2: Distribution Goal Selector */}
-            <SpotlightCard className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B] shadow-sm">
+            <SpotlightCard className="p-6 sm:p-7 rounded-3xl bg-[#110B20] border border-[#30213F] shadow-sm">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1A1A1A]/60 dark:text-slate-400 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-[11px] font-bold">2</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#B7AEC9] flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-[#7028D8]/20 text-[#B69AFF] flex items-center justify-center text-[11px] font-bold">2</span>
                   Target Distribution Objective
                 </span>
-                <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 dark:bg-emerald-950/60 dark:text-emerald-300 px-2 py-0.5 rounded-full">
+                <span className="text-[11px] font-medium text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full">
                   Campaign Focus
                 </span>
               </div>
@@ -202,17 +208,17 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
                       onClick={() => setGoal(g.id as ChannelGoal)}
                       className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
                         isActive
-                          ? 'border-[#2563EB] bg-blue-50/50 dark:bg-blue-950/30 ring-1 ring-[#2563EB]'
-                          : 'border-[#E5E5E1] dark:border-[#1E293B] bg-[#FAF9F6] dark:bg-[#0B0F17] hover:border-slate-300'
+                          ? 'border-[#7028D8] bg-[#7028D8]/20 ring-1 ring-[#7028D8]'
+                          : 'border-[#30213F] bg-[#151020] hover:border-[#7028D8]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className={`text-xs font-bold ${isActive ? 'text-[#2563EB]' : 'text-[#1A1A1A] dark:text-slate-200'}`}>
+                        <span className={`text-xs font-bold ${isActive ? 'text-[#B69AFF]' : 'text-[#F8F6FF]'}`}>
                           {g.label}
                         </span>
-                        {isActive && <CheckCircle2 className="w-4 h-4 text-[#2563EB]" />}
+                        {isActive && <CheckCircle2 className="w-4 h-4 text-[#B69AFF]" />}
                       </div>
-                      <p className="text-[11px] text-[#1A1A1A]/60 dark:text-slate-400 mt-1 leading-relaxed">
+                      <p className="text-[11px] text-[#B7AEC9] mt-1 leading-relaxed">
                         {g.desc}
                       </p>
                     </button>
@@ -222,13 +228,13 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
             </SpotlightCard>
 
             {/* Step 3: Preparation Horizon Timeline */}
-            <SpotlightCard className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#111827] border border-[#E5E5E1] dark:border-[#1E293B] shadow-sm">
+            <SpotlightCard className="p-6 sm:p-7 rounded-3xl bg-[#110B20] border border-[#30213F] shadow-sm">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1A1A1A]/60 dark:text-slate-400 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-[11px] font-bold">3</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#B7AEC9] flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-[#7028D8]/20 text-[#B69AFF] flex items-center justify-center text-[11px] font-bold">3</span>
                   Pre-Launch Runway Horizon
                 </span>
-                <span className="text-xs font-semibold text-[#1A1A1A]/70 dark:text-slate-400">
+                <span className="text-xs font-semibold text-[#B7AEC9]">
                   {timeline === '14-days' ? 'Rapid Sprint' : timeline === '30-days' ? 'Standard Playbook' : 'Maximum Pre-Heat'}
                 </span>
               </div>
@@ -246,12 +252,12 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
                       onClick={() => setTimeline(t.id as TimelineType)}
                       className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                         isActive
-                          ? 'border-[#2563EB] bg-[#2563EB] text-white shadow-md shadow-blue-500/20'
-                          : 'border-[#E5E5E1] dark:border-[#1E293B] bg-[#FAF9F6] dark:bg-[#0B0F17] text-[#1A1A1A] dark:text-slate-200 hover:border-slate-300'
+                          ? 'border-[#7028D8] bg-[#7028D8] text-white shadow-md shadow-[#7028D8]/25'
+                          : 'border-[#30213F] bg-[#151020] text-[#F8F6FF] hover:border-[#7028D8]/50'
                       }`}
                     >
                       <div className="text-xs font-bold">{t.title}</div>
-                      <div className={`text-[10px] ${isActive ? 'text-white/80' : 'text-[#1A1A1A]/50 dark:text-slate-400'}`}>
+                      <div className={`text-[10px] ${isActive ? 'text-white/80' : 'text-[#B7AEC9]'}`}>
                         {t.sub}
                       </div>
                     </button>
@@ -267,18 +273,18 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
             <motion.div
               layout
               transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white p-7 sm:p-8 border border-slate-700/80 shadow-2xl relative overflow-hidden"
+              className="rounded-3xl bg-gradient-to-br from-[#110B20] to-[#1E1430] text-white p-7 sm:p-8 border border-[#30213F] shadow-2xl relative overflow-hidden"
             >
               {/* Radial Accent Glow */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#7028D8]/20 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative z-10 space-y-6">
                 
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-700/60">
+                <div className="flex items-center justify-between pb-4 border-b border-[#30213F]">
                   <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-blue-400" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                    <Zap className="w-4 h-4 text-[#B69AFF]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#B7AEC9]">
                       Projected Impact Model
                     </span>
                   </div>
@@ -289,8 +295,8 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
 
                 {/* Primary Metric: Estimated Total Reach */}
                 <div>
-                  <div className="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1">
-                    <Eye className="w-3.5 h-3.5 text-blue-400" />
+                  <div className="text-xs font-medium text-[#B7AEC9] flex items-center gap-1.5 mb-1">
+                    <Eye className="w-3.5 h-3.5 text-[#B69AFF]" />
                     Estimated Multi-Channel Impressions
                   </div>
                   <AnimatePresence mode="wait">
@@ -309,18 +315,18 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
 
                 {/* 2-Column Secondary Metrics */}
                 <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/60">
-                    <div className="text-[11px] text-slate-400 flex items-center gap-1 mb-1">
+                  <div className="p-3.5 rounded-2xl bg-[#151020] border border-[#30213F]">
+                    <div className="text-[11px] text-[#B7AEC9] flex items-center gap-1 mb-1">
                       <Award className="w-3 h-3 text-amber-400" />
                       Leaderboard Goal
                     </div>
-                    <div className="text-sm font-bold text-slate-100 truncate">
+                    <div className="text-sm font-bold text-[#F8F6FF] truncate">
                       {projection.targetRank}
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/60">
-                    <div className="text-[11px] text-slate-400 flex items-center gap-1 mb-1">
+                  <div className="p-3.5 rounded-2xl bg-[#151020] border border-[#30213F]">
+                    <div className="text-[11px] text-[#B7AEC9] flex items-center gap-1 mb-1">
                       <Users className="w-3 h-3 text-emerald-400" />
                       Potential Signups
                     </div>
@@ -332,22 +338,22 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
 
                 {/* Strategic Roadmap Milestones */}
                 <div className="space-y-2.5 pt-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#B7AEC9]">
                     Core Campaign Milestones Included:
                   </span>
                   
-                  <div className="space-y-2 text-xs text-slate-300">
+                  <div className="space-y-2 text-xs text-[#B7AEC9]">
                     <div className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>T-14:</strong> Positioning audit, teaser hook & early supporter list setup</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#B69AFF] shrink-0 mt-0.5" />
+                      <span><strong className="text-[#F8F6FF]">T-14:</strong> Positioning audit, teaser hook & early supporter list setup</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>T-0:</strong> 24-Hour live war room monitoring & leaderboard push</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#B69AFF] shrink-0 mt-0.5" />
+                      <span><strong className="text-[#F8F6FF]">T-0:</strong> 24-Hour live war room monitoring & leaderboard push</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                      <span><strong>T+1:</strong> Founder viral breakdown threads on LinkedIn & X</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#B69AFF] shrink-0 mt-0.5" />
+                      <span><strong className="text-[#F8F6FF]">T+1:</strong> Founder viral breakdown threads on LinkedIn & X</span>
                     </div>
                   </div>
                 </div>
@@ -356,7 +362,7 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
                 <div className="pt-3 space-y-2.5">
                   <Button
                     onClick={onOpenBooking}
-                    className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold py-3 rounded-full shadow-lg shadow-blue-500/25 group justify-center relative overflow-hidden"
+                    className="w-full bg-[#7028D8] hover:bg-[#5E1EC0] text-white text-xs sm:text-sm font-bold py-3 rounded-full shadow-lg shadow-[#7028D8]/25 group justify-center relative overflow-hidden cursor-pointer"
                   >
                     <span className="relative z-10 flex items-center">
                       <span>Lock In This Launch Strategy</span>
@@ -366,7 +372,7 @@ export const LaunchSimulator: React.FC<LaunchSimulatorProps> = ({
 
                   <button
                     onClick={onOpenAudit}
-                    className="w-full text-center text-xs font-semibold text-slate-400 hover:text-slate-200 transition-colors py-1 cursor-pointer"
+                    className="w-full text-center text-xs font-semibold text-[#B7AEC9] hover:text-[#F8F6FF] transition-colors py-1 cursor-pointer"
                   >
                     Take the 2-minute Launch Readiness Audit →
                   </button>

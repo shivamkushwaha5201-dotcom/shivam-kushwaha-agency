@@ -60,7 +60,16 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
   ];
 
   return (
-    <section id="about" className="py-24 md:py-28 bg-[#050505] relative overflow-hidden border-t border-[#30213F] text-[#F8F7FC] transition-colors duration-200 z-10">
+    <section id="about" className="py-24 md:py-28 bg-[#08060F] relative overflow-hidden border-t border-[#30213F] text-[#F8F6FF] transition-colors duration-200 z-10">
+      {/* Faint Atmospheric Gradient Matching Hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">

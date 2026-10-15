@@ -37,14 +37,14 @@ export const RecentLaunchesSection: React.FC<RecentLaunchesSectionProps> = ({
   return (
     <section
       id="recent-launches"
-      className="scroll-mt-16 py-12 sm:py-16 bg-[#050505] border-b border-[#30213F]"
+      className="scroll-mt-16 py-12 sm:py-16 bg-[#08060F] border-b border-[#30213F]"
     >
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#F8F7FC] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#F8F6FF] tracking-tight">
             Recent Launches
           </h2>
-          <p className="text-sm text-[#B9B1C9] mt-1">
+          <p className="text-sm text-[#B7AEC9] mt-1">
             Launches I’ve supported this month.
           </p>
         </div>
@@ -53,16 +53,16 @@ export const RecentLaunchesSection: React.FC<RecentLaunchesSectionProps> = ({
           <div
             role="status"
             aria-live="polite"
-            className="bg-[#100B1B] border border-[#30213F] rounded-xl p-12 flex flex-col items-center justify-center gap-3 text-center"
+            className="bg-[#151020] border border-[#30213F] rounded-xl p-12 flex flex-col items-center justify-center gap-3 text-center"
           >
-            <Loader2 size={22} className="animate-spin text-[#B98AFF]" />
-            <p className="text-xs sm:text-sm text-[#B9B1C9]">
+            <Loader2 size={22} className="animate-spin text-[#B69AFF]" />
+            <p className="text-xs sm:text-sm text-[#B7AEC9]">
               Checking recent launches...
             </p>
           </div>
         ) : displayedRecentLaunches.length === 0 ? (
-          <div className="bg-[#100B1B] border border-[#30213F] rounded-xl p-10 text-center">
-            <p className="text-sm font-medium text-[#B9B1C9]">
+          <div className="bg-[#151020] border border-[#30213F] rounded-xl p-10 text-center">
+            <p className="text-sm font-medium text-[#B7AEC9]">
               No launches added this month yet.
             </p>
           </div>

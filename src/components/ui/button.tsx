@@ -9,19 +9,19 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 hover:from-blue-500 hover:to-indigo-500 hover:shadow-lg hover:shadow-blue-500/30",
+          "bg-gradient-to-r from-[#7028D8] to-[#8B5CE8] text-white shadow-md shadow-[#7028D8]/20 hover:from-[#5E1EC0] hover:to-[#7028D8] hover:shadow-lg hover:shadow-[#7028D8]/30",
         primary:
-          "bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-sm hover:shadow",
+          "bg-[#7028D8] text-white hover:bg-[#5E1EC0] shadow-sm hover:shadow",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 shadow-sm",
+          "border border-[#30213F] bg-[#151020] text-[#F8F6FF] hover:bg-[#1E1430] hover:border-[#7028D8]/60 hover:text-white shadow-sm",
         secondary:
-          "bg-slate-100 text-slate-900 hover:bg-slate-200/80",
-        ghost: "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
-        link: "text-blue-600 underline-offset-4 hover:underline",
-        subtleBlue: "bg-blue-50 text-blue-700 border border-blue-200/80 hover:bg-blue-100/80",
-        subtleOrange: "bg-blue-50 text-blue-700 border border-blue-200/80 hover:bg-blue-100/80",
+          "bg-[#1E1430] text-[#F8F6FF] hover:bg-[#2A1C44] border border-[#30213F]",
+        ghost: "text-[#B7AEC9] hover:bg-[#1E1430] hover:text-[#F8F6FF]",
+        link: "text-[#B69AFF] underline-offset-4 hover:underline",
+        subtleBlue: "bg-[#241738] text-[#B69AFF] border border-[#7028D8]/30 hover:bg-[#35106B]/50",
+        subtleOrange: "bg-[#241738] text-[#B69AFF] border border-[#7028D8]/30 hover:bg-[#35106B]/50",
       },
       size: {
         default: "h-11 px-5 py-2.5",
