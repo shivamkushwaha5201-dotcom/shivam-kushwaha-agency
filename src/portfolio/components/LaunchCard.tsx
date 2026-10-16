@@ -48,9 +48,20 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
 
   const hasValidLogo = Boolean(launch.logoUrl && !imageError);
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('button, a')) {
+      return;
+    }
+    window.open(launch.productHuntUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <article className="ph-launch-card group bg-[#100B1B] border border-[#30213F] rounded-xl p-5 flex flex-col justify-between gap-5 hover:border-[#7028D8]/60 hover:shadow-md hover:shadow-[#7028D8]/10 transition-all duration-150 opacity-100">
-      {/* Top: Optional product logo + Product name */}
+    <article
+      onClick={handleCardClick}
+      className="ph-launch-card group bg-[#100B1B] border border-[#30213F] rounded-xl p-5 flex flex-col justify-between gap-5 hover:border-[#7028D8]/60 hover:shadow-md hover:shadow-[#7028D8]/10 transition-all duration-150 opacity-100 cursor-pointer"
+    >
+      {/* Top: Optional product logo + Product name + Direct Product Hunt URL */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3.5 min-w-0 flex-1">
           {hasValidLogo ? (
@@ -70,12 +81,20 @@ export const LaunchCard: React.FC<LaunchCardProps> = ({
             </div>
           )}
 
-          <h3
-            title={safeName}
-            className="ph-launch-card-title text-base font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] tracking-tight leading-snug break-words opacity-100 transition-colors"
-          >
-            {safeName}
-          </h3>
+          <div className="min-w-0 flex-1">
+            <h3
+              title={safeName}
+              className="ph-launch-card-title text-base font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] tracking-tight leading-snug break-words opacity-100 transition-colors"
+            >
+              {safeName}
+            </h3>
+            <span
+              title={launch.productHuntUrl}
+              className="text-[11px] text-[#B7AEC9] group-hover:text-[#D4C5F9] font-mono truncate block mt-0.5 transition-colors"
+            >
+              {launch.productHuntUrl.replace(/^https?:\/\/(www\.)?/, '')}
+            </span>
+          </div>
         </div>
 
         {/* Owner-only edit & delete controls (never exposed to public visitors) */}

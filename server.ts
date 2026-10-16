@@ -299,6 +299,22 @@ const VERIFIED_USER_LAUNCHES: Array<{
     votes: 465,
     needsDateConfirmation: true,
   },
+  {
+    id: 'verified-fina',
+    name: 'Fina',
+    productHuntUrl: 'https://www.producthunt.com/products/fina',
+    ranking: 3,
+    votes: 270,
+    needsDateConfirmation: true,
+  },
+  {
+    id: 'verified-adant-ai',
+    name: 'Adant AI',
+    productHuntUrl: 'https://www.producthunt.com/products/adant-ai',
+    ranking: 6,
+    votes: 182,
+    needsDateConfirmation: true,
+  },
 ];
 
 const DEFAULT_DATABASE: PortfolioDatabase = {

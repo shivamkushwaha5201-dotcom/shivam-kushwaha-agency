@@ -13,9 +13,10 @@ import { Button } from './ui/button';
 
 interface ProductHuntSectionProps {
   onOpenBooking: () => void;
+  onOpenPortfolio?: () => void;
 }
 
-export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(({ onOpenBooking }) => {
+export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(({ onOpenBooking, onOpenPortfolio }) => {
   const flightPhases = [
     {
       stage: '01',
@@ -171,13 +172,41 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
             </div>
           </div>
 
-          <Button
-            onClick={onOpenBooking}
-            className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-2.5 border border-[#B98AFF]/30 shadow-md shadow-[#7028D8]/25 shrink-0 cursor-pointer"
-          >
-            <span>PLAN A PRODUCT LAUNCH</span>
-            <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-          </Button>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href="/portfolio"
+              onClick={(e) => {
+                if (
+                  !e.metaKey &&
+                  !e.ctrlKey &&
+                  !e.shiftKey &&
+                  !e.altKey &&
+                  e.button === 0
+                ) {
+                  e.preventDefault();
+                  if (onOpenPortfolio) {
+                    onOpenPortfolio();
+                  } else {
+                    window.history.pushState({}, '', '/portfolio');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  }
+                }
+              }}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-[#7028D8] text-[#FFFFFF] border border-[#B69AFF]/40 shadow-md shadow-[#7028D8]/25 hover:bg-[#833AE8] hover:border-[#B69AFF]/70 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B69AFF] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer whitespace-nowrap"
+            >
+              <span>View My Portfolio</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+
+            <button
+              type="button"
+              onClick={onOpenBooking}
+              className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-[#1C122C] text-[#F8F6FF] border border-[#7028D8]/60 hover:bg-[#2B1747] hover:text-[#FFFFFF] hover:border-[#B69AFF]/80 shadow-xs hover:shadow-md hover:shadow-[#7028D8]/20 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B69AFF] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer whitespace-nowrap"
+            >
+              <span>Discuss Your Launch</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>

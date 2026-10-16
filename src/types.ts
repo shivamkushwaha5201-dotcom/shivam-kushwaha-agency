@@ -58,6 +58,9 @@ export interface Testimonial {
   platform: 'producthunt' | 'x' | 'linkedin';
   highlight: string;
   verifiedLaunch: string;
+  linkedinUrl?: string;
+  paragraphs?: string[];
+  avatarUrl?: string;
 }
 
 export interface LaunchReadinessQuestion {

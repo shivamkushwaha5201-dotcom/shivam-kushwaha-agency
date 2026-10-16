@@ -262,7 +262,10 @@ export default function App() {
             <CaseStudiesSection onOpenBooking={scrollToContact} />
 
             {/* 08. Product Hunt Launch Support (Global Launch Visibility) */}
-            <ProductHuntSection onOpenBooking={scrollToContact} />
+            <ProductHuntSection 
+              onOpenBooking={scrollToContact} 
+              onOpenPortfolio={handleOpenPortfolio}
+            />
 
             {/* 09. Why Choose AxentAI Labs (4 Core Pillars) */}
             <WhyUsSection />

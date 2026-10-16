@@ -27,15 +27,15 @@ export const SERVICES_DATA: ServiceDetail[] = [
     tagline: 'Strategic launch positioning, asset preparation, and real-time coordination for legitimate front-page visibility.',
     icon: 'Rocket',
     badge: 'Launch Execution',
-    description: 'Product Hunt is a premier stage for modern software discovery. We provide strategic, hands-on launch support—from narrative framing and visual asset preparation to pre-launch community mobilization and launch-day coordination—centered on genuine user enthusiasm, never manipulated votes.',
+    description: 'Preparing for a Product Hunt launch takes more than publishing a page. I help founders prepare their launch assets, sharpen their messaging, organize launch-day activities, and build a stronger launch strategy.',
     deliverables: [
-      'Product Hunt launch strategy',
-      'Pre-launch planning',
-      'Launch-day support',
-      'Community outreach',
-      'Content preparation',
-      'Launch visibility strategy',
-      'Post-launch engagement'
+      'Launch page and positioning feedback',
+      'Tagline and product description improvements',
+      'Gallery and launch asset preparation guidance',
+      'Maker comment and launch-day content support',
+      'Launch checklist and preparation',
+      'Authentic community engagement guidance',
+      'Post-launch performance review'
     ],
     resultsMetric: 'Structured Launch Momentum & Front-Page Visibility',
     idealFor: 'SaaS startups, developer tools, AI products, and innovative digital apps ready for market introduction.',
@@ -183,6 +183,23 @@ export const CASE_STUDIES: CaseStudy[] = [
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 'testimonial-dounia-b',
+    name: 'Dounia B.',
+    role: 'Founder',
+    company: 'Oktomer',
+    avatar: 'DB',
+    quote: 'Shivam has extensive knowledge of how to boost your brand and product visibility and put your business in the spotlight.\n\nHe guided and supported me throughout my recent launch of Oktomer on Product Hunt. He knows the platform inside out and has all the right tips and insights to help you make the most of it.\n\nHe even encouraged me to try new things I was initially hesitant about, which turned out to be great ideas!',
+    paragraphs: [
+      'Shivam has extensive knowledge of how to boost your brand and product visibility and put your business in the spotlight.',
+      'He guided and supported me throughout my recent launch of Oktomer on Product Hunt. He knows the platform inside out and has all the right tips and insights to help you make the most of it.',
+      'He even encouraged me to try new things I was initially hesitant about, which turned out to be great ideas!'
+    ],
+    platform: 'producthunt',
+    highlight: 'Product Hunt Launch Support & Spotlight Visibility',
+    verifiedLaunch: 'Oktomer Product Hunt Launch',
+    linkedinUrl: 'https://www.linkedin.com/in/dounia-boughalem-4aab22108'
+  },
   {
     id: 'testimonial-1',
     name: 'Alex Rivera',

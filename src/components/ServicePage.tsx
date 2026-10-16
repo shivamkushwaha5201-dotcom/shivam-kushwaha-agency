@@ -177,52 +177,89 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                 {service.description}
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <Button
-                  onClick={onOpenBooking}
-                  size="lg"
-                  className="bg-[#7028D8] hover:bg-[#5E1EC0] text-white font-semibold rounded-full px-7 shadow-md shadow-[#7028D8]/20 cursor-pointer"
-                >
-                  <span>Book a Strategy Call</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+              {service.id === 'product-hunt-launch' ? (
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  {service.portfolioUrl && (
+                    <a
+                      href={service.portfolioUrl}
+                      onClick={(e) => {
+                        if (
+                          service.portfolioUrl?.startsWith('/') &&
+                          !e.metaKey &&
+                          !e.ctrlKey &&
+                          !e.shiftKey &&
+                          !e.altKey &&
+                          e.button === 0
+                        ) {
+                          e.preventDefault();
+                          window.history.pushState({}, '', service.portfolioUrl);
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        }
+                      }}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold bg-[#7028D8] text-[#FFFFFF] border border-[#B69AFF]/40 shadow-md shadow-[#7028D8]/25 hover:bg-[#833AE8] hover:border-[#B69AFF]/70 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B69AFF] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer"
+                    >
+                      <span>View My Portfolio</span>
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                    </a>
+                  )}
 
-                {service.portfolioUrl && (
-                  <a
-                    href={service.portfolioUrl}
-                    onClick={(e) => {
-                      if (
-                        service.portfolioUrl?.startsWith('/') &&
-                        !e.metaKey &&
-                        !e.ctrlKey &&
-                        !e.shiftKey &&
-                        !e.altKey &&
-                        e.button === 0
-                      ) {
-                        e.preventDefault();
-                        window.history.pushState({}, '', service.portfolioUrl);
-                        window.dispatchEvent(new PopStateEvent('popstate'));
-                      }
-                    }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#7028D8] text-[#FFFFFF] border border-[#7028D8] shadow-sm shadow-[#7028D8]/20 hover:bg-[#35106B] hover:border-[#35106B] hover:shadow-md hover:shadow-[#35106B]/25 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7028D8] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer"
+                  <Button
+                    onClick={onOpenBooking}
+                    size="lg"
+                    className="bg-[#1C122C] hover:bg-[#2B1747] text-[#F8F6FF] hover:text-white font-semibold rounded-full px-6 py-3 border border-[#7028D8]/60 hover:border-[#B69AFF]/80 shadow-xs hover:shadow-md hover:shadow-[#7028D8]/20 cursor-pointer text-xs sm:text-sm"
                   >
-                    <span>View My Portfolio</span>
-                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                  </a>
-                )}
-              </div>
+                    <span>Discuss Your Launch</span>
+                    <ArrowRight className="w-4 h-4 ml-1.5" />
+                  </Button>
+                </div>
+              ) : (
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <Button
+                    onClick={onOpenBooking}
+                    size="lg"
+                    className="bg-[#7028D8] hover:bg-[#5E1EC0] text-white font-semibold rounded-full px-7 shadow-md shadow-[#7028D8]/20 cursor-pointer"
+                  >
+                    <span>Book a Strategy Call</span>
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+
+                  {service.portfolioUrl && (
+                    <a
+                      href={service.portfolioUrl}
+                      onClick={(e) => {
+                        if (
+                          service.portfolioUrl?.startsWith('/') &&
+                          !e.metaKey &&
+                          !e.ctrlKey &&
+                          !e.shiftKey &&
+                          !e.altKey &&
+                          e.button === 0
+                        ) {
+                          e.preventDefault();
+                          window.history.pushState({}, '', service.portfolioUrl);
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        }
+                      }}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-[#7028D8] text-[#FFFFFF] border border-[#7028D8] shadow-sm shadow-[#7028D8]/20 hover:bg-[#35106B] hover:border-[#35106B] hover:shadow-md hover:shadow-[#35106B]/25 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7028D8] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer"
+                    >
+                      <span>View My Portfolio</span>
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                    </a>
+                  )}
+                </div>
+              )}
 
             </div>
 
             {service.id === 'product-hunt-launch' && (
-              <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                <div className="w-[200px] sm:w-[240px] lg:w-[270px] flex items-center justify-center bg-transparent select-none">
+              <div className="md:col-span-5 lg:col-span-4 flex items-center justify-center md:justify-end">
+                <div className="w-[190px] sm:w-[220px] md:w-[240px] lg:w-[270px] flex items-center justify-center bg-transparent select-none">
                   <picture className="w-full block bg-transparent">
                     <source srcSet={productHuntCatMascotWebp} type="image/webp" />
                     <img
                       src={productHuntCatMascotPng}
                       alt="Product Hunt Launch Support Cat Mascot"
-                      className="w-full max-h-[260px] h-auto object-contain bg-transparent block mx-auto"
+                      className="w-full max-h-[260px] sm:max-h-[280px] h-auto object-contain bg-transparent block mx-auto select-none"
                       referrerPolicy="no-referrer"
                       loading="eager"
                       decoding="async"

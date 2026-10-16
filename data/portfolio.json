@@ -5,5 +5,311 @@
     "productHuntProfileUrl": "https://www.producthunt.com/@shivam_kushwaha16",
     "timeZone": "America/Los_Angeles"
   },
-  "launches": []
+  "launches": [
+    {
+      "id": "verified-enia-code",
+      "name": "Enia Code",
+      "productHuntUrl": "https://www.producthunt.com/products/enia-code",
+      "votes": 336,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-storeclaw",
+      "name": "StoreClaw",
+      "productHuntUrl": "https://www.producthunt.com/products/storeclaw",
+      "votes": 793,
+      "ranking": 1,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-eddie-ai-2-0",
+      "name": "Eddie AI 2.0",
+      "productHuntUrl": "https://www.producthunt.com/products/eddie-your-ai-video-editor/launches/eddie-ai-2-0",
+      "votes": 358,
+      "ranking": 3,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-ctruh-studio",
+      "name": "Ctruh Studio",
+      "productHuntUrl": "https://www.producthunt.com/products/ctruh-studio",
+      "votes": 364,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-hey-noah",
+      "name": "Hey Noah",
+      "productHuntUrl": "https://www.producthunt.com/products/hey-noah",
+      "votes": 661,
+      "ranking": 1,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-ito-ai",
+      "name": "Ito AI — Code Review That Runs Code",
+      "productHuntUrl": "https://www.producthunt.com/products/ito-ai-code-review-that-runs-code",
+      "votes": 446,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-browseract",
+      "name": "BrowserAct",
+      "productHuntUrl": "https://www.producthunt.com/products/browseract",
+      "votes": 285,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-clears",
+      "name": "Clears",
+      "productHuntUrl": "https://www.producthunt.com/products/clears?launch=clears",
+      "votes": 371,
+      "ranking": 3,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-supernova-ai",
+      "name": "Supernova AI",
+      "productHuntUrl": "https://www.producthunt.com/products/supernova-ai?launch=supernova-6",
+      "votes": 326,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-speko",
+      "name": "Speko",
+      "productHuntUrl": "https://www.producthunt.com/products/speko",
+      "votes": 274,
+      "ranking": 4,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-openui-2",
+      "name": "OpenUI 2",
+      "productHuntUrl": "https://www.producthunt.com/posts/openui-2",
+      "votes": 329,
+      "ranking": 4,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-your-next-store",
+      "name": "Your Next Store",
+      "productHuntUrl": "https://www.producthunt.com/posts/your-next-store-5",
+      "votes": 340,
+      "ranking": 4,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-chronicle-2-0",
+      "name": "Chronicle 2.0",
+      "productHuntUrl": "https://www.producthunt.com/products/chronicle-6?launch=chronicle-2-0",
+      "votes": 736,
+      "ranking": 2,
+      "weekRanking": 1,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-morphmind",
+      "name": "MorphMind",
+      "productHuntUrl": "https://www.producthunt.com/posts/morphmind-a-steerable-ai-platform",
+      "votes": 102,
+      "ranking": 10,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-zooclaw",
+      "name": "ZooClaw",
+      "productHuntUrl": "https://www.producthunt.com/products/zooclaw",
+      "votes": 290,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-lessie-ai-2",
+      "name": "Lessie AI 2",
+      "productHuntUrl": "https://www.producthunt.com/posts/lessie-ai-2",
+      "votes": 406,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-nativebridge",
+      "name": "NativeBridge",
+      "productHuntUrl": "https://www.producthunt.com/products/nativebridge-2",
+      "votes": 246,
+      "ranking": 3,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-naptick-ai",
+      "name": "Naptick AI",
+      "productHuntUrl": "https://www.producthunt.com/posts/naptick-ai",
+      "votes": 475,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-huddle01-cloud",
+      "name": "Huddle01 Cloud",
+      "productHuntUrl": "https://www.producthunt.com/posts/huddle01-cloud-2",
+      "votes": 314,
+      "ranking": 5,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-mom-clock",
+      "name": "Mom Clock",
+      "productHuntUrl": "https://www.producthunt.com/posts/mom-clock",
+      "votes": 735,
+      "ranking": 1,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-computable-gpu-index",
+      "name": "Computable GPU Index (CGI)",
+      "productHuntUrl": "https://www.producthunt.com/posts/computable-gpu-index-cgi",
+      "votes": 445,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-brandjet",
+      "name": "Brandjet",
+      "productHuntUrl": "https://www.producthunt.com/posts/brandjet",
+      "votes": 278,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-olostep-2",
+      "name": "Olostep 2",
+      "productHuntUrl": "https://www.producthunt.com/posts/olostep-2",
+      "votes": 236,
+      "ranking": 3,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-1752vc-pitch-deck-analyzer",
+      "name": "1752VC Pitch Deck Analyzer",
+      "productHuntUrl": "https://www.producthunt.com/posts/1752vc-pitch-deck-analyzer",
+      "votes": 400,
+      "ranking": 1,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-caddi-3",
+      "name": "Caddi 3",
+      "productHuntUrl": "https://www.producthunt.com/posts/caddi-3",
+      "votes": 308,
+      "ranking": 2,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-skydive",
+      "name": "Skydive",
+      "productHuntUrl": "https://www.producthunt.com/posts/skydive",
+      "votes": 431,
+      "ranking": 1,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-irisgo-public-beta",
+      "name": "IrisGo Public Beta",
+      "productHuntUrl": "https://www.producthunt.com/products/irisgo-public-beta",
+      "votes": 523,
+      "ranking": 1,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-rill",
+      "name": "Rill",
+      "productHuntUrl": "https://www.producthunt.com/products/rill-3",
+      "votes": 440,
+      "ranking": 1,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-spira-ai",
+      "name": "Spira AI",
+      "productHuntUrl": "https://www.producthunt.com/products/spira-ai",
+      "votes": 510,
+      "ranking": 1,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-zoowork",
+      "name": "ZooWork",
+      "productHuntUrl": "https://www.producthunt.com/products/zoowork",
+      "votes": 324,
+      "ranking": 1,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-pexo",
+      "name": "Pexo",
+      "productHuntUrl": "https://www.producthunt.com/products/pexo-2",
+      "votes": 465,
+      "ranking": 1,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T10:58:11.381Z",
+      "updatedAt": "2026-10-16T10:58:11.381Z"
+    },
+    {
+      "id": "verified-fina",
+      "name": "Fina",
+      "productHuntUrl": "https://www.producthunt.com/products/fina",
+      "votes": 270,
+      "ranking": 3,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T11:06:00.000Z",
+      "updatedAt": "2026-10-16T11:06:00.000Z"
+    },
+    {
+      "id": "verified-adant-ai",
+      "name": "Adant AI",
+      "productHuntUrl": "https://www.producthunt.com/products/adant-ai",
+      "votes": 182,
+      "ranking": 6,
+      "needsDateConfirmation": true,
+      "createdAt": "2026-10-16T11:06:00.000Z",
+      "updatedAt": "2026-10-16T11:06:00.000Z"
+    }
+  ]
 }
