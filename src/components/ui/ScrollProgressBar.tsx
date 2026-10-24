@@ -22,7 +22,7 @@ export const ScrollProgressBar: React.FC = React.memo(() => {
         willChange: 'transform',
         backfaceVisibility: 'hidden',
       }}
-      className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#35106B] via-[#7028D8] to-[#B98AFF] z-50 pointer-events-none"
+      className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#246B32] via-[#459B45] to-[#E5F5E5] z-50 pointer-events-none"
       aria-hidden="true"
     />
   );

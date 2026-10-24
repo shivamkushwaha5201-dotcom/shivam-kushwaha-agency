@@ -47,7 +47,7 @@ export const BackToTop: React.FC = React.memo(() => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 12 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-11 h-11 rounded-full bg-[#100B1B]/95 hover:bg-[#35106B] text-[#B98AFF] hover:text-[#F8F7FC] border border-[#30213F] shadow-lg shadow-black/50 hover:border-[#7028D8] transition-colors cursor-pointer group focus:outline-hidden"
+          className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-11 h-11 rounded-full bg-[#FFFFFF]/95 hover:bg-[#459B45] text-[#246B32] hover:text-[#FFFFFF] border border-[#E5E9E5] shadow-lg shadow-[#459B45]/15 hover:border-[#459B45] transition-colors cursor-pointer group focus:outline-hidden"
           aria-label="Back to Top"
           title="Back to Top"
         >

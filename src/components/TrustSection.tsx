@@ -68,13 +68,13 @@ const HappyCustomersCounter: React.FC = React.memo(() => {
   return (
     <div
       ref={counterRef}
-      className="px-4 py-2.5 rounded-xl bg-[#100B1B] border border-[#30213F] shadow-xs flex flex-col justify-center"
+      className="px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#E5E9E5] shadow-xs flex flex-col justify-center"
     >
-      <div className="text-xl sm:text-2xl font-display font-bold text-[#F8F7FC] tracking-tight leading-none tabular-nums">
+      <div className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight leading-none tabular-nums">
         <span ref={numberSpanRef}>0</span>
-        <span className="text-[#B98AFF]">+</span>
+        <span className="text-[#459B45]">+</span>
       </div>
-      <div className="text-[11px] text-[#B9B1C9] font-sans mt-1 leading-none">
+      <div className="text-[11px] text-[#555B55] font-sans mt-1 leading-none">
         Happy Customers
       </div>
     </div>
@@ -164,15 +164,15 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
   return (
     <section
       ref={sectionRef}
-      className="py-28 md:py-36 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden z-10"
+      className="py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10"
     >
-      {/* Faint Atmospheric Gradient Matching Hero */}
+      {/* Faint Atmospheric Gradient Matching Theme */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 18% 22%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 18% 22%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -198,23 +198,23 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                 }}
                 className="relative w-full"
               >
-                {/* Soft Dark Purple Atmospheric Glow Behind Floating Card */}
+                {/* Soft Mint Atmospheric Glow Behind Floating Card */}
                 <div
                   aria-hidden="true"
                   className="absolute -inset-8 rounded-[40px] pointer-events-none"
                   style={{
                     background:
-                      'radial-gradient(circle, rgba(112,40,216,0.28) 0%, rgba(53,16,107,0.35) 45%, transparent 72%)',
+                      'radial-gradient(circle, rgba(69,155,69,0.2) 0%, rgba(229,245,229,0.5) 45%, transparent 72%)',
                   }}
                 />
 
-                {/* Layer 3: Continuous Slow GPU Floating Card (6.2s ease-in-out infinite, pauses offscreen) */}
+                {/* Layer 3: Continuous Slow GPU Floating Card */}
                 <div
                   style={{
                     animationPlayState: inView ? 'running' : 'paused',
                     willChange: 'transform',
                   }}
-                  className="animate-float trust-floating-card will-change-transform relative rounded-3xl overflow-hidden border border-[#30213F] bg-[#100B1B] shadow-[0_24px_60px_rgba(0,0,0,0.65)] aspect-[4/5]"
+                  className="animate-float trust-floating-card will-change-transform relative rounded-3xl overflow-hidden border border-[#E5E9E5] bg-[#FFFFFF] shadow-[0_24px_60px_rgba(69,155,69,0.14)] aspect-[4/5]"
                 >
                   <picture className="w-full h-full block">
                     <source srcSet={leftFloatingVisualWebp} type="image/webp" />
@@ -227,14 +227,14 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                       decoding="async"
                     />
                   </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#08060F]/80 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-[#B98AFF]/20 rounded-3xl pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-[#459B45]/15 rounded-3xl pointer-events-none" />
                 </div>
 
                 {/* Rotating Circular Explore Badge (Corner Accent — Pauses offscreen) */}
                 <a
                   href="#services"
-                  className="absolute -bottom-6 -right-4 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#100B1B]/95 border border-[#30213F] shadow-xl shadow-black/70 flex items-center justify-center group cursor-pointer z-20"
+                  className="absolute -bottom-6 -right-4 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#FFFFFF]/95 border border-[#E5E9E5] shadow-xl shadow-[#459B45]/10 flex items-center justify-center group cursor-pointer z-20"
                 >
                   <svg
                     viewBox="0 0 120 120"
@@ -247,13 +247,13 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                         d="M 60, 60 m -44, 0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"
                       />
                     </defs>
-                    <text className="fill-[#B9B1C9] text-[9.5px] font-mono uppercase tracking-[0.24em]">
+                    <text className="fill-[#555B55] text-[9.5px] font-mono uppercase tracking-[0.24em]">
                       <textPath href="#circleTextPath" startOffset="0%">
                         • EXPLORE MORE • EXPLORE MORE
                       </textPath>
                     </text>
                   </svg>
-                  <div className="absolute w-11 h-11 rounded-full bg-[#7028D8] group-hover:bg-[#35106B] text-[#F8F7FC] flex items-center justify-center shadow-md shadow-[#7028D8]/35 transition-transform duration-200 group-hover:scale-105">
+                  <div className="absolute w-11 h-11 rounded-full bg-[#459B45] group-hover:bg-[#246B32] text-white flex items-center justify-center shadow-md shadow-[#459B45]/35 transition-transform duration-200 group-hover:scale-105">
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </a>
@@ -270,24 +270,24 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             className="lg:col-span-7 space-y-8 relative z-20"
           >
             <div className="space-y-4">
-              <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
+              <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
                 // AGENCY POSITIONING
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] leading-[1.08] uppercase">
+              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] leading-[1.08] uppercase">
                 WE BUILD GROWTH SYSTEMS <br className="hidden sm:inline" />
-                <span className="text-[#B98AFF]">
+                <span className="text-[#459B45]">
                   FOR MODERN BRANDS
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans max-w-xl">
+              <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-xl">
                 We help founders and modern brands build visibility through personal branding, social growth, Product Hunt launches and creator-led distribution.
               </p>
             </div>
 
             {/* 2x2 Minimal Pillars Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-[#30213F] py-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-[#E5E9E5] py-6">
               {PILLARS.map((item, idx) => {
                 const Icon = item.icon;
                 return (
@@ -297,12 +297,12 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-30px' }}
                     transition={{ duration: 0.5, delay: 0.1 + idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-3.5 p-2.5 -m-2.5 rounded-xl hover:bg-[#100B1B] transition-colors duration-250 group"
+                    className="flex items-center gap-3.5 p-2.5 -m-2.5 rounded-xl hover:bg-[#F7F9F7] transition-colors duration-250 group"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-[#100B1B] border border-[#30213F] group-hover:border-[#7028D8] group-hover:bg-[#7028D8] text-[#B98AFF] group-hover:text-[#F8F7FC] flex items-center justify-center shrink-0 transition-colors duration-250">
+                    <div className="w-9 h-9 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] group-hover:border-[#459B45] group-hover:bg-[#459B45] text-[#246B32] group-hover:text-white flex items-center justify-center shrink-0 transition-colors duration-250">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-xs sm:text-sm font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] tracking-tight transition-colors">
+                    <span className="text-xs sm:text-sm font-semibold text-[#111111] group-hover:text-[#246B32] tracking-tight transition-colors">
                       {item.title}
                     </span>
                   </motion.div>
@@ -322,12 +322,12 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       decoding="async"
-                      className="w-11 h-11 rounded-full object-cover object-[center_35%] border border-[#7028D8]"
+                      className="w-11 h-11 rounded-full object-cover object-[center_35%] border border-[#459B45]"
                     />
                   </picture>
                   <div>
-                    <div className="text-sm font-bold text-[#F8F7FC]">Shivam Kushwaha</div>
-                    <div className="text-xs text-[#B9B1C9]">Founder &amp; CEO, AxentAI Labs</div>
+                    <div className="text-sm font-bold text-[#111111]">Shivam Kushwaha</div>
+                    <div className="text-xs text-[#555B55]">Founder &amp; CEO, AxentAI Labs</div>
                   </div>
                 </div>
 
@@ -337,10 +337,10 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
 
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:shadow-md hover:shadow-[#7028D8]/20 hover:-translate-y-0.5 text-xs font-semibold uppercase tracking-wider text-[#F8F7FC] transition-all duration-300 group cursor-pointer"
+                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-md hover:shadow-[#459B45]/20 hover:-translate-y-0.5 text-xs font-semibold uppercase tracking-wider text-[#111111] transition-all duration-300 group cursor-pointer"
               >
                 <span>Learn More</span>
-                <span className="w-7 h-7 rounded-full bg-[#7028D8] group-hover:bg-[#35106B] text-[#F8F7FC] flex items-center justify-center transition-colors">
+                <span className="w-7 h-7 rounded-full bg-[#459B45] group-hover:bg-[#246B32] text-white flex items-center justify-center transition-colors">
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
               </button>

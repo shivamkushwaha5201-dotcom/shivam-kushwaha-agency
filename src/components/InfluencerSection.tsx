@@ -23,7 +23,7 @@ interface OrbitIconNode {
   icon: React.ReactNode;
 }
 
-// Existing 3 Service Cards (Left & Right Columns — Unchanged)
+// Existing 3 Service Cards (Left & Right Columns)
 const SERVICE_CARD_PLATFORMS: ServiceCardPlatform[] = [
   {
     id: 'linkedin',
@@ -138,15 +138,15 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
     <section
       ref={sectionRef}
       id="influencer-marketing"
-      className="py-28 md:py-36 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
-      {/* Faint Atmospheric Gradient Matching Hero */}
+      {/* Faint Atmospheric Gradient Matching Theme */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -160,20 +160,20 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative z-20"
         >
           <div className="space-y-3 max-w-2xl relative">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
               // SOCIAL PLATFORM EXPERIENCE
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] uppercase heading-contrast-shadow">
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] uppercase heading-contrast-shadow">
               Creator Network &amp; Social Distribution.
             </h2>
-            <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-normal text-contrast-shadow">
+            <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-normal text-contrast-shadow">
               We connect brands with relevant creators across LinkedIn, X and Instagram to engineer sustained audience growth.
             </p>
           </div>
 
           <Button
             onClick={onOpenBooking}
-            className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-3 border border-[#B98AFF]/30 shadow-md shadow-[#7028D8]/25 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 transition-all duration-300 self-start md:self-auto group cursor-pointer"
+            className="bg-[#459B45] hover:bg-[#246B32] text-white text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-3 border border-[#459B45]/30 shadow-md shadow-[#459B45]/20 hover:shadow-lg hover:shadow-[#459B45]/30 hover:-translate-y-0.5 transition-all duration-300 self-start md:self-auto group cursor-pointer"
           >
             <span>CONNECT WITH US</span>
             <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
@@ -198,20 +198,20 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                   transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className={`fx-card-interactive p-6 rounded-2xl border cursor-pointer ${
                     isHighlighted
-                      ? 'bg-[#35106B]/60 border-[#7028D8] shadow-lg shadow-[#7028D8]/25 -translate-y-1'
-                      : 'bg-[#100B1B] border-[#30213F] hover:border-[#7028D8] hover:-translate-y-1 hover:shadow-md hover:shadow-[#7028D8]/15'
+                      ? 'bg-[#E5F5E5] border-[#459B45] shadow-lg shadow-[#459B45]/15 -translate-y-1'
+                      : 'bg-[#FFFFFF] border-[#E5E9E5] hover:border-[#459B45] hover:-translate-y-1 hover:shadow-md hover:shadow-[#459B45]/10'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#B98AFF] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
+                    <span className="text-[#459B45] font-mono text-xs font-bold">*</span>
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32]">
                       {platform.pillar}
                     </span>
                   </div>
-                  <h3 className="text-lg font-display font-bold text-[#F8F7FC] mb-1">
+                  <h3 className="text-lg font-display font-bold text-[#111111] mb-1">
                     {platform.name}
                   </h3>
-                  <p className="text-xs text-[#B9B1C9] leading-relaxed">
+                  <p className="text-xs text-[#555B55] leading-relaxed">
                     {platform.description}
                   </p>
                 </motion.div>
@@ -226,18 +226,18 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                 inView ? '' : 'orbit-paused'
               }`}
             >
-              {/* Soft Dark Purple Ambient Halo Behind Central Statue */}
+              {/* Soft Mint Ambient Halo Behind Central Statue */}
               <div
                 aria-hidden="true"
                 className="absolute -inset-6 rounded-full pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle, rgba(112,40,216,0.28) 0%, rgba(53,16,107,0.35) 45%, transparent 70%)',
+                    'radial-gradient(circle, rgba(69,155,69,0.2) 0%, rgba(229,245,229,0.55) 45%, transparent 70%)',
                 }}
               />
 
               {/* Central Statue + Laptop Visual */}
-              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#100B1B] border border-[#7028D8]/60 shadow-[0_12px_45px_rgba(112,40,216,0.3)] overflow-hidden relative flex items-end justify-center z-10">
+              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#FFFFFF] border border-[#459B45]/40 shadow-[0_12px_45px_rgba(69,155,69,0.15)] overflow-hidden relative flex items-end justify-center z-10">
                 <picture className="w-full h-full block">
                   <source srcSet={statueCenterVisualWebp} type="image/webp" />
                   <img
@@ -249,14 +249,14 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                     decoding="async"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#08060F]/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-[#B98AFF]/25 rounded-full pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF]/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-[#459B45]/20 rounded-full pointer-events-none" />
               </div>
 
-              {/* Subtle Orbital Track Ring */}
-              <div className="absolute inset-2 rounded-full border border-dashed border-[#30213F] pointer-events-none" />
+              {/* Orbital Track Ring */}
+              <div className="absolute inset-2 rounded-full border border-dashed border-[#E5E9E5] pointer-events-none" />
 
-              {/* Continuous Slow Circular Orbit Carrier for All 6 Platforms (Single Parent Transform) */}
+              {/* Continuous Slow Circular Orbit Carrier for All 6 Platforms */}
               <div
                 style={{ willChange: inView ? 'transform' : 'auto' }}
                 className="orbit-carrier absolute inset-0 rounded-full z-20"
@@ -283,8 +283,8 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                       <div
                         className={`orbit-counter-node w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-colors duration-300 cursor-pointer ${
                           isHighlighted
-                            ? 'bg-[#7028D8] text-[#F8F7FC] border-[#B98AFF] shadow-[0_0_22px_rgba(112,40,216,0.65)]'
-                            : 'bg-[#100B1B] text-[#F8F7FC] border-[#30213F] hover:border-[#7028D8] hover:text-[#B98AFF] shadow-md shadow-black/60'
+                            ? 'bg-[#459B45] text-white border-[#246B32] shadow-[0_0_22px_rgba(69,155,69,0.5)]'
+                            : 'bg-[#FFFFFF] text-[#111111] border-[#E5E9E5] hover:border-[#459B45] hover:text-[#459B45] shadow-md shadow-[#459B45]/10'
                         }`}
                         title={platform.name}
                         aria-label={platform.name}
@@ -314,73 +314,46 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
                   transition={{ duration: 0.5 }}
                   className={`fx-card-interactive p-6 rounded-2xl border transition-all cursor-pointer ${
                     isHighlighted
-                      ? 'bg-[#35106B]/60 border-[#7028D8] shadow-lg shadow-[#7028D8]/25'
-                      : 'bg-[#100B1B] border-[#30213F] hover:border-[#7028D8]'
+                      ? 'bg-[#E5F5E5] border-[#459B45] shadow-lg shadow-[#459B45]/15'
+                      : 'bg-[#FFFFFF] border-[#E5E9E5] hover:border-[#459B45] hover:shadow-md hover:shadow-[#459B45]/10'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#B98AFF] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
+                    <span className="text-[#459B45] font-mono text-xs font-bold">*</span>
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32]">
                       {platform.pillar}
                     </span>
                   </div>
-                  <h3 className="text-lg font-display font-bold text-[#F8F7FC] mb-1">
+                  <h3 className="text-lg font-display font-bold text-[#111111] mb-1">
                     {platform.name}
                   </h3>
-                  <p className="text-xs text-[#B9B1C9] leading-relaxed">
+                  <p className="text-xs text-[#555B55] leading-relaxed">
                     {platform.description}
                   </p>
                 </motion.div>
               );
             })}
-
-            {/* 4-Step Compact Execution Pill */}
-            <div className="p-6 rounded-2xl bg-[#100B1B] border border-[#30213F] space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="text-[#B98AFF] font-mono text-xs font-bold">*</span>
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
-                  END-TO-END FLOW
-                </span>
-              </div>
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-semibold text-[#F8F7FC]">
-                <span>DISCOVER</span>
-                <span className="text-[#B98AFF]">→</span>
-                <span>SELECT</span>
-                <span className="text-[#B98AFF]">→</span>
-                <span>CAMPAIGN</span>
-                <span className="text-[#B98AFF]">→</span>
-                <span>MEASURE</span>
-              </div>
-              <p className="text-xs text-[#B9B1C9] leading-relaxed">
-                Curated creator vetting, outreach, and transparent performance attribution.
-              </p>
-            </div>
           </div>
 
         </div>
 
       </div>
 
-      {/* GPU-accelerated 3D orbital keyframes with hover and offscreen pause */}
       <style>{`
-        @keyframes orbitSpin3D {
-          from { transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg); }
-          to { transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 360deg); }
+        @keyframes orbitFull {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
         }
-        @keyframes orbitCounterSpin3D {
-          from { transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg); }
-          to { transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, -360deg); }
+        @keyframes orbitCounter {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(-360deg); }
         }
         .orbit-carrier {
-          animation: orbitSpin3D 34s linear infinite;
-          backface-visibility: hidden;
+          animation: orbitFull 38s linear infinite;
         }
         .orbit-counter-node {
-          animation: orbitCounterSpin3D 34s linear infinite;
-          backface-visibility: hidden;
+          animation: orbitCounter 38s linear infinite;
         }
-        .orbit-carrier:hover,
-        .orbit-carrier:hover .orbit-counter-node,
         .orbit-paused .orbit-carrier,
         .orbit-paused .orbit-counter-node {
           animation-play-state: paused;

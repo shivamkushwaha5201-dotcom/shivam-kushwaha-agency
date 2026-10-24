@@ -28,15 +28,15 @@ export const WhyUsSection: React.FC = React.memo(() => {
   return (
     <section
       id="why-us"
-      className="py-28 md:py-36 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
-      {/* Faint Atmospheric Gradient Matching Hero */}
+      {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -49,13 +49,13 @@ export const WhyUsSection: React.FC = React.memo(() => {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl mb-16 space-y-3 relative z-20"
         >
-          <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
             // WHY US?
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] uppercase heading-contrast-shadow">
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] uppercase">
             WHY CHOOSE AXENTAILABS
           </h2>
-          <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans text-contrast-shadow">
+          <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans">
             Creative growth systems engineered for real founder authority and measurable reach.
           </p>
         </motion.div>
@@ -70,19 +70,19 @@ export const WhyUsSection: React.FC = React.memo(() => {
               whileHover={{ y: -4 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: idx * 0.09, ease: [0.16, 1, 0.3, 1] }}
-              className="fx-card-interactive p-8 sm:p-10 rounded-2xl bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:shadow-[0_14px_32px_-8px_rgba(112,40,216,0.28)] space-y-3 group shadow-xs"
+              className="fx-card-interactive p-8 sm:p-10 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-[0_14px_32px_-8px_rgba(69,155,69,0.15)] space-y-3 group shadow-xs"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-[#B98AFF] tracking-widest">
+                <span className="font-mono text-xs font-bold text-[#459B45] tracking-widest">
                   * {item.number}
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-display font-bold text-[#F8F7FC] tracking-tight group-hover:text-[#B98AFF] transition-colors">
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight group-hover:text-[#246B32] transition-colors">
                 {item.title}
               </h3>
 
-              <p className="text-sm text-[#B9B1C9] leading-relaxed font-normal">
+              <p className="text-sm text-[#555B55] leading-relaxed font-normal">
                 {item.description}
               </p>
             </motion.div>

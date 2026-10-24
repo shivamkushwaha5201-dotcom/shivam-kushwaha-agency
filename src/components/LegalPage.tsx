@@ -143,23 +143,23 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
   ];
 
   return (
-    <div className="min-h-screen bg-[#08060F] hero-global-bg text-[#F8F6FF] pt-24 pb-20 font-sans relative overflow-hidden">
-      {/* Faint Atmospheric Gradient Matching Hero */}
+    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] pt-24 pb-20 font-sans relative overflow-hidden">
+      {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       
       {/* Top Breadcrumb & Back Navigation Bar */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-10">
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#30213F]">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#E5E9E5]">
           <button
             onClick={onBackToHome}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#F8F6FF] hover:text-[#B69AFF] transition-colors group cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#111111] hover:text-[#246B32] transition-colors group cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             <span>Back to Home</span>
@@ -168,7 +168,7 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
           <div className="flex items-center gap-3">
             <button
               onClick={() => window.print()}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#30213F] bg-[#100B1B] text-xs font-semibold text-[#B9B1C9] hover:border-[#7028D8] hover:text-[#F8F7FC] transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#E5E9E5] bg-[#FFFFFF] text-xs font-semibold text-[#555B55] hover:border-[#459B45] hover:text-[#246B32] transition-all cursor-pointer"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print / Save PDF</span>
@@ -177,7 +177,7 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
             <Button
               size="sm"
               onClick={onOpenBooking}
-              className="bg-[#7028D8] hover:bg-[#5E1EC0] text-[#F8F7FC] text-xs font-bold px-4 py-1.5 rounded-full shadow-sm shadow-[#7028D8]/30"
+              className="bg-[#459B45] hover:bg-[#246B32] text-[#FFFFFF] text-xs font-bold px-4 py-1.5 rounded-full shadow-sm shadow-[#459B45]/20 cursor-pointer"
             >
               <span>Book a Call</span>
             </Button>
@@ -186,38 +186,38 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
       </div>
 
       {/* Main Header Container */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#100B1B] border border-[#30213F] shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#B98AFF]" />
-            <span className="text-xs font-bold text-[#B98AFF] tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F9F7] border border-[#E5E9E5] shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#459B45]" />
+            <span className="text-xs font-bold text-[#246B32] tracking-wide uppercase">
               Legal & Compliance
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#F8F7FC] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#111111] tracking-tight">
             {activeTab === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
           </h1>
 
-          <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans">
             AxentAI Labs. Transparent terms, strict confidentiality for tech startups, and zero-bot growth policies.
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-xs text-[#B9B1C9] font-mono-code pt-1">
+          <div className="flex items-center justify-center gap-4 text-xs text-[#555B55] font-mono-code pt-1">
             <span>Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             <span>•</span>
             <span>Jurisdiction: India & Global Clients</span>
           </div>
 
           {/* Primary Pill Tab Selector */}
-          <div className="inline-flex bg-[#100B1B] p-1.5 rounded-full border border-[#30213F] shadow-sm mt-4">
+          <div className="inline-flex bg-[#F7F9F7] p-1.5 rounded-full border border-[#E5E9E5] shadow-sm mt-4">
             <button
               onClick={() => setActiveTab('privacy')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeTab === 'privacy'
-                  ? 'bg-[#7028D8] text-[#F8F7FC] shadow-sm'
-                  : 'text-[#B9B1C9] hover:text-[#F8F7FC]'
+                  ? 'bg-[#459B45] text-[#FFFFFF] shadow-sm'
+                  : 'text-[#555B55] hover:text-[#111111]'
               }`}
             >
               <Shield className="w-4 h-4" />
@@ -225,10 +225,10 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
             </button>
             <button
               onClick={() => setActiveTab('terms')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeTab === 'terms'
-                  ? 'bg-[#7028D8] text-[#F8F7FC] shadow-sm'
-                  : 'text-[#B9B1C9] hover:text-[#F8F7FC]'
+                  ? 'bg-[#459B45] text-[#FFFFFF] shadow-sm'
+                  : 'text-[#555B55] hover:text-[#111111]'
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -240,34 +240,34 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
       </div>
 
       {/* Highlights Grid */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-5 rounded-3xl bg-[#100B1B] border border-[#30213F] shadow-xs">
-            <div className="w-9 h-9 rounded-xl bg-[#35106B]/60 border border-[#7028D8]/50 text-[#B98AFF] flex items-center justify-center mb-3">
+          <div className="p-5 rounded-3xl bg-[#F7F9F7] border border-[#E5E9E5] shadow-xs">
+            <div className="w-9 h-9 rounded-xl bg-[#E5F5E5] border border-[#459B45]/30 text-[#246B32] flex items-center justify-center mb-3">
               <Lock className="w-4 h-4" />
             </div>
-            <h3 className="text-sm font-bold text-[#F8F7FC]">100% Client Confidentiality</h3>
-            <p className="text-xs text-[#B9B1C9] mt-1 leading-relaxed">
+            <h3 className="text-sm font-bold text-[#111111]">100% Client Confidentiality</h3>
+            <p className="text-xs text-[#555B55] mt-1 leading-relaxed">
               Unannounced products, stealth decks, and pre-launch features are safeguarded under strict non-disclosure.
             </p>
           </div>
 
-          <div className="p-5 rounded-3xl bg-[#100B1B] border border-[#30213F] shadow-xs">
-            <div className="w-9 h-9 rounded-xl bg-[#35106B]/60 border border-[#7028D8]/50 text-[#B98AFF] flex items-center justify-center mb-3">
+          <div className="p-5 rounded-3xl bg-[#F7F9F7] border border-[#E5E9E5] shadow-xs">
+            <div className="w-9 h-9 rounded-xl bg-[#E5F5E5] border border-[#459B45]/30 text-[#246B32] flex items-center justify-center mb-3">
               <CheckCircle2 className="w-4 h-4" />
             </div>
-            <h3 className="text-sm font-bold text-[#F8F7FC]">Zero-Bot Policy</h3>
-            <p className="text-xs text-[#B9B1C9] mt-1 leading-relaxed">
+            <h3 className="text-sm font-bold text-[#111111]">Zero-Bot Policy</h3>
+            <p className="text-xs text-[#555B55] mt-1 leading-relaxed">
               100% organic velocity, genuine creator reviews, and anti-spam algorithm compliance on Product Hunt.
             </p>
           </div>
 
-          <div className="p-5 rounded-3xl bg-[#100B1B] border border-[#30213F] shadow-xs">
-            <div className="w-9 h-9 rounded-xl bg-[#35106B]/60 border border-[#7028D8]/50 text-[#B98AFF] flex items-center justify-center mb-3">
+          <div className="p-5 rounded-3xl bg-[#F7F9F7] border border-[#E5E9E5] shadow-xs">
+            <div className="w-9 h-9 rounded-xl bg-[#E5F5E5] border border-[#459B45]/30 text-[#246B32] flex items-center justify-center mb-3">
               <Scale className="w-4 h-4" />
             </div>
-            <h3 className="text-sm font-bold text-[#F8F7FC]">Founder-First IP Rights</h3>
-            <p className="text-xs text-[#B9B1C9] mt-1 leading-relaxed">
+            <h3 className="text-sm font-bold text-[#111111]">Founder-First IP Rights</h3>
+            <p className="text-xs text-[#555B55] mt-1 leading-relaxed">
               Clients retain full ownership of all software, trademarks, creative assets, and audience data.
             </p>
           </div>
@@ -275,13 +275,13 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
       </div>
 
       {/* Main Document Content */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Table of Contents Sticky Sidebar */}
           <div className="lg:col-span-4 sticky top-28 hidden lg:block space-y-4">
-            <div className="p-5 rounded-3xl bg-[#100B1B] border border-[#30213F] shadow-xs">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#B9B1C9] mb-3">
+            <div className="p-5 rounded-3xl bg-[#F7F9F7] border border-[#E5E9E5] shadow-xs">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#555B55] mb-3">
                 Contents — {activeTab === 'privacy' ? 'Privacy' : 'Terms'}
               </div>
               <nav className="space-y-1">
@@ -289,18 +289,18 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
                   <a
                     key={sec.id}
                     href={`#${sec.id}`}
-                    className="block px-3 py-2 rounded-xl text-xs font-semibold text-[#B9B1C9] hover:text-[#B98AFF] hover:bg-[#0B0812] transition-all"
+                    className="block px-3 py-2 rounded-xl text-xs font-semibold text-[#555B55] hover:text-[#246B32] hover:bg-[#FFFFFF] transition-all"
                   >
                     {sec.title}
                   </a>
                 ))}
               </nav>
 
-              <div className="mt-5 pt-4 border-t border-[#30213F]">
-                <div className="text-[11px] font-bold text-[#F8F7FC] mb-1">Direct Contact</div>
+              <div className="mt-5 pt-4 border-t border-[#E5E9E5]">
+                <div className="text-[11px] font-bold text-[#111111] mb-1">Direct Contact</div>
                 <a 
                   href={`mailto:${CONTACT_INFO.email}`} 
-                  className="text-xs text-[#B98AFF] font-medium hover:underline flex items-center gap-1.5"
+                  className="text-xs text-[#246B32] font-medium hover:underline flex items-center gap-1.5"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>{CONTACT_INFO.email}</span>
@@ -315,45 +315,45 @@ AxentAI Labs is not liable for indirect, incidental, or third-party platform pol
               <div
                 key={section.id}
                 id={section.id}
-                className="p-6 sm:p-8 rounded-3xl bg-[#100B1B] border border-[#30213F] shadow-xs scroll-mt-28"
+                className="p-6 sm:p-8 rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] shadow-xs scroll-mt-28"
               >
-                <h2 className="text-lg sm:text-xl font-bold font-display text-[#F8F7FC] mb-3">
+                <h2 className="text-lg sm:text-xl font-bold font-display text-[#111111] mb-3">
                   {section.title}
                 </h2>
-                <div className="text-xs sm:text-sm text-[#B9B1C9] leading-relaxed font-sans whitespace-pre-line space-y-2">
+                <div className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans whitespace-pre-line space-y-2">
                   {section.content}
                 </div>
               </div>
             ))}
 
             {/* Direct Contact & Inquiries Card */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#35106B] to-[#100B1B] border border-[#7028D8]/40 text-[#F8F7FC] shadow-xl space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#100B1B]/60 border border-[#7028D8]/40 text-[#B98AFF] text-xs font-bold">
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#E5F5E5] to-[#FFFFFF] border border-[#459B45]/40 text-[#111111] shadow-md space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFFFF] border border-[#459B45]/30 text-[#246B32] text-xs font-bold">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Have Questions About Our Terms?</span>
               </div>
               
-              <h3 className="text-xl font-bold font-display">
+              <h3 className="text-xl font-bold font-display text-[#111111]">
                 Need a Custom Mutual Non-Disclosure Agreement (NDA)?
               </h3>
               
-              <p className="text-xs sm:text-sm text-[#B9B1C9] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed">
                 We frequently execute custom bilateral NDAs with venture-backed teams and high-growth AI companies prior to pre-launch discovery calls.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Button
                   onClick={onOpenBooking}
-                  className="bg-[#7028D8] hover:bg-[#5E1EC0] text-[#F8F7FC] text-xs sm:text-sm font-bold px-6 py-2.5 rounded-full"
+                  className="bg-[#459B45] hover:bg-[#246B32] text-[#FFFFFF] text-xs sm:text-sm font-bold px-6 py-2.5 rounded-full cursor-pointer"
                 >
                   <span>Schedule Discovery Call</span>
                 </Button>
 
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="px-5 py-2.5 rounded-full border border-[#30213F] bg-[#100B1B]/80 hover:bg-[#100B1B] text-[#F8F7FC] text-xs sm:text-sm font-semibold transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-full border border-[#E5E9E5] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] text-xs sm:text-sm font-semibold transition-all flex items-center gap-2"
                 >
-                  <Mail className="w-3.5 h-3.5" />
+                  <Mail className="w-3.5 h-3.5 text-[#246B32]" />
                   <span>Email AxentAI Labs</span>
                 </a>
               </div>

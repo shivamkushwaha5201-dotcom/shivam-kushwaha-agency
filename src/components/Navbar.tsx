@@ -104,12 +104,12 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
       id="main-navbar"
       className="fixed top-0 left-0 right-0 z-40 py-3.5 sm:py-4"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
-          className={`flex items-center justify-between px-4 sm:px-6 py-2 rounded-full transition-colors duration-300 ${
+          className={`flex items-center justify-between px-5 sm:px-6 py-2.5 rounded-full transition-all duration-300 ${
             scrolled
-              ? 'bg-[#08060F]/90 backdrop-blur-md border border-[#30213F] shadow-xl shadow-black/60'
-              : 'bg-[#08060F]/80 backdrop-blur-sm border border-[#30213F]'
+              ? 'bg-[#FFFFFF]/95 backdrop-blur-md border border-[#E5E9E5] shadow-[0_8px_30px_rgb(0,0,0,0.06)]'
+              : 'bg-[#FFFFFF]/90 backdrop-blur-md border border-[#E5E9E5] shadow-[0_4px_20px_rgb(0,0,0,0.03)]'
           }`}
         >
           {/* Brand Logo & Name */}
@@ -117,9 +117,9 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             href="#home"
             onClick={handleLogoClick}
             id="nav-logo"
-            className="flex items-center gap-2.5 group cursor-pointer"
+            className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="w-7 h-7 rounded-full overflow-hidden border border-[#30213F] p-0.5 bg-[#110B20] group-hover:border-[#B69AFF] transition-colors flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5E9E5] p-0.5 bg-[#FFFFFF] group-hover:border-[#459B45] transition-colors flex items-center justify-center shrink-0 shadow-xs">
               <picture className="w-full h-full block">
                 <source srcSet={brandLogoWebp} type="image/webp" />
                 <img
@@ -133,14 +133,14 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             </div>
 
             <div className="flex flex-col">
-              <span className="font-semibold text-xs tracking-wider text-[#F8F6FF] group-hover:text-[#B69AFF] transition-colors uppercase font-display">
+              <span className="font-bold text-xs sm:text-[13px] tracking-[0.14em] text-[#111111] group-hover:text-[#246B32] transition-colors uppercase font-display">
                 AxentAI Labs
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1.5">
             {navLinks.map((link) => {
               const isActive = !isLegalPage && !isServicePage && activeSection === link.id;
               return (
@@ -149,17 +149,17 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                   href={link.href}
                   onClick={() => handleNavLinkClick(link.href)}
                   id={`nav-link-${link.id}`}
-                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors duration-250 ${
+                  className={`relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#F8F6FF] font-semibold'
-                      : 'text-[#B7AEC9] hover:text-[#F8F6FF] hover:bg-[#110B20]'
+                      ? 'text-[#246B32] font-semibold'
+                      : 'text-[#444444] hover:text-[#111111] hover:bg-[#F7F9F7]'
                   }`}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="navbar-active-pill"
-                      transition={{ type: 'spring', stiffness: 360, damping: 30 }}
-                      className="absolute inset-0 rounded-full bg-[#35106B]/85 border border-[#7028D8]/60 -z-10"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      className="absolute inset-0 rounded-full bg-[#EAF7EA] border border-[#CDECCF] -z-10"
                     />
                   )}
                   <span className="relative z-10">{link.name}</span>
@@ -169,18 +169,18 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
           </nav>
 
           {/* Right Action Controls */}
-          <div className="hidden sm:flex items-center gap-2.5">
-            <ThemeToggle />
-
+          <div className="hidden sm:flex items-center gap-3">
             <Button
               id="nav-cta-button"
               size="sm"
               onClick={onOpenBooking}
-              className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F6FF] text-xs font-semibold tracking-wide px-5 py-2 rounded-full border border-[#B69AFF]/30 shadow-md shadow-[#7028D8]/25 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer"
+              className="bg-gradient-to-r from-[#246B32] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs font-semibold tracking-wide px-5 py-2.5 rounded-full border border-[#459B45]/30 shadow-[0_4px_14px_rgba(36,107,50,0.28)] hover:shadow-[0_6px_20px_rgba(36,107,50,0.36)] hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer"
             >
-              <span>Book a Call</span>
+              <span>Book a Strategy Call</span>
               <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Button>
+
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -190,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-[#F8F6FF] hover:text-[#B69AFF] hover:bg-[#110B20] transition-colors"
+              className="p-2 rounded-full text-[#111111] hover:text-[#459B45] hover:bg-[#F7F9F7] transition-colors"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -209,21 +209,21 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             transition={{ duration: 0.2 }}
             className="lg:hidden mt-2 px-4 max-w-7xl mx-auto"
           >
-            <div className="bg-[#08060F]/98 backdrop-blur-md border border-[#30213F] rounded-2xl shadow-2xl shadow-black/80 p-4">
+            <div className="bg-[#FFFFFF]/98 backdrop-blur-md border border-[#E5E9E5] rounded-2xl shadow-2xl shadow-black/10 p-4">
               <div className="flex flex-col space-y-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => handleNavLinkClick(link.href)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#B7AEC9] hover:text-[#F8F6FF] hover:bg-[#110B20] transition-colors"
+                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#555B55] hover:text-[#111111] hover:bg-[#F7F9F7] transition-colors"
                   >
                     {link.name}
                   </a>
                 ))}
-                <div className="pt-3 mt-2 border-t border-[#30213F] flex flex-col gap-2">
+                <div className="pt-3 mt-2 border-t border-[#E5E9E5] flex flex-col gap-2">
                   <Button
-                    className="w-full justify-center bg-[#7028D8] hover:bg-[#35106B] text-[#F8F6FF] font-semibold py-2.5 rounded-xl text-xs"
+                    className="w-full justify-center bg-[#459B45] hover:bg-[#246B32] text-white font-semibold py-2.5 rounded-xl text-xs"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       onOpenBooking();
@@ -236,9 +236,9 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                     href={CONTACT_INFO.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 rounded-xl border border-[#30213F] bg-[#110B20] text-[#F8F6FF] text-xs font-medium flex items-center justify-center gap-2 hover:bg-[#35106B]/60 transition-colors"
+                    className="w-full py-2.5 rounded-xl border border-[#E5E9E5] bg-[#F7F9F7] text-[#111111] text-xs font-medium flex items-center justify-center gap-2 hover:bg-[#E5F5E5] transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                    <Phone className="w-3.5 h-3.5 text-emerald-600" />
                     <span>WhatsApp Chat</span>
                   </a>
                 </div>

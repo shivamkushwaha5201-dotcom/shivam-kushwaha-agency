@@ -260,7 +260,7 @@ export function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08060F] hero-global-bg text-[#F8F6FF] flex flex-col overflow-x-hidden font-sans selection:bg-[#7028D8]/30 selection:text-[#F8F6FF]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111]">
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}
         description="A collection of products I've helped during their Product Hunt launches, along with their final votes and rankings."
@@ -283,16 +283,16 @@ export function PortfolioApp() {
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-8">
             <div
               role="alert"
-              className="p-4 rounded-xl bg-[#151020] border border-[#7028D8]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-lg"
+              className="p-4 rounded-xl bg-[#F7F9F7] border border-red-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm"
             >
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F8F6FF]">
-                <AlertCircle size={18} className="shrink-0 mt-0.5 text-[#B69AFF]" />
+              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#111111]">
+                <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-500" />
                 <span>{loadError}</span>
               </div>
               <button
                 type="button"
                 onClick={loadPortfolioData}
-                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#F8F6FF] bg-[#1E1430] border border-[#30213F] hover:bg-[#2A1C44] transition-colors cursor-pointer shrink-0"
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#111111] bg-[#FFFFFF] border border-[#E5E9E5] hover:bg-[#F7F9F7] transition-colors cursor-pointer shrink-0"
               >
                 <RefreshCw size={13} />
                 <span>Retry Loading</span>
@@ -304,13 +304,13 @@ export function PortfolioApp() {
         {/* Cohesive Section Switcher Bar + Horizontally Animated Section Stage */}
         <div
           id="portfolio-sections-stage"
-          className="scroll-mt-16 bg-[#08060F] border-b border-[#30213F]"
+          className="scroll-mt-16 bg-[#FFFFFF] border-b border-[#E5E9E5]"
         >
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-6 pb-2 flex flex-wrap items-center justify-between gap-4">
             <div
               role="tablist"
               aria-label="Portfolio Sections"
-              className="inline-flex items-center p-1 rounded-full bg-[#110B20] border border-[#30213F] shadow-2xs"
+              className="inline-flex items-center p-1 rounded-full bg-[#F7F9F7] border border-[#E5E9E5] shadow-2xs"
             >
               {(
                 [
@@ -341,7 +341,7 @@ export function PortfolioApp() {
                     className={`relative px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-2 ${
                       isSelected
                         ? 'text-white'
-                        : 'text-[#B7AEC9] hover:text-[#F8F6FF]'
+                        : 'text-[#555B55] hover:text-[#111111]'
                     }`}
                   >
                     {isSelected && (
@@ -352,7 +352,7 @@ export function PortfolioApp() {
                           stiffness: 360,
                           damping: 30,
                         }}
-                        className="absolute inset-0 rounded-full bg-[#7028D8] shadow-xs shadow-[#7028D8]/25 -z-0"
+                        className="absolute inset-0 rounded-full bg-[#459B45] shadow-xs shadow-[#459B45]/20 -z-0"
                       />
                     )}
                     <span className="relative z-10">{tab.label}</span>
@@ -360,8 +360,8 @@ export function PortfolioApp() {
                       <span
                         className={`relative z-10 text-[11px] px-1.5 py-0.2 rounded-full font-mono ${
                           isSelected
-                            ? 'bg-white/20 text-white'
-                            : 'bg-[#241738] text-[#B69AFF]'
+                            ? 'bg-white/25 text-white'
+                            : 'bg-[#E5F5E5] text-[#246B32]'
                         }`}
                       >
                         {tab.count}

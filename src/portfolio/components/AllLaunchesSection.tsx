@@ -28,14 +28,14 @@ export const AllLaunchesSection: React.FC<AllLaunchesSectionProps> = ({
   return (
     <section
       id="all-launches"
-      className="scroll-mt-16 py-12 sm:py-16 bg-[#08060F] border-b border-[#30213F]"
+      className="scroll-mt-16 py-12 sm:py-16 bg-[#FFFFFF] border-b border-[#E5E9E5]"
     >
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#F8F6FF] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight">
             All Supported Launches
           </h2>
-          <p className="text-sm text-[#B7AEC9] mt-1">
+          <p className="text-sm text-[#555B55] mt-1">
             Explore the Product Hunt launches I’ve supported.
           </p>
         </div>
@@ -44,16 +44,16 @@ export const AllLaunchesSection: React.FC<AllLaunchesSectionProps> = ({
           <div
             role="status"
             aria-live="polite"
-            className="bg-[#151020] border border-[#30213F] rounded-xl p-12 flex flex-col items-center justify-center gap-3 text-center"
+            className="bg-[#F7F9F7] border border-[#E5E9E5] rounded-xl p-12 flex flex-col items-center justify-center gap-3 text-center"
           >
-            <Loader2 size={22} className="animate-spin text-[#B69AFF]" />
-            <p className="text-xs sm:text-sm text-[#B7AEC9]">
+            <Loader2 size={22} className="animate-spin text-[#459B45]" />
+            <p className="text-xs sm:text-sm text-[#555B55]">
               Loading supported launches...
             </p>
           </div>
         ) : launches.length === 0 ? (
-          <div className="bg-[#151020] border border-[#30213F] rounded-xl p-10 text-center">
-            <p className="text-sm font-medium text-[#B7AEC9]">
+          <div className="bg-[#F7F9F7] border border-[#E5E9E5] rounded-xl p-10 text-center">
+            <p className="text-sm font-medium text-[#555B55]">
               No launches have been added to this portfolio yet.
             </p>
           </div>
@@ -76,14 +76,14 @@ export const AllLaunchesSection: React.FC<AllLaunchesSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
-                  className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-xs font-semibold text-[#F8F6FF] bg-[#7028D8] hover:bg-[#5E1EC0] border border-[#7028D8] transition-colors cursor-pointer shadow-xs"
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-xs font-semibold text-[#FFFFFF] bg-[#459B45] hover:bg-[#246B32] border border-[#459B45] transition-colors cursor-pointer shadow-xs"
                 >
                   Load More ({launches.length - visibleCount} remaining)
                 </button>
                 <button
                   type="button"
                   onClick={() => setVisibleCount(launches.length)}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-lg text-xs font-semibold text-[#F8F6FF] bg-[#151020] hover:bg-[#35106B]/60 border border-[#30213F] hover:border-[#7028D8] transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-lg text-xs font-semibold text-[#111111] bg-[#FFFFFF] hover:bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] transition-colors cursor-pointer"
                 >
                   Show All ({launches.length})
                 </button>

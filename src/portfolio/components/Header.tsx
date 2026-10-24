@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenAdmin,
 }) => {
   return (
-    <header className="sticky top-0 z-30 bg-[#08060F]/90 backdrop-blur-md border-b border-[#30213F]">
+    <header className="sticky top-0 z-30 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E5E9E5]">
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4 sm:gap-8">
         {/* Left side: Minimal personal portfolio name / configurable text logo */}
         <a
@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="text-base sm:text-lg font-bold tracking-tight text-[#F8F6FF] hover:text-[#B69AFF] transition-colors whitespace-nowrap shrink-0"
+          className="text-base sm:text-lg font-bold tracking-tight text-[#111111] hover:text-[#246B32] transition-colors whitespace-nowrap shrink-0"
         >
           {ownerName}
         </a>
@@ -55,8 +55,8 @@ export const Header: React.FC<HeaderProps> = ({
                   onClick={(e) => onNavigate(e, item.id)}
                   className={`relative transition-colors whitespace-nowrap shrink-0 py-1.5 ${
                     isActive
-                      ? 'text-[#B69AFF] font-semibold'
-                      : 'text-[#B7AEC9] hover:text-[#F8F6FF]'
+                      ? 'text-[#246B32] font-semibold'
+                      : 'text-[#555B55] hover:text-[#111111]'
                   }`}
                 >
                   <span>{item.label}</span>
@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
                         stiffness: 380,
                         damping: 30,
                       }}
-                      className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-[#7028D8] to-[#8B5CE8] rounded-full"
+                      className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-[#246B32] to-[#459B45] rounded-full"
                     />
                   )}
                 </a>
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#7028D8] hover:bg-[#5E1EC0] transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#459B45] hover:bg-[#246B32] transition-colors cursor-pointer whitespace-nowrap shrink-0"
             >
               <Plus size={14} aria-hidden="true" />
               <span>Add Launch</span>
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             aria-label="Scroll to top of homepage"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#30213F] bg-[#110B20] p-0.5 flex items-center justify-center shrink-0 overflow-hidden hover:scale-105 hover:border-[#7028D8]/60 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7028D8]"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#E5E9E5] bg-[#FFFFFF] p-0.5 flex items-center justify-center shrink-0 overflow-hidden hover:scale-105 hover:border-[#459B45] transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#459B45]"
           >
             <img
               src={catMascotLogo}

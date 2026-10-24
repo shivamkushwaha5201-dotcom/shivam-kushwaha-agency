@@ -60,14 +60,14 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
   ];
 
   return (
-    <section id="about" className="py-24 md:py-28 bg-[#08060F] relative overflow-hidden border-t border-[#30213F] text-[#F8F6FF] transition-colors duration-200 z-10">
-      {/* Faint Atmospheric Gradient Matching Hero */}
+    <section id="about" className="py-24 md:py-28 bg-[#FFFFFF] relative overflow-hidden border-t border-[#E5E9E5] text-[#111111] transition-colors duration-200 z-10">
+      {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -83,9 +83,9 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
             
             {/* Pill Label */}
             <StaggerItem>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#100B1B] border border-[#30213F]">
-                <span className="w-2 h-2 rounded-full bg-[#7028D8]" />
-                <span className="text-xs font-bold text-[#B98AFF] tracking-wide uppercase">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F9F7] border border-[#E5E9E5]">
+                <span className="w-2 h-2 rounded-full bg-[#459B45]" />
+                <span className="text-xs font-bold text-[#246B32] tracking-wide uppercase">
                   About Founder
                 </span>
               </div>
@@ -93,31 +93,31 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
 
             {/* Bold Headline */}
             <StaggerItem>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#F8F7FC] tracking-tight leading-[1.14]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#111111] tracking-tight leading-[1.14]">
                 Shivam Kushwaha — Founder & CEO of Axentailabs
               </h2>
             </StaggerItem>
 
             <StaggerItem>
               <div className="space-y-3">
-                <p className="text-sm sm:text-base text-[#F8F7FC] leading-relaxed font-sans">
-                  <strong className="text-[#B98AFF] font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#B98AFF] font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#B98AFF] font-semibold underline decoration-[#7028D8] underline-offset-4 hover:text-[#F8F7FC] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms.
+                <p className="text-sm sm:text-base text-[#111111] leading-relaxed font-sans">
+                  <strong className="text-[#246B32] font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#246B32] font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#246B32] font-semibold underline decoration-[#459B45] underline-offset-4 hover:text-[#111111] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms.
                 </p>
-                <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans">
-                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#B98AFF] font-medium hover:text-[#F8F7FC] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
+                <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans">
+                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#246B32] font-medium hover:text-[#111111] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
                 </p>
               </div>
             </StaggerItem>
 
-            {/* Bullet Points with Purple Accents */}
+            {/* Bullet Points with Green Accents */}
             <StaggerItem>
               <div className="space-y-3 pt-2">
                 {highlights.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#35106B]/70 border border-[#7028D8]/40 text-[#B98AFF] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#E5F5E5] border border-[#459B45]/30 text-[#246B32] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
-                    <span className="text-xs sm:text-sm text-[#F8F7FC] font-medium leading-relaxed">
+                    <span className="text-xs sm:text-sm text-[#111111] font-medium leading-relaxed">
                       {item}
                     </span>
                   </div>
@@ -131,7 +131,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 <Button
                   size="lg"
                   onClick={onOpenBooking}
-                  className="bg-[#7028D8] hover:bg-[#35106B] text-[#F8F7FC] text-xs sm:text-sm font-bold px-7 py-3 rounded-full border border-[#B98AFF]/30 shadow-lg shadow-[#7028D8]/30 group hover:scale-102 transition-all cursor-pointer"
+                  className="bg-[#459B45] hover:bg-[#246B32] text-[#FFFFFF] text-xs sm:text-sm font-bold px-7 py-3 rounded-full border border-[#459B45]/30 shadow-lg shadow-[#459B45]/20 group hover:scale-102 transition-all cursor-pointer"
                 >
                   <span>Book a Call</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -141,9 +141,9 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                   href={CONTACT_INFO.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full border border-[#30213F] bg-[#100B1B] text-[#F8F7FC] text-xs sm:text-sm font-bold hover:bg-[#35106B]/50 hover:border-[#7028D8] transition-all flex items-center gap-2 hover:scale-102"
+                  className="px-6 py-3 rounded-full border border-[#E5E9E5] bg-[#FFFFFF] text-[#111111] text-xs sm:text-sm font-bold hover:bg-[#F7F9F7] hover:border-[#459B45] transition-all flex items-center gap-2 hover:scale-102 shadow-xs"
                 >
-                  <Phone className="w-4 h-4 text-emerald-400" />
+                  <Phone className="w-4 h-4 text-emerald-600" />
                   <span>Chat on WhatsApp</span>
                 </a>
               </div>
@@ -162,11 +162,11 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
             <div className="relative mx-auto max-w-sm sm:max-w-md">
               
               {/* Background Geometric Wireframe Arcs */}
-              <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full border border-[#7028D8]/40 pointer-events-none -z-10" />
-              <div className="absolute -bottom-6 -right-6 w-80 h-80 rounded-full border border-[#30213F] pointer-events-none -z-10" />
+              <div className="absolute -top-6 -left-6 w-72 h-72 rounded-full border border-[#459B45]/30 pointer-events-none -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-80 h-80 rounded-full border border-[#E5E9E5] pointer-events-none -z-10" />
 
               {/* Main Photo Card */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-[#30213F] bg-[#100B1B] shadow-2xl shadow-black/70 aspect-[4/5] sm:aspect-[4/5] group">
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#E5E9E5] bg-[#F7F9F7] shadow-xl shadow-black/5 aspect-[4/5] sm:aspect-[4/5] group">
                 <picture className="w-full h-full block">
                   <source srcSet={shivamProfileWebp} type="image/webp" />
                   <img
@@ -180,9 +180,9 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 </picture>
 
                 {/* Bottom Floating Info Tag */}
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-[#0B0812]/95 border border-[#30213F] shadow-xl flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-[#FFFFFF]/95 border border-[#E5E9E5] shadow-xl flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full overflow-hidden border border-[#7028D8] p-0.5 bg-[#100B1B] shadow-xs flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-full overflow-hidden border border-[#459B45] p-0.5 bg-[#FFFFFF] shadow-xs flex items-center justify-center shrink-0">
                       <picture className="w-full h-full block">
                         <source srcSet={brandLogoWebp} type="image/webp" />
                         <img
@@ -196,20 +196,20 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                       </picture>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#F8F7FC]">Shivam Kushwaha</div>
-                      <div className="text-[10px] text-[#B9B1C9]">Founder & CEO, Axentailabs</div>
+                      <div className="text-xs font-bold text-[#111111]">Shivam Kushwaha</div>
+                      <div className="text-[10px] text-[#555B55]">Founder & CEO, Axentailabs</div>
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-bold text-[#B98AFF] bg-[#35106B]/70 px-2.5 py-1 rounded-full border border-[#7028D8]/50">
+                  <span className="text-[10px] font-bold text-[#246B32] bg-[#E5F5E5] px-2.5 py-1 rounded-full border border-[#459B45]/30">
                     Founder Led
                   </span>
                 </div>
               </div>
 
               {/* Floating Verified Badge */}
-              <div className="absolute -top-4 -right-4 p-3 rounded-2xl bg-[#100B1B] border border-[#30213F] shadow-xl flex items-center gap-2 text-xs font-bold text-[#F8F7FC] hidden sm:flex">
-                <div className="w-7 h-7 rounded-full bg-[#35106B] text-[#B98AFF] flex items-center justify-center font-bold">
+              <div className="absolute -top-4 -right-4 p-3 rounded-2xl bg-[#FFFFFF] border border-[#E5E9E5] shadow-xl flex items-center gap-2 text-xs font-bold text-[#111111] hidden sm:flex">
+                <div className="w-7 h-7 rounded-full bg-[#E5F5E5] text-[#246B32] flex items-center justify-center font-bold">
                   ✓
                 </div>
                 <span>Founder Led</span>
@@ -226,17 +226,17 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-16 pt-12 border-t border-[#30213F]"
+          className="mt-16 pt-12 border-t border-[#E5E9E5]"
         >
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-2 max-w-xl">
-              <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.25em] text-[#B98AFF]">
+              <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.25em] text-[#246B32]">
                 CONNECT WITH SHIVAM
               </div>
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#F8F7FC] tracking-tight uppercase">
+              <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#111111] tracking-tight uppercase">
                 LET&apos;S CONNECT
               </h3>
-              <p className="text-xs sm:text-sm text-[#B9B1C9] font-sans leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#555B55] font-sans leading-relaxed">
                 Follow my work, Product Hunt launches and founder journey across the platforms below.
               </p>
             </div>
@@ -248,21 +248,21 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 href="https://www.producthunt.com/@shivam_kushwaha16"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:bg-[#35106B]/45 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#7028D8]/20 transition-[border-color,transform,box-shadow,background-color] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] hover:bg-[#E5F5E5]/50 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#459B45]/15 transition-[border-color,transform,box-shadow,background-color] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
-                    className="w-4 h-4 text-[#B98AFF] shrink-0 transition-transform duration-250 group-hover:scale-105"
+                    className="w-4 h-4 text-[#246B32] shrink-0 transition-transform duration-250 group-hover:scale-105"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
                     <path d="M13.604 8.4h-3.405V12h3.405a1.8 1.8 0 0 0 0-3.6zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1.604 12.4h-3.405V18H7.801V6h5.803a4.2 4.2 0 1 1 0 8.4z" />
                   </svg>
-                  <span className="text-xs sm:text-sm font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] truncate">
+                  <span className="text-xs sm:text-sm font-semibold text-[#111111] group-hover:text-[#246B32] truncate">
                     Product Hunt
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-[#B98AFF] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#555B55] group-hover:text-[#246B32] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 2. LinkedIn */}
@@ -270,21 +270,21 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 href="https://www.linkedin.com/in/shivam-k-6a462337b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:bg-[#35106B]/45 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#7028D8]/20 transition-[border-color,transform,box-shadow,background-color] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] hover:bg-[#E5F5E5]/50 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#459B45]/15 transition-[border-color,transform,box-shadow,background-color] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
-                    className="w-4 h-4 text-[#B98AFF] shrink-0 transition-transform duration-250 group-hover:scale-105"
+                    className="w-4 h-4 text-[#246B32] shrink-0 transition-transform duration-250 group-hover:scale-105"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
                   </svg>
-                  <span className="text-xs sm:text-sm font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] truncate">
+                  <span className="text-xs sm:text-sm font-semibold text-[#111111] group-hover:text-[#246B32] truncate">
                     LinkedIn
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-[#B98AFF] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#555B55] group-hover:text-[#246B32] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 3. X / Twitter */}
@@ -292,35 +292,35 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 href="https://x.com/shivam100x"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:bg-[#35106B]/45 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#7028D8]/20 transition-[border-color,transform,box-shadow,background-color] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] hover:bg-[#E5F5E5]/50 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#459B45]/15 transition-[border-color,transform,box-shadow,background-color] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <svg
-                    className="w-3.5 h-3.5 text-[#B98AFF] shrink-0 transition-transform duration-250 group-hover:scale-105"
+                    className="w-3.5 h-3.5 text-[#246B32] shrink-0 transition-transform duration-250 group-hover:scale-105"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
-                  <span className="text-xs sm:text-sm font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] truncate">
+                  <span className="text-xs sm:text-sm font-semibold text-[#111111] group-hover:text-[#246B32] truncate">
                     X
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-[#B98AFF] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#555B55] group-hover:text-[#246B32] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
               {/* 4. Personal Email */}
               <a
                 href="mailto:Shivamkushwaha5201@gmail.com"
-                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] hover:bg-[#35106B]/45 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#7028D8]/20 transition-[border-color,transform,box-shadow,background-color] duration-250"
+                className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] hover:bg-[#E5F5E5]/50 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#459B45]/15 transition-[border-color,transform,box-shadow,background-color] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <Mail className="w-4 h-4 text-[#B98AFF] shrink-0 transition-transform duration-250 group-hover:scale-105" />
-                  <span className="text-xs sm:text-sm font-semibold text-[#F8F7FC] group-hover:text-[#B98AFF] truncate">
+                  <Mail className="w-4 h-4 text-[#246B32] shrink-0 transition-transform duration-250 group-hover:scale-105" />
+                  <span className="text-xs sm:text-sm font-semibold text-[#111111] group-hover:text-[#246B32] truncate">
                     Email
                   </span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#B9B1C9] group-hover:text-[#B98AFF] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#555B55] group-hover:text-[#246B32] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
             </div>
           </div>

@@ -55,15 +55,15 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
   return (
     <section 
       id="product-hunt" 
-      className="py-32 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
+      className="py-32 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
-      {/* Faint Atmospheric Gradient Matching Hero */}
+      {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -76,13 +76,13 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-20 space-y-4 relative z-20"
         >
-          <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
             // GLOBAL LAUNCH ARCHITECTURE
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] heading-contrast-shadow">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.02em]">
             Global Launch Visibility.
           </h2>
-          <p className="text-sm sm:text-base text-[#B9B1C9] leading-relaxed font-sans max-w-2xl font-normal text-contrast-shadow">
+          <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-2xl font-normal">
             A battle-tested 4-phase launch framework designed to propel your software to international early-adopter recognition with 100% legitimate strategy.
           </p>
         </motion.div>
@@ -93,20 +93,20 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="p-8 sm:p-12 rounded-3xl bg-[#100B1B] border border-[#30213F] mb-12 shadow-xl shadow-black/50 space-y-8"
+          className="p-8 sm:p-12 rounded-3xl bg-[#F7F9F7] border border-[#E5E9E5] mb-12 shadow-sm space-y-8"
         >
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#30213F]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E5E9E5]">
             <div className="space-y-1.5">
-              <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF]">
+              <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32]">
                 Launch Flight Path
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#F8F7FC] tracking-tight font-display">
-                PRE-LAUNCH <span className="text-[#B98AFF] font-light">↓</span> LAUNCH <span className="text-[#B98AFF] font-light">↓</span> DISTRIBUTION <span className="text-[#B98AFF] font-light">↓</span> POST-LAUNCH
+              <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight font-display">
+                PRE-LAUNCH <span className="text-[#459B45] font-light">↓</span> LAUNCH <span className="text-[#459B45] font-light">↓</span> DISTRIBUTION <span className="text-[#459B45] font-light">↓</span> POST-LAUNCH
               </h3>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B0812] border border-[#30213F] text-[#B98AFF] text-xs font-mono font-medium">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] text-[#246B32] text-xs font-mono font-medium">
               <Globe className="w-3.5 h-3.5" />
               <span>International Early Adopters</span>
             </div>
@@ -123,30 +123,30 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
                   whileHover={{ y: -4 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.5, delay: idx * 0.09, ease: [0.16, 1, 0.3, 1] }}
-                  className="fx-card-interactive p-6 rounded-2xl bg-[#0B0812] border border-[#30213F] hover:border-[#7028D8] hover:bg-[#100B1B] hover:shadow-[0_12px_28px_-6px_rgba(112,40,216,0.25)] space-y-3 flex flex-col justify-between"
+                  className="fx-card-interactive p-6 rounded-2xl bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-[0_12px_28px_-6px_rgba(69,155,69,0.15)] space-y-3 flex flex-col justify-between"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-[#B98AFF]">
+                      <span className="font-mono text-xs font-bold text-[#246B32]">
                         {phase.name}
                       </span>
-                      <Icon className="w-4 h-4 text-[#7028D8]" />
+                      <Icon className="w-4 h-4 text-[#459B45]" />
                     </div>
 
-                    <div className="text-[11px] font-mono text-[#B9B1C9]">
+                    <div className="text-[11px] font-mono text-[#555B55]">
                       {phase.timing}
                     </div>
 
-                    <h4 className="text-sm font-bold text-[#F8F7FC] font-display">
+                    <h4 className="text-sm font-bold text-[#111111] font-display">
                       {phase.title}
                     </h4>
 
-                    <p className="text-xs text-[#B9B1C9] leading-relaxed font-sans font-normal">
+                    <p className="text-xs text-[#555B55] leading-relaxed font-sans font-normal">
                       {phase.description}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#30213F] text-[10px] font-mono font-semibold text-[#B98AFF]">
+                  <div className="pt-3 border-t border-[#E5E9E5] text-[10px] font-mono font-semibold text-[#246B32]">
                     Phase {phase.stage} of 04
                   </div>
                 </motion.div>
@@ -157,16 +157,16 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
         </motion.div>
 
         {/* Ethical Standards & Compliance Guarantee */}
-        <div className="p-8 rounded-2xl bg-[#100B1B] border border-[#30213F] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="p-8 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#35106B]/60 border border-[#30213F] text-[#B98AFF] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#E5F5E5] border border-[#E5E9E5] text-[#246B32] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div className="space-y-1">
-              <h4 className="text-sm font-semibold text-[#F8F7FC] font-display">
+              <h4 className="text-sm font-semibold text-[#111111] font-display">
                 100% Legitimate Launch Standards
               </h4>
-              <p className="text-xs text-[#B9B1C9] leading-relaxed max-w-xl font-normal">
+              <p className="text-xs text-[#555B55] leading-relaxed max-w-xl font-normal">
                 We strictly adhere to Product Hunt community guidelines. We never coordinate bot rings, upvote trading, or artificial spikes. Our value lies in exceptional product framing, maker narratives, and authentic cross-channel amplification.
               </p>
             </div>
@@ -192,7 +192,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
                   }
                 }
               }}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-[#7028D8] text-[#FFFFFF] border border-[#B69AFF]/40 shadow-md shadow-[#7028D8]/25 hover:bg-[#833AE8] hover:border-[#B69AFF]/70 hover:shadow-lg hover:shadow-[#7028D8]/40 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B69AFF] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-[#459B45] text-[#FFFFFF] border border-[#459B45]/40 shadow-md shadow-[#459B45]/20 hover:bg-[#246B32] hover:border-[#246B32] hover:shadow-lg hover:shadow-[#246B32]/30 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#459B45] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <span>View My Portfolio</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -201,7 +201,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
             <button
               type="button"
               onClick={onOpenBooking}
-              className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-[#1C122C] text-[#F8F6FF] border border-[#7028D8]/60 hover:bg-[#2B1747] hover:text-[#FFFFFF] hover:border-[#B69AFF]/80 shadow-xs hover:shadow-md hover:shadow-[#7028D8]/20 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B69AFF] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-[#FFFFFF] text-[#111111] border border-[#E5E9E5] hover:bg-[#F7F9F7] hover:border-[#459B45] hover:text-[#246B32] shadow-xs hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#459B45] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <span>Discuss Your Launch</span>
               <ArrowRight className="w-3.5 h-3.5" />

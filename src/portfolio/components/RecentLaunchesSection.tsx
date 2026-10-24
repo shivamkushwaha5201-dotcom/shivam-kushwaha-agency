@@ -37,14 +37,14 @@ export const RecentLaunchesSection: React.FC<RecentLaunchesSectionProps> = ({
   return (
     <section
       id="recent-launches"
-      className="scroll-mt-16 py-12 sm:py-16 bg-[#08060F] border-b border-[#30213F]"
+      className="scroll-mt-16 py-12 sm:py-16 bg-[#FFFFFF] border-b border-[#E5E9E5]"
     >
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#F8F6FF] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight">
             Recent Launches
           </h2>
-          <p className="text-sm text-[#B7AEC9] mt-1">
+          <p className="text-sm text-[#555B55] mt-1">
             Launches I’ve supported this month.
           </p>
         </div>
@@ -53,16 +53,16 @@ export const RecentLaunchesSection: React.FC<RecentLaunchesSectionProps> = ({
           <div
             role="status"
             aria-live="polite"
-            className="bg-[#151020] border border-[#30213F] rounded-xl p-12 flex flex-col items-center justify-center gap-3 text-center"
+            className="bg-[#F7F9F7] border border-[#E5E9E5] rounded-xl p-12 flex flex-col items-center justify-center gap-3 text-center"
           >
-            <Loader2 size={22} className="animate-spin text-[#B69AFF]" />
-            <p className="text-xs sm:text-sm text-[#B7AEC9]">
+            <Loader2 size={22} className="animate-spin text-[#459B45]" />
+            <p className="text-xs sm:text-sm text-[#555B55]">
               Checking recent launches...
             </p>
           </div>
         ) : displayedRecentLaunches.length === 0 ? (
-          <div className="bg-[#151020] border border-[#30213F] rounded-xl p-10 text-center">
-            <p className="text-sm font-medium text-[#B7AEC9]">
+          <div className="bg-[#F7F9F7] border border-[#E5E9E5] rounded-xl p-10 text-center">
+            <p className="text-sm font-medium text-[#555B55]">
               No launches added this month yet.
             </p>
           </div>
@@ -81,7 +81,7 @@ export const RecentLaunchesSection: React.FC<RecentLaunchesSectionProps> = ({
             </div>
 
             {pendingConfirmationLaunches.length > 0 && (
-              <p className="text-xs text-[#B9B1C9]">
+              <p className="text-xs text-[#555B55]">
                 Data note: {pendingConfirmationLaunches.length}{' '}
                 {pendingConfirmationLaunches.length === 1
                   ? 'record is'

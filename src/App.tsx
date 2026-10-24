@@ -21,6 +21,7 @@ import { ServicePage } from './components/ServicePage';
 import { BackToTop } from './components/BackToTop';
 import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
+import { SmoothCursor } from './components/ui/smooth-cursor';
 import { PortfolioApp } from './portfolio/PortfolioApp';
 
 function isPortfolioLocation(): boolean {
@@ -149,6 +150,7 @@ export default function App() {
   if (currentView === 'portfolio') {
     return (
       <HelmetProvider>
+        <SmoothCursor />
         <PortfolioApp />
       </HelmetProvider>
     );
@@ -156,7 +158,8 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[#08060F] hero-global-bg text-[#F8F6FF] flex flex-col selection:bg-[#7028D8]/30 selection:text-[#F8F6FF] font-sans transition-colors duration-200">
+      <SmoothCursor />
+      <div className="min-h-screen bg-[#FFFFFF] hero-global-bg text-[#111111] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans transition-colors duration-200">
         
         {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
         <AnimatePresence>
@@ -166,7 +169,7 @@ export default function App() {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#08060F]/95 backdrop-blur-md"
+              className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center bg-[#FFFFFF]/95 backdrop-blur-md"
             >
               <motion.div
                 initial={{ opacity: 0, y: 14, scale: 0.96 }}
@@ -175,11 +178,11 @@ export default function App() {
                 transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center px-6 space-y-2 will-change-transform"
               >
-                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#B98AFF]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7028D8]" />
+                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#246B32]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#459B45]" />
                   <span>AXENTAI LABS</span>
                 </div>
-                <p className="text-xl sm:text-3xl font-display font-bold tracking-[0.14em] text-[#F8F7FC] uppercase">
+                <p className="text-xl sm:text-3xl font-display font-bold tracking-[0.14em] text-[#111111] uppercase">
                   TRUSTED BY FOUNDERS &amp; TEAMS
                 </p>
               </motion.div>

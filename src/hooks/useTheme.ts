@@ -5,13 +5,13 @@ export type Theme = 'light' | 'dark';
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('axent_dark_purple_theme') as Theme | null;
+      const savedTheme = localStorage.getItem('axent_brand_theme') as Theme | null;
       if (savedTheme === 'light' || savedTheme === 'dark') {
         return savedTheme;
       }
-      return 'dark';
+      return 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
@@ -19,11 +19,11 @@ export function useTheme() {
     if (theme === 'dark') {
       root.classList.add('dark');
       root.setAttribute('data-theme', 'dark');
-      localStorage.setItem('axent_dark_purple_theme', 'dark');
+      localStorage.setItem('axent_brand_theme', 'dark');
     } else {
       root.classList.remove('dark');
       root.setAttribute('data-theme', 'light');
-      localStorage.setItem('axent_dark_purple_theme', 'light');
+      localStorage.setItem('axent_brand_theme', 'light');
     }
   }, [theme]);
 

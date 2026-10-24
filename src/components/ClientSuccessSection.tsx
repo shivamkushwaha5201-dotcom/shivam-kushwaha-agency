@@ -115,16 +115,16 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
           onCardClick ? 'cursor-pointer' : ''
         } ${
           isDominant
-            ? 'bg-[#100B1B] border-[#7028D8] ring-1 ring-[#B98AFF]/20 shadow-xl shadow-black/60 opacity-100 scale-100'
-            : 'bg-[#100B1B]/75 border-[#30213F] opacity-75 hover:opacity-100 hover:border-[#7028D8] scale-[0.985]'
+            ? 'bg-[#FFFFFF] border-[#459B45] ring-1 ring-[#459B45]/20 shadow-xl shadow-black/5 opacity-100 scale-100'
+            : 'bg-[#FFFFFF]/85 border-[#E5E9E5] opacity-75 hover:opacity-100 hover:border-[#459B45] scale-[0.985]'
         }`}
       >
         <div className="space-y-6">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#B98AFF] bg-[#35106B]/60 px-3 py-1 rounded-full border border-[#30213F]">
+            <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32] bg-[#E5F5E5] px-3 py-1 rounded-full border border-[#E5E9E5]">
               {item.tag}
             </span>
-            <Quote className="w-5 h-5 text-[#B98AFF]/60 shrink-0" />
+            <Quote className="w-5 h-5 text-[#459B45]/60 shrink-0" />
           </div>
 
           {/* Testimonial Text */}
@@ -132,7 +132,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
             <div
               className={`space-y-3.5 font-sans ${
                 isDominant ? 'text-sm sm:text-base' : 'text-xs sm:text-sm'
-              } text-[#F8F7FC] leading-relaxed`}
+              } text-[#111111] leading-relaxed`}
             >
               {isDominant ? (
                 item.paragraphs.map((p, pIdx) => (
@@ -141,7 +141,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
                   </p>
                 ))
               ) : (
-                <p className="line-clamp-4 text-[#B9B1C9] leading-relaxed">
+                <p className="line-clamp-4 text-[#555B55] leading-relaxed">
                   “{item.paragraphs[0]}”
                 </p>
               )}
@@ -150,7 +150,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
             <p
               className={`${
                 isDominant ? 'text-base sm:text-lg' : 'text-xs sm:text-sm'
-              } font-display text-[#B9B1C9] leading-relaxed italic`}
+              } font-display text-[#555B55] leading-relaxed italic`}
             >
               “{item.placeholderNote}”
             </p>
@@ -158,19 +158,19 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
         </div>
 
         {/* Footer Area */}
-        <div className="pt-6 mt-6 border-t border-[#30213F] flex items-center justify-between gap-4">
+        <div className="pt-6 mt-6 border-t border-[#E5E9E5] flex items-center justify-between gap-4">
           {!item.isPlaceholder ? (
             <div className="flex items-center gap-3">
-              {/* Clean Profile Avatar Placeholder */}
+              {/* Clean Profile Avatar */}
               {item.avatarUrl ? (
                 <img
                   src={item.avatarUrl}
                   alt={item.name || 'Client'}
-                  className="w-10 h-10 rounded-full object-cover border border-[#7028D8]/50 shrink-0"
+                  className="w-10 h-10 rounded-full object-cover border border-[#459B45]/50 shrink-0"
                 />
               ) : (
                 <div
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-[#35106B] to-[#100B1B] border border-[#7028D8]/50 flex items-center justify-center text-xs font-bold text-[#B98AFF] tracking-wider shrink-0 shadow-inner"
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E5F5E5] to-[#FFFFFF] border border-[#459B45]/40 flex items-center justify-center text-xs font-bold text-[#246B32] tracking-wider shrink-0 shadow-inner"
                   aria-label={`${item.name} avatar placeholder`}
                 >
                   {item.avatarInitials || 'DB'}
@@ -183,28 +183,28 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-xs sm:text-sm font-bold text-[#F8F7FC] hover:text-[#B98AFF] transition-colors inline-flex items-center gap-1.5 group/link cursor-pointer"
+                    className="text-xs sm:text-sm font-bold text-[#111111] hover:text-[#246B32] transition-colors inline-flex items-center gap-1.5 group/link cursor-pointer"
                     title={`View ${item.name} on LinkedIn`}
                   >
                     <span>{item.name}</span>
-                    <Linkedin className="w-3.5 h-3.5 text-[#B98AFF]/70 group-hover/link:text-[#B98AFF] transition-colors" />
+                    <Linkedin className="w-3.5 h-3.5 text-[#246B32]/70 group-hover/link:text-[#246B32] transition-colors" />
                   </a>
                 ) : (
-                  <div className="text-xs sm:text-sm font-bold text-[#F8F7FC]">
+                  <div className="text-xs sm:text-sm font-bold text-[#111111]">
                     {item.name}
                   </div>
                 )}
-                <div className="text-[11px] text-[#B9B1C9] font-mono">
+                <div className="text-[11px] text-[#555B55] font-mono">
                   {item.designation}
                 </div>
               </div>
             </div>
           ) : (
             <div>
-              <div className="text-xs sm:text-sm font-bold text-[#F8F7FC]">
+              <div className="text-xs sm:text-sm font-bold text-[#111111]">
                 {item.roleLabel}
               </div>
-              <div className="text-[11px] text-[#B9B1C9] font-mono">
+              <div className="text-[11px] text-[#555B55] font-mono">
                 {item.serviceLabel}
               </div>
             </div>
@@ -212,7 +212,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
 
           {/* Service Badge Label */}
           {!item.isPlaceholder && (
-            <div className="text-[10px] sm:text-[11px] text-[#B98AFF]/80 font-mono text-right hidden sm:block">
+            <div className="text-[10px] sm:text-[11px] text-[#246B32]/80 font-mono text-right hidden sm:block">
               {item.serviceLabel}
             </div>
           )}
@@ -259,15 +259,15 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
   return (
     <section
       id="testimonials"
-      className="py-28 md:py-36 bg-[#08060F] text-[#F8F6FF] border-t border-[#30213F] relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
-      {/* Faint Atmospheric Gradient Matching Hero */}
+      {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(17, 11, 32, 0.95) 0%, rgba(8, 6, 15, 1) 70%), linear-gradient(135deg, #08060F 0%, #110B20 52%, #08060F 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(247, 249, 247, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -279,12 +279,12 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
         >
           <div className="space-y-3">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#B98AFF] font-semibold font-mono">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
               // TESTIMONIALS
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#F8F7FC] tracking-[-0.02em] uppercase">
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] uppercase">
               WHAT CLIENTS ARE{' '}
-              <span className="text-[#B98AFF]">
+              <span className="text-[#246B32]">
                 SAYING
               </span>
             </h2>
@@ -292,20 +292,20 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
 
           {/* Slider Navigation Controls */}
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-medium text-[#B98AFF]/80 mr-1 hidden sm:inline-block">
+            <span className="text-xs font-mono font-medium text-[#246B32] mr-1 hidden sm:inline-block">
               0{activeSlide + 1} / 0{total}
             </span>
             <button
               onClick={handlePrev}
               aria-label="Previous testimonial"
-              className="w-11 h-11 rounded-full bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] text-[#F8F7FC] hover:text-[#B98AFF] hover:-translate-y-0.5 flex items-center justify-center transition-all duration-250 cursor-pointer shadow-2xs"
+              className="w-11 h-11 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] text-[#111111] hover:text-[#246B32] hover:-translate-y-0.5 flex items-center justify-center transition-all duration-250 cursor-pointer shadow-2xs"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next testimonial"
-              className="w-11 h-11 rounded-full bg-[#100B1B] border border-[#30213F] hover:border-[#7028D8] text-[#F8F7FC] hover:text-[#B98AFF] hover:-translate-y-0.5 flex items-center justify-center transition-all duration-250 cursor-pointer shadow-2xs"
+              className="w-11 h-11 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] text-[#111111] hover:text-[#246B32] hover:-translate-y-0.5 flex items-center justify-center transition-all duration-250 cursor-pointer shadow-2xs"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -359,8 +359,8 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
               aria-label={`Jump to slide ${idx + 1}: ${item.name || item.tag}`}
               className={`transition-all duration-300 rounded-full cursor-pointer ${
                 activeSlide === idx
-                  ? 'w-8 h-2.5 bg-[#7028D8] shadow-sm shadow-[#7028D8]/50 ring-1 ring-[#B98AFF]/50'
-                  : 'w-2.5 h-2.5 bg-[#30213F] hover:bg-[#B98AFF]/60'
+                  ? 'w-8 h-2.5 bg-[#459B45] shadow-sm shadow-[#459B45]/50 ring-1 ring-[#459B45]/50'
+                  : 'w-2.5 h-2.5 bg-[#E5E9E5] hover:bg-[#459B45]/60'
               }`}
             />
           ))}
