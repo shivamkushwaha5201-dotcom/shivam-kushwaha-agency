@@ -244,6 +244,172 @@ h1, h2, h3, .font-display {
   animation: shimmer 2.5s infinite;
 }
 
+/* =========================================================================
+   Continuous Soft Green Ambient Background Animations (15s - 24s)
+   Natural, subtle, GPU-accelerated floating and breathing keyframes
+   ========================================================================= */
+
+@keyframes ambientFloat1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(36px, -28px, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-18px, 22px, 0) scale(0.97);
+  }
+}
+
+@keyframes ambientFloat2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-40px, 26px, 0) scale(1.11);
+  }
+  100% {
+    transform: translate3d(24px, -18px, 0) scale(0.96);
+  }
+}
+
+@keyframes ambientFloat3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(28px, 28px, 0) scale(1.07);
+  }
+  100% {
+    transform: translate3d(-26px, -18px, 0) scale(1.02);
+  }
+}
+
+@keyframes ambientFloat4 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-28px, -32px, 0) scale(1.09);
+  }
+  100% {
+    transform: translate3d(18px, 18px, 0) scale(0.98);
+  }
+}
+
+@keyframes meshDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(14px, -10px, 0) scale(1.015);
+  }
+  100% {
+    transform: translate3d(-12px, 12px, 0) scale(0.99);
+  }
+}
+
+@keyframes edgeGlowBreathing1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(16px, -18px, 0) scale(1.12);
+    opacity: 0.75;
+  }
+}
+
+@keyframes edgeGlowBreathing2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.42;
+  }
+  50% {
+    transform: translate3d(-20px, 14px, 0) scale(1.10);
+    opacity: 0.70;
+  }
+}
+
+@keyframes sectionGlowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.42;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.68;
+  }
+}
+
+.animate-ambient-float-1 {
+  animation: ambientFloat1 18s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-ambient-float-2 {
+  animation: ambientFloat2 23s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-ambient-float-3 {
+  animation: ambientFloat3 21s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-ambient-float-4 {
+  animation: ambientFloat4 19s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-mesh-drift {
+  animation: meshDrift 24s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-edge-glow-1 {
+  animation: edgeGlowBreathing1 16s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.animate-edge-glow-2 {
+  animation: edgeGlowBreathing2 22s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.animate-section-glow {
+  animation: sectionGlowPulse 15s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Translucent Mint Ambient Gradients for Section Overlays */
+.bg-radial-mint-ambient {
+  background: radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 0.9) 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-float-1,
+  .animate-ambient-float-2,
+  .animate-ambient-float-3,
+  .animate-ambient-float-4,
+  .animate-mesh-drift,
+  .animate-edge-glow-1,
+  .animate-edge-glow-2,
+  .animate-section-glow,
+  .animate-float,
+  .portfolio-highlight-glow {
+    animation: none !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

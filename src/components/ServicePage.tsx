@@ -93,16 +93,24 @@ export const ServicePage: React.FC<ServicePageProps> = ({
   const otherServices = SERVICES_DATA.filter(s => s.id !== service.id);
 
   return (
-    <div className="pt-28 pb-20 bg-[#FFFFFF] min-h-screen text-[#111111] font-sans relative overflow-hidden">
-      {/* Faint Atmospheric Soft Mint Glow */}
+    <div className="pt-28 pb-20 bg-[#FFFFFF]/75 backdrop-blur-[1.5px] min-h-screen text-[#111111] font-sans relative overflow-hidden">
+      {/* Soft Ambient Mint Glow with Continuous Breathing Motion */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-radial-mint-ambient animate-section-glow opacity-80"
+        />
+        <div
+          className="absolute top-1/4 right-[10%] w-[520px] h-[520px] rounded-full animate-ambient-float-2 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(69, 155, 69, 0.15) 0%, rgba(229, 245, 229, 0.45) 45%, transparent 70%)',
+            filter: 'blur(65px)',
+          }}
+        />
+      </div>
 
       <SEOHead
         title={pageTitle}

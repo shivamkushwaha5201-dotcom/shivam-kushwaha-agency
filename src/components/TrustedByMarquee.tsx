@@ -48,7 +48,7 @@ export const TrustedByMarquee: React.FC = React.memo(() => {
 
   return (
     <section
-      className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#F7F9F7] border-y border-[#E5E9E5] relative overflow-hidden z-10"
+      className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#F7F9F7]/75 backdrop-blur-[1.5px] border-y border-[#E5E9E5] relative overflow-hidden z-10"
     >
       {/* Stationary Green-Mint Gradient Border Around the Entire Scrolling Section */}
       <div

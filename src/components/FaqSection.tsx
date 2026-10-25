@@ -25,16 +25,24 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
     : FAQ_DATA.filter(faq => faq.category === activeCategory);
 
   return (
-    <section id="faq" className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans">
-      {/* Faint Atmospheric Soft Mint Glow */}
+    <section id="faq" className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7]/70 backdrop-blur-[1.5px] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans">
+      {/* Soft Ambient Mint Glow with Continuous Breathing Motion */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(247, 249, 247, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-radial-mint-ambient animate-section-glow opacity-75"
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full animate-ambient-float-3 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(69, 155, 69, 0.12) 0%, rgba(229, 245, 229, 0.40) 45%, transparent 70%)',
+            filter: 'blur(70px)',
+          }}
+        />
+      </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

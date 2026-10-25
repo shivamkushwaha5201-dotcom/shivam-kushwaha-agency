@@ -87,17 +87,25 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
     <section
       ref={sectionRef}
       id="influencer-marketing"
-      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF]/75 backdrop-blur-[1.5px] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
-      {/* Faint Atmospheric Gradient Matching Theme */}
+      {/* Soft Ambient Mint Glow with Continuous Breathing Motion */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-radial-mint-ambient animate-section-glow opacity-80"
+        />
+        <div
+          className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[520px] h-[520px] rounded-full animate-ambient-float-3 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(69, 155, 69, 0.14) 0%, rgba(229, 245, 229, 0.42) 45%, transparent 70%)',
+            filter: 'blur(65px)',
+          }}
+        />
+      </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

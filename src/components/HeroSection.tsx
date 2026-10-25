@@ -136,7 +136,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
     <section
       ref={sectionRef}
       id="home"
-      className="scroll-mt-24 md:scroll-mt-28 relative min-h-[90vh] lg:min-h-[94vh] pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-[#FFFFFF] text-[#111111] flex items-center z-10"
+      className="scroll-mt-24 md:scroll-mt-28 relative min-h-[90vh] lg:min-h-[94vh] pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-transparent text-[#111111] flex items-center z-10"
     >
       {/* Curved Perspective Grid & Mint Atmospheric Background (Matching Reference Screenshot) */}
       <CurvedGridBackground showOrbs={true} />

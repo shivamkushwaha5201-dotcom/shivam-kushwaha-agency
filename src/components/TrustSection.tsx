@@ -166,17 +166,25 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
     <section
       ref={sectionRef}
       id="about-growth"
-      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10 font-sans"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF]/75 backdrop-blur-[1.5px] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10 font-sans"
     >
-      {/* Faint Atmospheric Soft Mint Glow */}
+      {/* Soft Ambient Mint Glow with Continuous Breathing Motion */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 85% 75% at 18% 22%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-radial-mint-ambient animate-section-glow opacity-80"
+        />
+        <div
+          className="absolute top-1/3 left-[5%] w-[480px] h-[480px] rounded-full animate-ambient-float-1 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(69, 155, 69, 0.15) 0%, rgba(229, 245, 229, 0.42) 45%, transparent 70%)',
+            filter: 'blur(60px)',
+          }}
+        />
+      </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">

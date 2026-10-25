@@ -22,6 +22,7 @@ import { BackToTop } from './components/BackToTop';
 import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
 import { SmoothCursor } from './components/ui/smooth-cursor';
+import { AmbientMintBackground } from './components/ui/AmbientMintBackground';
 import { PortfolioApp } from './portfolio/PortfolioApp';
 
 function isPortfolioLocation(): boolean {
@@ -159,7 +160,9 @@ export default function App() {
   return (
     <HelmetProvider>
       <SmoothCursor />
-      <div className="min-h-screen bg-[#FFFFFF] hero-global-bg text-[#111111] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans transition-colors duration-200">
+      <div className="min-h-screen bg-[#FFFFFF] hero-global-bg text-[#111111] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans transition-colors duration-200 relative">
+        {/* Global Continuous Soft Mint Ambient Background & Animated Organic Mesh */}
+        <AmbientMintBackground />
         
         {/* 00. Short Premium Opening Statement (1.15s — No loading bar, smooth fade/upward/scale reveal) */}
         <AnimatePresence>

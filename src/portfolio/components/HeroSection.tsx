@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
   return (
-    <section className="bg-[#FFFFFF] border-b border-[#E5E9E5] py-12 sm:py-16">
+    <section className="bg-[#FFFFFF]/75 backdrop-blur-[1.5px] border-b border-[#E5E9E5] py-12 sm:py-16">
       <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
           <h1 className="text-2xl sm:text-4xl font-bold text-[#111111] tracking-tight text-balance">

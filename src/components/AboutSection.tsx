@@ -61,16 +61,24 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
   ];
 
   return (
-    <section id="about" className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] relative overflow-hidden border-t border-[#E5E9E5] text-[#111111] transition-colors duration-200 z-10">
-      {/* Faint Atmospheric Soft Mint Glow */}
+    <section id="about" className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF]/75 backdrop-blur-[1.5px] relative overflow-hidden border-t border-[#E5E9E5] text-[#111111] transition-colors duration-200 z-10">
+      {/* Soft Ambient Mint Glow with Continuous Breathing Motion */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-radial-mint-ambient animate-section-glow opacity-80"
+        />
+        <div
+          className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[520px] h-[520px] rounded-full animate-ambient-float-2 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(69, 155, 69, 0.15) 0%, rgba(229, 245, 229, 0.45) 45%, transparent 70%)',
+            filter: 'blur(65px)',
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

@@ -110,17 +110,25 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
     <section 
       ref={sectionRef}
       id="contact" 
-      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF]/75 backdrop-blur-[1.5px] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
-      {/* Faint Atmospheric Soft Mint Glow */}
+      {/* Soft Ambient Mint Glow with Continuous Breathing Motion */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-radial-mint-ambient animate-section-glow opacity-80"
+        />
+        <div
+          className="absolute bottom-10 right-10 w-[520px] h-[520px] rounded-full animate-ambient-float-4 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(69, 155, 69, 0.16) 0%, rgba(229, 245, 229, 0.46) 45%, transparent 70%)',
+            filter: 'blur(65px)',
+          }}
+        />
+      </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main CTA Top Banner */}
@@ -138,7 +146,7 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-24 right-8 w-80 h-80 rounded-full bg-[#459B45]/15 blur-3xl"
+            className="pointer-events-none absolute -top-24 right-8 w-80 h-80 rounded-full bg-[#459B45]/15 blur-3xl animate-ambient-float-2"
           />
 
           <div className="relative z-10 max-w-2xl space-y-4">

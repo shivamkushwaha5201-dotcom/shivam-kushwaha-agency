@@ -29,6 +29,7 @@ import { AboutSection } from './components/AboutSection';
 import { AdminForm } from './components/AdminForm';
 import { Footer } from './components/Footer';
 import { SEOHead } from '../components/SEOHead';
+import { AmbientMintBackground } from '../components/ui/AmbientMintBackground';
 
 const SESSION_TOKEN_STORAGE_KEY = 'ph_portfolio_admin_session_token';
 
@@ -260,7 +261,8 @@ export function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111] relative">
+      <AmbientMintBackground />
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}
         description="A collection of products I've helped during their Product Hunt launches, along with their final votes and rankings."
@@ -304,7 +306,7 @@ export function PortfolioApp() {
         {/* Cohesive Section Switcher Bar + Horizontally Animated Section Stage */}
         <div
           id="portfolio-sections-stage"
-          className="scroll-mt-16 bg-[#FFFFFF] border-b border-[#E5E9E5]"
+          className="scroll-mt-16 bg-[#FFFFFF]/80 backdrop-blur-[1.5px] border-b border-[#E5E9E5]"
         >
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6 pt-6 pb-2 flex flex-wrap items-center justify-between gap-4">
             <div
