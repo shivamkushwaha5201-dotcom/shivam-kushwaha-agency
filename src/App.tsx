@@ -6,10 +6,6 @@ import { HeroSection } from './components/HeroSection';
 import { TrustedByMarquee } from './components/TrustedByMarquee';
 import { TrustSection } from './components/TrustSection';
 import { ServicesSection } from './components/ServicesSection';
-import { ProcessSection } from './components/ProcessSection';
-import { WhyUsSection } from './components/WhyUsSection';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
-import { InfluencerSection } from './components/InfluencerSection';
 import { ClientSuccessSection } from './components/ClientSuccessSection';
 import { AboutSection } from './components/AboutSection';
 import { FaqSection } from './components/FaqSection';
@@ -74,9 +70,15 @@ export default function App() {
       } else if (hash === '#terms') {
         setCurrentView('legal');
         setLegalTab('terms');
-      } else if (hash.startsWith('#services/')) {
-        const serviceId = hash.replace('#services/', '').trim();
-        setActiveServiceId(serviceId || 'linkedin-personal-branding');
+      } else if (
+        hash.startsWith('#services/') || 
+        hash === '#all-services' || 
+        hash === '#services-all'
+      ) {
+        const serviceId = hash.startsWith('#services/')
+          ? hash.replace('#services/', '').trim()
+          : 'all';
+        setActiveServiceId(serviceId || 'all');
         setCurrentView('service');
       } else if (
         hash === '#home' || 
@@ -265,25 +267,10 @@ export default function App() {
             {/* 05. Growth Systems & Brand Architecture (Tiger & Doorway) */}
             <TrustSection onOpenBooking={scrollToContact} />
 
-            {/* 06. Launch & Growth Methodology (A Clear Strategy from Launch to Growth - Snail on Skateboard) */}
-            <ProcessSection onOpenBooking={scrollToContact} />
-
-            {/* 07. Why Founders Work With Us (One Partner. Multiple Growth Channels - Elephant & Ant) */}
-            <WhyUsSection />
-
-            {/* 08. Multi-Channel Distribution Beyond Launch Day (LinkedIn, X, Creators, Communities) */}
-            <InfluencerSection onOpenBooking={scrollToContact} />
-
             {/* Transition Glow & Particles */}
             <SectionTransitionGlow />
 
-            {/* 09. Strategy and Execution in Action (Verified Case Studies) */}
-            <CaseStudiesSection 
-              onOpenBooking={scrollToContact}
-              onOpenPortfolio={handleOpenPortfolio}
-            />
-
-            {/* 10. Client Feedback & Verified Outcomes */}
+            {/* 06. Client Feedback & Verified Outcomes */}
             <ClientSuccessSection onOpenBooking={scrollToContact} />
 
             {/* Transition Glow & Particles */}

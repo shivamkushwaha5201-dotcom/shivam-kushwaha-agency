@@ -13,10 +13,21 @@ export interface ServiceDetail {
   tagline: string;
   icon: string;
   badge: string;
+  category: 'flagship' | 'branding' | 'account-management' | 'influencer-marketing' | 'organic-growth';
+  categoryTitle: string;
   description: string;
   deliverables: string[];
   resultsMetric: string;
   idealFor: string;
+  problemsSolves: string[];
+  scopeOfWork: string[];
+  workflow: {
+    step: string;
+    title: string;
+    description: string;
+  }[];
+  expectedOutcomes: string[];
+  distinctionNote?: string;
   featured?: boolean;
   portfolioUrl?: string;
 }

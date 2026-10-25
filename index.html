@@ -107,136 +107,104 @@
       /* 1. Product Hunt Float */
       @keyframes heroFloatPH {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(-6deg);
-          filter: blur(0px);
-        }
-        25% {
-          filter: blur(0.4px);
+          transform: translate3d(0px, 0px, 0) rotate(-2.5deg);
         }
         50% {
-          transform: translateY(-12px) translateX(4px) rotate(-3.5deg);
-          filter: blur(0px);
-        }
-        75% {
-          filter: blur(0.4px);
+          transform: translate3d(4px, -14px, 0) rotate(1.8deg);
         }
       }
       @keyframes heroFloatLabelPH {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(0deg);
+          transform: translate3d(0px, 0px, 0) rotate(0deg);
         }
         50% {
-          transform: translateY(-8px) translateX(-3px) rotate(1.5deg);
+          transform: translate3d(-3px, -9px, 0) rotate(2deg);
         }
       }
       .hero-ph-tile {
-        animation: heroFloatPH 5.0s ease-in-out infinite 0s !important;
-        will-change: transform, filter;
+        animation: heroFloatPH 5.2s ease-in-out infinite 0s !important;
+        will-change: transform;
       }
       .hero-ph-label {
-        animation: heroFloatLabelPH 5.8s ease-in-out infinite 0.4s !important;
+        animation: heroFloatLabelPH 6.1s ease-in-out infinite 0.4s !important;
         will-change: transform;
       }
 
       /* 2. X (Twitter) Float */
       @keyframes heroFloatX {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(6deg);
-          filter: blur(0px);
-        }
-        25% {
-          filter: blur(0.4px);
+          transform: translate3d(0px, 0px, 0) rotate(2.5deg);
         }
         50% {
-          transform: translateY(-13px) translateX(-4px) rotate(3.5deg);
-          filter: blur(0px);
-        }
-        75% {
-          filter: blur(0.4px);
+          transform: translate3d(-4px, -13px, 0) rotate(-1.5deg);
         }
       }
       @keyframes heroFloatLabelX {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(0deg);
+          transform: translate3d(0px, 0px, 0) rotate(0deg);
         }
         50% {
-          transform: translateY(-8px) translateX(3px) rotate(-1.5deg);
+          transform: translate3d(3px, -8px, 0) rotate(-2deg);
         }
       }
       .hero-x-tile {
-        animation: heroFloatX 5.4s ease-in-out infinite 0.9s !important;
-        will-change: transform, filter;
+        animation: heroFloatX 5.6s ease-in-out infinite 0.9s !important;
+        will-change: transform;
       }
       .hero-x-label {
-        animation: heroFloatLabelX 6.2s ease-in-out infinite 0.2s !important;
+        animation: heroFloatLabelX 6.4s ease-in-out infinite 0.2s !important;
         will-change: transform;
       }
 
       /* 3. LinkedIn Float */
       @keyframes heroFloatLI {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(-6deg);
-          filter: blur(0px);
-        }
-        25% {
-          filter: blur(0.4px);
+          transform: translate3d(0px, 0px, 0) rotate(-3deg);
         }
         50% {
-          transform: translateY(-11px) translateX(5px) rotate(-3.5deg);
-          filter: blur(0px);
-        }
-        75% {
-          filter: blur(0.4px);
+          transform: translate3d(5px, -12px, 0) rotate(1.2deg);
         }
       }
       @keyframes heroFloatLabelLI {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(0deg);
+          transform: translate3d(0px, 0px, 0) rotate(0deg);
         }
         50% {
-          transform: translateY(-7px) translateX(-3px) rotate(1.2deg);
+          transform: translate3d(-3px, -8px, 0) rotate(2deg);
         }
       }
       .hero-li-tile {
-        animation: heroFloatLI 5.8s ease-in-out infinite 1.5s !important;
-        will-change: transform, filter;
+        animation: heroFloatLI 6.0s ease-in-out infinite 1.5s !important;
+        will-change: transform;
       }
       .hero-li-label {
-        animation: heroFloatLabelLI 5.2s ease-in-out infinite 0.7s !important;
+        animation: heroFloatLabelLI 5.4s ease-in-out infinite 0.7s !important;
         will-change: transform;
       }
 
       /* 4. Reddit Float */
       @keyframes heroFloatReddit {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(6deg);
-          filter: blur(0px);
-        }
-        25% {
-          filter: blur(0.4px);
+          transform: translate3d(0px, 0px, 0) rotate(3deg);
         }
         50% {
-          transform: translateY(-13px) translateX(-5px) rotate(3.5deg);
-          filter: blur(0px);
-        }
-        75% {
-          filter: blur(0.4px);
+          transform: translate3d(-5px, -14px, 0) rotate(-1.5deg);
         }
       }
       @keyframes heroFloatLabelReddit {
         0%, 100% {
-          transform: translateY(0px) translateX(0px) rotate(0deg);
+          transform: translate3d(0px, 0px, 0) rotate(0deg);
         }
         50% {
-          transform: translateY(-9px) translateX(4px) rotate(-1.4deg);
+          transform: translate3d(4px, -9px, 0) rotate(-2deg);
         }
       }
       .hero-reddit-tile {
-        animation: heroFloatReddit 4.6s ease-in-out infinite 0.5s !important;
-        will-change: transform, filter;
+        animation: heroFloatReddit 4.9s ease-in-out infinite 0.5s !important;
+        will-change: transform;
       }
       .hero-reddit-label {
-        animation: heroFloatLabelReddit 5.6s ease-in-out infinite 1.1s !important;
+        animation: heroFloatLabelReddit 5.8s ease-in-out infinite 1.1s !important;
         will-change: transform;
       }
 

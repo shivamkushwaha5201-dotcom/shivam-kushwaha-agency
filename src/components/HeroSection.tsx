@@ -163,7 +163,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               </div>
             </motion.div>
 
-            {/* 2. Main Focal Headline: BUILD YOUR BRAND. LAUNCH WITH PURPOSE. GROW WITH STRATEGY. */}
+            {/* 2. Main Focal Headline: SCALE YOUR BRAND ACROSS THE WORLD. */}
             <motion.h1
               variants={headlineVariants}
               initial="hidden"
@@ -171,13 +171,10 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               className="text-4xl sm:text-6xl lg:text-[60px] xl:text-[70px] font-display font-extrabold tracking-[-0.035em] text-[#111111] leading-[1.04] uppercase"
             >
               <span className="block text-[#111111]">
-                BUILD YOUR BRAND.
+                SCALE YOUR BRAND
               </span>
               <span className="block mt-1 text-[#248A3D]">
-                LAUNCH WITH PURPOSE.
-              </span>
-              <span className="block mt-1 text-[#111111]">
-                GROW WITH <span className="text-[#248A3D]">STRATEGY.</span>
+                ACROSS THE WORLD.
               </span>
             </motion.h1>
 
@@ -391,8 +388,8 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
                     className="w-full h-auto max-h-[430px] sm:max-h-[490px] lg:max-h-[530px] xl:max-h-[560px] object-contain select-none pointer-events-auto"
                     decoding="async"
                     fetchPriority="high"
-                    width={1333}
-                    height={1180}
+                    width={680}
+                    height={670}
                   />
                 </picture>
 
