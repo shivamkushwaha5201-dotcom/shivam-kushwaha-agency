@@ -23,13 +23,14 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
   const visualWrapperRef = useRef<HTMLDivElement>(null);
   const [mouseOffset, setMouseOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // 6 Verified Benefits requested
+  // 7 Core Flagship Deliverables
   const featurePoints = [
-    'Pre-launch positioning and preparation',
+    'Pre-launch strategy and positioning',
     'Product page and tagline feedback',
+    'Launch asset planning',
     'Launch-day coordination',
-    'Community outreach strategy',
-    'Cross-platform launch distribution',
+    'Relevant community outreach',
+    'Cross-platform distribution',
     'Post-launch performance review'
   ];
 
@@ -100,7 +101,7 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
     <section 
       ref={sectionRef}
       id="product-hunt" 
-      className="py-24 sm:py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -129,23 +130,22 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
           >
             {/* Section Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
-              <span>FLAGSHIP SERVICE / PRODUCT HUNT LAUNCH SUPPORT</span>
+              <span>FLAGSHIP SERVICE · 65% STRATEGIC EMPHASIS</span>
             </div>
 
-            {/* Main Heading: YOUR PRODUCT DESERVES A BIGGER LAUNCH */}
+            {/* Main Heading: MAKE YOUR PRODUCT HUNT LAUNCH COUNT */}
             <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-display font-extrabold text-[#111111] tracking-[-0.03em] leading-[1.08] uppercase">
-              YOUR PRODUCT <br className="hidden sm:inline" />
-              DESERVES A <br className="hidden sm:inline" />
-              <span className="text-[#248A3D]">BIGGER LAUNCH</span>
+              MAKE YOUR <br className="hidden sm:inline" />
+              PRODUCT HUNT <br className="hidden sm:inline" />
+              <span className="text-[#248A3D]">LAUNCH COUNT</span>
             </h2>
 
             {/* Supporting Description */}
             <p className="text-base sm:text-lg text-[#555B55] font-sans leading-relaxed max-w-xl font-normal">
-              Launching on Product Hunt takes more than publishing a product page. We help founders prepare their launch, refine their messaging, coordinate launch-day activities, and build a distribution strategy to reach relevant audiences.
+              A successful launch takes more than publishing a product page. We help founders refine their positioning, prepare launch assets, coordinate launch-day communication, connect with relevant communities, and build a thoughtful distribution plan.
             </p>
 
-            {/* Key Benefits Grid in Two Columns */}
+            {/* Key Deliverables Grid in Two Columns */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {featurePoints.map((point, pIdx) => (
                 <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#111111] font-medium leading-normal">
@@ -157,28 +157,28 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
 
             {/* Primary & Secondary Action CTAs */}
             <div className="pt-4 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              {/* Primary CTA: DISCUSS YOUR LAUNCH */}
+              {/* Primary CTA: Plan Your Product Hunt Launch */}
               <Button
                 size="lg"
                 onClick={onOpenBooking}
                 className="bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide px-7 sm:px-8 py-4 rounded-full border border-[#459B45]/30 shadow-[0_10px_26px_rgba(36,107,50,0.32)] hover:shadow-[0_14px_34px_rgba(36,107,50,0.44)] hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer justify-center"
               >
-                <span>DISCUSS YOUR LAUNCH</span>
+                <span>Plan Your Product Hunt Launch</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
 
-              {/* Secondary CTA: EXPLORE OUR PROCESS */}
+              {/* Secondary CTA: Explore All Growth Services */}
               <a
-                href="#how-we-work"
-                onClick={handleExploreProcess}
+                href="#services"
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full border border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] hover:border-[#1E5B2A] text-xs sm:text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs whitespace-nowrap"
               >
-                <span>EXPLORE OUR PROCESS</span>
+                <span>EXPLORE ALL SERVICES</span>
               </a>
 
-              {/* View Portfolio Link */}
+              {/* Highlighted View My Portfolio Button */}
               <a
                 href="/portfolio"
+                id="ph-section-view-portfolio-btn"
                 onClick={(e) => {
                   if (
                     !e.metaKey &&
@@ -196,10 +196,14 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
                     }
                   }
                 }}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-semibold text-[#555B55] hover:text-[#246B32] transition-colors whitespace-nowrap cursor-pointer"
+                className="portfolio-highlight-glow inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full border border-[#459B45] bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 cursor-pointer whitespace-nowrap group"
               >
+                <span className="relative flex h-2 w-2 mr-0.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#459B45] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#246B32]" />
+                </span>
                 <span>View My Portfolio</span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                <ArrowRight className="w-4 h-4 text-[#246B32] transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </div>
           </motion.div>

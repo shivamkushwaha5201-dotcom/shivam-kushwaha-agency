@@ -1,6 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  UserCheck, 
+  Share2, 
+  Layers, 
+  Megaphone, 
+  Sparkles, 
+  Globe, 
+  Rocket,
+  ArrowUpRight
+} from 'lucide-react';
 import { Button } from './ui/button';
 import { SERVICES_DATA } from '../data/portfolioData';
 
@@ -13,12 +24,40 @@ interface ServicesSectionProps {
 export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ 
   onOpenBooking,
   onViewService,
-  onOpenPortfolio
+  onOpenPortfolio,
 }) => {
+  const productHuntService = SERVICES_DATA.find(s => s.id === 'product-hunt-launch');
+
+  const handleServiceClick = (serviceId: string) => {
+    if (onViewService) {
+      onViewService(serviceId);
+    } else {
+      window.location.hash = `#services/${serviceId}`;
+    }
+  };
+
+  const handlePortfolioNavigation = (e: React.MouseEvent) => {
+    if (
+      !e.metaKey &&
+      !e.ctrlKey &&
+      !e.shiftKey &&
+      !e.altKey &&
+      e.button === 0
+    ) {
+      e.preventDefault();
+      if (onOpenPortfolio) {
+        onOpenPortfolio();
+      } else {
+        window.history.pushState({}, '', '/portfolio');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
+    }
+  };
+
   return (
     <section 
       id="services" 
-      className="py-24 sm:py-28 md:py-36 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Subtle Mint Ambient Gradient Background */}
       <div
@@ -26,170 +65,565 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.5) 0%, rgba(247, 249, 247, 1) 70%), linear-gradient(135deg, #F7F9F7 0%, #FFFFFF 52%, #F7F9F7 100%)',
+            'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(247, 249, 247, 1) 70%), linear-gradient(135deg, #F7F9F7 0%, #FFFFFF 52%, #F7F9F7 100%)',
         }}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12 sm:space-y-16">
         
-        {/* Section Header: Exact Copy and Typography */}
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl space-y-3.5 text-left relative z-20"
+        >
+          <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase">
+            <span>FULL GROWTH SERVICE PORTFOLIO</span>
+            <span aria-hidden="true">·</span>
+            <span>STRATEGY &amp; DISTRIBUTION</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase leading-tight">
+            GROWTH SERVICES <br className="hidden sm:inline" />
+            <span className="text-[#248A3D]">BEYOND A SINGLE LAUNCH</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-[#555B55] leading-relaxed font-sans max-w-2xl font-normal">
+            AxentAI Labs helps startups launch products, build founder authority, manage social media presence, collaborate with creators, and reach the right audiences through strategic, organic-first marketing.
+          </p>
+        </motion.div>
+
+        {/* 1. Flagship Spotlight Card: Product Hunt Launch Support (65% Strategic Weight) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl space-y-4 text-left relative z-20"
+          className="rounded-3xl bg-gradient-to-br from-[#FFFFFF] via-[#F9FCF9] to-[#FFFFFF] border-2 border-[#CDECCF] p-7 sm:p-9 shadow-sm relative overflow-hidden"
         >
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
-            <span>SERVICES &amp; CAPABILITIES</span>
+          {/* Faint mint radial accent */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#E5F5E5]/60 blur-3xl"
+          />
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8">
+            <div className="space-y-4 max-w-2xl">
+              {/* Top metadata row without pill capsules */}
+              <div className="flex items-center gap-2.5 text-xs text-[#246B32] font-mono font-semibold">
+                <Rocket className="w-4 h-4 text-[#246B32]" />
+                <span className="uppercase tracking-wider">01 · FLAGSHIP SERVICE</span>
+                <span aria-hidden="true">·</span>
+                <span>~65% BUSINESS FOCUS</span>
+              </div>
+
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#111111] tracking-tight">
+                  Product Hunt Launch Strategy &amp; Support
+                </h3>
+                <p className="mt-1 text-sm font-medium text-[#246B32]">
+                  Refine positioning, prepare launch assets, coordinate launch day, and build a strategic distribution plan.
+                </p>
+              </div>
+
+              <p className="text-sm text-[#555B55] leading-relaxed font-sans">
+                A successful launch takes more than publishing a product page. We help founders refine their positioning, prepare launch assets, coordinate launch-day communication, connect with relevant communities, and build a thoughtful distribution plan.
+              </p>
+
+              {/* Compact scannable deliverables */}
+              <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-[#222222]">
+                {[
+                  'Pre-launch strategy & positioning',
+                  'Product page & tagline feedback',
+                  'Launch asset planning',
+                  'Launch-day coordination',
+                  'Cross-platform distribution',
+                  'Post-launch review'
+                ].map((item, dIdx) => (
+                  <span
+                    key={dIdx}
+                    className="inline-flex items-center gap-1.5 bg-[#FFFFFF] border border-[#E5E9E5] px-3 py-1.5 rounded-xl shadow-2xs font-medium"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>{item}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Actions Column: Highlighted "View Launch Portfolio" + Plan Your Launch */}
+            <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-3 shrink-0 pt-2 lg:pt-0">
+              {/* Highlighted "View Launch Portfolio" Link */}
+              <a
+                href="/portfolio"
+                id="services-view-launch-portfolio-btn"
+                onClick={handlePortfolioNavigation}
+                className="portfolio-highlight-glow inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#459B45] bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 cursor-pointer whitespace-nowrap group shadow-xs"
+              >
+                <span className="relative flex h-2 w-2 mr-0.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#459B45] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#246B32]" />
+                </span>
+                <span>View Launch Portfolio</span>
+                <ArrowRight className="w-4 h-4 text-[#246B32] transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+
+              <Button
+                size="sm"
+                onClick={onOpenBooking}
+                className="bg-gradient-to-r from-[#246B32] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs font-semibold px-6 py-3 rounded-full border border-[#459B45]/30 shadow-xs hover:shadow-md transition-all cursor-pointer justify-center"
+              >
+                <span>Plan Your Product Hunt Launch</span>
+                <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+              </Button>
+
+              <button
+                type="button"
+                onClick={() => handleServiceClick('product-hunt-launch')}
+                className="text-xs text-[#555B55] hover:text-[#246B32] font-semibold underline underline-offset-4 cursor-pointer pt-1"
+              >
+                Full Service Specifications →
+              </button>
+            </div>
           </div>
-
-          {/* Section Heading */}
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
-            Strategic Visibility &amp; <span className="text-[#248A3D]">Category Authority.</span>
-          </h2>
-
-          {/* Supporting Text */}
-          <p className="text-base sm:text-lg text-[#555B55] leading-relaxed font-sans max-w-2xl font-normal">
-            We focus exclusively on organic founder authority, executive page operations, and creator syndication—transforming quiet technology companies into industry-defining voices.
-          </p>
         </motion.div>
 
-        {/* Large Vertically Stacked Service Cards */}
-        <div className="space-y-6 sm:space-y-8">
-          {SERVICES_DATA.map((service, idx) => {
-            const serviceNumber = `0${idx + 1}`;
-            const isProductHunt = service.id === 'product-hunt-launch';
+        {/* 2. CLUSTER A: Founder Authority & Executive Positioning (Asymmetrical Split) */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#111111] uppercase pb-1 border-b border-[#E5E9E5]">
+            <UserCheck className="w-4 h-4 text-[#246B32]" />
+            <span>02 · FOUNDER AUTHORITY &amp; EXECUTIVE POSITIONING</span>
+          </div>
 
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-[0_16px_36px_-8px_rgba(69,155,69,0.14)] transition-all duration-300 p-6 sm:p-9 lg:p-11 shadow-xs"
-              >
-                {/* 3-Column Internal Structure: Left (Details), Middle (Deliverables), Right (Actions) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-start">
-                  
-                  {/* Column 1: Left — Service Number, Category Badge, Title & Description */}
-                  <div className="lg:col-span-5 space-y-4">
-                    {/* Number and Category Badge */}
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs sm:text-sm font-bold text-[#459B45] tracking-widest">
-                        {serviceNumber}
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF7EA] text-[#246B32] border border-[#CDECCF] text-xs font-semibold tracking-wide">
-                        {service.badge}
-                      </span>
-                      {isProductHunt && (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FFF2EB] text-[#E03B28] border border-[#FFD5C2] text-[10px] font-bold uppercase tracking-wider">
-                          Flagship
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Bold Service Title */}
-                    <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#111111] tracking-tight group-hover:text-[#246B32] transition-colors">
-                      {service.title}
-                    </h3>
-
-                    {/* Descriptive Paragraph */}
-                    <p className="text-sm sm:text-[15px] text-[#555B55] leading-relaxed font-sans">
-                      {service.description}
-                    </p>
-
-                    {/* Results / Target Impact note */}
-                    {service.resultsMetric && (
-                      <div className="pt-1 text-xs font-medium text-[#246B32] flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#459B45]" />
-                        <span>Focus: {service.resultsMetric}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Column 2: Middle — Clearly Labelled Deliverables List */}
-                  <div className="lg:col-span-4 space-y-3.5 lg:border-l lg:border-[#F0F2F0] lg:pl-8">
-                    <div className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-[#246B32]">
-                      DELIVERABLES
-                    </div>
-
-                    <ul className="space-y-2.5">
-                      {service.deliverables.map((item, dIdx) => (
-                        <li 
-                          key={dIdx} 
-                          className="flex items-start gap-2.5 text-xs sm:text-sm text-[#222222] font-medium leading-normal"
-                        >
-                          <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Column 3: Right — Actions (Explore & Book Call) */}
-                  <div className="lg:col-span-3 flex flex-col sm:flex-row lg:flex-col justify-start lg:items-end gap-3 pt-2 lg:pt-0 lg:border-l lg:border-[#F0F2F0] lg:pl-8">
-                    {/* EXPLORE Link */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (onViewService) {
-                          onViewService(service.id);
-                        } else {
-                          window.location.hash = `#services/${service.id}`;
-                        }
-                      }}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[#D5DDD5] hover:border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 group/btn cursor-pointer w-full sm:w-auto lg:w-full shadow-2xs"
-                    >
-                      <span>EXPLORE</span>
-                      <ArrowRight className="w-4 h-4 text-[#246B32] transition-transform duration-200 group-hover/btn:translate-x-1" />
-                    </button>
-
-                    {/* BOOK CALL Button */}
-                    <Button
-                      size="sm"
-                      onClick={onOpenBooking}
-                      className="bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide px-6 py-3 rounded-full border border-[#459B45]/30 shadow-[0_4px_14px_rgba(36,107,50,0.22)] hover:shadow-[0_6px_18px_rgba(36,107,50,0.32)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer w-full sm:w-auto lg:w-full justify-center"
-                    >
-                      <span>BOOK CALL</span>
-                    </Button>
-
-                    {/* Specific portfolio link for Product Hunt */}
-                    {isProductHunt && (
-                      <a
-                        href="/portfolio"
-                        onClick={(e) => {
-                          if (
-                            !e.metaKey &&
-                            !e.ctrlKey &&
-                            !e.shiftKey &&
-                            !e.altKey &&
-                            e.button === 0
-                          ) {
-                            e.preventDefault();
-                            if (onOpenPortfolio) {
-                              onOpenPortfolio();
-                            } else {
-                              window.history.pushState({}, '', '/portfolio');
-                              window.dispatchEvent(new PopStateEvent('popstate'));
-                            }
-                          }
-                        }}
-                        className="inline-flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#555B55] hover:text-[#246B32] transition-colors pt-1 cursor-pointer w-full sm:w-auto lg:w-full text-center"
-                      >
-                        <span>View Launch Portfolio</span>
-                        <ExternalLink className="w-3 h-3 shrink-0" />
-                      </a>
-                    )}
-                  </div>
-
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            {/* Main Spotlight: LinkedIn Personal Branding (7 Cols) */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#459B45]/60 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs text-[#555B55]">
+                  <span className="font-mono text-xs font-bold text-[#246B32]">SERVICE 02A</span>
+                  <span>Founder Positioning</span>
                 </div>
-              </motion.div>
-            );
-          })}
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+                    LinkedIn Personal Branding &amp; Founder Positioning
+                  </h3>
+                  <p className="mt-1 text-sm text-[#246B32] font-medium">
+                    Turn founder experience into executive authority, trust, and inbound opportunities.
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans">
+                  Help founders and executives build credibility through strategic positioning, content planning, thought leadership, and consistent professional visibility. We distill your domain insights into high-signal perspectives.
+                </p>
+
+                {/* Deliverables */}
+                <div className="pt-2 border-t border-[#F0F2F0] space-y-2">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#111111] font-semibold">
+                    Core Deliverables
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#222222]">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Founder voice &amp; thesis discovery</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Strategic profile optimization</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Weekly high-signal essay roadmap</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Active executive network engagement</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-[#F0F2F0] flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleServiceClick('linkedin-personal-branding')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111] hover:text-[#246B32] transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32]" />
+                </button>
+                <Button
+                  size="sm"
+                  onClick={onOpenBooking}
+                  className="bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs font-semibold px-4 py-2 rounded-full border border-[#CDECCF] hover:border-[#459B45] shadow-2xs transition-all cursor-pointer"
+                >
+                  Discuss Founder Branding
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Complementary Card: LinkedIn Company Page Management (5 Cols) */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#459B45]/60 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs text-[#555B55]">
+                  <span className="font-mono text-xs font-bold text-[#246B32]">SERVICE 02B</span>
+                  <span>Company Presence</span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+                    LinkedIn Company Page Management
+                  </h3>
+                  <p className="mt-1 text-sm text-[#246B32] font-medium">
+                    Consistent B2B storytelling, product updates, and brand credibility.
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans">
+                  Manage company page content, publishing schedules, brand messaging, audience engagement, and organic visibility so your brand looks established.
+                </p>
+
+                {/* Deliverables */}
+                <div className="pt-2 border-t border-[#F0F2F0] space-y-2">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#111111] font-semibold">
+                    Core Deliverables
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-[#222222]">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Editorial calendar &amp; publication rhythm</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Product feature spotlights &amp; hiring announcements</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                      <span>Follower growth &amp; engagement reporting</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-[#F0F2F0] flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleServiceClick('linkedin-page-handling')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111] hover:text-[#246B32] transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32]" />
+                </button>
+                <Button
+                  size="sm"
+                  onClick={onOpenBooking}
+                  className="bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs font-semibold px-4 py-2 rounded-full border border-[#CDECCF] hover:border-[#459B45] shadow-2xs transition-all cursor-pointer"
+                >
+                  Discuss Page
+                </Button>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+
+        {/* 3. CLUSTER B: Content Operations & Multi-Channel Distribution (Editorial 2-Column) */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#111111] uppercase pb-1 border-b border-[#E5E9E5]">
+            <Layers className="w-4 h-4 text-[#246B32]" />
+            <span>03 · CONTENT OPERATIONS &amp; ORGANIC DISTRIBUTION</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Social Media Management */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#459B45]/60 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs text-[#555B55]">
+                  <span className="font-mono text-xs font-bold text-[#246B32]">SERVICE 03A</span>
+                  <span>Content Strategy</span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+                    Social Media Management &amp; Content Strategy
+                  </h3>
+                  <p className="mt-1 text-sm text-[#246B32] font-medium">
+                    Build a consistent social presence with platform-specific content and active community touchpoints.
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans">
+                  Build a consistent social presence through content strategy, platform-specific publishing, community engagement, and performance reviews. We maintain your brand voice while founders focus on building product.
+                </p>
+
+                <div className="pt-2 border-t border-[#F0F2F0] space-y-1.5 text-xs text-[#222222]">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#111111] font-semibold">
+                    Key Deliverables
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Multi-platform editorial strategy</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Visual briefs &amp; interactive product demos</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Community moderation &amp; audience engagement</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-[#F0F2F0] flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleServiceClick('social-media-management')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111] hover:text-[#246B32] transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32]" />
+                </button>
+                <Button
+                  size="sm"
+                  onClick={onOpenBooking}
+                  className="bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs font-semibold px-4 py-2 rounded-full border border-[#CDECCF] hover:border-[#459B45] shadow-2xs transition-all cursor-pointer"
+                >
+                  Discuss Content
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* X (Twitter) Growth */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#459B45]/60 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs text-[#555B55]">
+                  <span className="font-mono text-xs font-bold text-[#246B32]">SERVICE 03B</span>
+                  <span>Build In Public</span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+                    X (Twitter) Growth &amp; Distribution
+                  </h3>
+                  <p className="mt-1 text-sm text-[#246B32] font-medium">
+                    Engaging build-in-public threads, launch announcements, and tech community dialogue.
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans">
+                  Reach early adopters, tech builders, and software engineers through high-velocity thread design, interactive demo clips, and meaningful ecosystem engagement that turns followers into trial users.
+                </p>
+
+                <div className="pt-2 border-t border-[#F0F2F0] space-y-1.5 text-xs text-[#222222]">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#111111] font-semibold">
+                    Key Deliverables
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Build-in-public hook &amp; thread writing</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Launch-day countdown syndication</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Tech niche influencer interaction</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-[#F0F2F0] flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleServiceClick('x-growth-distribution')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111] hover:text-[#246B32] transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32]" />
+                </button>
+                <Button
+                  size="sm"
+                  onClick={onOpenBooking}
+                  className="bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs font-semibold px-4 py-2 rounded-full border border-[#CDECCF] hover:border-[#459B45] shadow-2xs transition-all cursor-pointer"
+                >
+                  Discuss X Growth
+                </Button>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+
+        {/* 4. CLUSTER C: Creator Partnerships & Digital Presence */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#111111] uppercase pb-1 border-b border-[#E5E9E5]">
+            <Megaphone className="w-4 h-4 text-[#246B32]" />
+            <span>04 · CREATOR PARTNERSHIPS &amp; DIGITAL PRESENCE</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Influencer Marketing */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#459B45]/60 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs text-[#555B55]">
+                  <span className="font-mono text-xs font-bold text-[#246B32]">SERVICE 04A</span>
+                  <span>Creator Outreach</span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+                    Influencer Marketing &amp; Creator Partnerships
+                  </h3>
+                  <p className="mt-1 text-sm text-[#246B32] font-medium">
+                    Vetted collaborations with niche tech creators who test and advocate your product.
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans">
+                  Connect relevant brands with creators and niche influencers who can showcase products to engaged software engineers and decision-makers without generic sponsored spam.
+                </p>
+
+                <div className="pt-2 border-t border-[#F0F2F0] space-y-1.5 text-xs text-[#222222]">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#111111] font-semibold">
+                    Key Deliverables
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Niche creator discovery &amp; authenticity vetting</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Campaign brief &amp; demo angle alignment</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Deliverable tracking &amp; referral performance</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-[#F0F2F0] flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleServiceClick('influencer-marketing')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111] hover:text-[#246B32] transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32]" />
+                </button>
+                <Button
+                  size="sm"
+                  onClick={onOpenBooking}
+                  className="bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs font-semibold px-4 py-2 rounded-full border border-[#CDECCF] hover:border-[#459B45] shadow-2xs transition-all cursor-pointer"
+                >
+                  Discuss Creators
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Website Development */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#459B45]/60 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs text-[#555B55]">
+                  <span className="font-mono text-xs font-bold text-[#246B32]">SERVICE 04B</span>
+                  <span>Digital Presence</span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+                    Website Development &amp; Digital Presence
+                  </h3>
+                  <p className="mt-1 text-sm text-[#246B32] font-medium">
+                    Clean, high-performance websites engineered for credibility, conversion, and launch day.
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans">
+                  Design and develop modern landing pages, digital portfolios, and conversion-focused web presences that convert launch visitors into paying customers.
+                </p>
+
+                <div className="pt-2 border-t border-[#F0F2F0] space-y-1.5 text-xs text-[#222222]">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#111111] font-semibold">
+                    Key Deliverables
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Conversion-engineered architecture</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Fast responsive frontend implementation</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                    <span>Brand identity &amp; typography integration</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-[#F0F2F0] flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleServiceClick('website-development')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111] hover:text-[#246B32] transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32]" />
+                </button>
+                <Button
+                  size="sm"
+                  onClick={onOpenBooking}
+                  className="bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] text-xs font-semibold px-4 py-2 rounded-full border border-[#CDECCF] hover:border-[#459B45] shadow-2xs transition-all cursor-pointer"
+                >
+                  Discuss Website
+                </Button>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
 
       </div>

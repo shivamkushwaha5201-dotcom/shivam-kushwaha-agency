@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Compass, Lightbulb, PlayCircle, TrendingUp, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
-import snailSkateboardImg from '../assets/images/WhatsApp_Image_2026-10-25_at_12.27.53_AM_aa982056.jpeg';
+import snailSkateboardImg from '../assets/images/snail_on_skateboard_transparent.png';
 
 interface ProcessSectionProps {
   onOpenBooking: () => void;
@@ -16,28 +16,28 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
       number: '01',
       title: 'DISCOVER',
       subtitle: 'Audience & Positioning',
-      description: 'Identify the product’s audience, value proposition, competitive positioning and launch objectives.',
+      description: 'Identify target software buyers, value proposition, competitive whitespace, and launch objectives.',
       icon: Compass
     },
     {
       number: '02',
       title: 'STRATEGY',
       subtitle: 'Distribution Architecture',
-      description: 'Build a launch plan covering messaging, preparation, launch timing, distribution and audience discovery.',
+      description: 'Build a coordinated roadmap across messaging, visual preview assets, launch timing, and developer discovery.',
       icon: Lightbulb
     },
     {
       number: '03',
       title: 'EXECUTE',
       subtitle: 'Launch-Day Coordination',
-      description: 'Coordinate launch activities, founder communications, community outreach and planned content distribution.',
+      description: 'Real-time launch orchestration, founder updates, community discussions, and synchronized platform distribution.',
       icon: PlayCircle
     },
     {
       number: '04',
       title: 'OPTIMIZE',
-      subtitle: 'Post-Launch Momentum',
-      description: 'Review available performance data, identify opportunities and plan post-launch follow-up.',
+      subtitle: 'Compounding Reach',
+      description: 'Convert launch momentum into evergreen social content, creator syndication, and compounding inbound visibility.',
       icon: TrendingUp
     }
   ];
@@ -46,7 +46,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
     <section 
       ref={sectionRef}
       id="how-we-work" 
-      className="py-28 md:py-36 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
@@ -60,158 +60,148 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Centered Methodology Header & Standalone Snail Visual */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 relative z-20">
+        {/* Centered Methodology Narrative: Heading Above -> Snail Visual -> Supporting Text Below */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 relative z-20">
           
-          {/* Eyebrow Label */}
+          {/* Eyebrow */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs mb-4"
+            className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase mb-3"
           >
-            <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
-            <span>OUR LAUNCH METHODOLOGY</span>
+            <span>LAUNCH &amp; GROWTH METHODOLOGY</span>
+            <span aria-hidden="true">·</span>
+            <span>BUILDING MOMENTUM</span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Heading Above */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase leading-tight"
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase leading-tight"
           >
-            DON’T LET YOUR LAUNCH <span className="text-[#248A3D]">CRAWL</span>
+            A CLEAR STRATEGY <br className="hidden sm:inline" />
+            <span className="text-[#248A3D]">FROM LAUNCH TO GROWTH</span>
           </motion.h2>
 
-          {/* Subtitle */}
+          {/* Subtitle / Momentum Concept */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.55, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-3 text-lg sm:text-xl font-medium text-[#246B32] font-display tracking-tight"
+            transition={{ duration: 0.55, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-3 text-base sm:text-lg font-medium text-[#246B32] font-sans tracking-tight"
           >
-            Build momentum before launch day
+            Don't let your launch crawl — build compounding momentum before, during, and beyond launch day.
           </motion.p>
 
-          {/* Snail on Skateboard: Exact Attached Image Displayed Naturally (No Frame, No Card, No Border) */}
+          {/* Snail on Skateboard: Frameless, Natural Transparent Cutout */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.96, y: 14 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.65, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-xl sm:max-w-2xl md:max-w-3xl my-6 sm:my-8 flex justify-center items-center select-none"
+            transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-md sm:max-w-lg md:max-w-xl my-6 flex justify-center items-center select-none"
           >
             <img
               src={snailSkateboardImg}
-              alt="Snail riding a skateboard at high speed representing launch momentum"
-              className="w-full h-auto max-h-[380px] sm:max-h-[440px] md:max-h-[480px] object-contain mix-blend-multiply select-none"
-              loading="eager"
+              alt="Snail on skateboard building rapid momentum beyond slow growth"
+              className="w-full h-auto max-h-[300px] sm:max-h-[360px] md:max-h-[400px] object-contain select-none pointer-events-none drop-shadow-[0_22px_38px_rgba(0,0,0,0.11)]"
+              loading="lazy"
               decoding="async"
             />
           </motion.div>
 
           {/* Supporting Description underneath image */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg text-[#555B55] leading-relaxed font-sans max-w-2xl mx-auto font-normal mt-2"
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="text-base sm:text-lg text-[#555B55] leading-relaxed font-sans max-w-2xl mx-auto font-normal"
           >
-            A great launch takes more than publishing a product page. We help founders prepare their positioning, coordinate launch activities, and build a clear distribution plan so their product gets the attention it deserves.
+            Our process combines audience research, positioning, coordinated execution, and post-launch distribution to help founders build a stronger foundation for growth.
           </motion.p>
 
         </div>
 
-        {/* 4 Connected Process Stages (Horizontal Row) */}
+        {/* 4 Connected Process Stages (Editorial Horizontal Flow, Subtle Dividers) */}
         <div className="relative pt-4">
           
-          {/* Background Track Line (Desktop) */}
-          <div className="hidden lg:block absolute top-[44px] left-[6%] right-[6%] h-[1px] bg-[#E5E9E5] -z-0">
+          {/* Subtle Horizontal Connecting Rail (Desktop) */}
+          <div className="hidden lg:block absolute top-[44px] left-[8%] right-[8%] h-[1px] bg-[#E5E9E5] -z-0">
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               style={{ transformOrigin: 'left' }}
-              className="h-full w-full bg-gradient-to-r from-[#246B32] via-[#459B45] to-[#E5F5E5] shadow-[0_0_14px_rgba(69,155,69,0.3)]"
+              className="h-full w-full bg-gradient-to-r from-[#246B32] via-[#459B45] to-[#E5F5E5]"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 relative z-10">
             {stages.map((stage, idx) => {
               const Icon = stage.icon;
               return (
                 <motion.div
                   key={stage.number}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -5 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="fx-card-interactive p-7 sm:p-8 rounded-2xl bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-[0_14px_32px_-8px_rgba(69,155,69,0.15)] flex flex-col justify-between space-y-6 group shadow-xs"
+                  transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-2xl bg-[#FFFFFF] border border-[#E5E9E5] p-6 sm:p-7 flex flex-col justify-between shadow-2xs hover:border-[#459B45]/60 transition-all duration-300 group"
                 >
-                  <div className="space-y-4">
-                    {/* Stage Node */}
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-full bg-[#F7F9F7] border border-[#E5E9E5] flex items-center justify-center font-mono font-bold text-xs text-[#246B32] shadow-2xs group-hover:border-[#459B45] transition-colors">
-                        {stage.number}
-                      </div>
-
-                      <div className="w-8 h-8 rounded-lg bg-[#E5F5E5] border border-[#E5E9E5] text-[#246B32] flex items-center justify-center">
+                  <div className="space-y-3.5">
+                    {/* Top Row: Icon + Stage Number */}
+                    <div className="flex items-center justify-between pb-3 border-b border-[#F0F2F0]">
+                      <div className="w-9 h-9 rounded-xl bg-[#EAF7EA] text-[#246B32] flex items-center justify-center shrink-0">
                         <Icon className="w-4 h-4" />
                       </div>
+                      <span className="font-mono text-xs font-bold text-[#459B45] tracking-widest">
+                        PHASE {stage.number}
+                      </span>
                     </div>
 
-                    <div className="space-y-1">
-                      <h3 className="text-xl font-bold text-[#111111] tracking-tight uppercase font-display group-hover:text-[#246B32] transition-colors">
+                    <div>
+                      <h3 className="text-lg font-display font-bold text-[#111111] tracking-tight group-hover:text-[#246B32] transition-colors">
                         {stage.title}
                       </h3>
-                      <p className="text-xs font-mono font-medium text-[#459B45]">
+                      <p className="text-xs font-mono font-medium text-[#246B32] uppercase tracking-wider mt-0.5">
                         {stage.subtitle}
                       </p>
                     </div>
 
-                    <p className="text-xs text-[#555B55] leading-relaxed font-sans font-normal">
+                    <p className="text-xs sm:text-sm text-[#555B55] leading-relaxed font-sans font-normal">
                       {stage.description}
                     </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#E5E9E5] text-[11px] text-[#555B55] font-mono flex items-center justify-between">
-                    <span>Step 0{idx + 1}</span>
-                    <span className="text-[#246B32] font-semibold">Stage {idx + 1} / 4</span>
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-        </div>
-
-        {/* Section Bottom CTA */}
-        <div className="mt-16 flex items-center justify-between flex-wrap gap-4 pt-8 border-t border-[#E5E9E5]">
-          <div className="text-xs text-[#555B55] font-normal">
-            Planning a SaaS or developer tool launch on Product Hunt?
+          {/* Bottom Action */}
+          <div className="mt-12 text-center">
+            <Button
+              size="lg"
+              onClick={onOpenBooking}
+              className="bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide px-8 py-4 rounded-full border border-[#459B45]/30 shadow-[0_8px_24px_rgba(36,107,50,0.28)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+            >
+              <span>Map Your Launch Roadmap</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
           </div>
-          <Button
-            size="sm"
-            onClick={onOpenBooking}
-            className="bg-[#459B45] hover:bg-[#246B32] text-[#FFFFFF] text-xs font-semibold tracking-wider uppercase px-6 py-2.5 rounded-full border border-[#459B45]/30 shadow-md shadow-[#459B45]/20 group transition-all cursor-pointer"
-          >
-            <span>DISCUSS YOUR LAUNCH</span>
-            <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1" />
-          </Button>
+
         </div>
 
       </div>
-
     </section>
   );
 });
 
 ProcessSection.displayName = 'ProcessSection';
-export default ProcessSection;

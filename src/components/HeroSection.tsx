@@ -136,7 +136,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-[92vh] lg:min-h-[96vh] pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-[#FFFFFF] text-[#111111] flex items-center z-10"
+      className="scroll-mt-24 md:scroll-mt-28 relative min-h-[90vh] lg:min-h-[94vh] pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-[#FFFFFF] text-[#111111] flex items-center z-10"
     >
       {/* Curved Perspective Grid & Mint Atmospheric Background (Matching Reference Screenshot) */}
       <CurvedGridBackground showOrbs={true} />
@@ -147,30 +147,32 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
           {/* Left Side — Content (Preserving existing typography, CTAs & badges) */}
           <div className="lg:col-span-7 space-y-7 sm:space-y-8 text-left relative z-20">
             
-            {/* 1. Pill Eyebrow: "• PRODUCT HUNT LAUNCH & GROWTH" */}
+            {/* 1. Eyebrow: STRATEGY • LAUNCH • GROWTH */}
             <motion.div
               variants={labelVariants}
               initial="hidden"
               animate="visible"
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
-                <span>PRODUCT HUNT LAUNCH &amp; GROWTH</span>
+                <span>STRATEGY • LAUNCH • GROWTH</span>
               </div>
             </motion.div>
 
-            {/* 2. Main Focal Headline: "LAUNCH SMARTER. GROW FASTER." */}
+            {/* 2. Main Focal Headline: BUILD YOUR BRAND. LAUNCH WITH PURPOSE. GROW WITH STRATEGY. */}
             <motion.h1
               variants={headlineVariants}
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-6xl lg:text-[66px] xl:text-[76px] font-display font-extrabold tracking-[-0.035em] text-[#111111] leading-[1.02] uppercase"
+              className="text-4xl sm:text-6xl lg:text-[60px] xl:text-[70px] font-display font-extrabold tracking-[-0.035em] text-[#111111] leading-[1.04] uppercase"
             >
               <span className="block text-[#111111]">
-                LAUNCH SMARTER.
+                BUILD YOUR BRAND.
               </span>
               <span className="block mt-1 text-[#248A3D]">
-                GROW FASTER.
+                LAUNCH WITH PURPOSE.
+              </span>
+              <span className="block mt-1 text-[#111111]">
+                GROW WITH <span className="text-[#248A3D]">STRATEGY.</span>
               </span>
             </motion.h1>
 
@@ -181,10 +183,10 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               animate="visible"
               className="text-base sm:text-lg lg:text-[19px] text-[#555B55] font-sans leading-[1.68] max-w-xl font-normal"
             >
-              We help SaaS founders prepare, launch and promote their products on Product Hunt through strategic positioning, launch-day coordination and organic distribution.
+              We help SaaS founders and modern brands launch products, build a strong online presence, grow founder authority, and reach relevant audiences through strategic marketing and distribution.
             </motion.p>
 
-            {/* 4. Action Buttons (Primary Green Pill + Secondary Bordered Pill) */}
+            {/* 4. Action Buttons (Primary: Explore Our Services, Secondary: Plan Your Product Hunt Launch) */}
             <motion.div
               variants={ctaVariants}
               initial="hidden"
@@ -192,26 +194,27 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               className="pt-1 space-y-4"
             >
               <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-4">
-                <Button
+                <a
                   id="hero-primary-cta"
+                  href="#services"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide px-8 py-4 rounded-full border border-[#459B45]/30 shadow-[0_10px_26px_rgba(36,107,50,0.32)] hover:shadow-[0_14px_34px_rgba(36,107,50,0.44)] hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer"
+                >
+                  <span>Explore Our Services</span>
+                  <ArrowRight className="w-4 h-4 ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+
+                <Button
+                  id="hero-secondary-cta"
                   size="lg"
                   onClick={onOpenBooking}
-                  className="bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide px-8 py-4 rounded-full border border-[#459B45]/30 shadow-[0_10px_26px_rgba(36,107,50,0.32)] hover:shadow-[0_14px_34px_rgba(36,107,50,0.44)] hover:-translate-y-0.5 active:translate-y-0 group transition-all duration-300 cursor-pointer justify-center"
-                >
-                  <span>Plan Your Product Hunt Launch</span>
-                  <ArrowRight className="w-4 h-4 ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-
-                <a
-                  href="#product-hunt"
                   className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] hover:border-[#1E5B2A] text-xs sm:text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs"
                 >
-                  Explore Launch Services
-                </a>
+                  Plan Your Product Hunt Launch
+                </Button>
               </div>
             </motion.div>
 
-            {/* 5. Trust Row: Launch Strategy · Organic Distribution · Founder-Focused Support */}
+            {/* 5. Trust Row: Product Launch Strategy · Founder & Brand Growth · Organic Distribution */}
             <motion.div
               variants={proofRowVariants}
               initial="hidden"
@@ -220,15 +223,15 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
-                <span>Launch Strategy</span>
+                <span>Product Launch Strategy</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
+                <span>Founder &amp; Brand Growth</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
                 <span>Organic Distribution</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
-                <span>Founder-Focused Support</span>
               </div>
             </motion.div>
           </div>

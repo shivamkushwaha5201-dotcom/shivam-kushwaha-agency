@@ -52,15 +52,16 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
   }, []);
 
   const highlights = [
-    'Founder & CEO of Axentailabs — leading digital growth strategy, launch engineering & personal branding.',
-    'Specializing in Product Hunt launch execution, organic social media management, and founder personal branding.',
-    'Multi-channel reach across LinkedIn, X (Twitter), Reddit, and tech sub-communities.',
-    'Curated tech creator and influencer partnerships to amplify launch-day momentum.',
-    'Direct founder-to-founder strategic collaboration with tailored launch playbooks.'
+    'Product Hunt launch strategy, positioning, and real-time coordination (flagship focus).',
+    'LinkedIn personal branding and executive positioning for founders and leadership.',
+    'End-to-end company page management, editorial scheduling, and audience interaction.',
+    'Vetted creator partnerships and distribution across LinkedIn, X, and tech communities.',
+    'Modern website development that communicates clear value propositions.',
+    'Direct founder-to-founder strategic collaboration with no agency bureaucracy.'
   ];
 
   return (
-    <section id="about" className="py-24 md:py-28 bg-[#FFFFFF] relative overflow-hidden border-t border-[#E5E9E5] text-[#111111] transition-colors duration-200 z-10">
+    <section id="about" className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] relative overflow-hidden border-t border-[#E5E9E5] text-[#111111] transition-colors duration-200 z-10">
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
@@ -72,7 +73,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column */}
           <StaggerContainer 
@@ -81,30 +82,30 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
             className="lg:col-span-7 space-y-6"
           >
             
-            {/* Pill Label */}
+            {/* Unboxed Metadata */}
             <StaggerItem>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F9F7] border border-[#E5E9E5]">
-                <span className="w-2 h-2 rounded-full bg-[#459B45]" />
-                <span className="text-xs font-bold text-[#246B32] tracking-wide uppercase">
-                  About Founder
-                </span>
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase">
+                <span>ABOUT AXENTAI LABS</span>
+                <span aria-hidden="true">·</span>
+                <span>FOUNDER LED</span>
               </div>
             </StaggerItem>
 
             {/* Bold Headline */}
             <StaggerItem>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-[#111111] tracking-tight leading-[1.14]">
-                Shivam Kushwaha — Founder & CEO of Axentailabs
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-[#111111] tracking-tight leading-[1.14] uppercase">
+                BUILT AROUND STRATEGY. <br className="hidden sm:inline" />
+                <span className="text-[#248A3D]">FOCUSED ON GROWTH.</span>
               </h2>
             </StaggerItem>
 
             <StaggerItem>
               <div className="space-y-3">
-                <p className="text-sm sm:text-base text-[#111111] leading-relaxed font-sans">
-                  <strong className="text-[#246B32] font-semibold">Shivam Kushwaha</strong> is the <strong className="text-[#246B32] font-semibold">Founder & CEO of <a href="https://axentailabs.com" className="text-[#246B32] font-semibold underline decoration-[#459B45] underline-offset-4 hover:text-[#111111] transition-colors">Axentailabs</a></strong>, a digital growth and personal branding agency helping founders and businesses build stronger brands and grow their presence across modern digital platforms.
+                <p className="text-base sm:text-lg text-[#111111] leading-relaxed font-sans font-medium">
+                  We work with founders and modern brands to clarify their message, prepare launches, strengthen their digital presence, and build consistent visibility across relevant channels.
                 </p>
                 <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans">
-                  Building great software is only half the battle. If nobody hears about it, even groundbreaking products disappear. At <a href="https://axentailabs.com" className="text-[#246B32] font-medium hover:text-[#111111] transition-colors">Axentailabs</a>, he works as an embedded growth partner for founders—engineering every launch milestone from pre-heat teasers and positioning to community momentum and multi-channel distribution.
+                  Founded by <strong className="text-[#246B32] font-semibold">Shivam Kushwaha</strong>, AxentAI Labs operates as an agile growth partner for startups and technology companies. While Product Hunt launch support is our flagship offering (~65% focus), we provide ongoing personal branding, social presence operations, creator partnerships, and digital development so your brand compounds visibility far beyond a single release.
                 </p>
               </div>
             </StaggerItem>

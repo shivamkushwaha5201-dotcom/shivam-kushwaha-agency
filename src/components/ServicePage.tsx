@@ -24,6 +24,7 @@ interface ServicePageProps {
   onBackToHome: () => void;
   onOpenBooking: () => void;
   onOpenAudit?: () => void;
+  onOpenPortfolio?: () => void;
   onSelectService: (id: string) => void;
 }
 
@@ -31,6 +32,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
   serviceId,
   onBackToHome,
   onOpenBooking,
+  onOpenPortfolio,
   onSelectService
 }) => {
   const service = SERVICES_DATA.find(s => s.id === serviceId) || SERVICES_DATA[0];
@@ -182,6 +184,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                   {service.portfolioUrl && (
                     <a
                       href={service.portfolioUrl}
+                      id="service-card-view-launch-portfolio-btn"
                       onClick={(e) => {
                         if (
                           service.portfolioUrl?.startsWith('/') &&
@@ -192,14 +195,22 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                           e.button === 0
                         ) {
                           e.preventDefault();
-                          window.history.pushState({}, '', service.portfolioUrl);
-                          window.dispatchEvent(new PopStateEvent('popstate'));
+                          if (onOpenPortfolio) {
+                            onOpenPortfolio();
+                          } else {
+                            window.history.pushState({}, '', service.portfolioUrl);
+                            window.dispatchEvent(new PopStateEvent('popstate'));
+                          }
                         }
                       }}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold bg-[#459B45] text-[#FFFFFF] border border-[#459B45]/40 shadow-md shadow-[#459B45]/20 hover:bg-[#246B32] hover:border-[#246B32] hover:shadow-lg hover:shadow-[#246B32]/30 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#459B45] focus-visible:ring-offset-2 transition-all duration-200 cursor-pointer"
+                      className="portfolio-highlight-glow inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold bg-[#FFFFFF] hover:bg-[#EAF7EA] text-[#246B32] border border-[#459B45] hover:border-[#246B32] shadow-xs hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#459B45] focus-visible:ring-offset-2 transition-all duration-300 cursor-pointer group"
                     >
-                      <span>View My Portfolio</span>
-                      <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                      <span className="relative flex h-2 w-2 mr-0.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#459B45] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#246B32]" />
+                      </span>
+                      <span>View Launch Portfolio</span>
+                      <ArrowRight className="w-4 h-4 text-[#246B32] transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                   )}
 

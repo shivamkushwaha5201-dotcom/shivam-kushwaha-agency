@@ -25,7 +25,7 @@ export const FaqSection: React.FC<FaqSectionProps> = React.memo(({ onOpenBooking
     : FAQ_DATA.filter(faq => faq.category === activeCategory);
 
   return (
-    <section id="faq" className="py-24 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans">
+    <section id="faq" className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans">
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"

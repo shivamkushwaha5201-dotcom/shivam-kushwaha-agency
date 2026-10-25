@@ -87,7 +87,7 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
     <section
       ref={sectionRef}
       id="influencer-marketing"
-      className="py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Faint Atmospheric Gradient Matching Theme */}
       <div
@@ -111,16 +111,15 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
         >
           <div className="space-y-3 max-w-2xl relative">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
-              <span>EXTENDED DISTRIBUTION</span>
+              <span>MULTI-CHANNEL DISTRIBUTION</span>
             </div>
             
             <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
-              KEEP YOUR LAUNCH MOVING <span className="text-[#248A3D]">BEYOND PRODUCT HUNT</span>
+              KEEP YOUR BRAND VISIBLE <span className="text-[#248A3D]">BEYOND LAUNCH DAY</span>
             </h2>
 
             <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-normal">
-              Extend your product’s story through relevant founder communities, LinkedIn content, X conversations and creator partnerships.
+              Extend your brand’s reach through LinkedIn content, X communication, company page management, creator collaborations, and relevant communities.
             </p>
           </div>
 

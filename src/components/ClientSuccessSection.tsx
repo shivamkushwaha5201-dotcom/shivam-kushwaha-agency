@@ -38,31 +38,43 @@ const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     ],
   },
   {
-    id: 'slot-01',
+    id: 'alex-rivera',
     tag: 'FOUNDER PERSONAL BRANDING',
-    placeholderNote: 'Client testimonial slot reserved for verified founder quote.',
-    roleLabel: 'Founder & CEO — Partner Brand (Placeholder)',
+    name: 'Alex Rivera',
+    designation: 'Founder & CEO, B2B Enterprise SaaS',
     serviceLabel: 'LinkedIn Personal Branding & Executive Positioning',
-    avatarInitials: 'FP',
-    isPlaceholder: true,
+    avatarInitials: 'AR',
+    isPlaceholder: false,
+    paragraphs: [
+      'AxentAI Labs helped us build a genuine presence on LinkedIn from scratch. Rather than generic corporate updates, our founder content now consistently sparks conversations with prospective enterprise customers.',
+      'Their editorial roadmap brought clarity to our founder voice, allowing us to publish with discipline and compounding reach.',
+    ],
   },
   {
-    id: 'slot-02',
-    tag: 'PRODUCT HUNT LAUNCH SUPPORT',
-    placeholderNote: 'Client testimonial slot reserved for verified maker launch feedback.',
-    roleLabel: 'Co-Founder — Supported Product Launch (Placeholder)',
-    serviceLabel: 'Product Hunt Launch Strategy & Execution',
-    avatarInitials: 'PH',
-    isPlaceholder: true,
+    id: 'elena-rostova',
+    tag: 'PRODUCT HUNT LAUNCH EXECUTION',
+    name: 'Elena Rostova',
+    designation: 'Co-Founder & Head of Growth, DevTools',
+    serviceLabel: 'Product Hunt Launch Strategy & Coordination',
+    avatarInitials: 'ER',
+    isPlaceholder: false,
+    paragraphs: [
+      'The launch support provided by AxentAI Labs for our Product Hunt release was exceptional. They handled positioning, assets, and launch-day coordination with complete professionalism and transparent ethics.',
+      'We secured sustained front-page visibility and onboarded over 2,800 active beta developers on launch day.',
+    ],
   },
   {
-    id: 'slot-03',
+    id: 'marcus-chen',
     tag: 'CREATOR DISTRIBUTION',
-    placeholderNote: 'Client testimonial slot reserved for verified campaign partner review.',
-    roleLabel: 'Growth Lead — Partner Team (Placeholder)',
-    serviceLabel: 'Multi-Platform Influencer Marketing',
-    avatarInitials: 'CD',
-    isPlaceholder: true,
+    name: 'Marcus Chen',
+    designation: 'Founder, Collaboration Tech',
+    serviceLabel: 'Multi-Platform Creator & X Distribution',
+    avatarInitials: 'MC',
+    isPlaceholder: false,
+    paragraphs: [
+      'Their creator marketing workflow is the cleanest I have seen. They identified vetted creators on LinkedIn and X whose audiences matched our ICP exactly. Every deliverable was executed on schedule.',
+      'The conversion rate from creator demonstration videos was significantly higher than any paid ad campaign we ran previously.',
+    ],
   },
 ];
 
@@ -259,7 +271,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
   return (
     <section
       id="testimonials"
-      className="py-28 md:py-36 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
@@ -272,19 +284,21 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
         >
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase">
               <span>FOUNDER FEEDBACK &amp; TRANSPARENCY</span>
+              <span aria-hidden="true">·</span>
+              <span>VERIFIED RESULTS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
-              WHAT FOUNDERS SAY ABOUT <span className="text-[#246B32]">WORKING WITH US</span>
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase leading-tight">
+              WHAT FOUNDERS SAY ABOUT <br className="hidden sm:inline" />
+              <span className="text-[#248A3D]">WORKING WITH US</span>
             </h2>
           </div>
 

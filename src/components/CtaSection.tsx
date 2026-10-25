@@ -110,7 +110,7 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
     <section 
       ref={sectionRef}
       id="contact" 
-      className="py-32 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
@@ -142,28 +142,44 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
           />
 
           <div className="relative z-10 max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#246B32] font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#459B45] animate-pulse" />
-              READY TO PLAN YOUR LAUNCH?
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
+              <span>GET IN TOUCH</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] leading-[1.08] uppercase">
               LET’S BUILD YOUR <br className="hidden sm:inline" />
-              <span className="text-[#246B32]">PRODUCT HUNT LAUNCH PLAN.</span>
+              <span className="text-[#246B32]">NEXT GROWTH MOVE</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#555B55] font-sans leading-relaxed max-w-xl font-normal">
-              Tell us about your product, target audience and launch timeline. We’ll discuss the right preparation and distribution approach for your goals.
+            <p className="text-base sm:text-lg text-[#555B55] font-sans leading-relaxed max-w-xl font-normal">
+              Tell us about your product, brand, or marketing goals. We’ll help you identify the right starting point.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#111111] font-mono">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <a
+                href="#my-cal-inline-book-a-growth-strategy-call-with-shivam"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-md shadow-[#459B45]/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+              >
+                <span>Book a Strategy Call</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </a>
+
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full border border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs"
+              >
+                Explore Our Services
+              </a>
+            </div>
+
+            <div className="pt-3 flex flex-wrap items-center gap-5 text-xs text-[#111111] font-mono">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#459B45]" />
-                <span>Pre-Launch Positioning &amp; War Room</span>
+                <span>Flagship Launch Support (~65% Focus)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#459B45]" />
-                <span>Compliant Organic Distribution</span>
+                <span>Founder Authority &amp; Distribution</span>
               </div>
             </div>
           </div>

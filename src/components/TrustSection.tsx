@@ -88,19 +88,19 @@ interface TrustSectionProps {
 
 const PILLARS = [
   {
-    title: 'Launch-Ready Positioning',
+    title: 'Product Hunt Launch Strategy (Flagship)',
     icon: Compass,
   },
   {
-    title: 'Product Page & Asset Review',
+    title: 'Founder Authority & Executive Positioning',
     icon: Layers,
   },
   {
-    title: 'Launch-Day Coordination',
+    title: 'LinkedIn & Social Presence Operations',
     icon: Zap,
   },
   {
-    title: 'Post-Launch Growth Support',
+    title: 'Creator Partnerships & Digital Distribution',
     icon: TrendingUp,
   },
 ];
@@ -166,7 +166,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
     <section
       ref={sectionRef}
       id="about-growth"
-      className="py-24 sm:py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10 font-sans"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10 font-sans"
     >
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
@@ -179,7 +179,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           
           {/* LEFT: Tiger-and-Door Image with Gentle Scroll Parallax & Ambient Halo */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
@@ -207,31 +207,31 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                   className="absolute -inset-6 sm:-inset-10 rounded-[44px] pointer-events-none"
                   style={{
                     background:
-                      'radial-gradient(circle at 45% 40%, rgba(69, 155, 69, 0.26) 0%, rgba(229, 245, 229, 0.5) 48%, transparent 72%)',
+                      'radial-gradient(circle at 45% 40%, rgba(69, 155, 69, 0.22) 0%, rgba(229, 245, 229, 0.45) 48%, transparent 72%)',
                     filter: 'blur(28px)',
                   }}
                 />
 
-                {/* Tiger & Door Visual Container — Preserves door, tiger & kitten with object-contain */}
+                {/* Tiger & Door Visual Container — Editorial Photo Without Artificial Inner Frame */}
                 <div
-                  className="relative rounded-3xl overflow-hidden border border-[#E5E9E5] bg-[#FFFFFF] shadow-[0_20px_50px_rgba(69,155,69,0.12)] aspect-[4/5] flex items-center justify-center p-2 sm:p-3 group"
+                  className="relative rounded-2xl overflow-hidden border border-[#E5E9E5] shadow-[0_16px_40px_rgba(0,0,0,0.08)] aspect-[4/5] flex items-center justify-center group"
                 >
                   <img
                     src={tigerDoorImg}
                     alt="Outgrow Your Competition — Step through the doorway with launch momentum"
-                    className="w-full h-full object-contain object-center select-none rounded-2xl transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    className="w-full h-full object-cover object-center select-none transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                     loading="lazy"
                     decoding="async"
                   />
                   
-                  {/* Subtle inner ambient ring */}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-[#459B45]/15 rounded-3xl pointer-events-none" />
+                  {/* Subtle inner hairline ring */}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl pointer-events-none" />
                 </div>
 
                 {/* Rotating Circular Explore Badge (Pauses offscreen) */}
                 <a
-                  href="#product-hunt"
-                  aria-label="Explore Launch Support"
+                  href="#services"
+                  aria-label="Explore Growth Systems"
                   className="absolute -bottom-5 -right-3 sm:-right-5 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#FFFFFF]/95 backdrop-blur-sm border border-[#E5E9E5] shadow-xl shadow-[#459B45]/10 flex items-center justify-center group cursor-pointer z-20"
                 >
                   <svg
@@ -247,7 +247,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                     </defs>
                     <text className="fill-[#555B55] text-[9px] font-mono uppercase tracking-[0.22em]">
                       <textPath href="#circleTextPathTiger" startOffset="0%">
-                        • LAUNCH SUPPORT • OUTGROW
+                        • STRATEGY • LAUNCH • GROWTH
                       </textPath>
                     </text>
                   </svg>
@@ -259,7 +259,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             </motion.div>
           </div>
 
-          {/* RIGHT: Product Hunt Growth Content */}
+          {/* RIGHT: Central Brand Positioning & Growth Systems */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -268,24 +268,24 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             className="lg:col-span-7 space-y-7 relative z-20 text-left"
           >
             <div className="space-y-4">
-              {/* Eyebrow Label: // OUTGROW YOUR COMPETITION */}
-              <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
-                // OUTGROW YOUR COMPETITION
+              {/* Eyebrow Label */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
+                <span>GROWTH SYSTEMS &amp; POSITIONING</span>
               </div>
 
-              {/* Main Headline with GROWTH and STARTS HERE highlighted */}
+              {/* Main Headline */}
               <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-display font-extrabold text-[#111111] tracking-[-0.025em] leading-[1.08] uppercase">
-                YOUR NEXT BIG <span className="text-[#248A3D]">GROWTH</span> MOVE <br className="hidden sm:inline" />
-                <span className="text-[#248A3D]">STARTS HERE</span>
+                GROWTH SYSTEMS FOR <br className="hidden sm:inline" />
+                <span className="text-[#248A3D]">FOUNDERS, STARTUPS &amp; MODERN BRANDS</span>
               </h2>
 
-              {/* Supporting Paragraph */}
+              {/* Central Brand Supporting Text */}
               <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-xl font-normal">
-                Your Product Hunt launch deserves more than a last-minute push. We help founders sharpen their positioning, prepare launch assets, coordinate launch-day activities, and build a clear distribution strategy to reach the right audience.
+                AxentAI Labs helps startups launch products, build founder authority, manage social media presence, collaborate with creators, and reach the right audiences through strategic, organic-first marketing.
               </p>
             </div>
 
-            {/* 2x2 Feature Pillars Grid (Launch-Ready Positioning, Product Page & Asset Review, Launch-Day Coordination, Post-Launch Growth Support) */}
+            {/* 2x2 Feature Pillars Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 border-y border-[#E5E9E5] py-6">
               {PILLARS.map((item, idx) => {
                 const Icon = item.icon;
@@ -309,7 +309,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
               })}
             </div>
 
-            {/* Bottom Row: Founder Attribution, 100+ Happy Customers & EXPLORE LAUNCH SUPPORT */}
+            {/* Bottom Row: Founder Attribution, 100+ Happy Customers & EXPLORE SERVICES */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
               <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                 <div className="flex items-center gap-3.5">
@@ -326,7 +326,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                   </picture>
                   <div>
                     <div className="text-sm font-bold text-[#111111]">Shivam Kushwaha</div>
-                    <div className="text-xs text-[#555B55]">Product Hunt Launch Strategist</div>
+                    <div className="text-xs text-[#555B55]">Founder, AxentAI Labs</div>
                   </div>
                 </div>
 
@@ -334,12 +334,12 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                 <HappyCustomersCounter />
               </div>
 
-              {/* Action Button: EXPLORE LAUNCH SUPPORT */}
+              {/* Action Button: EXPLORE OUR SERVICES */}
               <a
-                href="#product-hunt"
+                href="#services"
                 className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-md hover:shadow-[#459B45]/20 hover:-translate-y-0.5 text-xs font-semibold uppercase tracking-wider text-[#111111] transition-all duration-300 group cursor-pointer shadow-2xs"
               >
-                <span>EXPLORE LAUNCH SUPPORT</span>
+                <span>EXPLORE OUR SERVICES</span>
                 <span className="w-7 h-7 rounded-full bg-[#459B45] group-hover:bg-[#246B32] text-white flex items-center justify-center transition-colors">
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>

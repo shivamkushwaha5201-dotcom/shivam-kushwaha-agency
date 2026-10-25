@@ -196,10 +196,10 @@ export default function App() {
         {/* Dynamic Meta Tag Management for Home & Legal Views */}
         {currentView === 'home' && (
           <SEOHead
-            title="AxentAI Labs — Product Hunt Launch & Growth Agency"
-            description="We help SaaS founders prepare, launch and promote their products on Product Hunt through strategic positioning, launch-day coordination and organic distribution."
+            title="AxentAI Labs — Growth Systems for Founders, Startups & Modern Brands"
+            description="AxentAI Labs helps startups launch products, build founder authority, manage social media presence, collaborate with creators, and reach the right audiences through strategic, organic-first marketing."
             canonicalUrl="https://axentailabs.com/"
-            keywords="Product Hunt launch support, SaaS product launch, organic distribution, Product Hunt agency, founder personal branding, digital growth"
+            keywords="Growth systems, Product Hunt launch support, LinkedIn personal branding, company page management, influencer marketing, X distribution, founder authority"
           />
         )}
 
@@ -233,59 +233,60 @@ export default function App() {
             onBackToHome={handleBackToHome}
             onOpenBooking={scrollToContact}
             onSelectService={handleViewService}
+            onOpenPortfolio={handleOpenPortfolio}
           />
         ) : (
           /* Main Agency Storytelling Journey */
           <main className="flex-1 relative z-20">
-            {/* 01. Hero Section (Cat with headphones and laptop working on growth) */}
+            {/* 01. Hero Section (Strategic Growth, Launch & Positioning) */}
             <HeroSection
               onOpenBooking={scrollToContact}
             />
 
-            {/* 02. Supported Product Hunt Launches Marquee */}
+            {/* 02. Supported Product Launches Marquee */}
             <TrustedByMarquee />
 
-            {/* 03. Flagship Service: Product Hunt Launch Support (Blue Lifting Hook Visual) */}
+            {/* 03. Level 1: Flagship Service — Product Hunt Launch Support (65% strategic weight) */}
             <ProductHuntSection 
               onOpenBooking={scrollToContact} 
               onOpenPortfolio={handleOpenPortfolio}
             />
 
-            {/* 04. Our Launch Methodology (Snail on Skateboard: "DON'T LET YOUR LAUNCH CRAWL") */}
-            <ProcessSection onOpenBooking={scrollToContact} />
-
-            {/* 05. Why Founders Work With Us (Elephant lifted by an Ant: "SMALL TEAM. BIG AMBITIONS.") */}
-            <WhyUsSection />
-
-            {/* 06. Selected Launch Work in Action (Verified Case Studies) */}
-            <CaseStudiesSection 
-              onOpenBooking={scrollToContact}
-              onOpenPortfolio={handleOpenPortfolio}
-            />
-
-            {/* 07. Comprehensive Services & Deliverables */}
+            {/* 04. Level 2: Other Growth Services — More Ways to Build Your Brand */}
             <ServicesSection
               onOpenBooking={scrollToContact}
               onViewService={handleViewService}
               onOpenPortfolio={handleOpenPortfolio}
             />
 
-            {/* 08. Extended Distribution Beyond Product Hunt (LinkedIn, X, Community, Creators) */}
-            <InfluencerSection onOpenBooking={scrollToContact} />
-
-            {/* 09. Agency Track Record & Foundation Systems */}
+            {/* 05. Growth Systems & Brand Architecture (Tiger & Doorway) */}
             <TrustSection onOpenBooking={scrollToContact} />
 
-            {/* 10. What Founders Say About Working With Us (Client Success) */}
+            {/* 06. Launch & Growth Methodology (A Clear Strategy from Launch to Growth - Snail on Skateboard) */}
+            <ProcessSection onOpenBooking={scrollToContact} />
+
+            {/* 07. Why Founders Work With Us (One Partner. Multiple Growth Channels - Elephant & Ant) */}
+            <WhyUsSection />
+
+            {/* 08. Multi-Channel Distribution Beyond Launch Day (LinkedIn, X, Creators, Communities) */}
+            <InfluencerSection onOpenBooking={scrollToContact} />
+
+            {/* 09. Strategy and Execution in Action (Verified Case Studies) */}
+            <CaseStudiesSection 
+              onOpenBooking={scrollToContact}
+              onOpenPortfolio={handleOpenPortfolio}
+            />
+
+            {/* 10. Client Feedback & Verified Outcomes */}
             <ClientSuccessSection onOpenBooking={scrollToContact} />
 
-            {/* 11. Founder & Agency Story (About Shivam & AxentAI Labs) */}
+            {/* 11. Founder & Agency Story (Built Around Strategy. Focused on Growth.) */}
             <AboutSection onOpenBooking={scrollToContact} />
 
-            {/* 12. Launch FAQs */}
+            {/* 12. FAQs */}
             <FaqSection onOpenBooking={scrollToContact} />
 
-            {/* 13. Final CTA ("LET'S BUILD YOUR PRODUCT HUNT LAUNCH PLAN") */}
+            {/* 13. Final CTA (Let's Build Your Next Growth Move) */}
             <CtaSection />
           </main>
         )}

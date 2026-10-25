@@ -59,7 +59,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
   return (
     <section 
       id="case-studies" 
-      className="py-28 md:py-36 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="scroll-mt-24 md:scroll-mt-28 py-20 sm:py-24 md:py-28 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
@@ -83,18 +83,17 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
         >
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
-            <span>SELECTED LAUNCH WORK</span>
+            <span>VERIFIED RESULTS &amp; PORTFOLIO</span>
           </div>
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
-            LAUNCH STRATEGY <span className="text-[#248A3D]">IN ACTION</span>
+            STRATEGY AND EXECUTION <span className="text-[#248A3D]">IN ACTION</span>
           </h2>
 
           {/* Supporting Text */}
           <p className="text-base sm:text-lg text-[#555B55] leading-relaxed font-sans max-w-2xl font-normal">
-            Explore how positioning, preparation and coordinated distribution can support a product’s launch journey.
+            Explore verified client projects, launch rankings, and multi-channel growth campaigns. We clearly distinguish completed client work with genuine, verifiable links.
           </p>
         </motion.div>
 

@@ -58,7 +58,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
             </div>
 
             <p className="text-xs text-[#555B55] leading-relaxed max-w-sm">
-              We help founders, startups and brands build visibility that actually matters through LinkedIn personal branding, page handling, organic engagement, Product Hunt launches, and curated influencer marketing.
+              Growth systems for founders, startups, and modern brands. We combine flagship Product Hunt launch support with ongoing personal branding, company page management, creator partnerships, and digital presence.
             </p>
 
             <div className="text-xs text-[#246B32] font-semibold">
