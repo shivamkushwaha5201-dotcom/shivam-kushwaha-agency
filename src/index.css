@@ -127,6 +127,19 @@ section[id] {
   }
 }
 
+.ph-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: phMarqueeScrollLeft 65s linear infinite;
+  animation-play-state: running;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.ph-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 .ph-marquee-track-row1 {
   display: flex;
   width: max-content;
@@ -148,6 +161,14 @@ section[id] {
 .ph-marquee-track-row1:hover,
 .ph-marquee-track-row2:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ph-marquee-track,
+  .ph-marquee-track-row1,
+  .ph-marquee-track-row2 {
+    animation: none !important;
+  }
 }
 
 #root {
