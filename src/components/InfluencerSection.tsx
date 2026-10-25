@@ -1,122 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Share2, Users, MessageSquare, Sparkles, TrendingUp } from 'lucide-react';
 import { Button } from './ui/button';
-import statueCenterVisual from '../assets/images/statue_orbit_center_1791127293704.jpg';
-import statueCenterVisualWebp from '../assets/images/statue_orbit_center_opt.webp';
 
 interface InfluencerSectionProps {
   onOpenBooking: () => void;
 }
 
-interface ServiceCardPlatform {
+interface DistributionPillar {
   id: string;
   name: string;
   pillar: string;
   description: string;
-}
-
-interface OrbitIconNode {
-  id: string;
-  name: string;
-  angleDeg: number;
   icon: React.ReactNode;
 }
 
-// Existing 3 Service Cards (Left & Right Columns)
-const SERVICE_CARD_PLATFORMS: ServiceCardPlatform[] = [
-  {
-    id: 'linkedin',
-    name: 'LinkedIn',
-    pillar: 'SOCIAL DISTRIBUTION',
-    description: 'Executive thought leadership and B2B creator authority.',
-  },
-  {
-    id: 'x',
-    name: 'X / Twitter',
-    pillar: 'CREATOR NETWORK',
-    description: 'High-frequency founder narratives, product demos, and launch threads.',
-  },
-  {
-    id: 'instagram',
-    name: 'Instagram',
-    pillar: 'AUDIENCE GROWTH',
-    description: 'Visual storytelling, reels, and creator partnerships that humanize brands.',
-  },
-];
-
-// Exactly 6 Official Social Platform Logos Arranged Around the Central Statue
-const SIX_ORBIT_PLATFORMS: OrbitIconNode[] = [
-  {
-    id: 'linkedin',
-    name: 'LinkedIn',
-    angleDeg: -90, // TOP
-    icon: (
-      <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'x',
-    name: 'X / Twitter',
-    angleDeg: -30, // UPPER RIGHT
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'producthunt',
-    name: 'Product Hunt',
-    angleDeg: 30, // RIGHT / LOWER RIGHT
-    icon: (
-      <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M13.604 8.4h-3.405V12h3.405a1.8 1.8 0 0 0 0-3.6zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1.604 12.4h-3.405V18H7.801V6h5.803a4.2 4.2 0 1 1 0 8.4z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'whatsapp',
-    name: 'WhatsApp',
-    angleDeg: 90, // LOWER RIGHT / BOTTOM
-    icon: (
-      <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.031 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.237a9.994 9.994 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.037-5.176-2.922-7.062A9.935 9.935 0 0 0 12.031 2zm5.829 14.12c-.246.693-1.434 1.325-1.988 1.408-.508.076-1.15.108-1.855-.116-.428-.136-.978-.318-1.682-.622-2.958-1.277-4.889-4.259-5.037-4.456-.147-.197-1.202-1.599-1.202-3.05 0-1.451.762-2.164 1.032-2.46.27-.295.59-.369.786-.369.197 0 .393.002.565.01.181.009.424-.069.663.507.246.59.835 2.041.909 2.189.074.147.123.32.025.516-.098.197-.147.32-.295.492-.147.172-.31.384-.442.516-.147.148-.301.308-.129.603.172.295.764 1.261 1.64 2.042 1.127 1.005 2.077 1.317 2.372 1.464.295.148.467.123.639-.074.172-.197.737-.861.934-1.156.197-.295.393-.246.663-.148.27.098 1.72.811 2.015.959.295.147.491.221.565.344.074.123.074.713-.172 1.407z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'reddit',
-    name: 'Reddit',
-    angleDeg: 150, // LOWER LEFT
-    icon: (
-      <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm5.74-8.895a1.464 1.464 0 0 1-.498 1.096c.02.176.03.354.03.534 0 2.722-3.172 4.929-7.085 4.929-3.913 0-7.085-2.207-7.085-4.929 0-.18.01-.358.03-.534a1.465 1.465 0 0 1-.612-1.835 1.465 1.465 0 0 1 2.388-.423c1.17-.83 2.747-1.362 4.504-1.434l.852-4.011a.31.31 0 0 1 .369-.24l2.805.596a1.036 1.036 0 1 1-.136.64l-2.502-.531-.746 3.512c1.737.082 3.295.612 4.453 1.434a1.465 1.465 0 0 1 2.233 1.196zM9.27 13.06a1.22 1.22 0 1 0 0 2.44 1.22 1.22 0 0 0 0-2.44zm5.46 0a1.22 1.22 0 1 0 0 2.44 1.22 1.22 0 0 0 0-2.44zm-5.134 3.597a.328.328 0 0 0-.452.473c.682.652 1.729.975 2.856.975 1.127 0 2.174-.323 2.856-.975a.328.328 0 0 0-.452-.473c-.562.536-1.449.805-2.404.805-.955 0-1.842-.269-2.404-.805z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'instagram',
-    name: 'Instagram',
-    angleDeg: 210, // UPPER LEFT
-    icon: (
-      <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-      </svg>
-    ),
-  },
-];
-
 export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({ onOpenBooking }) => {
-  const [activePlatform, setActivePlatform] = useState<string | null>(null);
+  const [activePillar, setActivePillar] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
 
-  // Pause orbital rotation when section is far outside viewport
   useEffect(() => {
     const el = sectionRef.current;
     if (!el || typeof IntersectionObserver === 'undefined') return;
@@ -134,6 +37,52 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
     return () => observer.disconnect();
   }, []);
 
+  const distributionPillars: DistributionPillar[] = [
+    {
+      id: 'linkedin',
+      name: 'LinkedIn Founder Visibility',
+      pillar: 'EXECUTIVE BRANDING',
+      description: 'Position company founders as domain authorities through high-signal building retrospectives, founder essays and industry insights.',
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+        </svg>
+      )
+    },
+    {
+      id: 'x',
+      name: 'X Launch Communication',
+      pillar: 'BUILD IN PUBLIC',
+      description: 'Engaging real-time launch countdowns, interactive demo videos, founder build-in-public threads, and tech community dialogue.',
+      icon: (
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      )
+    },
+    {
+      id: 'community',
+      name: 'Relevant Community Outreach',
+      pillar: 'COMMUNITY DISCOVERY',
+      description: 'Targeted discussions across verified developer hubs, subreddits, Slack groups, and Discord tech servers without spamming.',
+      icon: <Users className="w-5 h-5" />
+    },
+    {
+      id: 'creators',
+      name: 'Creator Collaboration',
+      pillar: 'NICHE ADVOCACY',
+      description: 'Vetted partnerships with respected software engineers and SaaS influencers who genuinely evaluate and demonstrate your tool.',
+      icon: <Sparkles className="w-5 h-5" />
+    },
+    {
+      id: 'post-launch',
+      name: 'Post-Launch Content Distribution',
+      pillar: 'SUSTAINED REACH',
+      description: 'Recycling launch traction into evergreen customer stories, case retrospectives, and compounding organic search visibility.',
+      icon: <TrendingUp className="w-5 h-5" />
+    }
+  ];
+
   return (
     <section
       ref={sectionRef}
@@ -149,6 +98,7 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
             'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row */}
@@ -160,205 +110,110 @@ export const InfluencerSection: React.FC<InfluencerSectionProps> = React.memo(({
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative z-20"
         >
           <div className="space-y-3 max-w-2xl relative">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
-              // SOCIAL PLATFORM EXPERIENCE
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
+              <span>EXTENDED DISTRIBUTION</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] uppercase heading-contrast-shadow">
-              Creator Network &amp; Social Distribution.
+            
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
+              KEEP YOUR LAUNCH MOVING <span className="text-[#248A3D]">BEYOND PRODUCT HUNT</span>
             </h2>
-            <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-normal text-contrast-shadow">
-              We connect brands with relevant creators across LinkedIn, X and Instagram to engineer sustained audience growth.
+
+            <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-normal">
+              Extend your product’s story through relevant founder communities, LinkedIn content, X conversations and creator partnerships.
             </p>
           </div>
 
           <Button
             onClick={onOpenBooking}
-            className="bg-[#459B45] hover:bg-[#246B32] text-white text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-3 border border-[#459B45]/30 shadow-md shadow-[#459B45]/20 hover:shadow-lg hover:shadow-[#459B45]/30 hover:-translate-y-0.5 transition-all duration-300 self-start md:self-auto group cursor-pointer"
+            className="bg-[#459B45] hover:bg-[#246B32] text-white text-xs font-semibold tracking-wider uppercase rounded-full px-6 py-3 border border-[#459B45]/30 shadow-md shadow-[#459B45]/20 hover:-translate-y-0.5 transition-all duration-300 self-start md:self-auto group cursor-pointer"
           >
-            <span>CONNECT WITH US</span>
+            <span>DISCUSS DISTRIBUTION</span>
             <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
         </motion.div>
 
-        {/* Central Statue + Laptop Visual Surrounded by 6 Orbiting Social Platforms + Existing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column: Social Distribution & Creator Network */}
-          <div className="lg:col-span-4 space-y-8 order-2 lg:order-1">
-            {SERVICE_CARD_PLATFORMS.slice(0, 2).map((platform, idx) => {
-              const isHighlighted = activePlatform === platform.id;
-              return (
-                <motion.div
-                  key={platform.id}
-                  onMouseEnter={() => setActivePlatform(platform.id)}
-                  onMouseLeave={() => setActivePlatform(null)}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className={`fx-card-interactive p-6 rounded-2xl border cursor-pointer ${
-                    isHighlighted
-                      ? 'bg-[#E5F5E5] border-[#459B45] shadow-lg shadow-[#459B45]/15 -translate-y-1'
-                      : 'bg-[#FFFFFF] border-[#E5E9E5] hover:border-[#459B45] hover:-translate-y-1 hover:shadow-md hover:shadow-[#459B45]/10'
-                  }`}
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#459B45] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32]">
-                      {platform.pillar}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-display font-bold text-[#111111] mb-1">
-                    {platform.name}
-                  </h3>
-                  <p className="text-xs text-[#555B55] leading-relaxed">
-                    {platform.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Center Column: Statue + Laptop Center Visual with 6 Orbiting Social Platforms */}
-          <div className="lg:col-span-4 flex items-center justify-center order-1 lg:order-2 py-8">
-            <div
-              className={`relative w-[310px] h-[310px] sm:w-[360px] sm:h-[360px] flex items-center justify-center ${
-                inView ? '' : 'orbit-paused'
-              }`}
-            >
-              {/* Soft Mint Ambient Halo Behind Central Statue */}
-              <div
-                aria-hidden="true"
-                className="absolute -inset-6 rounded-full pointer-events-none"
-                style={{
-                  background:
-                    'radial-gradient(circle, rgba(69,155,69,0.2) 0%, rgba(229,245,229,0.55) 45%, transparent 70%)',
-                }}
-              />
-
-              {/* Central Statue + Laptop Visual */}
-              <div className="w-[225px] h-[225px] sm:w-[260px] sm:h-[260px] rounded-full bg-[#FFFFFF] border border-[#459B45]/40 shadow-[0_12px_45px_rgba(69,155,69,0.15)] overflow-hidden relative flex items-end justify-center z-10">
-                <picture className="w-full h-full block">
-                  <source srcSet={statueCenterVisualWebp} type="image/webp" />
-                  <img
-                    src={statueCenterVisual}
-                    alt="Creator Network & Social Distribution Central Visual"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top scale-[1.03]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF]/70 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-[#459B45]/20 rounded-full pointer-events-none" />
-              </div>
-
-              {/* Orbital Track Ring */}
-              <div className="absolute inset-2 rounded-full border border-dashed border-[#E5E9E5] pointer-events-none" />
-
-              {/* Continuous Slow Circular Orbit Carrier for All 6 Platforms */}
-              <div
-                style={{ willChange: inView ? 'transform' : 'auto' }}
-                className="orbit-carrier absolute inset-0 rounded-full z-20"
+        {/* Five Extended Distribution Pillars in a Clean Network Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {distributionPillars.map((item, idx) => {
+            const isHighlighted = activePillar === item.id;
+            return (
+              <motion.div
+                key={item.id}
+                onMouseEnter={() => setActivePillar(item.id)}
+                onMouseLeave={() => setActivePillar(null)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className={`fx-card-interactive p-7 rounded-3xl border transition-all duration-300 flex flex-col justify-between space-y-4 ${
+                  isHighlighted
+                    ? 'bg-[#E5F5E5] border-[#459B45] shadow-lg shadow-[#459B45]/15 -translate-y-1'
+                    : 'bg-[#F7F9F7] border-[#E5E9E5] hover:border-[#459B45] hover:-translate-y-1'
+                }`}
               >
-                {SIX_ORBIT_PLATFORMS.map((platform) => {
-                  const isHighlighted = activePlatform === platform.id;
-                  const rad = (platform.angleDeg * Math.PI) / 180;
-                  // Balanced circular radius (50% center + 46% radius)
-                  const leftPct = 50 + 46 * Math.cos(rad);
-                  const topPct = 50 + 46 * Math.sin(rad);
-
-                  return (
-                    <div
-                      key={platform.id}
-                      style={{
-                        left: `${leftPct}%`,
-                        top: `${topPct}%`,
-                      }}
-                      onMouseEnter={() => setActivePlatform(platform.id)}
-                      onMouseLeave={() => setActivePlatform(null)}
-                      className="absolute -translate-x-1/2 -translate-y-1/2"
-                    >
-                      {/* Counter-rotating icon container so each logo remains upright */}
-                      <div
-                        className={`orbit-counter-node w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-colors duration-300 cursor-pointer ${
-                          isHighlighted
-                            ? 'bg-[#459B45] text-white border-[#246B32] shadow-[0_0_22px_rgba(69,155,69,0.5)]'
-                            : 'bg-[#FFFFFF] text-[#111111] border-[#E5E9E5] hover:border-[#459B45] hover:text-[#459B45] shadow-md shadow-[#459B45]/10'
-                        }`}
-                        title={platform.name}
-                        aria-label={platform.name}
-                      >
-                        {platform.icon}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-            </div>
-          </div>
-
-          {/* Right Column: Audience Growth & Creator Workflow */}
-          <div className="lg:col-span-4 space-y-8 order-3">
-            {SERVICE_CARD_PLATFORMS.slice(2).map((platform) => {
-              const isHighlighted = activePlatform === platform.id;
-              return (
-                <motion.div
-                  key={platform.id}
-                  onMouseEnter={() => setActivePlatform(platform.id)}
-                  onMouseLeave={() => setActivePlatform(null)}
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className={`fx-card-interactive p-6 rounded-2xl border transition-all cursor-pointer ${
-                    isHighlighted
-                      ? 'bg-[#E5F5E5] border-[#459B45] shadow-lg shadow-[#459B45]/15'
-                      : 'bg-[#FFFFFF] border-[#E5E9E5] hover:border-[#459B45] hover:shadow-md hover:shadow-[#459B45]/10'
-                  }`}
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#459B45] font-mono text-xs font-bold">*</span>
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32]">
-                      {platform.pillar}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32] bg-white px-2.5 py-1 rounded-full border border-[#E5E9E5]">
+                      {item.pillar}
                     </span>
+                    <div className="w-9 h-9 rounded-xl bg-white border border-[#E5E9E5] flex items-center justify-center text-[#246B32] shadow-2xs">
+                      {item.icon}
+                    </div>
                   </div>
-                  <h3 className="text-lg font-display font-bold text-[#111111] mb-1">
-                    {platform.name}
-                  </h3>
-                  <p className="text-xs text-[#555B55] leading-relaxed">
-                    {platform.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
 
+                  <h3 className="text-lg font-display font-bold text-[#111111] tracking-tight">
+                    {item.name}
+                  </h3>
+
+                  <p className="text-xs text-[#555B55] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-[#E5E9E5] text-[11px] font-mono text-[#246B32] font-semibold flex items-center justify-between">
+                  <span>Channel 0{idx + 1}</span>
+                  <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
+                </div>
+              </motion.div>
+            );
+          })}
+
+          {/* 6th Card: Cross-Platform Synergy Overview */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="p-7 rounded-3xl border border-[#459B45]/40 bg-gradient-to-br from-[#E5F5E5] to-[#FFFFFF] flex flex-col justify-between space-y-4 shadow-sm"
+          >
+            <div className="space-y-3">
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32] bg-white px-2.5 py-1 rounded-full border border-[#CDECCF]">
+                NETWORK MULTIPLIER
+              </span>
+              <h3 className="text-lg font-display font-bold text-[#111111]">
+                Compounding Launch Loops
+              </h3>
+              <p className="text-xs text-[#555B55] leading-relaxed">
+                When Product Hunt momentum is paired with founder storytelling on LinkedIn and X, qualified inbound conversion rates multiply significantly.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={onOpenBooking}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#246B32] hover:text-[#111111] transition-colors pt-3 border-t border-[#CDECCF]"
+            >
+              <span>Explore Multi-Channel Strategy</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </motion.div>
         </div>
 
       </div>
-
-      <style>{`
-        @keyframes orbitFull {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        @keyframes orbitCounter {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(-360deg); }
-        }
-        .orbit-carrier {
-          animation: orbitFull 38s linear infinite;
-        }
-        .orbit-counter-node {
-          animation: orbitCounter 38s linear infinite;
-        }
-        .orbit-paused .orbit-carrier,
-        .orbit-paused .orbit-counter-node {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 });
+
+InfluencerSection.displayName = 'InfluencerSection';
+export default InfluencerSection;

@@ -196,10 +196,10 @@ export default function App() {
         {/* Dynamic Meta Tag Management for Home & Legal Views */}
         {currentView === 'home' && (
           <SEOHead
-            title="AxentAI Labs — Digital Growth & Social Presence Agency"
-            description="We help founders, startups and brands build visibility that actually matters through LinkedIn personal branding, page handling, organic engagement, Product Hunt launches, and influencer marketing."
+            title="AxentAI Labs — Product Hunt Launch & Growth Agency"
+            description="We help SaaS founders prepare, launch and promote their products on Product Hunt through strategic positioning, launch-day coordination and organic distribution."
             canonicalUrl="https://axentailabs.com/"
-            keywords="LinkedIn personal branding, LinkedIn page handling, organic engagement support, Product Hunt launch support, influencer marketing, digital growth agency"
+            keywords="Product Hunt launch support, SaaS product launch, organic distribution, Product Hunt agency, founder personal branding, digital growth"
           />
         )}
 
@@ -237,52 +237,55 @@ export default function App() {
         ) : (
           /* Main Agency Storytelling Journey */
           <main className="flex-1 relative z-20">
-            {/* 01. Hero Section (Large Earth + main positioning) */}
+            {/* 01. Hero Section (Cat with headphones and laptop working on growth) */}
             <HeroSection
               onOpenBooking={scrollToContact}
             />
 
-            {/* 02. Trusted By Founders & Makers — Supported Product Hunt Launches Marquee */}
+            {/* 02. Supported Product Hunt Launches Marquee */}
             <TrustedByMarquee />
 
-            {/* 03. Agency Positioning — "WE BUILD GROWTH SYSTEMS FOR MODERN BRANDS" */}
-            <TrustSection onOpenBooking={scrollToContact} />
+            {/* 03. Flagship Service: Product Hunt Launch Support (Blue Lifting Hook Visual) */}
+            <ProductHuntSection 
+              onOpenBooking={scrollToContact} 
+              onOpenPortfolio={handleOpenPortfolio}
+            />
 
-            {/* 04. Existing Services Section (LOCKED — 100% Untouched) */}
+            {/* 04. Our Launch Methodology (Snail on Skateboard: "DON'T LET YOUR LAUNCH CRAWL") */}
+            <ProcessSection onOpenBooking={scrollToContact} />
+
+            {/* 05. Why Founders Work With Us (Elephant lifted by an Ant: "SMALL TEAM. BIG AMBITIONS.") */}
+            <WhyUsSection />
+
+            {/* 06. Selected Launch Work in Action (Verified Case Studies) */}
+            <CaseStudiesSection 
+              onOpenBooking={scrollToContact}
+              onOpenPortfolio={handleOpenPortfolio}
+            />
+
+            {/* 07. Comprehensive Services & Deliverables */}
             <ServicesSection
               onOpenBooking={scrollToContact}
               onViewService={handleViewService}
               onOpenPortfolio={handleOpenPortfolio}
             />
 
-            {/* 05. Social Platform / Creator Ecosystem (LinkedIn + X + Instagram Orbit Animation) */}
+            {/* 08. Extended Distribution Beyond Product Hunt (LinkedIn, X, Community, Creators) */}
             <InfluencerSection onOpenBooking={scrollToContact} />
 
-            {/* 06. How We Work (4-Stage Growth Journey) */}
-            <ProcessSection onOpenBooking={scrollToContact} />
+            {/* 09. Agency Track Record & Foundation Systems */}
+            <TrustSection onOpenBooking={scrollToContact} />
 
-            {/* 07. Case Studies (Strategic Execution Records) */}
-            <CaseStudiesSection onOpenBooking={scrollToContact} />
-
-            {/* 08. Product Hunt Launch Support (Global Launch Visibility) */}
-            <ProductHuntSection 
-              onOpenBooking={scrollToContact} 
-              onOpenPortfolio={handleOpenPortfolio}
-            />
-
-            {/* 09. Why Choose AxentAI Labs (4 Core Pillars) */}
-            <WhyUsSection />
-
-            {/* 10. What Clients Are Saying (Single-Dominant Horizontal Slider) */}
+            {/* 10. What Founders Say About Working With Us (Client Success) */}
             <ClientSuccessSection onOpenBooking={scrollToContact} />
 
-            {/* 11. About Section (Kept 100% Exactly as it is) */}
+            {/* 11. Founder & Agency Story (About Shivam & AxentAI Labs) */}
             <AboutSection onOpenBooking={scrollToContact} />
 
-            {/* 12. FAQ Section */}
+            {/* 12. Launch FAQs */}
             <FaqSection onOpenBooking={scrollToContact} />
 
-            {/* 13. Final CTA + Earth ("READY TO BUILD YOUR DIGITAL INFLUENCE?") */}
+            {/* 13. Final CTA ("LET'S BUILD YOUR PRODUCT HUNT LAUNCH PLAN") */}
             <CtaSection />
           </main>
         )}

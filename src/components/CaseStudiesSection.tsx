@@ -1,47 +1,65 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink, Trophy, Flame } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface CaseStudiesSectionProps {
   onOpenBooking: () => void;
+  onOpenPortfolio?: () => void;
 }
 
-export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(({ onOpenBooking }) => {
+export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(({ onOpenBooking, onOpenPortfolio }) => {
   const caseStudies = [
     {
-      project: 'B2B Enterprise Workflow SaaS',
-      category: 'LinkedIn Personal Branding & Executive Presence',
-      architectureId: 'CASE 01',
-      challenge: 'The founder possessed deep industry expertise, but virtually zero online visibility. Prospective enterprise customers had little context on leadership, leading to prolonged sales cycles and sluggish pipeline conversion.',
-      strategy: 'Clarify the founder’s core thesis around enterprise workflow bottlenecks. Position the executive as an outspoken voice on modern operational efficiency rather than pitching product features directly.',
-      execution: 'Structured a 3x weekly editorial framework: technical deep dives, founder lessons learned, and active commenting on key enterprise discussions. Redesigned personal profile positioning.',
-      outcome: 'Established executive authority with consistent monthly inbound inquiries from target VP-level buyers and meaningful industry network expansion.'
+      project: 'StoreClaw',
+      category: 'E-commerce & Store Infrastructure',
+      objective: 'Build day-one visibility and developer trust across modern e-commerce communities.',
+      strategy: 'Engineered a transparent maker story highlighting instant setup, interactive visual product demos, and pre-launch teaser distribution.',
+      deliverables: 'Pre-launch runway positioning, Product Hunt page copy, maker comments coordination, and founder X thread syndication.',
+      verifiedRank: '#1 Product of the Day',
+      verifiedVotes: '793 Verified Votes',
+      productHuntUrl: 'https://www.producthunt.com/products/storeclaw',
+      highlightBadge: 'Daily Champion'
     },
     {
-      project: 'Developer Infrastructure Tool',
-      category: 'Product Hunt Launch Support & Technical Positioning',
-      architectureId: 'CASE 02',
-      challenge: 'Launching a technical developer product required immediate credibility. Previous releases failed to gain traction due to confusing messaging and uncoordinated launch-day efforts.',
-      strategy: 'Develop a developer-first narrative emphasizing immediate utility, reproducible demo benchmarks, and a transparent open-source ethos without marketing fluff.',
-      execution: 'Engineered a 4-week pre-launch sequence: preview media creation, interactive demo GIFs, maker story copywriting, and launch-day war room coordination with early beta contributors.',
-      outcome: 'Secured front-page visibility throughout the 24-hour cycle, resulting in thousands of qualified developer trial accounts and organic community discussions.'
+      project: 'Chronicle 2.0',
+      category: 'Developer & Creator Storytelling',
+      objective: 'Re-launch version 2.0 to capture top weekly mindshare in competitive AI and design categories.',
+      strategy: 'Framed the update around product evolution, demonstrable speed enhancements, and coordinated contributor launch outreach.',
+      deliverables: 'Positioning teardown, video demo scripting, Product Hunt maker narrative, and cross-platform amplification.',
+      verifiedRank: '#2 Product of the Day · #1 Product of the Week',
+      verifiedVotes: '736 Verified Votes',
+      productHuntUrl: 'https://www.producthunt.com/products/chronicle-6?launch=chronicle-2-0',
+      highlightBadge: 'Weekly Winner'
     },
     {
-      project: 'Modern Team Productivity Platform',
-      category: 'Curated Influencer Marketing Campaign',
-      architectureId: 'CASE 03',
-      challenge: 'The company needed to reach remote-first team leaders across LinkedIn and X, but generic display ads yielded high bounce rates and low trial-to-paid conversions.',
-      strategy: 'Identify niche creators with verified audiences of remote founders and engineering managers. Build authentic product walkthroughs tailored to each creator’s native style.',
-      execution: 'Vetted 12 high-signal creators across LinkedIn and X. Coordinated contract negotiation, product briefing, and staggered publishing over a two-week period with custom tracking.',
-      outcome: 'Drove high-intent referral visits and hundreds of new team workspace signups with substantially better retention compared to paid search.'
+      project: 'Enia Code',
+      category: 'AI Developer Assistant & Code Intelligence',
+      objective: 'Secure front-page recognition and high-intent software engineer trials on launch day.',
+      strategy: 'Developer-first value proposition focusing on workflow automation, reproducible benchmarks, and clean developer documentation.',
+      deliverables: 'Asset preparation, tagline optimization, launch day scheduling, and developer community outreach.',
+      verifiedRank: '#2 Product of the Day',
+      verifiedVotes: '336 Verified Votes',
+      productHuntUrl: 'https://www.producthunt.com/products/enia-code',
+      highlightBadge: 'Top 3 Podium'
+    },
+    {
+      project: 'Eddie AI 2.0',
+      category: 'AI Video Production & Editing Suite',
+      objective: 'Introduce a major AI product iteration to early adopters and creator teams.',
+      strategy: 'Showcase direct before-and-after video transformations and concise value proposition targeted at content creators.',
+      deliverables: 'Visual preview gallery, maker introduction narrative, live comment responses, and creator community engagement.',
+      verifiedRank: '#3 Product of the Day',
+      verifiedVotes: '358 Verified Votes',
+      productHuntUrl: 'https://www.producthunt.com/products/eddie-your-ai-video-editor/launches/eddie-ai-2-0',
+      highlightBadge: 'Top 3 Podium'
     }
   ];
 
   return (
     <section 
       id="case-studies" 
-      className="py-32 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
+      className="py-28 md:py-36 bg-[#F7F9F7] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden font-sans z-10"
     >
       {/* Faint Atmospheric Soft Mint Glow */}
       <div
@@ -52,118 +70,164 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
             'radial-gradient(ellipse 85% 75% at 20% 25%, rgba(229, 245, 229, 0.45) 0%, rgba(247, 249, 247, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Editorial Section Header */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl mb-20 space-y-4 relative z-20"
+          className="max-w-3xl mb-16 space-y-4 relative z-20"
         >
-          <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
-            // STRATEGIC EXECUTION RECORDS
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
+            <span>SELECTED LAUNCH WORK</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.02em]">
-            Case Architectures.
+
+          {/* Headline */}
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
+            LAUNCH STRATEGY <span className="text-[#248A3D]">IN ACTION</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-2xl font-normal">
-            Detailed breakdowns demonstrating how deliberate positioning, organic authority, and creator distribution solve specific commercial bottlenecks.
+
+          {/* Supporting Text */}
+          <p className="text-base sm:text-lg text-[#555B55] leading-relaxed font-sans max-w-2xl font-normal">
+            Explore how positioning, preparation and coordinated distribution can support a product’s launch journey.
           </p>
         </motion.div>
 
-        {/* Large Horizontal Case Study Blocks */}
-        <div className="space-y-10">
+        {/* 2x2 Grid of Genuine Case Study Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {caseStudies.map((study, idx) => (
             <motion.div
-              key={study.architectureId}
+              key={study.project}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.65, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="fx-card-interactive p-8 sm:p-12 rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-[0_16px_40px_-10px_rgba(69,155,69,0.12)] space-y-8 shadow-xs"
+              transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="fx-card-interactive p-8 sm:p-9 rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-[0_16px_36px_-8px_rgba(69,155,69,0.14)] flex flex-col justify-between space-y-6 shadow-xs group"
             >
-              {/* Header: Project / Category */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E5E9E5]">
-                <div className="space-y-1.5">
-                  <span className="text-[11px] font-mono font-semibold text-[#246B32] uppercase tracking-[0.2em] block">
-                    {study.category}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#111111] tracking-tight font-display">
-                    {study.project}
-                  </h3>
-                </div>
-                <div className="font-mono text-xs font-bold text-[#246B32] border border-[#E5E9E5] bg-[#F7F9F7] px-4 py-1.5 rounded-full self-start sm:self-auto">
-                  {study.architectureId}
-                </div>
-              </div>
-
-              {/* 4 Pillars: Challenge, Strategy, Execution, Outcome */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="space-y-5">
                 
-                {/* Challenge */}
-                <div className="p-6 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#111111] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#246B32] ring-1 ring-[#459B45]/50" />
-                    Challenge
+                {/* Header: Name, Category & Ranking Badge */}
+                <div className="flex items-start justify-between gap-3 pb-4 border-b border-[#E5E9E5]">
+                  <div>
+                    <span className="text-[10.5px] font-mono font-semibold text-[#246B32] uppercase tracking-wider block">
+                      {study.category}
+                    </span>
+                    <h3 className="text-2xl font-bold text-[#111111] tracking-tight font-display mt-0.5 group-hover:text-[#246B32] transition-colors">
+                      {study.project}
+                    </h3>
                   </div>
-                  <p className="text-xs text-[#555B55] leading-relaxed font-sans font-normal">
-                    {study.challenge}
-                  </p>
+
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E5F5E5] border border-[#CDECCF] text-[#246B32] text-xs font-mono font-semibold shrink-0">
+                    <Trophy className="w-3.5 h-3.5 text-[#246B32]" />
+                    <span>{study.highlightBadge}</span>
+                  </div>
                 </div>
 
-                {/* Strategy */}
-                <div className="p-6 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#246B32] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#459B45]" />
-                    Strategy
+                {/* Objective & Strategy */}
+                <div className="space-y-3">
+                  <div>
+                    <span className="text-[11px] font-mono font-semibold text-[#111111] uppercase tracking-wider block mb-1">
+                      Launch Objective
+                    </span>
+                    <p className="text-xs text-[#555B55] leading-relaxed">
+                      {study.objective}
+                    </p>
                   </div>
-                  <p className="text-xs text-[#555B55] leading-relaxed font-sans font-normal">
-                    {study.strategy}
-                  </p>
+
+                  <div>
+                    <span className="text-[11px] font-mono font-semibold text-[#246B32] uppercase tracking-wider block mb-1">
+                      Strategy &amp; Work Delivered
+                    </span>
+                    <p className="text-xs text-[#555B55] leading-relaxed">
+                      {study.strategy}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Execution */}
-                <div className="p-6 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#246B32] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#246B32]" />
-                    Execution
+                {/* Verified Results Row */}
+                <div className="p-3.5 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-2 text-[#246B32] font-semibold">
+                    <Flame className="w-3.5 h-3.5 text-[#E03B28]" />
+                    <span>{study.verifiedRank}</span>
                   </div>
-                  <p className="text-xs text-[#555B55] leading-relaxed font-sans font-normal">
-                    {study.execution}
-                  </p>
-                </div>
-
-                {/* Outcome */}
-                <div className="p-6 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] space-y-3">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-600 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                    Outcome
+                  <div className="text-[#555B55]">
+                    {study.verifiedVotes}
                   </div>
-                  <p className="text-xs text-[#555B55] leading-relaxed font-sans font-normal">
-                    {study.outcome}
-                  </p>
                 </div>
 
               </div>
+
+              {/* Card Footer: Verified PH Link */}
+              <div className="pt-4 border-t border-[#E5E9E5] flex items-center justify-between">
+                <a
+                  href={study.productHuntUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold text-[#246B32] hover:text-[#111111] inline-flex items-center gap-1.5 transition-colors group/link"
+                >
+                  <span>View Product Hunt Page</span>
+                  <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                </a>
+
+                <button
+                  type="button"
+                  onClick={onOpenBooking}
+                  className="text-[11px] font-medium text-[#555B55] hover:text-[#246B32] transition-colors"
+                >
+                  Discuss Similar Launch →
+                </button>
+              </div>
+
             </motion.div>
           ))}
         </div>
 
-        {/* Section CTA */}
-        <div className="mt-16 text-center">
+        {/* Section Bottom Links */}
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <Button
             size="lg"
             onClick={onOpenBooking}
             className="bg-[#459B45] hover:bg-[#246B32] text-[#FFFFFF] text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-3.5 rounded-full border border-[#459B45]/30 shadow-md shadow-[#459B45]/20 group transition-all cursor-pointer"
           >
-            <span>DISCUSS YOUR GROWTH ROADMAP</span>
+            <span>DISCUSS YOUR LAUNCH ROADMAP</span>
             <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
+
+          <a
+            href="/portfolio"
+            onClick={(e) => {
+              if (
+                !e.metaKey &&
+                !e.ctrlKey &&
+                !e.shiftKey &&
+                !e.altKey &&
+                e.button === 0
+              ) {
+                e.preventDefault();
+                if (onOpenPortfolio) {
+                  onOpenPortfolio();
+                } else {
+                  window.history.pushState({}, '', '/portfolio');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                }
+              }
+            }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full border border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide transition-all shadow-xs"
+          >
+            <span>Explore All 31 Verified Launches</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
 
       </div>
     </section>
   );
 });
+
+CaseStudiesSection.displayName = 'CaseStudiesSection';
+export default CaseStudiesSection;

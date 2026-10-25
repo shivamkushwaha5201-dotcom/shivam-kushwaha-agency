@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Zap, Layers, Compass, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, Zap, Layers, Compass, TrendingUp } from 'lucide-react';
 import shivamApprovedPhoto from '../assets/images/Screenshot_2026-09-02-09-30-52-50_99c04817c0de5652397fc8b56c3b3817.jpg';
 import shivamProfileWebp from '../assets/images/shivam_profile_opt.webp';
-import leftFloatingVisual from '../assets/images/growth_systems_left_visual_1791128239625.jpg';
-import leftFloatingVisualWebp from '../assets/images/growth_systems_left_visual_opt.webp';
+import tigerDoorImg from '../assets/images/tiger_door_growth.jpg';
 import { scrollCoordinator } from '../lib/scrollCoordinator';
 
 // Zero-React-render 100+ Happy Customers Counter (Mutates textContent directly via rAF, stops on completion)
@@ -81,26 +80,28 @@ const HappyCustomersCounter: React.FC = React.memo(() => {
   );
 });
 
+HappyCustomersCounter.displayName = 'HappyCustomersCounter';
+
 interface TrustSectionProps {
   onOpenBooking?: () => void;
 }
 
 const PILLARS = [
   {
-    title: 'Strategy-First Execution',
+    title: 'Launch-Ready Positioning',
     icon: Compass,
   },
   {
-    title: 'Multi-Platform Distribution',
+    title: 'Product Page & Asset Review',
     icon: Layers,
   },
   {
-    title: 'Organic-First Authority',
+    title: 'Launch-Day Coordination',
     icon: Zap,
   },
   {
-    title: 'Founder-Led Accountability',
-    icon: ShieldCheck,
+    title: 'Post-Launch Growth Support',
+    icon: TrendingUp,
   },
 ];
 
@@ -129,7 +130,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
         if (isVisible && parallaxRef.current) {
           const rawProgress = (m.scrollY + m.winHeight - sectionTop) / (m.winHeight + sectionHeight);
           const clamped = Math.min(1, Math.max(0, rawProgress));
-          const offsetY = 18 - clamped * 36; // +18px -> -18px
+          const offsetY = 14 - clamped * 28; // Subtle +14px -> -14px scroll reveal
           parallaxRef.current.style.transform = `translate3d(0, ${offsetY.toFixed(1)}px, 0)`;
         }
         return false;
@@ -164,9 +165,10 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
   return (
     <section
       ref={sectionRef}
-      className="py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10"
+      id="about-growth"
+      className="py-24 sm:py-28 md:py-36 bg-[#FFFFFF] text-[#111111] border-t border-[#E5E9E5] relative overflow-hidden z-10 font-sans"
     >
-      {/* Faint Atmospheric Gradient Matching Theme */}
+      {/* Faint Atmospheric Soft Mint Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
@@ -175,20 +177,21 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             'radial-gradient(ellipse 85% 75% at 18% 22%, rgba(229, 245, 229, 0.45) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%)',
         }}
       />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-center">
           
-          {/* LEFT: Single Large Floating Editorial Visual + Dedicated Scroll Parallax Layer */}
+          {/* LEFT: Tiger-and-Door Image with Gentle Scroll Parallax & Ambient Halo */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            {/* Layer 1: Once-Triggered Viewport Reveal */}
+            {/* Viewport Reveal Wrapper */}
             <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.97 }}
+              initial={{ opacity: 0, y: 18, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[340px] sm:max-w-[380px]"
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[340px] sm:max-w-[390px] lg:max-w-[420px]"
             >
-              {/* Layer 2: Dedicated Scroll Parallax Wrapper (Single animation source) */}
+              {/* Parallax Container */}
               <div
                 ref={parallaxRef}
                 style={{
@@ -198,43 +201,38 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                 }}
                 className="relative w-full"
               >
-                {/* Soft Mint Atmospheric Glow Behind Floating Card */}
+                {/* Soft Mint Ambient Glow Around the Doorway */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-8 rounded-[40px] pointer-events-none"
+                  className="absolute -inset-6 sm:-inset-10 rounded-[44px] pointer-events-none"
                   style={{
                     background:
-                      'radial-gradient(circle, rgba(69,155,69,0.2) 0%, rgba(229,245,229,0.5) 45%, transparent 72%)',
+                      'radial-gradient(circle at 45% 40%, rgba(69, 155, 69, 0.26) 0%, rgba(229, 245, 229, 0.5) 48%, transparent 72%)',
+                    filter: 'blur(28px)',
                   }}
                 />
 
-                {/* Layer 3: Continuous Slow GPU Floating Card */}
+                {/* Tiger & Door Visual Container — Preserves door, tiger & kitten with object-contain */}
                 <div
-                  style={{
-                    animationPlayState: inView ? 'running' : 'paused',
-                    willChange: 'transform',
-                  }}
-                  className="animate-float trust-floating-card will-change-transform relative rounded-3xl overflow-hidden border border-[#E5E9E5] bg-[#FFFFFF] shadow-[0_24px_60px_rgba(69,155,69,0.14)] aspect-[4/5]"
+                  className="relative rounded-3xl overflow-hidden border border-[#E5E9E5] bg-[#FFFFFF] shadow-[0_20px_50px_rgba(69,155,69,0.12)] aspect-[4/5] flex items-center justify-center p-2 sm:p-3 group"
                 >
-                  <picture className="w-full h-full block">
-                    <source srcSet={leftFloatingVisualWebp} type="image/webp" />
-                    <img
-                      src={leftFloatingVisual}
-                      alt="AxentAI Labs Growth Systems Visual"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF]/70 via-transparent to-transparent pointer-events-none" />
+                  <img
+                    src={tigerDoorImg}
+                    alt="Outgrow Your Competition — Step through the doorway with launch momentum"
+                    className="w-full h-full object-contain object-center select-none rounded-2xl transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  
+                  {/* Subtle inner ambient ring */}
                   <div className="absolute inset-0 ring-1 ring-inset ring-[#459B45]/15 rounded-3xl pointer-events-none" />
                 </div>
 
-                {/* Rotating Circular Explore Badge (Corner Accent — Pauses offscreen) */}
+                {/* Rotating Circular Explore Badge (Pauses offscreen) */}
                 <a
-                  href="#services"
-                  className="absolute -bottom-6 -right-4 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#FFFFFF]/95 border border-[#E5E9E5] shadow-xl shadow-[#459B45]/10 flex items-center justify-center group cursor-pointer z-20"
+                  href="#product-hunt"
+                  aria-label="Explore Launch Support"
+                  className="absolute -bottom-5 -right-3 sm:-right-5 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#FFFFFF]/95 backdrop-blur-sm border border-[#E5E9E5] shadow-xl shadow-[#459B45]/10 flex items-center justify-center group cursor-pointer z-20"
                 >
                   <svg
                     viewBox="0 0 120 120"
@@ -243,51 +241,52 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                   >
                     <defs>
                       <path
-                        id="circleTextPath"
+                        id="circleTextPathTiger"
                         d="M 60, 60 m -44, 0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"
                       />
                     </defs>
-                    <text className="fill-[#555B55] text-[9.5px] font-mono uppercase tracking-[0.24em]">
-                      <textPath href="#circleTextPath" startOffset="0%">
-                        • EXPLORE MORE • EXPLORE MORE
+                    <text className="fill-[#555B55] text-[9px] font-mono uppercase tracking-[0.22em]">
+                      <textPath href="#circleTextPathTiger" startOffset="0%">
+                        • LAUNCH SUPPORT • OUTGROW
                       </textPath>
                     </text>
                   </svg>
-                  <div className="absolute w-11 h-11 rounded-full bg-[#459B45] group-hover:bg-[#246B32] text-white flex items-center justify-center shadow-md shadow-[#459B45]/35 transition-transform duration-200 group-hover:scale-105">
-                    <ArrowUpRight className="w-5 h-5" />
+                  <div className="absolute w-10 h-10 rounded-full bg-[#459B45] group-hover:bg-[#246B32] text-white flex items-center justify-center shadow-md shadow-[#459B45]/35 transition-transform duration-200 group-hover:scale-105">
+                    <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </a>
               </div>
             </motion.div>
           </div>
 
-          {/* RIGHT: "WE BUILD GROWTH SYSTEMS FOR MODERN BRANDS" */}
+          {/* RIGHT: Product Hunt Growth Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.65 }}
-            className="lg:col-span-7 space-y-8 relative z-20"
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-7 relative z-20 text-left"
           >
             <div className="space-y-4">
+              {/* Eyebrow Label: // OUTGROW YOUR COMPETITION */}
               <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
-                // AGENCY POSITIONING
+                // OUTGROW YOUR COMPETITION
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] leading-[1.08] uppercase">
-                WE BUILD GROWTH SYSTEMS <br className="hidden sm:inline" />
-                <span className="text-[#459B45]">
-                  FOR MODERN BRANDS
-                </span>
+              {/* Main Headline with GROWTH and STARTS HERE highlighted */}
+              <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-display font-extrabold text-[#111111] tracking-[-0.025em] leading-[1.08] uppercase">
+                YOUR NEXT BIG <span className="text-[#248A3D]">GROWTH</span> MOVE <br className="hidden sm:inline" />
+                <span className="text-[#248A3D]">STARTS HERE</span>
               </h2>
 
-              <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-xl">
-                We help founders and modern brands build visibility through personal branding, social growth, Product Hunt launches and creator-led distribution.
+              {/* Supporting Paragraph */}
+              <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-xl font-normal">
+                Your Product Hunt launch deserves more than a last-minute push. We help founders sharpen their positioning, prepare launch assets, coordinate launch-day activities, and build a clear distribution strategy to reach the right audience.
               </p>
             </div>
 
-            {/* 2x2 Minimal Pillars Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-y border-[#E5E9E5] py-6">
+            {/* 2x2 Feature Pillars Grid (Launch-Ready Positioning, Product Page & Asset Review, Launch-Day Coordination, Post-Launch Growth Support) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 border-y border-[#E5E9E5] py-6">
               {PILLARS.map((item, idx) => {
                 const Icon = item.icon;
                 return (
@@ -296,10 +295,10 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-30px' }}
-                    transition={{ duration: 0.5, delay: 0.1 + idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-3.5 p-2.5 -m-2.5 rounded-xl hover:bg-[#F7F9F7] transition-colors duration-250 group"
+                    transition={{ duration: 0.5, delay: 0.08 + idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex items-center gap-3.5 p-2.5 -m-2.5 rounded-xl hover:bg-[#F7F9F7] transition-colors duration-200 group"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] group-hover:border-[#459B45] group-hover:bg-[#459B45] text-[#246B32] group-hover:text-white flex items-center justify-center shrink-0 transition-colors duration-250">
+                    <div className="w-9 h-9 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] group-hover:border-[#459B45] group-hover:bg-[#459B45] text-[#246B32] group-hover:text-white flex items-center justify-center shrink-0 transition-colors duration-200 shadow-2xs">
                       <Icon className="w-4 h-4" />
                     </div>
                     <span className="text-xs sm:text-sm font-semibold text-[#111111] group-hover:text-[#246B32] tracking-tight transition-colors">
@@ -310,7 +309,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
               })}
             </div>
 
-            {/* Founder Attribution, 100+ Happy Customers Counter & Action Row */}
+            {/* Bottom Row: Founder Attribution, 100+ Happy Customers & EXPLORE LAUNCH SUPPORT */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
               <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                 <div className="flex items-center gap-3.5">
@@ -327,46 +326,32 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                   </picture>
                   <div>
                     <div className="text-sm font-bold text-[#111111]">Shivam Kushwaha</div>
-                    <div className="text-xs text-[#555B55]">Founder &amp; CEO, AxentAI Labs</div>
+                    <div className="text-xs text-[#555B55]">Product Hunt Launch Strategist</div>
                   </div>
                 </div>
 
-                {/* Subtle 100+ Happy Customers Social-Proof Counter */}
+                {/* 100+ Happy Customers Counter */}
                 <HappyCustomersCounter />
               </div>
 
-              <button
-                onClick={onOpenBooking}
-                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-md hover:shadow-[#459B45]/20 hover:-translate-y-0.5 text-xs font-semibold uppercase tracking-wider text-[#111111] transition-all duration-300 group cursor-pointer"
+              {/* Action Button: EXPLORE LAUNCH SUPPORT */}
+              <a
+                href="#product-hunt"
+                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:shadow-md hover:shadow-[#459B45]/20 hover:-translate-y-0.5 text-xs font-semibold uppercase tracking-wider text-[#111111] transition-all duration-300 group cursor-pointer shadow-2xs"
               >
-                <span>Learn More</span>
+                <span>EXPLORE LAUNCH SUPPORT</span>
                 <span className="w-7 h-7 rounded-full bg-[#459B45] group-hover:bg-[#246B32] text-white flex items-center justify-center transition-colors">
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
-              </button>
+              </a>
             </div>
 
           </motion.div>
 
         </div>
       </div>
-
-      {/* Hardware-accelerated 3D floating card keyframes */}
-      <style>{`
-        @keyframes trustCardFloat {
-          0%, 100% {
-            transform: translate3d(-2px, -8px, 0) rotate3d(0, 0, 1, -0.8deg);
-          }
-          50% {
-            transform: translate3d(2px, 8px, 0) rotate3d(0, 0, 1, 0.8deg);
-          }
-        }
-        .trust-floating-card {
-          animation: trustCardFloat 6.2s ease-in-out infinite;
-          will-change: transform;
-          backface-visibility: hidden;
-        }
-      `}</style>
     </section>
   );
 });
+
+TrustSection.displayName = 'TrustSection';

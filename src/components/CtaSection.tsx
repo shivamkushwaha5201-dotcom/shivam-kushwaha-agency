@@ -144,26 +144,26 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
           <div className="relative z-10 max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#246B32] font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-[#459B45] animate-pulse" />
-              Strategic Growth Partnership
+              READY TO PLAN YOUR LAUNCH?
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.02em] leading-[1.08] uppercase">
-              READY TO BUILD YOUR <br className="hidden sm:inline" />
-              <span className="text-[#246B32]">DIGITAL INFLUENCE?</span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] leading-[1.08] uppercase">
+              LET’S BUILD YOUR <br className="hidden sm:inline" />
+              <span className="text-[#246B32]">PRODUCT HUNT LAUNCH PLAN.</span>
             </h2>
 
             <p className="text-sm sm:text-base text-[#555B55] font-sans leading-relaxed max-w-xl font-normal">
-              Let’s build a growth strategy around your brand, audience and goals.
+              Tell us about your product, target audience and launch timeline. We’ll discuss the right preparation and distribution approach for your goals.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#111111] font-mono">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#459B45]" />
-                <span>Direct senior strategist collaboration</span>
+                <span>Pre-Launch Positioning &amp; War Room</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#459B45]" />
-                <span>Custom platform playbook</span>
+                <span>Compliant Organic Distribution</span>
               </div>
             </div>
           </div>

@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
     let lastActiveSection = 'home';
 
     const updateOffsets = () => {
-      const sections = ['home', 'services', 'how-we-work', 'case-studies', 'about', 'contact'];
+      const sections = ['home', 'product-hunt', 'how-we-work', 'why-us', 'case-studies', 'services', 'about', 'contact'];
       cachedOffsets = sections
         .map((id) => {
           const el = document.getElementById(id);
@@ -72,11 +72,12 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
   }, []);
 
   const navLinks = [
+    { name: 'Product Hunt', href: '#product-hunt', id: 'product-hunt' },
+    { name: 'Methodology', href: '#how-we-work', id: 'how-we-work' },
+    { name: 'Why Us', href: '#why-us', id: 'why-us' },
+    { name: 'Launches', href: '#case-studies', id: 'case-studies' },
     { name: 'Services', href: '#services', id: 'services' },
-    { name: 'Process', href: '#how-we-work', id: 'how-we-work' },
-    { name: 'Case Studies', href: '#case-studies', id: 'case-studies' },
     { name: 'About', href: '#about', id: 'about' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   const handleLogoClick = (e: React.MouseEvent) => {

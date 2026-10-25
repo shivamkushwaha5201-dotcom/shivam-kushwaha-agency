@@ -279,14 +279,12 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
         >
           <div className="space-y-3">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#246B32] font-semibold font-mono">
-              // TESTIMONIALS
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#459B45] shadow-[0_0_8px_#459B45] animate-pulse" />
+              <span>FOUNDER FEEDBACK &amp; TRANSPARENCY</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.02em] uppercase">
-              WHAT CLIENTS ARE{' '}
-              <span className="text-[#246B32]">
-                SAYING
-              </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase">
+              WHAT FOUNDERS SAY ABOUT <span className="text-[#246B32]">WORKING WITH US</span>
             </h2>
           </div>
 
