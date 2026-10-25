@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
     let lastActiveSection = 'home';
 
     const updateOffsets = () => {
-      const sections = ['home', 'product-hunt', 'services', 'how-we-work', 'why-us', 'case-studies', 'about', 'contact'];
+      const sections = ['home', 'services', 'how-we-work', 'why-us', 'case-studies', 'about', 'contact'];
       cachedOffsets = sections
         .map((id) => {
           const el = document.getElementById(id);
@@ -73,7 +73,6 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
 
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
-    { name: 'Product Hunt', href: '#product-hunt', id: 'product-hunt' },
     { name: 'Services', href: '#services', id: 'services' },
     { name: 'Methodology', href: '#how-we-work', id: 'how-we-work' },
     { name: 'Case Studies', href: '#case-studies', id: 'case-studies' },
@@ -134,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
             </div>
 
             <div className="flex flex-col">
-              <span className="font-bold text-xs sm:text-[13px] tracking-[0.14em] text-[#111111] group-hover:text-[#246B32] transition-colors uppercase font-display">
+              <span className="hero-brand-contrast font-extrabold text-xs sm:text-[13px] tracking-[0.14em] text-[#111111] group-hover:text-[#246B32] transition-colors uppercase font-display [text-shadow:0_1px_2px_rgba(255,255,255,0.95),0_0_12px_rgba(255,255,255,0.85)]">
                 AxentAI Labs
               </span>
             </div>

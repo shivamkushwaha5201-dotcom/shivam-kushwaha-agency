@@ -11,6 +11,7 @@ import {
   Check
 } from 'lucide-react';
 import { Button } from './ui/button';
+import { FloatingParticles } from './ui/FloatingParticles';
 import { CONTACT_INFO } from '../data/portfolioData';
 import shivamAboutPhoto from '../assets/images/Screenshot_2026-09-02-09-30-52-50_99c04817c0de5652397fc8b56c3b3817.jpg';
 import shivamProfileWebp from '../assets/images/shivam_profile_opt.webp';
@@ -78,6 +79,8 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
             filter: 'blur(65px)',
           }}
         />
+        {/* Subtle Ambient Particles behind Founder & Agency Story */}
+        <FloatingParticles variant="about" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

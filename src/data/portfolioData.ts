@@ -23,157 +23,125 @@ export const STAT_METRICS: StatMetric[] = [];
 export const SERVICES_DATA: ServiceDetail[] = [
   {
     id: 'product-hunt-launch',
-    title: 'Product Hunt Launch Strategy & Support',
-    tagline: 'Refine positioning, prepare launch assets, coordinate launch day, and build a strategic distribution plan.',
+    title: 'Product Hunt Launch Support',
+    tagline: 'Strategic positioning, launch-day coordination, and organic distribution for technology startups.',
     icon: 'Rocket',
-    badge: 'Flagship Offering',
-    description: 'A successful launch takes more than publishing a product page. We help founders refine their positioning, prepare launch assets, coordinate launch-day communication, connect with relevant communities, and build a thoughtful distribution plan.',
+    badge: 'Flagship Service · ~65% Focus',
+    description: 'A successful Product Hunt launch requires disciplined preparation and real-time execution. We help founders refine product positioning, prepare launch assets, coordinate launch-day outreach, and build an organic distribution plan without artificial tactics or false promises.',
     deliverables: [
-      'Pre-launch strategy and positioning',
+      'Pre-launch positioning and strategy',
       'Product page and tagline feedback',
       'Launch asset planning',
       'Launch-day coordination',
-      'Relevant community outreach',
-      'Cross-platform distribution',
-      'Post-launch performance review'
+      'Organic community outreach and distribution',
+      'Post-launch review'
     ],
-    resultsMetric: 'Flagship Launch Execution & Sustainable Momentum',
-    idealFor: 'SaaS founders, devtools, AI startups, and modern products seeking front-page category introduction.',
+    resultsMetric: 'Flagship Focus · 30+ Coordinated Launches',
+    idealFor: 'SaaS founders, devtools, AI startups, and makers preparing for a coordinated, organic Product Hunt release.',
     featured: true,
     portfolioUrl: '/portfolio'
   },
   {
     id: 'linkedin-personal-branding',
     title: 'LinkedIn Personal Branding & Founder Positioning',
-    tagline: 'Help founders and executives build credibility through strategic positioning, content planning, and consistent professional visibility.',
+    tagline: 'Turn founder experience into executive authority, trust, and inbound opportunities.',
     icon: 'UserCheck',
     badge: 'Founder Positioning',
-    description: 'Help founders and executives build credibility through strategic positioning, content planning, thought leadership, and consistent professional visibility.',
+    description: 'Helps founders and executives articulate their domain expertise into high-signal perspectives that build trust, authority, and inbound business interest.',
     deliverables: [
-      'Founder perspective & voice discovery',
-      'Strategic executive profile positioning',
-      'Editorial content roadmap & hooks',
-      'Thought-leadership essays & retrospectives',
-      'Meaningful industry network interaction',
-      'Consistent weekly publication rhythm'
+      'Founder voice & narrative positioning',
+      'Strategic executive profile optimization',
+      'Weekly high-signal post writing & scheduling',
+      'Meaningful industry network interaction'
     ],
-    resultsMetric: 'Executive Authority & High-Trust Inbound Conversations',
+    resultsMetric: 'Executive Authority & High-Trust Inbound',
     idealFor: 'Tech founders, venture-backed leaders, and startup executives seeking genuine organic influence.',
-    featured: true
+    featured: false
   },
   {
     id: 'linkedin-page-handling',
     title: 'LinkedIn Company Page Management',
-    tagline: 'Manage company page content, publishing schedules, brand messaging, audience engagement, and organic visibility.',
+    tagline: 'Consistent B2B brand storytelling, product updates, and company credibility.',
     icon: 'Share2',
-    badge: 'Brand Management',
-    description: 'Manage company page content, publishing schedules, brand messaging, audience engagement, and organic visibility.',
+    badge: 'Company Presence',
+    description: 'Complete management of your company’s LinkedIn presence to keep your brand active, professional, and trustworthy for prospects, investors, and talent.',
     deliverables: [
-      'Company page narrative architecture',
-      'Consistent publishing schedule & calendar',
-      'Feature announcements & milestone posts',
-      'Audience interaction & comment management',
-      'Employer branding & culture storytelling',
-      'Monthly engagement & growth reporting'
+      'Monthly editorial calendar & publication schedule',
+      'Product release announcements & company milestones',
+      'Audience comment moderation & engagement',
+      'Monthly performance, reach, and follower reporting'
     ],
-    resultsMetric: 'Brand Affinity & Active Industry Mindshare',
-    idealFor: 'Growing SaaS companies and tech brands needing polished, reliable page operations without internal overhead.',
-    featured: true
+    resultsMetric: 'Credible Company Brand Presence',
+    idealFor: 'B2B startups and growing tech companies looking for polished page operations without internal overhead.',
+    featured: false
   },
   {
     id: 'social-media-management',
     title: 'Social Media Management & Content Strategy',
-    tagline: 'Build a consistent social presence through content strategy, platform-specific publishing, and community engagement.',
+    tagline: 'Build a dependable social presence with platform-tailored content and active community touchpoints.',
     icon: 'Layers',
     badge: 'Content Strategy',
-    description: 'Build a consistent social presence through content strategy, platform-specific publishing, community engagement, and performance reviews.',
+    description: 'Develops and executes a clear multi-channel content strategy that maintains an authentic brand voice and nurtures ongoing community interaction.',
     deliverables: [
-      'Multi-channel content strategy & pillar design',
-      'Platform-tailored copy and visual assets',
-      'Editorial scheduling & timely publishing',
-      'Active community engagement & replies',
-      'Trend monitoring & contextual relevance',
-      'Performance analysis & iterative optimization'
+      'Cross-platform content strategy & theme planning',
+      'Platform-tailored copy and creative visual assets',
+      'Consistent editorial scheduling & publishing',
+      'Community moderation, replies, and engagement reviews'
     ],
-    resultsMetric: 'Cross-Platform Brand Consistency & Engaged Followers',
-    idealFor: 'Tech companies and startups seeking a dependable, high-quality social presence across platforms.',
-    featured: true
+    resultsMetric: 'Cross-Platform Consistency & Engagement',
+    idealFor: 'Startups and SaaS companies seeking dependable social distribution while founders focus on building.',
+    featured: false
   },
   {
     id: 'influencer-marketing',
     title: 'Influencer Marketing & Creator Partnerships',
-    tagline: 'Connect relevant brands with creators and niche influencers for suitable collaborations, campaign planning, and audience reach.',
+    tagline: 'Vetted collaborations with niche tech creators who test and advocate your product.',
     icon: 'Megaphone',
     badge: 'Creator Partnerships',
-    description: 'Connect relevant brands with creators and niche influencers for suitable collaborations, campaign planning, and audience reach.',
+    description: 'Connects your software with relevant tech creators and niche influencers who can showcase your product to genuine engineers and early adopters.',
     deliverables: [
-      'Niche creator discovery & audience vetting',
-      'Collaboration strategy & narrative briefs',
-      'Contract negotiation & term alignment',
-      'Campaign management & content review',
-      'Multi-platform sponsored rollout',
-      'Performance tracking & attribution reports'
+      'Niche creator identification & audience vetting',
+      'Campaign brief creation & narrative alignment',
+      'Partnership coordination & deliverable review',
+      'Performance, link click, and attribution tracking'
     ],
-    resultsMetric: 'Curated Creator Advocacy & Qualified Early Adopters',
-    idealFor: 'Growth-stage startups and consumer/B2B apps looking for credible third-party demonstrations.',
-    featured: true
+    resultsMetric: 'Targeted Creator Introductions',
+    idealFor: 'Growth-stage SaaS and tech products looking for credible third-party demonstrations and reviews.',
+    featured: false
   },
   {
     id: 'x-growth-distribution',
     title: 'X (Twitter) Growth & Distribution',
-    tagline: 'Develop platform-specific content, founder communication, community participation, and distribution strategies for technology brands.',
+    tagline: 'Engage the tech community through build-in-public updates, threads, and ecosystem discussions.',
     icon: 'Sparkles',
-    badge: 'Distribution Engine',
-    description: 'Develop platform-specific content, founder communication, community participation, and distribution strategies for technology brands.',
+    badge: 'Tech Distribution',
+    description: 'Reaches early adopters, developers, and tech builders through high-signal build-in-public threads, release announcements, and ecosystem dialogue.',
     deliverables: [
-      'High-signal build-in-public threads',
-      'Feature releases & video demo previews',
-      'Active tech community discourse & replies',
-      'Founder POV communication & commentary',
-      'Real-time launch countdown momentum',
-      'Audience discovery & developer relationships'
+      'Build-in-public hook & thread copywriting',
+      'Feature demo previews & release announcements',
+      'Active participation in relevant tech conversations',
+      'Ecosystem networking with founders & developers'
     ],
-    resultsMetric: 'Tech Community Resonance & Organic Viral Distribution',
-    idealFor: 'Developers, AI builders, and SaaS founders building in public and seeking early tech adopters.',
-    featured: true
-  },
-  {
-    id: 'brand-visibility-organic-growth',
-    title: 'Brand Visibility & Organic Audience Growth',
-    tagline: 'Build visibility that actually matters through ethical, context-first distribution across high-intent communities.',
-    icon: 'TrendingUp',
-    badge: 'Organic Distribution',
-    description: 'Extend your brand’s reach through LinkedIn content, X communication, company page management, creator collaborations, and relevant communities.',
-    deliverables: [
-      'Ecosystem mapping & community identification',
-      'Contextual discussion participation',
-      'Targeted subreddit and developer hub outreach',
-      'Collaborative co-marketing initiatives',
-      'Long-term organic reach compounding',
-      'Ethical, human-first relationship building'
-    ],
-    resultsMetric: 'Sustainable Organic Footprint & Qualified Brand Recognition',
-    idealFor: 'Startups wanting to build lasting visibility beyond transient ad spend or single-day spikes.',
+    resultsMetric: 'Active Tech Community Presence',
+    idealFor: 'Developers, AI builders, and founders building in public and seeking early tech adopters.',
     featured: false
   },
   {
-    id: 'website-development',
-    title: 'Website Development & Digital Presence',
-    tagline: 'Create modern, responsive websites that communicate a brand’s value clearly and provide a professional digital presence.',
-    icon: 'Globe',
-    badge: 'Digital Presence',
-    description: 'Create modern, responsive websites that communicate a brand’s value clearly and provide a professional digital presence.',
+    id: 'brand-visibility-organic-growth',
+    title: 'Organic Brand Visibility & Audience Growth',
+    tagline: 'Expand audience reach through ethical, context-first distribution across relevant channels.',
+    icon: 'TrendingUp',
+    badge: 'Organic Distribution',
+    description: 'Expands your brand reach across high-intent developer communities, tech subreddits, and relevant industry channels through helpful, context-first participation.',
     deliverables: [
-      'High-conversion landing page architecture',
-      'Modern, responsive responsive design & typography',
-      'Brand messaging & value proposition clarity',
-      'Performance optimization & rapid load times',
-      'SEO foundations & social share metadata',
-      'Smooth interactive user experiences'
+      'Target community & channel identification',
+      'Contextual discussion participation & technical replies',
+      'Subreddit & developer hub organic outreach',
+      'Sustainable organic reach compounding & reporting'
     ],
-    resultsMetric: 'Clear Value Proposition & Professional Digital Foundation',
-    idealFor: 'Founders launching products or repositioning their company with an authoritative digital home.',
-    featured: true
+    resultsMetric: 'Durable Multi-Channel Visibility',
+    idealFor: 'Startups wanting sustainable audience growth without constant reliance on paid advertisements.',
+    featured: false
   }
 ];
 

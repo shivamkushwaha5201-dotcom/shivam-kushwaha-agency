@@ -490,4 +490,617 @@ h1, h2, h3, .font-display {
   animation: portfolioPulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* ==========================================================================
+   Hero Section Cat Floating Platform Animations (Product Hunt, X, LinkedIn, Reddit)
+   ========================================================================== */
+
+/* 1. Product Hunt Animations */
+@keyframes heroFloatPH {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(-6deg);
+    filter: blur(0px);
+  }
+  25% {
+    filter: blur(0.4px);
+  }
+  50% {
+    transform: translateY(-12px) translateX(4px) rotate(-3.5deg);
+    filter: blur(0px);
+  }
+  75% {
+    filter: blur(0.4px);
+  }
+}
+
+@keyframes heroFloatLabelPH {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) translateX(-3px) rotate(1.5deg);
+  }
+}
+
+.hero-ph-tile {
+  animation: heroFloatPH 5.0s ease-in-out infinite 0s !important;
+  will-change: transform, filter;
+  transition: transform 0.25s ease, filter 0.2s ease;
+}
+
+.hero-ph-tile:hover {
+  transform: translateY(-12px) translateX(4px) scale(1.08) rotate(0deg) !important;
+  filter: blur(0px) !important;
+}
+
+.hero-ph-label {
+  animation: heroFloatLabelPH 5.8s ease-in-out infinite 0.4s !important;
+  will-change: transform;
+}
+
+/* 2. X (Twitter) Animations */
+@keyframes heroFloatX {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(6deg);
+    filter: blur(0px);
+  }
+  25% {
+    filter: blur(0.4px);
+  }
+  50% {
+    transform: translateY(-13px) translateX(-4px) rotate(3.5deg);
+    filter: blur(0px);
+  }
+  75% {
+    filter: blur(0.4px);
+  }
+}
+
+@keyframes heroFloatLabelX {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) translateX(3px) rotate(-1.5deg);
+  }
+}
+
+.hero-x-tile {
+  animation: heroFloatX 5.4s ease-in-out infinite 0.9s !important;
+  will-change: transform, filter;
+  transition: transform 0.25s ease, filter 0.2s ease;
+}
+
+.hero-x-tile:hover {
+  transform: translateY(-13px) translateX(-4px) scale(1.08) rotate(0deg) !important;
+  filter: blur(0px) !important;
+}
+
+.hero-x-label {
+  animation: heroFloatLabelX 6.2s ease-in-out infinite 0.2s !important;
+  will-change: transform;
+}
+
+/* 3. LinkedIn Animations */
+@keyframes heroFloatLI {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(-6deg);
+    filter: blur(0px);
+  }
+  25% {
+    filter: blur(0.4px);
+  }
+  50% {
+    transform: translateY(-11px) translateX(5px) rotate(-3.5deg);
+    filter: blur(0px);
+  }
+  75% {
+    filter: blur(0.4px);
+  }
+}
+
+@keyframes heroFloatLabelLI {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) translateX(-3px) rotate(1.2deg);
+  }
+}
+
+.hero-li-tile {
+  animation: heroFloatLI 5.8s ease-in-out infinite 1.5s !important;
+  will-change: transform, filter;
+  transition: transform 0.25s ease, filter 0.2s ease;
+}
+
+.hero-li-tile:hover {
+  transform: translateY(-11px) translateX(5px) scale(1.08) rotate(0deg) !important;
+  filter: blur(0px) !important;
+}
+
+.hero-li-label {
+  animation: heroFloatLabelLI 5.2s ease-in-out infinite 0.7s !important;
+  will-change: transform;
+}
+
+/* 4. Reddit Animations */
+@keyframes heroFloatReddit {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(6deg);
+    filter: blur(0px);
+  }
+  25% {
+    filter: blur(0.4px);
+  }
+  50% {
+    transform: translateY(-13px) translateX(-5px) rotate(3.5deg);
+    filter: blur(0px);
+  }
+  75% {
+    filter: blur(0.4px);
+  }
+}
+
+@keyframes heroFloatLabelReddit {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) translateX(4px) rotate(-1.4deg);
+  }
+}
+
+.hero-reddit-tile {
+  animation: heroFloatReddit 4.6s ease-in-out infinite 0.5s !important;
+  will-change: transform, filter;
+  transition: transform 0.25s ease, filter 0.2s ease;
+}
+
+.hero-reddit-tile:hover {
+  transform: translateY(-13px) translateX(-5px) scale(1.08) rotate(0deg) !important;
+  filter: blur(0px) !important;
+}
+
+.hero-reddit-label {
+  animation: heroFloatLabelReddit 5.6s ease-in-out infinite 1.1s !important;
+  will-change: transform;
+}
+
+/* 5. Enhanced Mint Ambient Glow Pulsing */
+@keyframes heroMintGlowPulse {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.95;
+  }
+}
+
+.hero-mint-glow {
+  animation: heroMintGlowPulse 5.4s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+@keyframes heroMintAuraBreathe {
+  0%, 100% {
+    transform: scale(1) translateY(0px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.18) translateY(-6px);
+    opacity: 0.8;
+  }
+}
+
+.hero-mint-aura {
+  animation: heroMintAuraBreathe 7.2s ease-in-out infinite 0.8s !important;
+  will-change: transform;
+}
+
+/* 6. Flowing Curved Green Waves */
+@keyframes heroWaveFlow1 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scaleY(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-8px) translateX(-10px) scaleY(1.08);
+    opacity: 0.8;
+  }
+}
+
+.hero-wave-layer-1 {
+  animation: heroWaveFlow1 6.8s ease-in-out infinite !important;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes heroWaveFlow2 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scaleY(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(6px) translateX(12px) scaleY(0.94);
+    opacity: 0.72;
+  }
+}
+
+.hero-wave-layer-2 {
+  animation: heroWaveFlow2 7.6s ease-in-out infinite 0.7s !important;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* 7. Subtle Traveling Pulse for Dotted Connector Lines */
+@keyframes heroDottedLineFlow {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dashoffset: -28;
+    opacity: 0.45;
+  }
+}
+
+.hero-dotted-line {
+  animation: heroDottedLineFlow 4.8s linear infinite !important;
+  will-change: transform, stroke-dashoffset;
+}
+
+.hero-line-ph { animation-delay: 0s !important; }
+.hero-line-x { animation-delay: 1.2s !important; }
+.hero-line-li { animation-delay: 2.2s !important; }
+.hero-line-reddit { animation-delay: 0.6s !important; }
+
+/* 8. Growth Trend Arrow Near X */
+@keyframes heroGrowthArrowFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(-7px) translateX(3px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+.hero-growth-arrow {
+  animation: heroGrowthArrowFloat 4.4s ease-in-out infinite 0.4s !important;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* 9. Radiation Waves Above Headphones */
+@keyframes heroHeadphoneSignalWave {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.14);
+    opacity: 1;
+  }
+}
+
+.hero-headphone-signals {
+  animation: heroHeadphoneSignalWave 3.8s ease-in-out infinite 0.2s !important;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* 10. Glowing Sparkles & Diamonds */
+@keyframes heroSparkleTwinkle {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(-4px) translateX(2px) scale(1.35);
+    opacity: 1;
+  }
+}
+
+.hero-sparkle-1 {
+  animation: heroSparkleTwinkle 3.4s ease-in-out infinite 0s !important;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero-sparkle-2 {
+  animation: heroSparkleTwinkle 4.2s ease-in-out infinite 1.3s !important;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero-sparkle-3 {
+  animation: heroSparkleTwinkle 3.8s ease-in-out infinite 0.7s !important;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero-sparkle-4 {
+  animation: heroSparkleTwinkle 4.6s ease-in-out infinite 1.9s !important;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Hero 'AxentAI Labs' High-Contrast Branding Text */
+.hero-brand-contrast {
+  font-weight: 800 !important;
+  color: #111111 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95), 0 0 14px rgba(255, 255, 255, 0.85) !important;
+  letter-spacing: 0.08em;
+}
+
+/* 11. Faint Slow-Moving Background Dust Particles */
+@keyframes heroDustDrift1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.20;
+  }
+  30% {
+    transform: translate3d(14px, -20px, 0);
+    opacity: 0.36;
+  }
+  65% {
+    transform: translate3d(6px, -38px, 0);
+    opacity: 0.22;
+  }
+  85% {
+    transform: translate3d(-10px, -16px, 0);
+    opacity: 0.30;
+  }
+}
+
+@keyframes heroDustDrift2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.16;
+  }
+  35% {
+    transform: translate3d(-16px, -24px, 0);
+    opacity: 0.32;
+  }
+  70% {
+    transform: translate3d(-6px, -46px, 0);
+    opacity: 0.18;
+  }
+  90% {
+    transform: translate3d(8px, -22px, 0);
+    opacity: 0.26;
+  }
+}
+
+@keyframes heroDustDrift3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.22;
+  }
+  40% {
+    transform: translate3d(18px, -28px, 0);
+    opacity: 0.38;
+  }
+  75% {
+    transform: translate3d(10px, -14px, 0);
+    opacity: 0.24;
+  }
+}
+
+@keyframes heroDustDrift4 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.18;
+  }
+  45% {
+    transform: translate3d(-12px, 18px, 0);
+    opacity: 0.34;
+  }
+  80% {
+    transform: translate3d(12px, 8px, 0);
+    opacity: 0.20;
+  }
+}
+
+.hero-dust-particle {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+.hero-dust-1 {
+  animation: heroDustDrift1 16s ease-in-out infinite 0s !important;
+}
+
+.hero-dust-2 {
+  animation: heroDustDrift2 22s ease-in-out infinite 2.5s !important;
+}
+
+.hero-dust-3 {
+  animation: heroDustDrift3 19s ease-in-out infinite 5s !important;
+}
+
+.hero-dust-4 {
+  animation: heroDustDrift1 25s ease-in-out infinite 8s !important;
+}
+
+.hero-dust-5 {
+  animation: heroDustDrift4 20s ease-in-out infinite 3.5s !important;
+}
+
+.hero-dust-6 {
+  animation: heroDustDrift2 27s ease-in-out infinite 10s !important;
+}
+
+.hero-dust-7 {
+  animation: heroDustDrift3 23s ease-in-out infinite 6.5s !important;
+}
+
+.hero-dust-8 {
+  animation: heroDustDrift4 21s ease-in-out infinite 1s !important;
+}
+
+/* Respect Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ph-tile,
+  .hero-ph-label,
+  .hero-x-tile,
+  .hero-x-label,
+  .hero-li-tile,
+  .hero-li-label,
+  .hero-reddit-tile,
+  .hero-reddit-label,
+  .hero-mint-glow,
+  .hero-mint-aura,
+  .hero-wave-layer-1,
+  .hero-wave-layer-2,
+  .hero-dotted-line,
+  .hero-growth-arrow,
+  .hero-headphone-signals,
+  .hero-sparkle-1,
+  .hero-sparkle-2,
+  .hero-sparkle-3,
+  .hero-sparkle-4,
+  .hero-dust-particle {
+    animation-duration: 20s !important;
+    filter: none !important;
+  }
+}
+
+/* =========================================================================
+   Site-Wide Floating Ambient Particles (Mint & Emerald)
+   Lightweight, GPU-accelerated, organic drift with subtle glow & pulse
+   ========================================================================= */
+
+@keyframes particleFloatUp {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
+  }
+  30% {
+    transform: translate3d(8px, -18px, 0);
+    opacity: 0.65;
+  }
+  70% {
+    transform: translate3d(-6px, -36px, 0);
+    opacity: 0.35;
+  }
+  90% {
+    transform: translate3d(4px, -14px, 0);
+    opacity: 0.55;
+  }
+}
+
+@keyframes particleFloatDown {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.22;
+  }
+  35% {
+    transform: translate3d(-10px, 20px, 0);
+    opacity: 0.60;
+  }
+  75% {
+    transform: translate3d(8px, 38px, 0);
+    opacity: 0.30;
+  }
+  90% {
+    transform: translate3d(-4px, 15px, 0);
+    opacity: 0.50;
+  }
+}
+
+@keyframes particleFloatDiag {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.20;
+  }
+  40% {
+    transform: translate3d(18px, -14px, 0);
+    opacity: 0.70;
+  }
+  80% {
+    transform: translate3d(-14px, 16px, 0);
+    opacity: 0.28;
+  }
+}
+
+@keyframes particleOrbPulse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translate3d(12px, -12px, 0) scale(1.22);
+    opacity: 0.55;
+  }
+}
+
+@keyframes particleTwinkle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.9);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate3d(4px, -6px, 0) rotate(22deg) scale(1.3);
+    opacity: 0.85;
+  }
+}
+
+.anim-particle-up {
+  animation: particleFloatUp 16s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.anim-particle-down {
+  animation: particleFloatDown 18s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.anim-particle-diag {
+  animation: particleFloatDiag 17s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.anim-particle-orb {
+  animation: particleOrbPulse 22s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.anim-particle-twinkle {
+  animation: particleTwinkle 7s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-particle-up,
+  .anim-particle-down,
+  .anim-particle-diag,
+  .anim-particle-orb,
+  .anim-particle-twinkle {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+}
+
+
 

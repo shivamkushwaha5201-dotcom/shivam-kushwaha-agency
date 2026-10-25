@@ -10,7 +10,6 @@ import { ProcessSection } from './components/ProcessSection';
 import { WhyUsSection } from './components/WhyUsSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { InfluencerSection } from './components/InfluencerSection';
-import { ProductHuntSection } from './components/ProductHuntSection';
 import { ClientSuccessSection } from './components/ClientSuccessSection';
 import { AboutSection } from './components/AboutSection';
 import { FaqSection } from './components/FaqSection';
@@ -23,6 +22,7 @@ import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
 import { SmoothCursor } from './components/ui/smooth-cursor';
 import { AmbientMintBackground } from './components/ui/AmbientMintBackground';
+import { SectionTransitionGlow } from './components/ui/SectionTransitionGlow';
 import { PortfolioApp } from './portfolio/PortfolioApp';
 
 function isPortfolioLocation(): boolean {
@@ -249,18 +249,18 @@ export default function App() {
             {/* 02. Supported Product Launches Marquee */}
             <TrustedByMarquee />
 
-            {/* 03. Level 1: Flagship Service — Product Hunt Launch Support (65% strategic weight) */}
-            <ProductHuntSection 
-              onOpenBooking={scrollToContact} 
-              onOpenPortfolio={handleOpenPortfolio}
-            />
+            {/* Transition Glow & Particles */}
+            <SectionTransitionGlow />
 
-            {/* 04. Level 2: Other Growth Services — More Ways to Build Your Brand */}
+            {/* 03. Strategic Growth Services — Flagship Product Hunt & Supporting Growth Channels */}
             <ServicesSection
               onOpenBooking={scrollToContact}
               onViewService={handleViewService}
               onOpenPortfolio={handleOpenPortfolio}
             />
+
+            {/* Transition Glow & Particles */}
+            <SectionTransitionGlow />
 
             {/* 05. Growth Systems & Brand Architecture (Tiger & Doorway) */}
             <TrustSection onOpenBooking={scrollToContact} />
@@ -274,6 +274,9 @@ export default function App() {
             {/* 08. Multi-Channel Distribution Beyond Launch Day (LinkedIn, X, Creators, Communities) */}
             <InfluencerSection onOpenBooking={scrollToContact} />
 
+            {/* Transition Glow & Particles */}
+            <SectionTransitionGlow />
+
             {/* 09. Strategy and Execution in Action (Verified Case Studies) */}
             <CaseStudiesSection 
               onOpenBooking={scrollToContact}
@@ -282,6 +285,9 @@ export default function App() {
 
             {/* 10. Client Feedback & Verified Outcomes */}
             <ClientSuccessSection onOpenBooking={scrollToContact} />
+
+            {/* Transition Glow & Particles */}
+            <SectionTransitionGlow />
 
             {/* 11. Founder & Agency Story (Built Around Strategy. Focused on Growth.) */}
             <AboutSection onOpenBooking={scrollToContact} />

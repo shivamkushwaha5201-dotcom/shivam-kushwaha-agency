@@ -1,4 +1,5 @@
 import React from 'react';
+import { FloatingParticles } from './FloatingParticles';
 
 interface AmbientMintBackgroundProps {
   className?: string;
@@ -267,8 +268,12 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           </svg>
         </div>
       )}
+
+      {/* 5. Sparse Subtle Floating Ambient Particles Across Mint-Green Background */}
+      <FloatingParticles variant="ambient" />
     </div>
   );
 });
 
 AmbientMintBackground.displayName = 'AmbientMintBackground';
+

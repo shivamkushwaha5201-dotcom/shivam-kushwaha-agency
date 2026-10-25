@@ -225,11 +225,14 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                   <Button
                     onClick={onOpenBooking}
                     size="lg"
-                    className="bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] font-semibold rounded-full px-6 py-3 border border-[#E5E9E5] hover:border-[#459B45] shadow-xs hover:-translate-y-0.5 cursor-pointer text-xs sm:text-sm transition-all"
+                    className="bg-gradient-to-r from-[#246B32] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white font-semibold rounded-full px-6 py-3.5 border border-[#459B45]/40 shadow-xs hover:shadow-md cursor-pointer text-xs sm:text-sm transition-all"
                   >
-                    <span>Discuss Your Launch</span>
+                    <span>Plan Your Product Hunt Launch</span>
                     <ArrowRight className="w-4 h-4 ml-1.5" />
                   </Button>
+                  <p className="w-full text-[11px] font-mono text-[#555B55] pt-1">
+                    * Strategic advisory and organic preparation. We do not promise guaranteed rankings, votes, or launch results.
+                  </p>
                 </div>
               ) : (
                 <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -238,7 +241,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                     size="lg"
                     className="bg-[#459B45] hover:bg-[#246B32] text-white font-semibold rounded-full px-7 shadow-md shadow-[#459B45]/20 cursor-pointer"
                   >
-                    <span>Book a Strategy Call</span>
+                    <span>Discuss This Service</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
 

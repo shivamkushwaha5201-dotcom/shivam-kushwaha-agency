@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Compass, Lightbulb, PlayCircle, TrendingUp, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
+import { FloatingParticles } from './ui/FloatingParticles';
 import snailSkateboardImg from '../assets/images/snail_on_skateboard_transparent.png';
 
 interface ProcessSectionProps {
@@ -65,6 +66,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = React.memo(({ onOpe
             filter: 'blur(65px)',
           }}
         />
+        {/* Subtle Ambient Particles behind methodology stages */}
+        <FloatingParticles variant="methodology" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

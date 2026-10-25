@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, ExternalLink, Trophy, Flame } from 'lucide-react';
 import { Button } from './ui/button';
+import { FloatingParticles } from './ui/FloatingParticles';
 
 interface CaseStudiesSectionProps {
   onOpenBooking: () => void;
@@ -77,6 +78,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = React.memo(
             filter: 'blur(65px)',
           }}
         />
+        {/* Subtle Ambient Particles behind Case Studies */}
+        <FloatingParticles variant="case-studies" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
