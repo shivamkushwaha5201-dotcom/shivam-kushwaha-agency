@@ -315,6 +315,42 @@ const VERIFIED_USER_LAUNCHES: Array<{
     votes: 182,
     needsDateConfirmation: true,
   },
+  // 5 Real Recent Product Hunt Launches
+  {
+    id: 'verified-movo-ai',
+    name: 'Movo AI',
+    productHuntUrl: 'https://www.producthunt.com/posts/movo-ai',
+    ranking: 2,
+    votes: 301,
+  },
+  {
+    id: 'verified-mypip',
+    name: 'MyPip',
+    productHuntUrl: 'https://www.producthunt.com/posts/mypip-2',
+    ranking: 2,
+    votes: 268,
+  },
+  {
+    id: 'verified-zcad-ai',
+    name: 'ZCAD AI',
+    productHuntUrl: 'https://www.producthunt.com/posts/zcad-ai',
+    ranking: 1,
+    votes: 317,
+  },
+  {
+    id: 'verified-n8n-chat-ui',
+    name: 'n8n Chat UI',
+    productHuntUrl: 'https://www.producthunt.com/posts/n8n-chat-ui-3',
+    ranking: 4,
+    votes: 186,
+  },
+  {
+    id: 'verified-surgepix',
+    name: 'SurgePix',
+    productHuntUrl: 'https://www.producthunt.com/posts/surgepix',
+    ranking: 2,
+    votes: 256,
+  },
 ];
 
 const DEFAULT_DATABASE: PortfolioDatabase = {

@@ -23,6 +23,18 @@ export interface SupportedLaunch {
    * Optional product logo or thumbnail URL / data URI.
    */
   logoUrl?: string;
+  /**
+   * Specific badge text such as "#1 Product of the Day" or "#2 Product of the Day".
+   */
+  rankingBadge?: string;
+  /**
+   * Flag indicating #1 Product of the Day achievement for subtle highlight.
+   */
+  isRankOne?: boolean;
+  /**
+   * Flag indicating the project is part of Recent Product Hunt Launches.
+   */
+  isRecent?: boolean;
   createdAt?: string;
   updatedAt?: string;
 }

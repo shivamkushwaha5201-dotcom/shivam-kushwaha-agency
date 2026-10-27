@@ -1,4 +1,5 @@
 import { StatMetric, ServiceDetail, CaseStudy, FaqItem, Testimonial, LaunchReadinessQuestion } from '../types';
+import { SupportedLaunch } from '../types/portfolio';
 
 export const CONTACT_INFO = {
   name: 'AxentAI Labs',
@@ -19,6 +20,63 @@ export const CONTACT_INFO = {
 };
 
 export const STAT_METRICS: StatMetric[] = [];
+
+/**
+ * 5 Real Recent Product Hunt Launches supported by AxentAI Labs.
+ * Structured in one organized data array so future launches can be added easily.
+ */
+export const RECENT_PRODUCT_HUNT_LAUNCHES: SupportedLaunch[] = [
+  {
+    id: 'verified-movo-ai',
+    name: 'Movo AI',
+    productHuntUrl: 'https://www.producthunt.com/posts/movo-ai',
+    votes: 301,
+    ranking: 2,
+    rankingBadge: '#2 Product of the Day',
+    isRecent: true,
+    isRankOne: false,
+  },
+  {
+    id: 'verified-mypip',
+    name: 'MyPip',
+    productHuntUrl: 'https://www.producthunt.com/posts/mypip-2',
+    votes: 268,
+    ranking: 2,
+    rankingBadge: '#2 Product of the Day',
+    isRecent: true,
+    isRankOne: false,
+  },
+  {
+    id: 'verified-zcad-ai',
+    name: 'ZCAD AI',
+    productHuntUrl: 'https://www.producthunt.com/posts/zcad-ai',
+    votes: 317,
+    ranking: 1,
+    rankingBadge: '#1 Product of the Day',
+    isRecent: true,
+    isRankOne: true,
+  },
+  {
+    id: 'verified-n8n-chat-ui',
+    name: 'n8n Chat UI',
+    productHuntUrl: 'https://www.producthunt.com/posts/n8n-chat-ui-3',
+    votes: 186,
+    ranking: 4,
+    rankingBadge: '#4 Product of the Day',
+    isRecent: true,
+    isRankOne: false,
+  },
+  {
+    id: 'verified-surgepix',
+    name: 'SurgePix',
+    productHuntUrl: 'https://www.producthunt.com/posts/surgepix',
+    votes: 256,
+    ranking: 2,
+    rankingBadge: '#2 Product of the Day',
+    isRecent: true,
+    isRankOne: false,
+  },
+];
 
 export const SERVICES_DATA: ServiceDetail[] = [
   // Service 1 — Product Hunt Launch Support (Flagship Service)

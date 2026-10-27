@@ -310,6 +310,62 @@
       "needsDateConfirmation": true,
       "createdAt": "2026-10-16T11:06:00.000Z",
       "updatedAt": "2026-10-16T11:06:00.000Z"
+    },
+    {
+      "id": "verified-movo-ai",
+      "name": "Movo AI",
+      "productHuntUrl": "https://www.producthunt.com/posts/movo-ai",
+      "votes": 301,
+      "ranking": 2,
+      "rankingBadge": "#2 Product of the Day",
+      "isRecent": true,
+      "createdAt": "2026-10-27T10:36:00.000Z",
+      "updatedAt": "2026-10-27T10:36:00.000Z"
+    },
+    {
+      "id": "verified-mypip",
+      "name": "MyPip",
+      "productHuntUrl": "https://www.producthunt.com/posts/mypip-2",
+      "votes": 268,
+      "ranking": 2,
+      "rankingBadge": "#2 Product of the Day",
+      "isRecent": true,
+      "createdAt": "2026-10-27T10:36:00.000Z",
+      "updatedAt": "2026-10-27T10:36:00.000Z"
+    },
+    {
+      "id": "verified-zcad-ai",
+      "name": "ZCAD AI",
+      "productHuntUrl": "https://www.producthunt.com/posts/zcad-ai",
+      "votes": 317,
+      "ranking": 1,
+      "rankingBadge": "#1 Product of the Day",
+      "isRankOne": true,
+      "isRecent": true,
+      "createdAt": "2026-10-27T10:36:00.000Z",
+      "updatedAt": "2026-10-27T10:36:00.000Z"
+    },
+    {
+      "id": "verified-n8n-chat-ui",
+      "name": "n8n Chat UI",
+      "productHuntUrl": "https://www.producthunt.com/posts/n8n-chat-ui-3",
+      "votes": 186,
+      "ranking": 4,
+      "rankingBadge": "#4 Product of the Day",
+      "isRecent": true,
+      "createdAt": "2026-10-27T10:36:00.000Z",
+      "updatedAt": "2026-10-27T10:36:00.000Z"
+    },
+    {
+      "id": "verified-surgepix",
+      "name": "SurgePix",
+      "productHuntUrl": "https://www.producthunt.com/posts/surgepix",
+      "votes": 256,
+      "ranking": 2,
+      "rankingBadge": "#2 Product of the Day",
+      "isRecent": true,
+      "createdAt": "2026-10-27T10:36:00.000Z",
+      "updatedAt": "2026-10-27T10:36:00.000Z"
     }
   ]
 }

@@ -16,7 +16,6 @@ import { ServicePage } from './components/ServicePage';
 import { BackToTop } from './components/BackToTop';
 import { SEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
-import { SmoothCursor } from './components/ui/smooth-cursor';
 import { AmbientMintBackground } from './components/ui/AmbientMintBackground';
 import { SectionTransitionGlow } from './components/ui/SectionTransitionGlow';
 import { PortfolioApp } from './portfolio/PortfolioApp';
@@ -153,7 +152,6 @@ export default function App() {
   if (currentView === 'portfolio') {
     return (
       <HelmetProvider>
-        <SmoothCursor />
         <PortfolioApp />
       </HelmetProvider>
     );
@@ -161,8 +159,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <SmoothCursor />
-      <div className="min-h-screen bg-[#FFFFFF] hero-global-bg text-[#111111] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans transition-colors duration-200 relative">
+      <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#0A0F0A] hero-global-bg text-[#111111] dark:text-[#F4F6F4] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans transition-colors duration-200 relative">
         {/* Global Continuous Soft Mint Ambient Background & Animated Organic Mesh */}
         <AmbientMintBackground />
         

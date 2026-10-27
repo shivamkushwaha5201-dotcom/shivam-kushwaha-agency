@@ -30,6 +30,7 @@ import { AdminForm } from './components/AdminForm';
 import { Footer } from './components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { AmbientMintBackground } from '../components/ui/AmbientMintBackground';
+import { RECENT_PRODUCT_HUNT_LAUNCHES } from '../data/portfolioData';
 
 const SESSION_TOKEN_STORAGE_KEY = 'ph_portfolio_admin_session_token';
 
@@ -172,6 +173,23 @@ export function PortfolioApp() {
     );
   }, [launches]);
 
+  // Total recent launches count (including the 5 verified recent launches)
+  const displayedRecentCount = useMemo(() => {
+    const map = new Map<string, SupportedLaunch>();
+    for (const item of RECENT_PRODUCT_HUNT_LAUNCHES) {
+      map.set(item.id, item);
+    }
+    for (const item of recentLaunches) {
+      map.set(item.id, item);
+    }
+    for (const item of pendingConfirmationLaunches) {
+      if (!map.has(item.id)) {
+        map.set(item.id, item);
+      }
+    }
+    return map.size;
+  }, [recentLaunches, pendingConfirmationLaunches]);
+
   const switchSection = useCallback(
     (sectionId: NavSectionId) => {
       setActiveNav((prev) => {
@@ -261,7 +279,7 @@ export function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111] relative">
+    <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#0A0F0A] text-[#111111] dark:text-[#F4F6F4] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111] relative">
       <AmbientMintBackground />
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}
@@ -324,7 +342,7 @@ export function PortfolioApp() {
                   {
                     id: 'recent-launches',
                     label: 'Recent Launches',
-                    count: recentLaunches.length,
+                    count: displayedRecentCount,
                   },
                   {
                     id: 'about',

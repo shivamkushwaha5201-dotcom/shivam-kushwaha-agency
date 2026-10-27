@@ -48,11 +48,63 @@
     --text-body: #111111;
     --text-muted: #555B55;
   }
+
+  .dark,
+  :root[data-theme="dark"] {
+    --hero-bg-color: #0A0F0A;
+    --hero-bg-gradient: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(36, 107, 50, 0.22) 0%, rgba(10, 15, 10, 1) 70%), linear-gradient(135deg, #0A0F0A 0%, #111811 52%, #0A0F0A 100%);
+    --hero-text-main: #F4F6F4;
+    --hero-text-muted: #A6B5A6;
+    --hero-card-bg: #121A12;
+    --hero-card-surface: #182318;
+    --hero-border: #243524;
+    --hero-green: #459B45;
+    --hero-dark-green: #5AC25A;
+    --hero-mint-glow: rgba(69, 155, 69, 0.2);
+
+    --background: 120 20% 4%;
+    --foreground: 120 5% 95%;
+    --card: 120 18% 9%;
+    --card-foreground: 120 5% 95%;
+    --popover: 120 18% 9%;
+    --popover-foreground: 120 5% 95%;
+    --primary: 120 38% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 18% 12%;
+    --secondary-foreground: 120 5% 95%;
+    --muted: 120 18% 12%;
+    --muted-foreground: 120 5% 65%;
+    --accent: 120 30% 16%;
+    --accent-foreground: 120 50% 65%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 18% 18%;
+    --input: 120 18% 18%;
+    --ring: 120 38% 44%;
+
+    --bg-page: #0A0F0A;
+    --bg-alt: #182318;
+    --bg-mint: #1B2E1B;
+    --bg-card: #121A12;
+    --border-subtle: #243524;
+    --green-primary: #459B45;
+    --green-dark: #5AC25A;
+    --green-mint: #1B2E1B;
+    --text-heading: #F4F6F4;
+    --text-body: #E2E6E2;
+    --text-muted: #A6B5A6;
+  }
 }
 
 .hero-global-bg {
   background-color: #FFFFFF;
   background-image: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(229, 245, 229, 0.5) 0%, rgba(255, 255, 255, 1) 70%), linear-gradient(135deg, #FFFFFF 0%, #F7F9F7 52%, #FFFFFF 100%);
+}
+
+html.dark .hero-global-bg,
+.dark .hero-global-bg {
+  background-color: #0A0F0A;
+  background-image: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(36, 107, 50, 0.22) 0%, rgba(10, 15, 10, 1) 70%), linear-gradient(135deg, #0A0F0A 0%, #111811 52%, #0A0F0A 100%);
 }
 
 body {
@@ -64,6 +116,38 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
   min-height: 100vh;
+  cursor: default;
+}
+
+html.dark body,
+.dark body {
+  color: #F4F6F4;
+  background-color: #0A0F0A;
+  background-image: radial-gradient(ellipse 85% 75% at 18% 22%, rgba(36, 107, 50, 0.18) 0%, rgba(10, 15, 10, 1) 70%), linear-gradient(135deg, #0A0F0A 0%, #111811 52%, #0A0F0A 100%);
+}
+
+/* System default cursor rules - remove custom triangular pointer */
+html,
+body {
+  cursor: default !important;
+}
+
+button,
+a,
+[role="button"],
+[role="tab"],
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+}
+
+select {
+  cursor: pointer !important;
 }
 
 html {
@@ -451,50 +535,173 @@ h1, h2, h3, .font-display {
   font-variant-numeric: tabular-nums;
 }
 
-/* Product Hunt Portfolio Launch Card Rules (New Brand Palette) */
+/* Product Hunt Portfolio Launch Card Rules */
 .ph-launch-card {
-  background-color: #FFFFFF !important;
-  border-color: #E5E9E5 !important;
-  color: #111111 !important;
-  opacity: 1 !important;
+  background-color: #FFFFFF;
+  border-color: #E5E9E5;
+  color: #111111;
+  opacity: 1;
 }
 
-.ph-launch-card-title,
-.ph-launch-card:hover .ph-launch-card-title,
-.ph-launch-card:focus-within .ph-launch-card-title {
-  color: #111111 !important;
+html.dark .ph-launch-card,
+.dark .ph-launch-card {
+  background-color: #121A12 !important;
+  border-color: #243524 !important;
+  color: #F4F6F4 !important;
+}
+
+.ph-launch-card-title {
+  color: #111111;
   font-weight: 600;
-  opacity: 1 !important;
+  opacity: 1;
+}
+
+html.dark .ph-launch-card-title,
+.dark .ph-launch-card-title {
+  color: #F4F6F4 !important;
 }
 
 .ph-launch-card-metrics {
-  background-color: #F7F9F7 !important;
-  border-color: #E5E9E5 !important;
-  color: #111111 !important;
-  opacity: 1 !important;
+  background-color: #F7F9F7;
+  border-color: #E5E9E5;
+  color: #111111;
+  opacity: 1;
+}
+
+html.dark .ph-launch-card-metrics,
+.dark .ph-launch-card-metrics {
+  background-color: #182318 !important;
+  border-color: #243524 !important;
+  color: #F4F6F4 !important;
 }
 
 .ph-launch-card-label {
-  color: #555B55 !important;
-  opacity: 1 !important;
+  color: #555B55;
+  opacity: 1;
+}
+
+html.dark .ph-launch-card-label,
+.dark .ph-launch-card-label {
+  color: #A6B5A6 !important;
 }
 
 .ph-launch-card-value {
-  color: #111111 !important;
-  opacity: 1 !important;
+  color: #111111;
+  opacity: 1;
 }
 
-/* Smooth Cursor Support */
-@media (any-hover: hover) and (any-pointer: fine) {
-  body.has-smooth-cursor,
-  body.has-smooth-cursor * {
-    cursor: none !important;
-  }
-  body.has-smooth-cursor input,
-  body.has-smooth-cursor textarea,
-  body.has-smooth-cursor select {
-    cursor: text !important;
-  }
+html.dark .ph-launch-card-value,
+.dark .ph-launch-card-value {
+  color: #F4F6F4 !important;
+}
+
+/* ==========================================================================
+   Dark Theme Global Surface, Text, Border & Component Mappings
+   ========================================================================== */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Dark scrollbar */
+html.dark ::-webkit-scrollbar-track {
+  background: #0A0F0A;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #243524;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #459B45;
+}
+
+/* Surfaces */
+html.dark .bg-\[\#FFFFFF\],
+html.dark [class*="bg-[#FFFFFF]"]:not([class*="bg-[#FFFFFF]/"]):not([class*="bg-[#FFFFFF] "]) {
+  background-color: #121A12 !important;
+}
+
+html.dark .bg-white {
+  background-color: #121A12 !important;
+}
+
+html.dark .bg-\[\#FFFFFF\]\/95,
+html.dark .bg-\[\#FFFFFF\]\/90,
+html.dark .bg-\[\#FFFFFF\]\/98,
+html.dark .bg-\[\#FFFFFF\]\/80,
+html.dark .bg-\[\#FFFFFF\]\/75,
+html.dark [class*="bg-[#FFFFFF]/"] {
+  background-color: rgba(18, 26, 18, 0.94) !important;
+}
+
+html.dark .bg-\[\#F7F9F7\],
+html.dark [class*="bg-[#F7F9F7]"] {
+  background-color: #182318 !important;
+}
+
+html.dark .bg-\[\#E5F5E5\],
+html.dark [class*="bg-[#E5F5E5]"] {
+  background-color: #1C301C !important;
+}
+
+html.dark .bg-\[\#EAF7EA\] {
+  background-color: #1E331E !important;
+}
+
+/* Borders */
+html.dark .border-\[\#E5E9E5\],
+html.dark [class*="border-[#E5E9E5]"] {
+  border-color: #243524 !important;
+}
+
+html.dark .border-\[\#CDECCF\],
+html.dark .border-\[\#CDE8CD\],
+html.dark .border-\[\#C6E6C6\],
+html.dark .border-\[\#D5ECD5\] {
+  border-color: #2E462E !important;
+}
+
+/* Typography */
+html.dark .text-\[\#111111\],
+html.dark [class*="text-[#111111]"] {
+  color: #F4F6F4 !important;
+}
+
+html.dark .text-\[\#555B55\],
+html.dark .text-\[\#444444\],
+html.dark .text-\[\#666666\],
+html.dark [class*="text-[#555B55]"],
+html.dark [class*="text-[#444444]"] {
+  color: #A6B5A6 !important;
+}
+
+html.dark .text-\[\#246B32\],
+html.dark [class*="text-[#246B32]"] {
+  color: #5AC25A !important;
+}
+
+/* Interactive elements, Modals & Inputs in Dark Mode */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #162216 !important;
+  color: #F4F6F4 !important;
+  border-color: #243524 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #728472 !important;
+}
+
+html.dark [role="dialog"],
+html.dark [data-state="open"] {
+  background-color: #121A12 !important;
+  border-color: #243524 !important;
+  color: #F4F6F4 !important;
+}
+
+html.dark .accordion-content,
+html.dark [data-radix-accordion-content] {
+  color: #A6B5A6 !important;
 }
 
 /* Subtle pulsing green glow for portfolio links */

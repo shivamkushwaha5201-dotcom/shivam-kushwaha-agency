@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import { NavSectionId } from '../../types/portfolio';
 import catMascotLogo from '../../assets/images/cat_mascot_logo_1791537468388.jpg';
+import { ThemeToggle } from '../../components/ThemeToggle';
 
 interface HeaderProps {
   ownerName: string;
@@ -87,6 +88,9 @@ export const Header: React.FC<HeaderProps> = ({
               <span>Add Launch</span>
             </button>
           )}
+
+          {/* Theme Toggle Button */}
+          <ThemeToggle />
 
           {/* Far right: Clickable Cat Mascot Logo */}
           <a
