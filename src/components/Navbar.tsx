@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Menu, X, Phone } from 'lucide-react';
+import { ArrowRight, Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { CONTACT_INFO } from '../data/portfolioData';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
 import brandLogoWebp from '../assets/images/brand_logo_opt.webp';
-import { ThemeToggle } from './ThemeToggle';
 import { scrollCoordinator } from '../lib/scrollCoordinator';
 
 interface NavbarProps {
   onOpenAudit: () => void;
   onOpenBooking: () => void;
+  onOpenContactPanel?: () => void;
   onNavigateHome?: () => void;
   isLegalPage?: boolean;
   isServicePage?: boolean;
@@ -18,6 +18,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = React.memo(({ 
   onOpenBooking,
+  onOpenContactPanel,
   onNavigateHome,
   isLegalPage = false,
   isServicePage = false 
@@ -169,7 +170,16 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
           </nav>
 
           {/* Right Action Controls */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5">
+            <button
+              id="nav-get-in-touch"
+              type="button"
+              onClick={onOpenContactPanel}
+              className="px-4 py-2 rounded-full border border-[#E5E9E5] bg-[#FFFFFF] hover:border-[#459B45] hover:bg-[#EAF7EA]/60 text-[#111111] hover:text-[#246B32] text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer shadow-2xs"
+            >
+              Get in Touch
+            </button>
+
             <Button
               id="nav-cta-button"
               size="sm"
@@ -179,14 +189,10 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
               <span>Book a Strategy Call</span>
               <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Button>
-
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
-
+          <div className="flex items-center lg:hidden">
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -222,6 +228,18 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                   </a>
                 ))}
                 <div className="pt-3 mt-2 border-t border-[#E5E9E5] flex flex-col gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      if (onOpenContactPanel) onOpenContactPanel();
+                    }}
+                    className="w-full justify-center bg-[#EAF7EA] hover:bg-[#D8F0D8] text-[#246B32] border border-[#CDECCF] font-semibold py-2.5 rounded-xl text-xs flex items-center gap-2 transition-colors cursor-pointer"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-[#246B32]" />
+                    <span>Get in Touch ({CONTACT_INFO.email})</span>
+                  </button>
+
                   <Button
                     className="w-full justify-center bg-[#459B45] hover:bg-[#246B32] text-white font-semibold py-2.5 rounded-xl text-xs"
                     onClick={() => {

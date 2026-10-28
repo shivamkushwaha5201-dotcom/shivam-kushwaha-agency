@@ -26,15 +26,9 @@
     <script>
       (function() {
         try {
-          var savedTheme = localStorage.getItem('axent_brand_theme');
-          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.documentElement.classList.add('dark');
-            document.documentElement.setAttribute('data-theme', 'dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.setAttribute('data-theme', 'light');
-          }
+          localStorage.removeItem('axent_brand_theme');
+          document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-theme', 'light');
         } catch (e) {}
       })();
     </script>
@@ -84,7 +78,7 @@
             "@type": "ContactPoint",
             "contactType": "customer support",
             "telephone": "+91 91111 83136",
-            "email": "shivamkushwaha5202@gmail.com"
+            "email": "hello@axentailabs.com"
           }
         },
         {
@@ -389,10 +383,6 @@
         text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95), 0 0 14px rgba(255, 255, 255, 0.85) !important;
         letter-spacing: 0.08em;
       }
-      html.dark .hero-brand-contrast {
-        color: #F4F6F4 !important;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95), 0 0 14px rgba(69, 155, 69, 0.35) !important;
-      }
 
       /* Hover states for interactive preview */
       .hero-ph-tile:hover {
@@ -433,7 +423,7 @@
       }
     </style>
   </head>
-  <body class="bg-white dark:bg-[#0A0F0A] text-[#111111] dark:text-[#F4F6F4] font-sans antialiased overflow-x-hidden">
+  <body class="bg-white text-[#111111] font-sans antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

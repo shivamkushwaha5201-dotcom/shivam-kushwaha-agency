@@ -8,7 +8,7 @@ export const CONTACT_INFO = {
   company: 'Axentailabs',
   website: 'https://axentailabs.com',
   phone: '+91 91111 83136',
-  email: 'shivamkushwaha5202@gmail.com',
+  email: 'hello@axentailabs.com',
   calendlyUrl: 'https://app.cal.com/shivam-kushwaha-2fovpp/book-a-growth-strategy-call-with-shivam',
   whatsappUrl: 'https://wa.me/919111183136',
   whatsapp: 'https://wa.me/919111183136',

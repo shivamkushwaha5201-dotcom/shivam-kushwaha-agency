@@ -19,6 +19,7 @@ import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
 import { AmbientMintBackground } from './components/ui/AmbientMintBackground';
 import { SectionTransitionGlow } from './components/ui/SectionTransitionGlow';
 import { PortfolioApp } from './portfolio/PortfolioApp';
+import { ContactPanelModal } from './components/ContactPanelModal';
 
 function isPortfolioLocation(): boolean {
   const path = window.location.pathname.toLowerCase();
@@ -38,6 +39,15 @@ export default function App() {
   const [activeServiceId, setActiveServiceId] = useState<string>('linkedin-personal-branding');
   const [legalTab, setLegalTab] = useState<'privacy' | 'terms'>('privacy');
   const [showOpeningIntro, setShowOpeningIntro] = useState<boolean>(true);
+  const [isContactPanelOpen, setIsContactPanelOpen] = useState<boolean>(false);
+
+  const handleOpenContactPanel = useCallback(() => {
+    setIsContactPanelOpen(true);
+  }, []);
+
+  const handleCloseContactPanel = useCallback(() => {
+    setIsContactPanelOpen(false);
+  }, []);
 
   // Short 1.15s Premium Opening Statement ("TRUSTED BY FOUNDERS & TEAMS")
   useEffect(() => {
@@ -159,7 +169,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#0A0F0A] hero-global-bg text-[#111111] dark:text-[#F4F6F4] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans transition-colors duration-200 relative">
+      <div className="min-h-screen bg-[#FFFFFF] hero-global-bg text-[#111111] flex flex-col selection:bg-[#459B45]/20 selection:text-[#246B32] font-sans relative">
         {/* Global Continuous Soft Mint Ambient Background & Animated Organic Mesh */}
         <AmbientMintBackground />
         
@@ -218,6 +228,7 @@ export default function App() {
         <Navbar
           onOpenAudit={scrollToContact}
           onOpenBooking={scrollToContact}
+          onOpenContactPanel={handleOpenContactPanel}
           onNavigateHome={handleBackToHome}
           isLegalPage={currentView === 'legal'}
           isServicePage={currentView === 'service'}
@@ -280,7 +291,7 @@ export default function App() {
             <FaqSection onOpenBooking={scrollToContact} />
 
             {/* 13. Final CTA (Let's Build Your Next Growth Move) */}
-            <CtaSection />
+            <CtaSection onOpenContactPanel={handleOpenContactPanel} />
           </main>
         )}
 
@@ -288,10 +299,18 @@ export default function App() {
         <Footer
           onOpenBooking={scrollToContact}
           onOpenLegal={handleOpenLegalPage}
+          onOpenContactPanel={handleOpenContactPanel}
         />
 
         {/* Floating Back to Top Button */}
         <BackToTop />
+
+        {/* Get in Touch Quick Contact Panel / Modal */}
+        <ContactPanelModal
+          isOpen={isContactPanelOpen}
+          onClose={handleCloseContactPanel}
+          onOpenBooking={scrollToContact}
+        />
       </div>
     </HelmetProvider>
   );

@@ -279,7 +279,7 @@ export function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#0A0F0A] text-[#111111] dark:text-[#F4F6F4] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111] relative">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col overflow-x-hidden font-sans selection:bg-[#459B45]/20 selection:text-[#111111] relative">
       <AmbientMintBackground />
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}

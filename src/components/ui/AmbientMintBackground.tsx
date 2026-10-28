@@ -1,6 +1,5 @@
 import React from 'react';
 import { FloatingParticles } from './FloatingParticles';
-import { useTheme } from '../../hooks/useTheme';
 
 interface AmbientMintBackgroundProps {
   className?: string;
@@ -13,7 +12,7 @@ interface AmbientMintBackgroundProps {
  * AmbientMintBackground
  * 
  * Creates a cohesive, premium, ambient atmosphere across the entire AxentAI Labs website
- * with continuous organic animations in both Light and Dark modes.
+ * with continuous organic animations in the signature Light Mode design.
  * 
  * Features:
  * - Soft mint-green radial gradient lighting
@@ -28,9 +27,6 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
   showOrbs = true,
   showEdgeShapes = true,
 }) => {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-
   return (
     <div
       aria-hidden="true"
@@ -40,9 +36,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
       <div
         className="absolute inset-0 transition-all duration-300"
         style={{
-          background: isDark
-            ? 'radial-gradient(ellipse 95% 85% at 20% 18%, rgba(36, 107, 50, 0.22) 0%, rgba(10, 15, 10, 0.96) 55%, rgba(14, 20, 14, 0.94) 100%)'
-            : 'radial-gradient(ellipse 95% 85% at 20% 18%, rgba(229, 245, 229, 0.55) 0%, rgba(255, 255, 255, 0.95) 55%, rgba(247, 249, 247, 0.9) 100%)',
+          background: 'radial-gradient(ellipse 95% 85% at 20% 18%, rgba(229, 245, 229, 0.55) 0%, rgba(255, 255, 255, 0.95) 55%, rgba(247, 249, 247, 0.9) 100%)',
         }}
       />
 
@@ -53,9 +47,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute -top-[12%] -left-[10%] w-[680px] sm:w-[850px] lg:w-[1000px] h-[680px] sm:h-[850px] lg:h-[1000px] rounded-full animate-ambient-float-1"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle at 45% 45%, rgba(69, 155, 69, 0.18) 0%, rgba(36, 107, 50, 0.26) 38%, rgba(10, 15, 10, 0) 72%)'
-                : 'radial-gradient(circle at 45% 45%, rgba(69, 155, 69, 0.16) 0%, rgba(229, 245, 229, 0.48) 38%, rgba(255, 255, 255, 0) 72%)',
+              background: 'radial-gradient(circle at 45% 45%, rgba(69, 155, 69, 0.16) 0%, rgba(229, 245, 229, 0.48) 38%, rgba(255, 255, 255, 0) 72%)',
               filter: 'blur(65px)',
             }}
           />
@@ -64,9 +56,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute top-[6%] -right-[12%] w-[700px] sm:w-[880px] lg:w-[1050px] h-[700px] sm:h-[880px] lg:h-[1050px] rounded-full animate-ambient-float-2"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle at 55% 45%, rgba(69, 155, 69, 0.16) 0%, rgba(36, 107, 50, 0.24) 42%, rgba(10, 15, 10, 0) 70%)'
-                : 'radial-gradient(circle at 55% 45%, rgba(69, 155, 69, 0.14) 0%, rgba(215, 242, 216, 0.45) 42%, rgba(255, 255, 255, 0) 70%)',
+              background: 'radial-gradient(circle at 55% 45%, rgba(69, 155, 69, 0.14) 0%, rgba(215, 242, 216, 0.45) 42%, rgba(255, 255, 255, 0) 70%)',
               filter: 'blur(75px)',
             }}
           />
@@ -75,9 +65,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute top-[42%] -left-[14%] w-[620px] sm:w-[780px] lg:w-[940px] h-[620px] sm:h-[780px] lg:h-[940px] rounded-full animate-ambient-float-3"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle at 50% 50%, rgba(69, 155, 69, 0.14) 0%, rgba(36, 107, 50, 0.22) 46%, rgba(10, 15, 10, 0) 72%)'
-                : 'radial-gradient(circle at 50% 50%, rgba(69, 155, 69, 0.12) 0%, rgba(229, 245, 229, 0.42) 46%, rgba(255, 255, 255, 0) 72%)',
+              background: 'radial-gradient(circle at 50% 50%, rgba(69, 155, 69, 0.12) 0%, rgba(229, 245, 229, 0.42) 46%, rgba(255, 255, 255, 0) 72%)',
               filter: 'blur(80px)',
             }}
           />
@@ -86,9 +74,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute -bottom-[10%] -right-[10%] w-[660px] sm:w-[840px] lg:w-[980px] h-[660px] sm:h-[840px] lg:h-[980px] rounded-full animate-ambient-float-4"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle at 55% 55%, rgba(69, 155, 69, 0.17) 0%, rgba(36, 107, 50, 0.25) 40%, rgba(10, 15, 10, 0) 70%)'
-                : 'radial-gradient(circle at 55% 55%, rgba(69, 155, 69, 0.15) 0%, rgba(229, 245, 229, 0.46) 40%, rgba(255, 255, 255, 0) 70%)',
+              background: 'radial-gradient(circle at 55% 55%, rgba(69, 155, 69, 0.15) 0%, rgba(229, 245, 229, 0.46) 40%, rgba(255, 255, 255, 0) 70%)',
               filter: 'blur(70px)',
             }}
           />
@@ -102,9 +88,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute -bottom-16 -left-16 w-72 sm:w-96 h-72 sm:h-96 rounded-full animate-edge-glow-1"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle, rgba(69, 155, 69, 0.22) 0%, rgba(36, 107, 50, 0.28) 45%, rgba(10, 15, 10, 0) 72%)'
-                : 'radial-gradient(circle, rgba(69, 155, 69, 0.22) 0%, rgba(229, 245, 229, 0.5) 45%, rgba(255, 255, 255, 0) 72%)',
+              background: 'radial-gradient(circle, rgba(69, 155, 69, 0.22) 0%, rgba(229, 245, 229, 0.5) 45%, rgba(255, 255, 255, 0) 72%)',
               filter: 'blur(52px)',
             }}
           />
@@ -113,9 +97,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute -bottom-20 -right-20 w-80 sm:w-104 h-80 sm:h-104 rounded-full animate-edge-glow-2"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle, rgba(69, 155, 69, 0.20) 0%, rgba(36, 107, 50, 0.26) 45%, rgba(10, 15, 10, 0) 72%)'
-                : 'radial-gradient(circle, rgba(69, 155, 69, 0.20) 0%, rgba(229, 245, 229, 0.45) 45%, rgba(255, 255, 255, 0) 72%)',
+              background: 'radial-gradient(circle, rgba(69, 155, 69, 0.20) 0%, rgba(229, 245, 229, 0.45) 45%, rgba(255, 255, 255, 0) 72%)',
               filter: 'blur(58px)',
             }}
           />
@@ -124,9 +106,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute top-[32%] -right-12 w-64 sm:w-80 h-64 sm:h-80 rounded-full animate-edge-glow-1"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle, rgba(69, 155, 69, 0.15) 0%, rgba(36, 107, 50, 0.22) 45%, rgba(10, 15, 10, 0) 70%)'
-                : 'radial-gradient(circle, rgba(69, 155, 69, 0.13) 0%, rgba(229, 245, 229, 0.38) 45%, rgba(255, 255, 255, 0) 70%)',
+              background: 'radial-gradient(circle, rgba(69, 155, 69, 0.13) 0%, rgba(229, 245, 229, 0.38) 45%, rgba(255, 255, 255, 0) 70%)',
               filter: 'blur(48px)',
             }}
           />
@@ -135,9 +115,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
           <div
             className="absolute top-[68%] -left-12 w-64 sm:w-80 h-64 sm:h-80 rounded-full animate-edge-glow-2"
             style={{
-              background: isDark
-                ? 'radial-gradient(circle, rgba(69, 155, 69, 0.14) 0%, rgba(36, 107, 50, 0.20) 45%, rgba(10, 15, 10, 0) 70%)'
-                : 'radial-gradient(circle, rgba(69, 155, 69, 0.12) 0%, rgba(229, 245, 229, 0.35) 45%, rgba(255, 255, 255, 0) 70%)',
+              background: 'radial-gradient(circle, rgba(69, 155, 69, 0.12) 0%, rgba(229, 245, 229, 0.35) 45%, rgba(255, 255, 255, 0) 70%)',
               filter: 'blur(50px)',
             }}
           />
@@ -148,7 +126,7 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
       {showMesh && (
         <div className="absolute inset-0 w-full h-full animate-mesh-drift">
           <svg
-            className={`w-full h-full transition-opacity duration-300 ${isDark ? 'opacity-40' : 'opacity-65'}`}
+            className="w-full h-full transition-opacity duration-300 opacity-65"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
             viewBox="0 0 1440 900"
@@ -156,21 +134,21 @@ export const AmbientMintBackground: React.FC<AmbientMintBackgroundProps> = React
             <defs>
               <linearGradient id="ambient-mesh-fade-h" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#459B45" stopOpacity="0.03" />
-                <stop offset="35%" stopColor="#459B45" stopOpacity={isDark ? "0.25" : "0.15"} />
-                <stop offset="68%" stopColor="#459B45" stopOpacity={isDark ? "0.22" : "0.13"} />
+                <stop offset="35%" stopColor="#459B45" stopOpacity="0.15" />
+                <stop offset="68%" stopColor="#459B45" stopOpacity="0.13" />
                 <stop offset="100%" stopColor="#459B45" stopOpacity="0.02" />
               </linearGradient>
 
               <linearGradient id="ambient-mesh-fade-v" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="#459B45" stopOpacity="0.03" />
-                <stop offset="28%" stopColor="#459B45" stopOpacity={isDark ? "0.24" : "0.14"} />
-                <stop offset="72%" stopColor="#459B45" stopOpacity={isDark ? "0.20" : "0.11"} />
+                <stop offset="28%" stopColor="#459B45" stopOpacity="0.14" />
+                <stop offset="72%" stopColor="#459B45" stopOpacity="0.11" />
                 <stop offset="100%" stopColor="#459B45" stopOpacity="0.02" />
               </linearGradient>
 
               <linearGradient id="ambient-mesh-accent" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#246B32" stopOpacity="0.02" />
-                <stop offset="50%" stopColor="#459B45" stopOpacity={isDark ? "0.20" : "0.12"} />
+                <stop offset="50%" stopColor="#459B45" stopOpacity="0.12" />
                 <stop offset="100%" stopColor="#246B32" stopOpacity="0.02" />
               </linearGradient>
             </defs>

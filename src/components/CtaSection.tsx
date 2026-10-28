@@ -14,9 +14,10 @@ import brandLogoWebp from '../assets/images/brand_logo_opt.webp';
 
 interface CtaSectionProps {
   onSuccessSubmit?: () => void;
+  onOpenContactPanel?: () => void;
 }
 
-export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
+export const CtaSection: React.FC<CtaSectionProps> = React.memo(({ onOpenContactPanel }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const initializedRef = useRef(false);
 
@@ -150,9 +151,14 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
           />
 
           <div className="relative z-10 max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
+            <button
+              type="button"
+              onClick={onOpenContactPanel}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] hover:bg-[#D8F0D8] border border-[#CDECCF] hover:border-[#459B45] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs transition-colors cursor-pointer"
+            >
               <span>GET IN TOUCH</span>
-            </div>
+              <ArrowRight className="w-3 h-3 text-[#246B32]" />
+            </button>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-[#111111] tracking-[-0.03em] leading-[1.08] uppercase">
               LET’S BUILD YOUR <br className="hidden sm:inline" />
@@ -163,18 +169,27 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
               Tell us about your product, brand, or marketing goals. We’ll help you identify the right starting point.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
               <a
                 href="#my-cal-inline-book-a-growth-strategy-call-with-shivam"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-md shadow-[#459B45]/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#246B32] via-[#2F853E] to-[#459B45] hover:from-[#1E5B2A] hover:to-[#388538] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-md shadow-[#459B45]/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
               >
                 <span>Book a Strategy Call</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </a>
 
+              <button
+                type="button"
+                onClick={onOpenContactPanel}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-3.5 rounded-full bg-[#EAF7EA] hover:bg-[#D8F0D8] border border-[#CDECCF] hover:border-[#459B45] text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs"
+              >
+                <Mail className="w-4 h-4 text-[#246B32]" />
+                <span>Get in Touch</span>
+              </button>
+
               <a
                 href="#services"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full border border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs"
+                className="inline-flex items-center justify-center px-6 py-3 sm:py-3.5 rounded-full border border-[#246B32] bg-[#FFFFFF] hover:bg-[#F7F9F7] text-[#111111] hover:text-[#246B32] text-xs sm:text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs"
               >
                 Explore Our Services
               </a>
@@ -235,16 +250,18 @@ export const CtaSection: React.FC<CtaSectionProps> = React.memo(() => {
               <div className="space-y-2.5 pt-2">
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] hover:-translate-y-0.5 hover:shadow-sm transition-all duration-250 group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#FFFFFF] border border-[#459B45]/40 hover:border-[#246B32] hover:bg-[#EAF7EA]/30 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-250 group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <Mail className="w-4 h-4 text-[#246B32] shrink-0" />
+                    <div className="w-8 h-8 rounded-lg bg-[#E5F5E5] border border-[#CDECCF] flex items-center justify-center text-[#246B32] shrink-0">
+                      <Mail className="w-4 h-4 text-[#246B32]" />
+                    </div>
                     <div className="min-w-0">
-                      <div className="text-[11px] font-semibold text-[#111111]">Direct Email</div>
-                      <div className="text-[10px] text-[#555B55] font-mono truncate">{CONTACT_INFO.email}</div>
+                      <div className="text-[11px] font-bold text-[#111111] uppercase tracking-wide">Official Agency Email</div>
+                      <div className="text-xs font-semibold text-[#246B32] font-mono group-hover:underline truncate">{CONTACT_INFO.email}</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#555B55] group-hover:text-[#246B32] group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#246B32] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                 </a>
 
                 <a

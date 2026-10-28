@@ -1087,7 +1087,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({
                 >
                   <span className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-[#246B32]" />
-                    <span>Email Direct</span>
+                    <span>Official Agency Email</span>
                   </span>
                   <span className="text-[10px] text-[#555B55] font-mono truncate">{CONTACT_INFO.email}</span>
                 </a>

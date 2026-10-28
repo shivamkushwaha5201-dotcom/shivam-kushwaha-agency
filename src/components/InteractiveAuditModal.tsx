@@ -84,22 +84,22 @@ export const InteractiveAuditModal: React.FC<InteractiveAuditModalProps> = ({
     if (score >= 80) {
       return {
         label: '🚀 Ready for High Velocity Launch',
-        color: 'text-emerald-600 dark:text-emerald-400',
-        badgeColor: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
+        color: 'text-emerald-600',
+        badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
         summary: 'Your assets and audience base are in prime position. With our launch hunting and synchronized launch day distribution, your product is positioned for leaderboard contention.'
       };
     } else if (score >= 50) {
       return {
         label: '⚡ Good Foundation with 2 Critical Gaps',
-        color: 'text-amber-600 dark:text-amber-400',
-        badgeColor: 'bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-800',
+        color: 'text-amber-600',
+        badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
         summary: 'You have a solid core, but need a 2-3 week build-in-public ramp on X/LinkedIn and asset optimization to maximize launch momentum.'
       };
     } else {
       return {
         label: '🛠️ Needs Pre-Launch Foundation Sprint',
-        color: 'text-blue-600 dark:text-blue-400',
-        badgeColor: 'bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border-blue-200 dark:border-blue-800',
+        color: 'text-blue-600',
+        badgeColor: 'bg-blue-50 text-blue-800 border-blue-200',
         summary: 'Launching today would risk your product being overlooked. Our 30-day pre-launch teaser strategy will build the necessary waitlist before going public.'
       };
     }

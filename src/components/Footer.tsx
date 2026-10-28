@@ -8,9 +8,10 @@ interface FooterProps {
   onOpenBooking: () => void;
   onOpenAudit?: () => void;
   onOpenLegal?: (tab: 'privacy' | 'terms') => void;
+  onOpenContactPanel?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal, onOpenContactPanel }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -98,15 +99,16 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#111111]">
               Contact & Social
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2.5 text-xs">
               <li>
                 <a 
                   href={`mailto:${CONTACT_INFO.email}`} 
-                  className="text-[#555B55] hover:text-[#246B32] transition-colors flex items-center gap-2"
+                  className="text-[#111111] hover:text-[#246B32] transition-colors flex items-center gap-2 group"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#246B32]" />
-                  <span>{CONTACT_INFO.email}</span>
+                  <Mail className="w-3.5 h-3.5 text-[#246B32] shrink-0" />
+                  <span className="font-semibold group-hover:underline">{CONTACT_INFO.email}</span>
                 </a>
+                <span className="text-[10px] text-[#555B55] pl-5.5 block">Official Agency Contact</span>
               </li>
               <li>
                 <a 
@@ -115,7 +117,7 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   rel="noopener noreferrer" 
                   className="text-[#555B55] hover:text-emerald-600 transition-colors flex items-center gap-2"
                 >
-                  <Phone className="w-3.5 h-3.5 text-emerald-600" />
+                  <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>{CONTACT_INFO.phone}</span>
                 </a>
               </li>
@@ -139,6 +141,18 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal }) => {
                   X / Twitter
                 </a>
               </li>
+              {onOpenContactPanel && (
+                <li className="pt-1.5">
+                  <button
+                    type="button"
+                    onClick={onOpenContactPanel}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EAF7EA] hover:bg-[#D8F0D8] border border-[#CDECCF] text-[11px] font-semibold text-[#246B32] transition-colors cursor-pointer"
+                  >
+                    <span>Get in Touch</span>
+                    <span>→</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

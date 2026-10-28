@@ -321,9 +321,9 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#555B55] group-hover:text-[#246B32] group-hover:translate-x-0.5 transition-transform duration-250 shrink-0" />
               </a>
 
-              {/* 4. Personal Email */}
+              {/* 4. Official Agency Email */}
               <a
-                href="mailto:Shivamkushwaha5201@gmail.com"
+                href={`mailto:${CONTACT_INFO.email}`}
                 className="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl bg-[#F7F9F7] border border-[#E5E9E5] hover:border-[#459B45] hover:bg-[#E5F5E5]/50 hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#459B45]/15 transition-[border-color,transform,box-shadow,background-color] duration-250"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
