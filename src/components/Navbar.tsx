@@ -12,6 +12,8 @@ interface NavbarProps {
   onOpenBooking: () => void;
   onOpenContactPanel?: () => void;
   onNavigateHome?: () => void;
+  onNavigateAbout?: () => void;
+  isAboutPage?: boolean;
   isLegalPage?: boolean;
   isServicePage?: boolean;
 }
@@ -20,6 +22,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
   onOpenBooking,
   onOpenContactPanel,
   onNavigateHome,
+  onNavigateAbout,
+  isAboutPage = false,
   isLegalPage = false,
   isServicePage = false 
 }) => {
@@ -33,7 +37,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
     let lastActiveSection = 'home';
 
     const updateOffsets = () => {
-      const sections = ['home', 'services', 'testimonials', 'about', 'faq', 'contact'];
+      // Home page scroll sections (excluding dedicated views)
+      const sections = ['home', 'services', 'testimonials', 'faq', 'contact'];
       cachedOffsets = sections
         .map((id) => {
           const el = document.getElementById(id);
@@ -88,9 +93,28 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
     }
   };
 
-  const handleNavLinkClick = (href: string) => {
+  const handleNavLinkClick = (href: string, linkId?: string) => {
     setMobileMenuOpen(false);
-    if ((isLegalPage || isServicePage) && onNavigateHome) {
+    if (linkId === 'about') {
+      if (onNavigateAbout) {
+        onNavigateAbout();
+      } else {
+        window.location.hash = '#about';
+      }
+      return;
+    }
+
+    if (linkId === 'home') {
+      if (onNavigateHome) {
+        onNavigateHome();
+      } else {
+        window.location.hash = '#home';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    if ((isAboutPage || isLegalPage || isServicePage) && onNavigateHome) {
       onNavigateHome();
       setTimeout(() => {
         const targetId = href.replace('#', '');
@@ -143,12 +167,19 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1.5">
             {navLinks.map((link) => {
-              const isActive = !isLegalPage && !isServicePage && activeSection === link.id;
+              const isActive = isAboutPage
+                ? link.id === 'about'
+                : !isLegalPage && !isServicePage && activeSection === link.id;
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => handleNavLinkClick(link.href)}
+                  onClick={(e) => {
+                    if (link.id === 'about' || link.id === 'home' || isAboutPage || isLegalPage || isServicePage) {
+                      e.preventDefault();
+                    }
+                    handleNavLinkClick(link.href, link.id);
+                  }}
                   id={`nav-link-${link.id}`}
                   className={`relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors duration-200 ${
                     isActive
@@ -217,16 +248,30 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
           >
             <div className="bg-[#FFFFFF]/98 backdrop-blur-md border border-[#E5E9E5] rounded-2xl shadow-2xl shadow-black/10 p-4">
               <div className="flex flex-col space-y-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => handleNavLinkClick(link.href)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#555B55] hover:text-[#111111] hover:bg-[#F7F9F7] transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = isAboutPage
+                    ? link.id === 'about'
+                    : !isLegalPage && !isServicePage && activeSection === link.id;
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={(e) => {
+                        if (link.id === 'about' || link.id === 'home' || isAboutPage || isLegalPage || isServicePage) {
+                          e.preventDefault();
+                        }
+                        handleNavLinkClick(link.href, link.id);
+                      }}
+                      className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'text-[#246B32] font-semibold bg-[#EAF7EA]'
+                          : 'text-[#555B55] hover:text-[#111111] hover:bg-[#F7F9F7]'
+                      }`}
+                    >
+                      {link.name}
+                    </a>
+                  );
+                })}
                 <div className="pt-3 mt-2 border-t border-[#E5E9E5] flex flex-col gap-2">
                   <button
                     type="button"

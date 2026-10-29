@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'motion/react';
+import { ArrowLeft } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { TrustedByMarquee } from './components/TrustedByMarquee';
@@ -32,10 +33,26 @@ function isPortfolioLocation(): boolean {
   );
 }
 
-export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'legal' | 'service' | 'portfolio'>(() =>
-    isPortfolioLocation() ? 'portfolio' : 'home'
+function isAboutLocation(): boolean {
+  const path = window.location.pathname.toLowerCase();
+  const hash = window.location.hash.toLowerCase();
+  return (
+    path === '/about' ||
+    path.startsWith('/about/') ||
+    hash === '#about' ||
+    hash.startsWith('#/about')
   );
+}
+
+export default function App() {
+  const [currentView, setCurrentView] = useState<'home' | 'about' | 'legal' | 'service' | 'portfolio'>(() => {
+    if (isPortfolioLocation()) return 'portfolio';
+    if (isAboutLocation()) return 'about';
+    const hash = window.location.hash.toLowerCase();
+    if (hash === '#privacy' || hash === '#terms') return 'legal';
+    if (hash.startsWith('#services/') || hash === '#all-services' || hash === '#services-all') return 'service';
+    return 'home';
+  });
   const [activeServiceId, setActiveServiceId] = useState<string>('linkedin-personal-branding');
   const [legalTab, setLegalTab] = useState<'privacy' | 'terms'>('privacy');
   const [showOpeningIntro, setShowOpeningIntro] = useState<boolean>(true);
@@ -90,9 +107,15 @@ export default function App() {
         setActiveServiceId(serviceId || 'all');
         setCurrentView('service');
       } else if (
+        hash === '#about' ||
+        hash.startsWith('#about') ||
+        path === '/about' ||
+        path.startsWith('/about/')
+      ) {
+        setCurrentView('about');
+      } else if (
         hash === '#home' || 
         hash === '' || 
-        hash.startsWith('#about') || 
         hash.startsWith('#services') || 
         hash.startsWith('#how-we-work') || 
         hash.startsWith('#why-us') || 
@@ -151,6 +174,13 @@ export default function App() {
     } else {
       window.location.hash = '#home';
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  const handleNavigateAbout = useCallback(() => {
+    setCurrentView('about');
+    window.location.hash = '#about';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const handleViewService = useCallback((serviceId: string) => {
@@ -205,13 +235,22 @@ export default function App() {
         {/* Top Scroll Reading Progress Indicator */}
         <ScrollProgressBar />
 
-        {/* Dynamic Meta Tag Management for Home & Legal Views */}
+        {/* Dynamic Meta Tag Management for Home, About & Legal Views */}
         {currentView === 'home' && (
           <SEOHead
             title="AxentAI Labs — Growth Systems for Founders, Startups & Modern Brands"
             description="AxentAI Labs helps startups launch products, build founder authority, manage social media presence, collaborate with creators, and reach the right audiences through strategic, organic-first marketing."
             canonicalUrl="https://axentailabs.com/"
             keywords="Growth systems, Product Hunt launch support, LinkedIn personal branding, company page management, influencer marketing, X distribution, founder authority"
+          />
+        )}
+
+        {currentView === 'about' && (
+          <SEOHead
+            title="About Shivam Kushwaha & AxentAI Labs — Growth Systems & Brand Strategy"
+            description="About Shivam Kushwaha and AxentAI Labs. Agile growth partner helping founders and tech companies with Product Hunt launches, personal branding, and multi-channel distribution."
+            canonicalUrl="https://axentailabs.com/#about"
+            keywords="About Shivam Kushwaha, AxentAI Labs founder, Product Hunt hunter, growth agency"
           />
         )}
 
@@ -230,6 +269,8 @@ export default function App() {
           onOpenBooking={scrollToContact}
           onOpenContactPanel={handleOpenContactPanel}
           onNavigateHome={handleBackToHome}
+          onNavigateAbout={handleNavigateAbout}
+          isAboutPage={currentView === 'about'}
           isLegalPage={currentView === 'legal'}
           isServicePage={currentView === 'service'}
         />
@@ -248,6 +289,19 @@ export default function App() {
             onSelectService={handleViewService}
             onOpenPortfolio={handleOpenPortfolio}
           />
+        ) : currentView === 'about' ? (
+          <main className="flex-1 relative z-20 pt-20 md:pt-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
+              <button
+                onClick={handleBackToHome}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] hover:border-[#459B45] text-xs font-semibold text-[#246B32] hover:text-[#111111] transition-all cursor-pointer shadow-2xs group"
+              >
+                <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
+                <span>Back to Home</span>
+              </button>
+            </div>
+            <AboutSection onOpenBooking={scrollToContact} />
+          </main>
         ) : (
           /* Main Agency Storytelling Journey */
           <main className="flex-1 relative z-20">
@@ -283,9 +337,6 @@ export default function App() {
 
             {/* Transition Glow & Particles */}
             <SectionTransitionGlow />
-
-            {/* 11. Founder & Agency Story (Built Around Strategy. Focused on Growth.) */}
-            <AboutSection onOpenBooking={scrollToContact} />
 
             {/* 12. FAQs */}
             <FaqSection onOpenBooking={scrollToContact} />
