@@ -13,7 +13,7 @@ import {
 import { Button } from './ui/button';
 import { FloatingParticles } from './ui/FloatingParticles';
 import { CONTACT_INFO } from '../data/portfolioData';
-import shivamAboutPhoto from '../assets/images/Screenshot_2026-09-02-09-30-52-50_99c04817c0de5652397fc8b56c3b3817.jpg';
+import shivamAboutPhoto from '../assets/images/shivam_profile.jpeg';
 import shivamProfileWebp from '../assets/images/shivam_profile_opt.webp';
 import brandLogo from '../assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
 import brandLogoWebp from '../assets/images/brand_logo_opt.webp';
@@ -186,7 +186,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                     alt="Shivam Kushwaha, Founder & CEO of Axentailabs"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover object-[center_38%] group-hover:scale-104 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover object-[center_20%] group-hover:scale-104 transition-transform duration-700 ease-out"
                     referrerPolicy="no-referrer"
                   />
                 </picture>

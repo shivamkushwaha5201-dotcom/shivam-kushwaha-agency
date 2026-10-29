@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Zap, Layers, Compass, TrendingUp } from 'lucide-react';
-import shivamApprovedPhoto from '../assets/images/Screenshot_2026-09-02-09-30-52-50_99c04817c0de5652397fc8b56c3b3817.jpg';
+import shivamApprovedPhoto from '../assets/images/shivam_profile.jpeg';
 import shivamProfileWebp from '../assets/images/shivam_profile_opt.webp';
 import tigerDoorImg from '../assets/images/tiger_door_growth.jpg';
 import { scrollCoordinator } from '../lib/scrollCoordinator';
@@ -329,7 +329,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       decoding="async"
-                      className="w-11 h-11 rounded-full object-cover object-[center_35%] border border-[#459B45]"
+                      className="w-11 h-11 rounded-full object-cover object-[center_20%] border border-[#459B45]"
                     />
                   </picture>
                   <div>
