@@ -652,6 +652,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'Oktomer',
     avatar: 'DB',
+    avatarUrl: '/assets/images/dounia_avatar.webp',
     quote: 'Shivam has extensive knowledge of how to boost your brand and product visibility and put your business in the spotlight.\n\nHe guided and supported me throughout my recent launch of Oktomer on Product Hunt. He knows the platform inside out and has all the right tips and insights to help you make the most of it.\n\nHe even encouraged me to try new things I was initially hesitant about, which turned out to be great ideas!',
     paragraphs: [
       'Shivam has extensive knowledge of how to boost your brand and product visibility and put your business in the spotlight.',

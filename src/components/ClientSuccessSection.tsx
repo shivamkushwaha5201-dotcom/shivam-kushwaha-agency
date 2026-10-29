@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Quote, Linkedin } from 'lucide-react';
+import douniaAvatarWebp from '../assets/images/dounia_avatar.webp';
+import douniaAvatarPng from '../assets/images/dounia_avatar.png';
 
 interface ClientSuccessSectionProps {
   onOpenBooking?: () => void;
@@ -17,6 +19,7 @@ interface TestimonialItem {
   placeholderNote?: string;
   avatarInitials?: string;
   avatarUrl?: string;
+  avatarFallbackUrl?: string;
   paragraphs?: string[];
   isPlaceholder: boolean;
 }
@@ -30,6 +33,8 @@ const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     linkedinUrl: 'https://www.linkedin.com/in/dounia-boughalem-4aab22108',
     serviceLabel: 'Product Hunt Launch Strategy & Execution',
     avatarInitials: 'DB',
+    avatarUrl: douniaAvatarWebp,
+    avatarFallbackUrl: douniaAvatarPng,
     isPlaceholder: false,
     paragraphs: [
       'Shivam has extensive knowledge of how to boost your brand and product visibility and put your business in the spotlight.',
@@ -175,11 +180,16 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
             <div className="flex items-center gap-3">
               {/* Clean Profile Avatar */}
               {item.avatarUrl ? (
-                <img
-                  src={item.avatarUrl}
-                  alt={item.name || 'Client'}
-                  className="w-10 h-10 rounded-full object-cover border border-[#459B45]/50 shrink-0"
-                />
+                <picture className="w-10 h-10 rounded-full shrink-0 block overflow-hidden border border-[#459B45]/50 shadow-2xs">
+                  <source srcSet={item.avatarUrl} type="image/webp" />
+                  <img
+                    src={item.avatarFallbackUrl || item.avatarUrl}
+                    alt={item.name || 'Client'}
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               ) : (
                 <div
                   className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E5F5E5] to-[#FFFFFF] border border-[#459B45]/40 flex items-center justify-center text-xs font-bold text-[#246B32] tracking-wider shrink-0 shadow-inner"
