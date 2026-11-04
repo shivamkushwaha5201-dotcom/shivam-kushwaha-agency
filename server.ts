@@ -1,4 +1,5 @@
 import express, { type Request, type Response, type NextFunction } from 'express';
+import http from 'http';
 import { createServer as createViteServer } from 'vite';
 import fs from 'fs';
 import path from 'path';
@@ -7,7 +8,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const DATA_DIR = path.resolve(process.cwd(), 'data');
 const PORTFOLIO_FILE = path.join(DATA_DIR, 'portfolio.json');
 const AUTH_FILE = path.join(DATA_DIR, 'admin-auth.json');
@@ -1075,9 +1076,17 @@ async function startServer() {
     }
   });
 
+  const httpServer = http.createServer(app);
+
+  const publicPath = path.join(process.cwd(), 'public');
+  app.use(express.static(publicPath));
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        hmr: { server: httpServer },
+      },
       appType: 'spa',
     });
     app.use(vite.middlewares);
@@ -1089,7 +1098,32 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
+  httpServer.on('error', (err: NodeJS.ErrnoException) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`Port ${PORT} in use, retrying in 1s...`);
+      setTimeout(() => {
+        try {
+          httpServer.close();
+        } catch {}
+        httpServer.listen(PORT, '0.0.0.0');
+      }, 1000);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+
+  const cleanup = () => {
+    try {
+      httpServer.close(() => process.exit(0));
+    } catch {
+      process.exit(0);
+    }
+  };
+
+  process.once('SIGTERM', cleanup);
+  process.once('SIGINT', cleanup);
+
+  httpServer.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on http://0.0.0.0:${PORT}`);
   });
 }

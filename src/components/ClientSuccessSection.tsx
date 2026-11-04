@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Quote, Linkedin } from 'lucide-react';
 import douniaAvatarWebp from '../assets/images/dounia_avatar.webp';
 import douniaAvatarPng from '../assets/images/dounia_avatar.png';
+import { ClientVideoTestimonial } from './ClientVideoTestimonial';
 
 interface ClientSuccessSectionProps {
   onOpenBooking?: () => void;
@@ -301,23 +302,44 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
         />
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header: CLIENT TESTIMONIAL / Trusted by Founders. Built on Real Experiences. */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
+          className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12"
         >
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase">
-              <span>FOUNDER FEEDBACK &amp; TRANSPARENCY</span>
-              <span aria-hidden="true">·</span>
-              <span>VERIFIED RESULTS</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase leading-tight">
-              WHAT FOUNDERS SAY ABOUT <br className="hidden sm:inline" />
-              <span className="text-[#248A3D]">WORKING WITH US</span>
-            </h2>
+          <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase bg-[#E5F5E5] px-3.5 py-1 rounded-full border border-[#E5E9E5]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#459B45]" />
+            <span>CLIENT TESTIMONIAL</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] uppercase leading-tight">
+            TRUSTED BY FOUNDERS. <br className="hidden sm:inline" />
+            <span className="text-[#248A3D]">BUILT ON REAL EXPERIENCES.</span>
+          </h2>
+        </motion.div>
+
+        {/* Featured Prominent Video Testimonial */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 sm:mb-18"
+        >
+          <ClientVideoTestimonial />
+        </motion.div>
+
+        {/* Written Founder Feedback Carousel Header & Controls */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 pt-8 border-t border-[#E5E9E5]">
+          <div className="space-y-1">
+            <span className="text-xs font-mono font-semibold tracking-wider text-[#246B32] uppercase">
+              FOUNDER FEEDBACK &amp; VERIFIED REVIEWS
+            </span>
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+              More Verified Founder Experiences
+            </h3>
           </div>
 
           {/* Slider Navigation Controls */}
@@ -340,7 +362,7 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Carousel Container with Touch Support */}
         <div
