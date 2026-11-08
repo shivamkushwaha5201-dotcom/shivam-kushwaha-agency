@@ -148,7 +148,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
           {/* Left Side — Content (Preserving existing typography, CTAs & badges) */}
           <div className="lg:col-span-7 space-y-7 sm:space-y-8 text-left relative z-20">
             
-            {/* 1. Eyebrow: AxentAI Labs • STRATEGY • LAUNCH • GROWTH */}
+            {/* 1. Eyebrow: AxentAI Labs • AI & SAAS GROWTH MARKETING AGENCY */}
             <motion.div
               variants={labelVariants}
               initial="hidden"
@@ -159,7 +159,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
                   AxentAI Labs
                 </span>
                 <span className="text-[#248A3D] font-bold">•</span>
-                <span className="font-semibold text-[#246B32]">STRATEGY • LAUNCH • GROWTH</span>
+                <span className="font-semibold text-[#246B32]">AI &amp; SAAS GROWTH MARKETING AGENCY</span>
               </div>
             </motion.div>
 
@@ -185,7 +185,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               animate="visible"
               className="text-base sm:text-lg lg:text-[19px] text-[#555B55] font-sans leading-[1.68] max-w-xl font-normal"
             >
-              We help SaaS founders and modern brands launch products, build a strong online presence, grow founder authority, and reach relevant audiences through strategic marketing and distribution.
+              We are the AI &amp; SaaS growth marketing agency helping founders launch products to the top of Product Hunt, build executive authority on LinkedIn and X, and accelerate qualified organic distribution.
             </motion.p>
 
             {/* 4. Action Buttons (Primary: Explore Our Services, Secondary: Plan Your Product Hunt Launch) */}
@@ -216,7 +216,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
               </div>
             </motion.div>
 
-            {/* 5. Trust Row: Product Launch Strategy · Founder & Brand Growth · Organic Distribution */}
+            {/* 5. Trust Row: AI & SaaS Launch Strategy · Founder & Brand Authority · Organic Distribution */}
             <motion.div
               variants={proofRowVariants}
               initial="hidden"
@@ -225,15 +225,15 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenBooki
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
-                <span>Product Launch Strategy</span>
+                <span>AI &amp; SaaS Launch Strategy</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
-                <span>Founder &amp; Brand Growth</span>
+                <span>Founder Authority &amp; Presence</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#246B32] fill-[#EAF7EA] shrink-0" />
-                <span>Organic Distribution</span>
+                <span>Organic Tech Distribution</span>
               </div>
             </motion.div>
           </div>

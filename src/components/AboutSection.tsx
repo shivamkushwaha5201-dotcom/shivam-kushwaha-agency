@@ -116,7 +116,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(({ onOpenBoo
                   We work with founders and modern brands to clarify their message, prepare launches, strengthen their digital presence, and build consistent visibility across relevant channels.
                 </p>
                 <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans">
-                  Founded by <strong className="text-[#246B32] font-semibold">Shivam Kushwaha</strong>, AxentAI Labs operates as an agile growth partner for startups and technology companies. While Product Hunt launch support is our flagship offering (~65% focus), we provide ongoing personal branding, social presence operations, creator partnerships, and digital development so your brand compounds visibility far beyond a single release.
+                  Founded by <strong className="text-[#246B32] font-semibold">Shivam Kushwaha</strong>, AxentAI Labs operates as an agile AI &amp; SaaS growth marketing agency for technology companies. While Product Hunt launch support is our flagship offering (~65% focus), we provide ongoing LinkedIn personal branding, company page management, X operations, and creator partnerships so your brand compounds visibility far beyond a single release.
                 </p>
               </div>
             </StaggerItem>

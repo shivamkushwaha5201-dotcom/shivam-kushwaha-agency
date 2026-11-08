@@ -11,6 +11,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Button } from './ui/button';
+import blueIndustrialHookWebp from '../assets/images/blue_industrial_hook_transparent.webp';
 import blueIndustrialHookImg from '../assets/images/blue_industrial_hook_transparent.png';
 
 interface ProductHuntSectionProps {
@@ -252,15 +253,18 @@ export const ProductHuntSection: React.FC<ProductHuntSectionProps> = React.memo(
                 }}
               >
                 <div className="hook-motion w-full flex items-center justify-center">
-                  <img
-                    src={blueIndustrialHookImg}
-                    alt="Blue Industrial Hook — Lifting Your Product Hunt Launch"
-                    className="w-full h-auto max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain select-none pointer-events-auto drop-shadow-[0_28px_40px_rgba(20,60,140,0.22)] drop-shadow-[0_12px_22px_rgba(0,0,0,0.12)] filter"
-                    loading="lazy"
-                    decoding="async"
-                    width={1103}
-                    height={1426}
-                  />
+                  <picture className="w-full flex items-center justify-center">
+                    <source srcSet={blueIndustrialHookWebp} type="image/webp" />
+                    <img
+                      src={blueIndustrialHookImg}
+                      alt="Blue Industrial Hook — Lifting Your Product Hunt Launch"
+                      className="w-full h-auto max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain select-none pointer-events-auto drop-shadow-[0_28px_40px_rgba(20,60,140,0.22)] drop-shadow-[0_12px_22px_rgba(0,0,0,0.12)] filter"
+                      loading="lazy"
+                      decoding="async"
+                      width={1103}
+                      height={1426}
+                    />
+                  </picture>
                 </div>
 
                 {/* Soft Dynamic Floor Contact Shadow Matching Hook Blue Tone */}

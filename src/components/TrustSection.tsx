@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowUpRight, Zap, Layers, Compass, TrendingUp } from 'lucide-react';
 import shivamApprovedPhoto from '../assets/images/shivam_profile.jpeg';
 import shivamProfileWebp from '../assets/images/shivam_profile_opt.webp';
+import tigerDoorWebp from '../assets/images/tiger_door_growth.webp';
 import tigerDoorImg from '../assets/images/tiger_door_growth.jpg';
 import { scrollCoordinator } from '../lib/scrollCoordinator';
 
@@ -224,13 +225,16 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
                 <div
                   className="relative rounded-2xl overflow-hidden border border-[#E5E9E5] shadow-[0_16px_40px_rgba(0,0,0,0.08)] aspect-[4/5] flex items-center justify-center group"
                 >
-                  <img
-                    src={tigerDoorImg}
-                    alt="Outgrow Your Competition — Step through the doorway with launch momentum"
-                    className="w-full h-full object-cover object-center select-none transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture className="w-full h-full block">
+                    <source srcSet={tigerDoorWebp} type="image/webp" />
+                    <img
+                      src={tigerDoorImg}
+                      alt="Outgrow Your Competition — Step through the doorway with launch momentum"
+                      className="w-full h-full object-cover object-center select-none transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   
                   {/* Subtle inner hairline ring */}
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl pointer-events-none" />
@@ -278,7 +282,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
             <div className="space-y-4">
               {/* Eyebrow Label */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF7EA] border border-[#CDECCF] text-[11px] font-mono font-semibold tracking-[0.2em] text-[#246B32] uppercase shadow-xs">
-                <span>GROWTH SYSTEMS &amp; POSITIONING</span>
+                <span>AI &amp; SAAS GROWTH MARKETING AGENCY</span>
               </div>
 
               {/* Main Headline */}
@@ -289,7 +293,7 @@ export const TrustSection: React.FC<TrustSectionProps> = React.memo(({ onOpenBoo
 
               {/* Central Brand Supporting Text */}
               <p className="text-sm sm:text-base text-[#555B55] leading-relaxed font-sans max-w-xl font-normal">
-                AxentAI Labs helps startups launch products, build founder authority, manage social media presence, collaborate with creators, and reach the right audiences through strategic, organic-first marketing.
+                AxentAI Labs helps AI and SaaS founders launch products to the top of Product Hunt, build authentic executive authority on LinkedIn and X, and reach high-intent technology audiences through strategic, organic-first marketing.
               </p>
             </div>
 

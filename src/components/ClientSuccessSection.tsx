@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Quote, Linkedin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Linkedin, ShieldCheck, ArrowRight, ExternalLink } from 'lucide-react';
 import douniaAvatarWebp from '../assets/images/dounia_avatar.webp';
 import douniaAvatarPng from '../assets/images/dounia_avatar.png';
 import { ClientVideoTestimonial } from './ClientVideoTestimonial';
+import { RECENT_PRODUCT_HUNT_LAUNCHES } from '../data/portfolioData';
 
 interface ClientSuccessSectionProps {
   onOpenBooking?: () => void;
+  onOpenPortfolio?: () => void;
 }
 
 interface TestimonialItem {
@@ -84,7 +86,7 @@ const TESTIMONIAL_ITEMS: TestimonialItem[] = [
   },
 ];
 
-export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.memo(() => {
+export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.memo(({ onOpenPortfolio }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
@@ -201,17 +203,23 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
               )}
               <div>
                 {item.linkedinUrl ? (
-                  <a
-                    href={item.linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-xs sm:text-sm font-bold text-[#111111] hover:text-[#246B32] transition-colors inline-flex items-center gap-1.5 group/link cursor-pointer"
-                    title={`View ${item.name} on LinkedIn`}
-                  >
-                    <span>{item.name}</span>
-                    <Linkedin className="w-3.5 h-3.5 text-[#246B32]/70 group-hover/link:text-[#246B32] transition-colors" />
-                  </a>
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <a
+                      href={item.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-xs sm:text-sm font-bold text-[#111111] hover:text-[#246B32] transition-colors inline-flex items-center gap-1 group/link cursor-pointer"
+                      title={`View ${item.name} on LinkedIn`}
+                    >
+                      <span>{item.name}</span>
+                      <Linkedin className="w-3.5 h-3.5 text-[#246B32]/70 group-hover/link:text-[#246B32] transition-colors" />
+                    </a>
+                    <span className="inline-flex items-center gap-0.5 text-[9.5px] font-mono text-[#246B32] bg-[#E5F5E5] px-2 py-0.5 rounded-full border border-[#459B45]/20 font-semibold">
+                      <ShieldCheck className="w-2.5 h-2.5 text-[#246B32]" />
+                      Verified
+                    </span>
+                  </div>
                 ) : (
                   <div className="text-xs sm:text-sm font-bold text-[#111111]">
                     {item.name}
@@ -318,6 +326,67 @@ export const ClientSuccessSection: React.FC<ClientSuccessSectionProps> = React.m
             TRUSTED BY FOUNDERS. <br className="hidden sm:inline" />
             <span className="text-[#248A3D]">BUILT ON REAL EXPERIENCES.</span>
           </h2>
+        </motion.div>
+
+        {/* Verified Launch Outcomes Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.5, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-12 p-4 sm:p-6 rounded-3xl bg-[#FFFFFF] border border-[#E5E9E5] shadow-xs"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 border-b border-[#E5E9E5]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#459B45] animate-pulse" />
+              <span className="text-[11px] font-mono font-bold tracking-[0.16em] uppercase text-[#246B32]">
+                RECENT VERIFIED LAUNCH OUTCOMES
+              </span>
+            </div>
+            <a
+              href="/portfolio"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onOpenPortfolio) onOpenPortfolio();
+                else {
+                  window.history.pushState({}, '', '/portfolio');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                }
+              }}
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[#246B32] hover:text-[#111111] transition-colors group cursor-pointer"
+            >
+              <span>View All 30+ Launches in Portfolio</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-3.5">
+            {RECENT_PRODUCT_HUNT_LAUNCHES.map((launch) => (
+              <a
+                key={launch.id}
+                href={launch.productHuntUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-2xl bg-[#F7F9F7] hover:bg-[#EAF7EA] border border-[#E5E9E5] hover:border-[#459B45]/50 transition-all duration-200 group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="text-xs font-bold text-[#111111] group-hover:text-[#246B32] transition-colors truncate">
+                      {launch.name}
+                    </span>
+                    <ExternalLink className="w-3 h-3 text-[#555B55] group-hover:text-[#246B32] shrink-0 opacity-70" />
+                  </div>
+                  <span className="inline-block text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#FFFFFF] border border-[#E5E9E5] text-[#246B32] whitespace-nowrap">
+                    {launch.rankingBadge}
+                  </span>
+                </div>
+                <div className="mt-2 text-[11px] font-mono text-[#555B55] flex items-center justify-between">
+                  <span>Votes:</span>
+                  <span className="font-bold text-[#111111]">{launch.votes}</span>
+                </div>
+              </a>
+            ))}
+          </div>
         </motion.div>
 
         {/* Featured Prominent Video Testimonial */}

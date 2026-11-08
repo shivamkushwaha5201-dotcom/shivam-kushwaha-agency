@@ -647,6 +647,21 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
+    id: 'testimonial-tham-yik-foong',
+    name: 'Tham Yik Foong',
+    role: 'Founder',
+    company: 'Craft OS',
+    avatar: 'TY',
+    avatarUrl: '/assets/images/tham-avatar.webp',
+    quote: 'Shivam and his team helped us strengthen our social media presence through consistent marketing support and strategic content distribution. Their efforts helped us improve our brand visibility and connect with our target audience.',
+    paragraphs: [
+      'Shivam and his team helped us strengthen our social media presence through consistent marketing support and strategic content distribution. Their efforts helped us improve our brand visibility and connect with our target audience.'
+    ],
+    platform: 'linkedin',
+    highlight: 'Social Media Marketing',
+    verifiedLaunch: 'Craft OS Social Media Marketing'
+  },
+  {
     id: 'testimonial-dounia-b',
     name: 'Dounia B.',
     role: 'Founder',

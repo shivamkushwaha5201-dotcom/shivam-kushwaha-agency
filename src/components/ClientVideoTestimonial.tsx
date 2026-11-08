@@ -161,6 +161,17 @@ export const ClientVideoTestimonial: React.FC<ClientVideoTestimonialProps> = ({ 
       {/* Outer Card with clean white background, subtle botanical green accents, and soft shadows */}
       <div className="bg-[#FFFFFF] rounded-3xl border border-[#E5E9E5] p-4 sm:p-7 shadow-xl shadow-black/5 hover:border-[#459B45]/50 transition-all duration-300">
         
+        {/* Top Category Badge */}
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <span className="text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#246B32] bg-[#E5F5E5] px-3.5 py-1 rounded-full border border-[#E5E9E5]">
+            Social Media Marketing
+          </span>
+          <div className="flex items-center gap-1.5 text-xs font-mono text-[#555B55]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#459B45] animate-pulse" />
+            <span>0:28 Video</span>
+          </div>
+        </div>
+
         {/* Video Player Frame - Portrait aspect ratio matching Tham Yik Foong's original video */}
         <div
           ref={containerRef}
@@ -175,7 +186,7 @@ export const ClientVideoTestimonial: React.FC<ClientVideoTestimonialProps> = ({ 
           <video
             ref={videoRef}
             src="/videos/tham-yik-foong-craft-os-testimonial.mp4"
-            poster="/assets/images/tham-yik-foong-craft-os-thumbnail.jpg"
+            poster="/assets/images/tham-yik-foong-craft-os-thumbnail.webp"
             preload="metadata"
             playsInline
             onTimeUpdate={handleTimeUpdate}
@@ -198,7 +209,7 @@ export const ClientVideoTestimonial: React.FC<ClientVideoTestimonialProps> = ({ 
               <div className="absolute top-4 left-4 sm:top-5 sm:left-5 inline-flex items-center gap-2 bg-[#FFFFFF]/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-[#E5E9E5] shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#459B45] animate-pulse" />
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[#246B32]">
-                  Client Video Testimonial · 0:28
+                  Social Media Marketing · 0:28
                 </span>
               </div>
 
@@ -330,17 +341,28 @@ export const ClientVideoTestimonial: React.FC<ClientVideoTestimonialProps> = ({ 
           )}
         </div>
 
+        {/* Client Quote Highlight Snippet */}
+        <div className="mt-5 p-3.5 sm:p-4 rounded-2xl bg-[#F7F9F7] border border-[#E5E9E5] text-left">
+          <p className="text-xs sm:text-sm text-[#111111] font-sans leading-relaxed italic">
+            &ldquo;Shivam and his team helped us strengthen our social media presence through consistent marketing support and strategic content distribution. Their efforts helped us improve our brand visibility and connect with our target audience.&rdquo;
+          </p>
+        </div>
+
         {/* Client Information: Tham Yik Foong, Founder, Craft OS */}
-        <div className="mt-6 pt-5 border-t border-[#E5E9E5] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mt-4 pt-4 border-t border-[#E5E9E5] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            {/* Real Video Frame Avatar */}
+            {/* Real Video Frame Avatar with WebP optimization */}
             <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#459B45] shrink-0 shadow-xs">
-              <img
-                src="/assets/images/tham-avatar.jpg"
-                alt="Tham Yik Foong"
-                className="w-full h-full object-cover object-top"
-                loading="lazy"
-              />
+              <picture className="w-full h-full block">
+                <source srcSet="/assets/images/tham-avatar.webp" type="image/webp" />
+                <img
+                  src="/assets/images/tham-avatar.jpg"
+                  alt="Tham Yik Foong"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <span className="absolute bottom-0 right-0 w-3 h-3 bg-[#459B45] border-2 border-white rounded-full" />
             </div>
 
@@ -360,13 +382,13 @@ export const ClientVideoTestimonial: React.FC<ClientVideoTestimonialProps> = ({ 
             </div>
           </div>
 
-          {/* Client Video Testimonial Label */}
+          {/* Client Video Testimonial Service Category Label */}
           <div className="sm:text-right">
             <span className="inline-block text-xs font-mono font-medium text-[#246B32] bg-[#E5F5E5] px-3 py-1.5 rounded-full border border-[#E5E9E5]">
-              Client Video Testimonial
+              Social Media Marketing
             </span>
             <p className="text-[11px] text-[#555B55] mt-1 font-mono">
-              Original founder testimonial
+              Verified founder review
             </p>
           </div>
         </div>

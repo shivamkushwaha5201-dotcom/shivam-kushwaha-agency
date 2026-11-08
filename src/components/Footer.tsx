@@ -61,13 +61,13 @@ export const Footer: React.FC<FooterProps> = React.memo(({ onOpenLegal, onOpenCo
                   AxentAI Labs
                 </span>
                 <span className="block text-[10px] uppercase font-semibold tracking-wider text-[#555B55]">
-                  Digital Growth & Presence Agency
+                  AI &amp; SaaS Growth Marketing Agency
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-[#555B55] leading-relaxed max-w-sm">
-              Growth systems for founders, startups, and modern brands. We combine flagship Product Hunt launch support with ongoing personal branding, company page management, creator partnerships, and digital presence.
+              Growth systems for AI and SaaS founders, startups, and modern brands. We combine flagship Product Hunt launch support with ongoing LinkedIn personal branding, company page management, X operations, and creator partnerships.
             </p>
 
             <div className="text-xs text-[#246B32] font-semibold">

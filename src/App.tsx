@@ -238,10 +238,10 @@ export default function App() {
         {/* Dynamic Meta Tag Management for Home, About & Legal Views */}
         {currentView === 'home' && (
           <SEOHead
-            title="AxentAI Labs — Growth Systems for Founders, Startups & Modern Brands"
-            description="AxentAI Labs helps startups launch products, build founder authority, manage social media presence, collaborate with creators, and reach the right audiences through strategic, organic-first marketing."
+            title="AxentAI Labs — AI &amp; SaaS Growth Marketing Agency"
+            description="AxentAI Labs is an AI &amp; SaaS growth marketing agency helping tech startups and founders launch on Product Hunt, build executive authority on LinkedIn and X, and accelerate organic distribution."
             canonicalUrl="https://axentailabs.com/"
-            keywords="Growth systems, Product Hunt launch support, LinkedIn personal branding, company page management, influencer marketing, X distribution, founder authority"
+            keywords="AI &amp; SaaS Growth Marketing Agency, Product Hunt launch strategy, founder personal branding, LinkedIn company page management, influencer marketing, X distribution, tech startup growth"
           />
         )}
 
@@ -333,7 +333,10 @@ export default function App() {
             <SectionTransitionGlow />
 
             {/* 06. Client Feedback & Verified Outcomes */}
-            <ClientSuccessSection onOpenBooking={scrollToContact} />
+            <ClientSuccessSection
+              onOpenBooking={scrollToContact}
+              onOpenPortfolio={handleOpenPortfolio}
+            />
 
             {/* Transition Glow & Particles */}
             <SectionTransitionGlow />

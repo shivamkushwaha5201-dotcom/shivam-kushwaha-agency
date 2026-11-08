@@ -50,7 +50,7 @@ const HOMEPAGE_SERVICES: CompactServiceCard[] = [
     targetId: 'account-management',
     title: 'LinkedIn & X Account Management',
     category: 'Social Operations',
-    description: 'Manage company social accounts with consistent content, product updates, audience engagement, and performance reporting.',
+    description: 'LinkedIn company page management and X account operations with consistent content, product updates, and audience engagement.',
     icon: Share2,
     isFlagship: false,
   },
