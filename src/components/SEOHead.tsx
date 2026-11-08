@@ -5,6 +5,7 @@ export interface SEOHeadProps {
   title?: string;
   description?: string;
   canonicalUrl?: string;
+  ogUrl?: string;
   ogType?: 'website' | 'article' | 'product';
   ogImage?: string;
   keywords?: string;
@@ -21,12 +22,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   title = DEFAULT_TITLE,
   description = DEFAULT_DESCRIPTION,
   canonicalUrl = DEFAULT_CANONICAL,
+  ogUrl,
   ogType = 'website',
   ogImage = DEFAULT_OG_IMAGE,
   keywords,
   jsonLd,
   noIndex = false,
 }) => {
+  const activeOgUrl = ogUrl || canonicalUrl;
   // Direct DOM backup update to guarantee instant sync in all browser & headless environments
   useEffect(() => {
     document.title = title;
@@ -44,7 +47,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     setMeta('name', 'description', description);
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
-    setMeta('property', 'og:url', canonicalUrl);
+    setMeta('property', 'og:url', activeOgUrl);
     setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:image', ogImage);
     setMeta('name', 'twitter:title', title);
@@ -85,7 +88,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     } else if (dynamicLd) {
       dynamicLd.remove();
     }
-  }, [title, description, canonicalUrl, ogType, ogImage, keywords, jsonLd, noIndex]);
+  }, [title, description, canonicalUrl, activeOgUrl, ogType, ogImage, keywords, jsonLd, noIndex]);
 
   return (
     <Helmet>
@@ -102,7 +105,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:site_name" content="AxentAI Labs" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={activeOgUrl} />
       <meta property="og:image" content={ogImage} />
 
       {/* Twitter / X */}
@@ -118,5 +121,19 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         </script>
       )}
     </Helmet>
+  );
+};
+
+export const BlogSEOHead: React.FC<Partial<SEOHeadProps>> = (props) => {
+  return (
+    <SEOHead
+      title="AxentAI Labs Blog — AI & SaaS Growth Marketing & Product Hunt Strategy"
+      description="Expert guides, case studies, and proven blueprints on AI & SaaS growth marketing, Product Hunt launches, founder personal branding, and multi-channel distribution from AxentAI Labs."
+      canonicalUrl="https://www.axentailabs.com/blogs"
+      ogUrl="https://www.axentailabs.com/blogs"
+      ogType="website"
+      keywords="AI & SaaS growth blog, Product Hunt launch guide, tech startup marketing, founder personal branding, organic distribution, AxentAI Labs blog"
+      {...props}
+    />
   );
 };

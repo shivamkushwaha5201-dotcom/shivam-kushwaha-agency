@@ -15,7 +15,7 @@ import { Footer } from './components/Footer';
 import { LegalPage } from './components/LegalPage';
 import { ServicePage } from './components/ServicePage';
 import { BackToTop } from './components/BackToTop';
-import { SEOHead } from './components/SEOHead';
+import { SEOHead, BlogSEOHead } from './components/SEOHead';
 import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
 import { AmbientMintBackground } from './components/ui/AmbientMintBackground';
 import { SectionTransitionGlow } from './components/ui/SectionTransitionGlow';
@@ -235,32 +235,38 @@ export default function App() {
         {/* Top Scroll Reading Progress Indicator */}
         <ScrollProgressBar />
 
-        {/* Dynamic Meta Tag Management for Home, About & Legal Views */}
-        {currentView === 'home' && (
-          <SEOHead
-            title="AxentAI Labs — AI &amp; SaaS Growth Marketing Agency"
-            description="AxentAI Labs is an AI &amp; SaaS growth marketing agency helping tech startups and founders launch on Product Hunt, build executive authority on LinkedIn and X, and accelerate organic distribution."
-            canonicalUrl="https://www.axentailabs.com/"
-            keywords="AI &amp; SaaS Growth Marketing Agency, Product Hunt launch strategy, founder personal branding, LinkedIn company page management, influencer marketing, X distribution, tech startup growth"
-          />
-        )}
+        {/* Dynamic Meta Tag Management for Home, About, Legal & Blog Views */}
+        {window.location.pathname.startsWith('/blogs') || window.location.hash.startsWith('#blogs') ? (
+          <BlogSEOHead />
+        ) : (
+          <>
+            {currentView === 'home' && (
+              <SEOHead
+                title="AxentAI Labs — AI &amp; SaaS Growth Marketing Agency"
+                description="AxentAI Labs is an AI &amp; SaaS growth marketing agency helping tech startups and founders launch on Product Hunt, build executive authority on LinkedIn and X, and accelerate organic distribution."
+                canonicalUrl="https://www.axentailabs.com/"
+                keywords="AI &amp; SaaS Growth Marketing Agency, Product Hunt launch strategy, founder personal branding, LinkedIn company page management, influencer marketing, X distribution, tech startup growth"
+              />
+            )}
 
-        {currentView === 'about' && (
-          <SEOHead
-            title="About Shivam Kushwaha & AxentAI Labs — Growth Systems & Brand Strategy"
-            description="About Shivam Kushwaha and AxentAI Labs. Agile growth partner helping founders and tech companies with Product Hunt launches, personal branding, and multi-channel distribution."
-            canonicalUrl="https://www.axentailabs.com/about"
-            keywords="About Shivam Kushwaha, AxentAI Labs founder, Product Hunt hunter, growth agency"
-          />
-        )}
+            {currentView === 'about' && (
+              <SEOHead
+                title="About Shivam Kushwaha & AxentAI Labs — Growth Systems & Brand Strategy"
+                description="About Shivam Kushwaha and AxentAI Labs. Agile growth partner helping founders and tech companies with Product Hunt launches, personal branding, and multi-channel distribution."
+                canonicalUrl="https://www.axentailabs.com/about"
+                keywords="About Shivam Kushwaha, AxentAI Labs founder, Product Hunt hunter, growth agency"
+              />
+            )}
 
-        {currentView === 'legal' && (
-          <SEOHead
-            title={`${legalTab === 'privacy' ? 'Privacy Policy' : 'Terms of Service'} — AxentAI Labs`}
-            description={`AxentAI Labs ${legalTab === 'privacy' ? 'Privacy Policy — Transparent client data handling, confidentiality, and security standards.' : 'Terms of Service — Agency agreement, deliverables, and service scopes.'}`}
-            canonicalUrl={`https://www.axentailabs.com/#${legalTab}`}
-            keywords="AxentAI Labs privacy policy, terms of service, client confidentiality, growth agency terms"
-          />
+            {currentView === 'legal' && (
+              <SEOHead
+                title={`${legalTab === 'privacy' ? 'Privacy Policy' : 'Terms of Service'} — AxentAI Labs`}
+                description={`AxentAI Labs ${legalTab === 'privacy' ? 'Privacy Policy — Transparent client data handling, confidentiality, and security standards.' : 'Terms of Service — Agency agreement, deliverables, and service scopes.'}`}
+                canonicalUrl={`https://www.axentailabs.com/#${legalTab}`}
+                keywords="AxentAI Labs privacy policy, terms of service, client confidentiality, growth agency terms"
+              />
+            )}
+          </>
         )}
 
         {/* Top Sticky Navbar */}

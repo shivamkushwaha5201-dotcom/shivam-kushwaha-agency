@@ -36,15 +36,15 @@
   "rewrites": [
     {
       "source": "/blogs",
-      "destination": "https://rankmy.blog/proxy/www.axentailabs.com/blogs"
+      "destination": "https://rankmy.blog/proxy/axentailabs.com/blogs"
     },
     {
       "source": "/blogs/",
-      "destination": "https://rankmy.blog/proxy/www.axentailabs.com/blogs"
+      "destination": "https://rankmy.blog/proxy/axentailabs.com/blogs"
     },
     {
       "source": "/blogs/:path*",
-      "destination": "https://rankmy.blog/proxy/www.axentailabs.com/blogs/:path*"
+      "destination": "https://rankmy.blog/proxy/axentailabs.com/blogs/:path*"
     },
     {
       "source": "/api/(.*)",
