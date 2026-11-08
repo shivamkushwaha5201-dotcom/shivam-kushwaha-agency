@@ -61,6 +61,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       setMeta('name', 'robots', 'index, follow');
     }
 
+    setMeta('name', 'google-site-verification', 'LZEp4NrlB1nyfSY1-tKg2yRx355TTWyyj7pP8JuQD0Q');
+
     // Canonical link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (!linkCanonical) {
@@ -92,6 +94,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
+      <meta name="google-site-verification" content="LZEp4NrlB1nyfSY1-tKg2yRx355TTWyyj7pP8JuQD0Q" />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph / Facebook / LinkedIn */}
