@@ -39,6 +39,10 @@
       "destination": "https://rankmy.blog/proxy/www.axentailabs.com/blogs"
     },
     {
+      "source": "/blogs/",
+      "destination": "https://rankmy.blog/proxy/www.axentailabs.com/blogs"
+    },
+    {
       "source": "/blogs/:path*",
       "destination": "https://rankmy.blog/proxy/www.axentailabs.com/blogs/:path*"
     },
@@ -59,7 +63,7 @@
       "destination": "/google035d72ae396262cf.html"
     },
     {
-      "source": "/((?!assets/|videos/|api/|.*\\..*).*)",
+      "source": "/((?!assets/|videos/|api/|blogs|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
