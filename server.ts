@@ -1079,6 +1079,30 @@ async function startServer() {
   const httpServer = http.createServer(app);
 
   const publicPath = path.join(process.cwd(), 'public');
+  const distPath = path.join(process.cwd(), 'dist');
+
+  // Explicit endpoints for Search Engine Crawlers with strict MIME types & HTTP 200
+  app.get('/sitemap.xml', (_req: Request, res: Response) => {
+    const sitemapDist = path.join(distPath, 'sitemap.xml');
+    const sitemapPublic = path.join(publicPath, 'sitemap.xml');
+    const target = fs.existsSync(sitemapDist) ? sitemapDist : sitemapPublic;
+    res.status(200);
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.sendFile(target);
+  });
+
+  app.get('/robots.txt', (_req: Request, res: Response) => {
+    const robotsDist = path.join(distPath, 'robots.txt');
+    const robotsPublic = path.join(publicPath, 'robots.txt');
+    const target = fs.existsSync(robotsDist) ? robotsDist : robotsPublic;
+    res.status(200);
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600');
+    res.sendFile(target);
+  });
+
   app.use(express.static(publicPath));
 
   if (process.env.NODE_ENV !== 'production') {
@@ -1091,7 +1115,6 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
     app.get('*', (_req: Request, res: Response) => {
       res.sendFile(path.join(distPath, 'index.html'));

@@ -284,7 +284,7 @@ export function PortfolioApp() {
       <SEOHead
         title={`${settings.ownerName} — Product Hunt Launch Portfolio`}
         description="A collection of products I've helped during their Product Hunt launches, along with their final votes and rankings."
-        canonicalUrl="https://axentailabs.com/portfolio"
+        canonicalUrl="https://www.axentailabs.com/portfolio"
         keywords="Product Hunt launch portfolio, Product Hunt launches supported, startup launch rankings, Product Hunt votes"
       />
 

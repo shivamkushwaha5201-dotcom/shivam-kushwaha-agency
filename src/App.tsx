@@ -240,7 +240,7 @@ export default function App() {
           <SEOHead
             title="AxentAI Labs — AI &amp; SaaS Growth Marketing Agency"
             description="AxentAI Labs is an AI &amp; SaaS growth marketing agency helping tech startups and founders launch on Product Hunt, build executive authority on LinkedIn and X, and accelerate organic distribution."
-            canonicalUrl="https://axentailabs.com/"
+            canonicalUrl="https://www.axentailabs.com/"
             keywords="AI &amp; SaaS Growth Marketing Agency, Product Hunt launch strategy, founder personal branding, LinkedIn company page management, influencer marketing, X distribution, tech startup growth"
           />
         )}
@@ -249,7 +249,7 @@ export default function App() {
           <SEOHead
             title="About Shivam Kushwaha & AxentAI Labs — Growth Systems & Brand Strategy"
             description="About Shivam Kushwaha and AxentAI Labs. Agile growth partner helping founders and tech companies with Product Hunt launches, personal branding, and multi-channel distribution."
-            canonicalUrl="https://axentailabs.com/#about"
+            canonicalUrl="https://www.axentailabs.com/about"
             keywords="About Shivam Kushwaha, AxentAI Labs founder, Product Hunt hunter, growth agency"
           />
         )}
@@ -258,7 +258,7 @@ export default function App() {
           <SEOHead
             title={`${legalTab === 'privacy' ? 'Privacy Policy' : 'Terms of Service'} — AxentAI Labs`}
             description={`AxentAI Labs ${legalTab === 'privacy' ? 'Privacy Policy — Transparent client data handling, confidentiality, and security standards.' : 'Terms of Service — Agency agreement, deliverables, and service scopes.'}`}
-            canonicalUrl={`https://axentailabs.com/#${legalTab}`}
+            canonicalUrl={`https://www.axentailabs.com/#${legalTab}`}
             keywords="AxentAI Labs privacy policy, terms of service, client confidentiality, growth agency terms"
           />
         )}

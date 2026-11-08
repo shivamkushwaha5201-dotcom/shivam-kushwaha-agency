@@ -14,7 +14,7 @@ export interface SEOHeadProps {
 
 const DEFAULT_TITLE = 'AxentAI Labs — Growth, Distribution, Reputation & GitHub Strategy';
 const DEFAULT_DESCRIPTION = 'AxentAI Labs — High-Impact Product Hunt Launches, Organic Social Distribution (X & LinkedIn), Reputation & GitHub Growth, and Tech Influencer Strategy.';
-const DEFAULT_CANONICAL = 'https://axentailabs.com/';
+const DEFAULT_CANONICAL = 'https://www.axentailabs.com/';
 const DEFAULT_OG_IMAGE = 'https://axentailabs.com/assets/images/0BB3492B-F314-44D3-BEB0-48FA1559EF8C.png';
 
 export const SEOHead: React.FC<SEOHeadProps> = ({

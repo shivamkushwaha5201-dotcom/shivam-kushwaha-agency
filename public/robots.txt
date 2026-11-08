@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Exclude backend and private API routes
+Disallow: /api/
+
+# Canonical Sitemap Reference
+Sitemap: https://www.axentailabs.com/sitemap.xml
